@@ -50,7 +50,7 @@ public class RemoteAgent {
     private static ExcelReport er;
     private static ExcelAlarmReport ear;
     private static AlarmLimitsUpdater alu;
-    private static TSP_Account ta;
+    private static VoidAgent ta;
     private static RemoteAgent singleton;
     private static Thread ltvThread;
     private static Thread oaThread;
@@ -74,7 +74,7 @@ public class RemoteAgent {
             er = new ExcelReport();
             ear = new ExcelAlarmReport();
             alu = new AlarmLimitsUpdater();
-            ta = new TSP_Account();
+            ta = new VoidAgent();
             ObjectName mLTV = new ObjectName ("agent.remoteagent:type=LevelToVolume");
             ObjectName mOA = new ObjectName ("agent.remoteagent:type=OilAccount");
             ObjectName mPA = new ObjectName ("agent.remoteagent:type=ProductAccount");
@@ -82,7 +82,7 @@ public class RemoteAgent {
             ObjectName mER = new ObjectName ("agent.remoteagent:type=ExcelReport");
             ObjectName mEAR = new ObjectName ("agent.remoteagent:type=ExcelAlarmReport");
             ObjectName mALU = new ObjectName ("agent.remoteagent:type=AlarmLimitsUpdater");
-            ObjectName mTA = new ObjectName ("agent.remoteagent:type=TSP_Account");
+            ObjectName mTA = new ObjectName ("agent.remoteagent:type=Void_Agent");
             getMBeanServer().registerMBean(ltv, mLTV);
             getMBeanServer().registerMBean(oa, mOA);
             getMBeanServer().registerMBean(pa, mPA);
