@@ -1,0 +1,196 @@
+query_ins:=TADOQuery.Create(nil);
+  query_ins.Connection:=dm.alexpromCon;
+  query.Close;
+  query.SQL.Clear;
+  query.SQL.Add('delete from dbo.transfer_month_report_by_daytank where transfer_month=:m and transfer_year=:y');
+  query.Parameters[0].Value:=m;
+  query.Parameters[1].Value:=y;
+  query.ExecSQL;
+  for i := 1 to day_in_month(m-1,y) do
+   begin
+    d_str:=IntToStr(i);
+    if length(d_str)=1 then
+     d_str:='0'+d_str;
+    m_str:=IntToStr(m);
+    if length(m_str)=1 then
+     m_str:='0'+m_str;
+    y_str:=IntToStr(y);
+    date_str:=d_str+'.'+m_str+'.'+y_str;
+    query.Close;
+    query.SQL.Clear;
+    query.SQL.Add('delete from dbo.tank_transfer_report');
+    query.ExecSQL;
+    query.Close;
+    query.SQL.Clear;
+    query.SQL.Add('select * from dbo.Transfer_data_by_tank ');
+    query.SQL.Add('where transfer_date=:td and transfer_time between :ts and :te');
+    query.Parameters[0].Value:=date_str;
+    query.Parameters[1].Value:='08:30:00';
+    query.Parameters[2].Value:='23:59:59';
+    query.Open;
+    query.First;
+    query_ins.Close;
+    query_ins.SQL.clear;
+    query_ins.SQL.Add('insert into dbo.tank_transfer_report (transfer_date, source_tank, dest_tank,');
+    query_ins.SQL.Add('out_volume, in_volume, comment, in_kg, out_kg,');
+    query_ins.SQL.Add('sl_before, sl_after, dl_before, dl_after, sv_before, sv_after,');
+    query_ins.SQL.Add('dv_before, dv_after, sm_before, sm_after, dm_before, dm_after) values (');
+    query_ins.SQL.Add(':a, :b, :c, :d, :e, :f, :g, :h,:slb,:sla,:dlb,:dla,:svb,:sva,:dvb,:dva,:smb,:sma,:dmb,:dma)');
+    while not query.Eof do
+     begin
+      query_ins.Parameters[0].Value:=query.FieldValues['transfer_date'];
+      query_ins.Parameters[1].Value:=query.FieldValues['source_tank'];
+      query_ins.Parameters[2].Value:=query.FieldValues['dest_tank'];
+      query_ins.Parameters[3].Value:=query.FieldValues['out_volume'];
+      query_ins.Parameters[4].Value:=query.FieldValues['in_volume'];
+      query_ins.Parameters[5].Value:=query.FieldValues['comment'];
+      query_ins.Parameters[6].Value:=query.FieldValues['in_kg'];
+      query_ins.Parameters[7].Value:=query.FieldValues['out_kg'];
+      query_ins.Parameters[8].Value:=query.FieldValues['sl_before'];
+      query_ins.Parameters[9].Value:=query.FieldValues['sl_after'];
+      query_ins.Parameters[10].Value:=query.FieldValues['dl_before'];
+      query_ins.Parameters[11].Value:=query.FieldValues['dl_after'];
+      query_ins.Parameters[12].Value:=query.FieldValues['sv_before'];
+      query_ins.Parameters[13].Value:=query.FieldValues['sv_after'];
+      query_ins.Parameters[14].Value:=query.FieldValues['dv_before'];
+      query_ins.Parameters[15].Value:=query.FieldValues['dv_after'];
+      query_ins.Parameters[16].Value:=query.FieldValues['sm_before'];
+      query_ins.Parameters[17].Value:=query.FieldValues['sm_after'];
+      query_ins.Parameters[18].Value:=query.FieldValues['dm_before'];
+      query_ins.Parameters[19].Value:=query.FieldValues['dm_after'];
+      query_ins.ExecSQL;
+      query.Next;
+     end;
+    query.Close;
+    if i<day_in_month(m,y) then
+     begin
+      d_str:=IntToStr(i+1);
+      if length(d_str)=1 then
+       d_str:='0'+d_str;
+      date_str:=d_str+'.'+m_str+'.'+y_str;
+      query.Parameters[0].Value:=date_str;
+     end;
+     if i=day_in_month(m,y) then
+      begin
+       if length(IntToStr(m))=2 then
+        query.Parameters[0].Value:='01.'+IntToStr(m)+'.'+IntToStr(y)
+       else
+        query.Parameters[0].Value:='01.0'+IntToStr(m)+'.'+IntToStr(y);
+      end;
+     query.Parameters[1].Value:='00:00:00';
+     query.Parameters[2].Value:='08:29:59';
+     query.Open;
+     query.First;
+     while not query.Eof do
+      begin
+       query_ins.Parameters[0].Value:=date_str;
+       query_ins.Parameters[1].Value:=query.FieldValues['source_tank'];
+       query_ins.Parameters[2].Value:=query.FieldValues['dest_tank'];
+       query_ins.Parameters[3].Value:=query.FieldValues['out_volume'];
+       query_ins.Parameters[4].Value:=query.FieldValues['in_volume'];
+       query_ins.Parameters[5].Value:=query.FieldValues['comment'];
+       query_ins.Parameters[6].Value:=query.FieldValues['in_kg'];
+       query_ins.Parameters[7].Value:=query.FieldValues['out_kg'];
+       query_ins.Parameters[8].Value:=query.FieldValues['sl_before'];
+       query_ins.Parameters[9].Value:=query.FieldValues['sl_after'];
+       query_ins.Parameters[10].Value:=query.FieldValues['dl_before'];
+       query_ins.Parameters[11].Value:=query.FieldValues['dl_after'];
+       query_ins.Parameters[12].Value:=query.FieldValues['sv_before'];
+       query_ins.Parameters[13].Value:=query.FieldValues['sv_after'];
+       query_ins.Parameters[14].Value:=query.FieldValues['dv_before'];
+       query_ins.Parameters[15].Value:=query.FieldValues['dv_after'];
+       query_ins.Parameters[16].Value:=query.FieldValues['sm_before'];
+       query_ins.Parameters[17].Value:=query.FieldValues['sm_after'];
+       query_ins.Parameters[18].Value:=query.FieldValues['dm_before'];
+       query_ins.Parameters[19].Value:=query.FieldValues['dm_after'];
+       query_ins.ExecSQL;
+       query.Next;
+      end;
+     query_ins.Close;
+     query_ins.SQL.Clear;
+     query_ins.SQL.Add('delete from dbo.transfer_day_report_by_tank where transfer_date=:td');
+     query_ins.Parameters[0].Value:=date_str;
+     query_ins.ExecSQL;
+     query.Close;
+     query.SQL.Clear;
+     query.SQL.Add('select tank_name from dbo.tank_dic');
+     query.Open;
+     query.First;
+     query_ins.Close;
+     query_ins.SQL.Clear;
+     query_ins.SQL.Add('insert into dbo.transfer_day_report_by_tank (transfer_date, tank_name) values (:a, :b)');
+     while not query.Eof do
+      begin
+       query_ins.Parameters[0].Value:=date_str;
+       query_ins.Parameters[1].Value:=query.Fields[0].AsString;
+       query_ins.ExecSQL;
+       query.Next;
+      end;
+     query.Close;
+     query.SQL.Clear;
+     query.SQL.Add('select source_tank, sum(out_volume), sum(out_kg) from dbo.tank_transfer_report group by source_tank');
+     query.Open;
+     query.First;
+     query_ins.Close;
+     query_ins.SQL.Clear;
+     query_ins.SQL.Add('update dbo.transfer_day_report_by_tank set out_val=:ov, ');
+     query_ins.SQL.Add('out_kg=:ok where transfer_date=:td and tank_name=:tid');
+     while not query.Eof do
+      begin
+       query_ins.Parameters[0].Value:=query.Fields[1].AsInteger;
+       query_ins.Parameters[1].Value:=query.Fields[2].AsInteger;
+       query_ins.Parameters[2].Value:=date_str;
+       query_ins.Parameters[3].Value:=query.Fields[0].AsString;
+       query_ins.ExecSQL;
+       query.Next;
+      end;
+     query.Close;
+     query.SQL.Clear;
+     query.SQL.Add('select dest_tank, sum(in_volume), sum(in_kg) from dbo.tank_transfer_report group by dest_tank');
+     query.Open;
+     query.First;
+     query_ins.Close;
+     query_ins.SQL.Clear;
+     query_ins.SQL.Add('update dbo.transfer_day_report_by_tank set in_val=:ov, ');
+     query_ins.SQL.Add('in_kg=:ok where transfer_date=:td and tank_name=:tid');
+     while not query.Eof do
+      begin
+       query_ins.Parameters[0].Value:=query.Fields[1].AsInteger;
+       query_ins.Parameters[1].Value:=query.Fields[2].AsInteger;
+       query_ins.Parameters[2].Value:=date_str;
+       query_ins.Parameters[3].Value:=query.Fields[0].AsString;
+       query_ins.ExecSQL;
+       query.Next;
+      end;
+     d_str:=IntToStr(i);
+     if length(d_str)=1 then
+      d_str:='0'+d_str;
+     m_str:=IntToStr(m);
+     if length(m_str)=1 then
+      m_str:='0'+m_str;
+     y_str:=IntToStr(y);
+     date_str:=d_str+'.'+m_str+'.'+y_str;
+     query.Close;
+     query.SQL.Clear;
+     query.SQL.Add('select * from dbo.transfer_day_report_by_tank where transfer_date=:td');
+     query.Parameters[0].Value:=date_str;
+     query.Open;
+     query.First;
+     query_ins.Close;
+     query_ins.SQL.Clear;
+     query_ins.SQL.Add('insert into dbo.transfer_month_report_by_daytank (tank_name, ');
+     query_ins.SQL.Add('transfer_month, transfer_year, in_val, in_kg, out_val, out_kg) values(');
+     query_ins.SQL.Add(':a, :b, :c, :d, :e, :f, :g)');
+     while not query.Eof do
+      begin
+       query_ins.Parameters[0].Value:=query.FieldByName('tank_name').AsString;
+       query_ins.Parameters[1].Value:=m;
+       query_ins.Parameters[2].Value:=y;
+       query_ins.Parameters[3].Value:=query.FieldByName('in_val').AsInteger;
+       query_ins.Parameters[4].Value:=query.FieldByName('in_kg').AsInteger;
+       query_ins.Parameters[5].Value:=query.FieldByName('out_val').AsInteger;
+       query_ins.Parameters[6].Value:=query.FieldByName('out_kg').AsInteger;
+       query_ins.ExecSQL;
+       query.Next;
+      end;
+   end;

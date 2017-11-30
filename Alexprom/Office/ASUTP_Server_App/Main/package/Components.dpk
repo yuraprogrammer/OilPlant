@@ -1,0 +1,48 @@
+package Components;
+
+{$R *.res}
+{$R '..\..\radStufio2010\commport\qccomm32\QCCom32.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl;
+
+contains
+  QCCom32 in '..\..\radStufio2010\commport\qccomm32\QCCom32.pas' {formPickCom},
+  DTADOTree in 'D:\doc\delphi\dbtreeview\DynamicTreeView\Source\DTADOTree.pas',
+  DTClientTree in 'D:\doc\delphi\dbtreeview\DynamicTreeView\Source\DTClientTree.pas',
+  DTCommon in 'D:\doc\delphi\dbtreeview\DynamicTreeView\Source\DTCommon.pas',
+  DTDBTreeReg in 'D:\doc\delphi\dbtreeview\DynamicTreeView\Source\DTDBTreeReg.pas',
+  DTDBTreeView in 'D:\doc\delphi\dbtreeview\DynamicTreeView\Source\DTDBTreeView.pas',
+  DTTableTree in 'D:\doc\delphi\dbtreeview\DynamicTreeView\Source\DTTableTree.pas',
+  VirtualTrees in 'D:\doc\delphi\dbtreeview\VirtualTreeView\Source\VirtualTrees.pas',
+  VTHeaderPopup in 'D:\doc\delphi\dbtreeview\VirtualTreeView\Source\VTHeaderPopup.pas',
+  ThemeMgr in 'D:\doc\delphi\dbtreeview\ThemeManager\Source\ThemeMgr.pas',
+  ThemeMgrDB in 'D:\doc\delphi\dbtreeview\ThemeManager\Source\ThemeMgrDB.pas',
+  ThemeSrv in 'D:\doc\delphi\dbtreeview\ThemeManager\Source\ThemeSrv.pas',
+  TmSchema in 'D:\doc\delphi\dbtreeview\ThemeManager\Source\TmSchema.pas',
+  UxTheme in 'D:\doc\delphi\dbtreeview\ThemeManager\Source\UxTheme.pas';
+
+end.

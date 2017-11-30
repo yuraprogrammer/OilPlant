@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.15 08:57:49.875.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\sirie_analis.bdsproj</Transaction>
+    <Transaction>2010.03.15 09:01:47.203.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_sirieanalisform.pas</Transaction>
+    <Transaction>2010.03.15 09:01:47.203.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_sirieanalisform.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

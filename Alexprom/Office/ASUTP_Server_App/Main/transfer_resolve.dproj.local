@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.05.21 10:36:27.093.dproj,C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\Project1.dproj=E:\install\ASUTP_Server_App\transfer_resolve.dproj</Transaction>
+    <Transaction>2010.05.21 10:38:59.953.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_frmResolveTransfers.pas</Transaction>
+    <Transaction>2010.05.21 10:38:59.953.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_frmResolveTransfers.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

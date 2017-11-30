@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.23 15:22:15.390.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\middleproductreport.bdsproj</Transaction>
+    <Transaction>2010.03.24 11:43:05.718.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_middleaktform.pas</Transaction>
+    <Transaction>2010.03.24 11:43:05.718.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_middleaktform.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

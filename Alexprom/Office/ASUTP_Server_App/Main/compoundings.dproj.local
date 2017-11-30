@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.04.01 15:51:54.044.dproj,E:\Users\Programmer\Documents\RAD Studio\Projects\Project1.dproj=E:\install\ASUTP_Server_App\compoundings.dproj</Transaction>
+    <Transaction>2010.04.01 16:06:49.411.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\u_compreport.pas</Transaction>
+    <Transaction>2010.04.01 16:06:49.411.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\u_compreport.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

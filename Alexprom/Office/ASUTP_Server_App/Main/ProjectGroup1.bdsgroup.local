@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.11 12:06:05.437.bdsgroup,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\ProjectGroup1.bdsgroup=E:\install\ASUTP_Server_App\ProjectGroup1.bdsgroup</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="show_weight_report.dll"/>
+	</Default.Personality>
+</BorlandProject>

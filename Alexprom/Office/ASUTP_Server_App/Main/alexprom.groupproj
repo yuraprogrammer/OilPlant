@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{BB3ABA32-B3F9-4BC3-BD0F-9D54AF2DD3D4}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="ASUTP_Server_App.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="qc.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ASUTP_Server_App">
+			<MSBuild Projects="ASUTP_Server_App.dproj"/>
+		</Target>
+		<Target Name="ASUTP_Server_App:Clean">
+			<MSBuild Targets="Clean" Projects="ASUTP_Server_App.dproj"/>
+		</Target>
+		<Target Name="ASUTP_Server_App:Make">
+			<MSBuild Targets="Make" Projects="ASUTP_Server_App.dproj"/>
+		</Target>
+		<Target Name="qc">
+			<MSBuild Projects="qc.dproj"/>
+		</Target>
+		<Target Name="qc:Clean">
+			<MSBuild Targets="Clean" Projects="qc.dproj"/>
+		</Target>
+		<Target Name="qc:Make">
+			<MSBuild Targets="Make" Projects="qc.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ASUTP_Server_App;qc"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ASUTP_Server_App:Clean;qc:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ASUTP_Server_App:Make;qc:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

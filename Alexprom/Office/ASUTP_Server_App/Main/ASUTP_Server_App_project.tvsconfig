@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.loginBox" Type="System.String" Value="loginBox" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.ASUTP_Server_App" Type="System.String" Value="ASUTP_Server_App" Category="General" IsBrowsable="False" />
+</TgConfig>

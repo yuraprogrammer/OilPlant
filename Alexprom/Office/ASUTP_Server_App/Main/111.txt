@@ -1,0 +1,397 @@
+unit main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, ActnList, StdActns, ExtCtrls, ToolWin, ComCtrls, ADODB,
+  OleCtrls, SHDocVw, RpDefine, RpRender, RpRenderHTML, HTTPApp, HTTPProd,
+  StdCtrls;
+type
+  StandartProc = function:boolean;
+
+type
+  TmainForm = class(TForm)
+    MainMenu1: TMainMenu;
+    sysoper: TMenuItem;
+    nsi: TMenuItem;
+    helpmenu: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    ActionList1: TActionList;
+    FileExit1: TFileExit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    Splitter1: TSplitter;
+    N13: TMenuItem;
+    N14: TMenuItem;
+    N15: TMenuItem;
+    N16: TMenuItem;
+    N17: TMenuItem;
+    N18: TMenuItem;
+    N19: TMenuItem;
+    N20: TMenuItem;
+    N21: TMenuItem;
+    N22: TMenuItem;
+    N23: TMenuItem;
+    Login: TAction;
+    inputChemical: TAction;
+    editChemical: TAction;
+    viewChemical: TAction;
+    deleteChemical: TAction;
+    Timer1: TTimer;
+    showAbout: TAction;
+    showUsers: TAction;
+    N24: TMenuItem;
+    N25: TMenuItem;
+    N26: TMenuItem;
+    N27: TMenuItem;
+    N28: TMenuItem;
+    weighting: TAction;
+    N29: TMenuItem;
+    N30: TMenuItem;
+    show_orgs: TAction;
+    show_loaders: TAction;
+    N11: TMenuItem;
+    editDataCodes: TAction;
+    uppg: TMenuItem;
+    lab: TMenuItem;
+    tsp: TMenuItem;
+    N9: TMenuItem;
+    edit_tanks: TAction;
+    N40: TMenuItem;
+    edit_TMC: TAction;
+    addNaklad: TAction;
+    N41: TMenuItem;
+    N43: TMenuItem;
+    N44: TMenuItem;
+    N45: TMenuItem;
+    N46: TMenuItem;
+    N47: TMenuItem;
+    addAkt: TAction;
+    editAkt: TAction;
+    showAkts: TAction;
+    N49: TMenuItem;
+    showNaklad: TAction;
+    N1: TMenuItem;
+    customers: TAction;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    inputPoverDataGeom: TAction;
+    showPoverDocs: TAction;
+    N8: TMenuItem;
+    N10: TMenuItem;
+    Panel1: TPanel;
+    WebBrowser1: TWebBrowser;
+    N12: TMenuItem;
+    frmAddWeightingReport: TAction;
+    N35: TMenuItem;
+    showCalc: TAction;
+    show_sirie_dic: TAction;
+    tmc_transfer: TAction;
+    N36: TMenuItem;
+    setTankMat: TAction;
+    N37: TMenuItem;
+    sirie_transfer_history: TAction;
+    N33: TMenuItem;
+    inputTankData: TAction;
+    N38: TMenuItem;
+    N39: TMenuItem;
+    N42: TMenuItem;
+    N50: TMenuItem;
+    load_grad_table_data: TAction;
+    procedure load_grad_table_dataExecute(Sender: TObject);
+    procedure inputTankDataExecute(Sender: TObject);
+    procedure sirie_transfer_historyExecute(Sender: TObject);
+    procedure setTankMatExecute(Sender: TObject);
+    procedure tmc_transferExecute(Sender: TObject);
+    procedure showCalcExecute(Sender: TObject);
+    procedure frmAddWeightingReportExecute(Sender: TObject);
+    procedure edit_TMCExecute(Sender: TObject);
+    procedure edit_tanksExecute(Sender: TObject);
+    procedure editDataCodesExecute(Sender: TObject);
+    procedure show_loadersExecute(Sender: TObject);
+    procedure show_orgsExecute(Sender: TObject);
+    procedure weightingExecute(Sender: TObject);
+    procedure showUsersExecute(Sender: TObject);
+    procedure showAboutExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure deleteChemicalExecute(Sender: TObject);
+    procedure viewChemicalExecute(Sender: TObject);
+    procedure editChemicalExecute(Sender: TObject);
+    procedure inputChemicalExecute(Sender: TObject);
+    procedure LoginExecute(Sender: TObject);
+    procedure addNakladExecute(Sender: TObject);
+    procedure showNakladExecute(Sender: TObject);
+    procedure editNakladExecute(Sender: TObject);
+    procedure showAktsExecute(Sender: TObject);
+    procedure editAktExecute(Sender: TObject);
+    procedure addAktExecute(Sender: TObject);
+    procedure customersExecute(Sender: TObject);
+    procedure inputPoverDataGeomExecute(Sender: TObject);
+    procedure showPoverDocsExecute(Sender: TObject);
+  private
+
+  public
+    accessLevel:byte;
+    curDate:string[10];
+    procedure setAccess(level:byte);
+  end;
+
+var
+  mainForm: TmainForm;
+  archiveNode, yearNode, monthNode, dayNode, sectorNode:TTreeNode;
+  akt_code,data_code:longint;
+  function showGradTableLoading:boolean;stdcall;external 'lib\load_grad_table.dll';
+  function show_frm_weight_report:boolean;stdcall;external 'lib\show_weight_report.dll';
+  function show_form_tank_data:boolean;stdcall;external 'lib\show_cur_tank_data.dll';
+  function show_sirie_transfer_form:boolean;stdcall;external 'lib\sirie_transfer_form.dll';
+  function sirie_transfer_akt_form:boolean;stdcall;external 'lib\sirie_transfer_akts.dll';
+implementation
+
+uses ABOUT, loginBox, u_users, u_inputChemical, tsp_weight,
+  u_frm_Loaders, u_frm_dataCodes, u_tankdic, u_dm,
+  u_addNaklad, u_showNaklad, u_frmAddAkt, u_frmAkts, U_geometric,
+  U_oil_calc, U_sirie_dic, U_inputTankData, u_frm_organizations;
+
+{$R *.dfm}
+
+procedure TmainForm.setAccess(level:byte);
+begin
+case level of
+ 0:begin
+  uppg.Enabled:=true;
+  tsp.Enabled:=true;
+  lab.Enabled:=true;
+  nsi.Enabled:=true;
+ end;
+ 1:begin end;
+ 2:begin end;
+ 3:begin
+   tsp.Enabled:=true;
+   nsi.Enabled:=true;
+   N20.Enabled:=true;
+   N21.Enabled:=true;
+   N29.Enabled:=true;
+   N30.Enabled:=true;
+   N11.Enabled:=true;
+   N40.Enabled:=true;
+    N1.Enabled:=False;
+    N3.Enabled:=False;
+    N33.Enabled:=True;
+    N4.Enabled:=False;
+ end;
+
+ 4:begin
+    tsp.Enabled:=true;
+    N26.Enabled:=False;
+    N49.Enabled:=False;
+    N41.Enabled:=False;
+    N45.Enabled:=False;
+    lab.Enabled:=true;
+    uppg.Enabled:=True;
+    nsi.enabled:=True;
+    N20.Enabled:=False;
+    N21.Enabled:=False;
+    N29.Enabled:=False;
+    N30.Enabled:=False;
+    N11.Enabled:=False;
+    N40.Enabled:=False;
+    N1.Enabled:=False;
+    N3.Enabled:=False;
+    N4.Enabled:=False;
+    N33.Enabled:=False;
+ end;
+end;
+end;
+
+procedure TmainForm.setTankMatExecute(Sender: TObject);
+begin
+  if show_form_tank_data=true then
+end;
+
+procedure TmainForm.deleteChemicalExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.editAktExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.editChemicalExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.editDataCodesExecute(Sender: TObject);
+begin
+ Application.CreateForm(Tfrm_dataCodes, frm_dataCodes);
+ frm_dataCodes.ShowModal
+end;
+
+procedure TmainForm.editNakladExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.edit_tanksExecute(Sender: TObject);
+begin
+ Application.CreateForm(Ttank_dic, tank_dic);
+ tank_dic.showmodal;
+end;
+
+procedure TmainForm.edit_TMCExecute(Sender: TObject);
+begin
+  Application.CreateForm(TSirie_dic, sirie_dic);
+  sirie_dic.ShowModal;
+end;
+
+procedure TmainForm.FormCreate(Sender: TObject);
+begin
+  accessLevel:=100;
+  StatusBar1.Panels[2].Text:='Для получения досутпа к ресурсам приложения выполните вход в систему.';
+end;
+
+procedure TmainForm.frmAddWeightingReportExecute(Sender: TObject);
+begin
+  if show_frm_weight_report=true then
+end;
+
+procedure TmainForm.inputChemicalExecute(Sender: TObject);
+begin
+ Application.CreateForm(TinputChemicalData, inputChemicalData);
+ inputChemicalData.ShowModal;
+end;
+
+procedure TmainForm.inputPoverDataGeomExecute(Sender: TObject);
+begin
+  Application.CreateForm(TGeometricData, GeometricData);
+  GeometricData.showModal;
+end;
+
+procedure TmainForm.inputTankDataExecute(Sender: TObject);
+begin
+ Application.CreateForm(TfrmInputTankData,frmInputTankData);
+ frmInputTankData.showModal;
+end;
+
+procedure TmainForm.load_grad_table_dataExecute(Sender: TObject);
+begin
+  if showGradTableLoading=true then
+end;
+
+procedure TmainForm.LoginExecute(Sender: TObject);
+begin
+ Application.CreateForm(Tloginform, loginForm);
+ loginForm.showModal;
+end;
+
+procedure TmainForm.addAktExecute(Sender: TObject);
+begin
+ Application.CreateForm(TfrmAddAkt, frmAddAkt);
+ frmAddAkt.showModal;
+end;
+
+procedure TmainForm.addNakladExecute(Sender: TObject);
+begin
+ Application.CreateForm(TfrmAddNaklad, frmAddNaklad);
+ frmAddNaklad.showModal;
+end;
+
+procedure TmainForm.customersExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.showAboutExecute(Sender: TObject);
+begin
+ Application.CreateForm(Taboutbox, AboutBox);
+ Aboutbox.showModal;
+end;
+
+procedure TmainForm.showAktsExecute(Sender: TObject);
+begin
+ Application.CreateForm(TfrmAkts, frmAkts);
+ frmAkts.showModal;
+end;
+
+procedure TmainForm.showCalcExecute(Sender: TObject);
+begin
+ Application.CreateForm(Toil_calc, oil_calc);
+ oil_calc.ShowModal;
+end;
+
+procedure TmainForm.showNakladExecute(Sender: TObject);
+begin
+ Application.CreateForm(TfrmshowNaklad, frmshowNaklad);
+ frmshowNaklad.showModal;
+end;
+
+procedure TmainForm.showPoverDocsExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.showUsersExecute(Sender: TObject);
+begin
+ Application.CreateForm(TeditUsers, editUsers);
+ editUsers.showModal;
+end;
+
+procedure TmainForm.show_loadersExecute(Sender: TObject);
+begin
+ Application.CreateForm(Tfrm_editLoaders, frm_editLoaders);
+ frm_editLoaders.ShowModal;
+end;
+
+procedure TmainForm.show_orgsExecute(Sender: TObject);
+begin
+Application.CreateForm(Tfrm_organizations,frm_organizations);
+frm_organizations.showModal;
+end;
+
+procedure TmainForm.sirie_transfer_historyExecute(Sender: TObject);
+begin
+ if sirie_transfer_akt_form=true then
+ 
+end;
+
+procedure TmainForm.Timer1Timer(Sender: TObject);
+var
+ i:byte;
+begin
+ curDate:=DateToStr(now);
+ for i := 0 to length(curDate)-1 do
+  if curDate[i]='/' then
+    curDate[i]:='.';
+ StatusBar1.Panels[0].Text:=curDate;
+ StatusBar1.Panels[1].Text:=TimeToStr(now);
+ setAccess(accesslevel);
+end;
+
+procedure TmainForm.tmc_transferExecute(Sender: TObject);
+begin
+if show_sirie_transfer_form=true then
+
+end;
+
+procedure TmainForm.viewChemicalExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TmainForm.weightingExecute(Sender: TObject);
+begin
+  Application.CreateForm(TfrmTSP,frmTSP);
+  frmTSP.showModal; 
+
+end;
+
+end.
+
+http://fileshare135.depositfiles.com/auth-1274184408f19b394f4e710b2016ee72-94.248.57.28-1552619705-3801084-guest/FS135-7/JElektronnyj.Atlas.dorog.Ukrainy.2003.PC.rar

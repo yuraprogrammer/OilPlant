@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.31 15:48:13.776.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\tank_dic.bdsproj</Transaction>
+    <Transaction>2010.03.31 15:53:07.322.bdsproj,E:\install\ASUTP_Server_App\tank_dic.bdsproj=E:\install\ASUTP_Server_App\tank_dic_form.bdsproj</Transaction>
+    <Transaction>2010.03.31 15:58:41.276.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_edit_tank_param.pas</Transaction>
+    <Transaction>2010.03.31 15:58:41.276.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_edit_tank_param.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

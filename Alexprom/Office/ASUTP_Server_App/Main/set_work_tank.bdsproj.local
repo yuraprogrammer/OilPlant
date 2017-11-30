@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.10 13:17:40.125.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\set_work_tank.bdsproj</Transaction>
+    <Transaction>2010.03.10 13:26:49.359.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_worktanks.pas</Transaction>
+    <Transaction>2010.03.10 13:26:49.359.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_worktanks.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

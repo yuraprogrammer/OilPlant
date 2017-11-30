@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.09 15:41:11.812.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\startNewInventarization.bdsproj</Transaction>
+    <Transaction>2010.03.09 15:45:19.125.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_newInventory.pas</Transaction>
+    <Transaction>2010.03.09 15:45:19.125.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_newInventory.dfm</Transaction>
+    <Transaction>2010.05.17 09:35:08.484.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_invLevel.pas</Transaction>
+    <Transaction>2010.05.17 09:35:08.484.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_invLevel.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

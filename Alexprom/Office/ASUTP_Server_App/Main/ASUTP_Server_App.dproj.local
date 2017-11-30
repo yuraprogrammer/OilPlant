@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009.11.11 09:39:04.281.pas,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Unit1.pas=D:\delphi\ASUTP_Server_App\main.pas</Transaction>
+    <Transaction>2009.11.11 09:39:04.281.dfm,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Unit1.dfm=D:\delphi\ASUTP_Server_App\main.dfm</Transaction>
+    <Transaction>2009.11.11 09:39:08.359.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=D:\delphi\ASUTP_Server_App\ASUTP_Server_App.bdsproj</Transaction>
+    <Transaction>2009.11.11 10:26:20.312.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\loginBox.pas</Transaction>
+    <Transaction>2009.11.11 10:26:20.312.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\loginBox.dfm</Transaction>
+    <Transaction>2009.11.11 10:30:20.812.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_dm.pas</Transaction>
+    <Transaction>2009.11.11 10:30:20.812.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_dm.dfm</Transaction>
+    <Transaction>2009.11.11 14:21:26.765.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_users.pas</Transaction>
+    <Transaction>2009.11.11 14:21:26.765.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_users.dfm</Transaction>
+    <Transaction>2009.11.12 13:09:03.984.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_weight.pas</Transaction>
+    <Transaction>2009.11.12 13:09:03.984.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_weight.dfm</Transaction>
+    <Transaction>2009.11.12 13:58:32.421.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_frm_organizations.pas</Transaction>
+    <Transaction>2009.11.12 13:58:32.421.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_frm_organizations.dfm</Transaction>
+    <Transaction>2009.11.12 14:51:11.609.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_frm_dataCodes.pas</Transaction>
+    <Transaction>2009.11.12 14:51:11.609.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_frm_dataCodes.dfm</Transaction>
+    <Transaction>2009.11.12 14:53:41.265.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_frm_Loaders.pas</Transaction>
+    <Transaction>2009.11.12 14:53:41.265.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_frm_Loaders.dfm</Transaction>
+    <Transaction>2009.11.12 15:55:44.109.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_selectOrg.pas</Transaction>
+    <Transaction>2009.11.12 15:55:44.109.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_selectOrg.dfm</Transaction>
+    <Transaction>2009.11.12 16:17:13.062.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\mainFunctions.pas</Transaction>
+    <Transaction>2009.11.17 10:41:51.046.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_tankdic.pas</Transaction>
+    <Transaction>2009.11.17 10:41:51.046.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_tankdic.dfm</Transaction>
+    <Transaction>2009.11.17 14:10:30.048.pas,D:\delphi\ASUTP_Server_App\Unit1.pas=D:\delphi\ASUTP_Server_App\u_editmat.pas</Transaction>
+    <Transaction>2009.11.17 14:10:30.048.dfm,D:\delphi\ASUTP_Server_App\Unit1.dfm=D:\delphi\ASUTP_Server_App\u_editmat.dfm</Transaction>
+    <Transaction>2009.11.30 14:40:40.453.pas,C:\install\Don't touch\ASUTP_Server_App\Unit1.pas=C:\install\Don't touch\ASUTP_Server_App\u_addNaklad.pas</Transaction>
+    <Transaction>2009.11.30 14:40:40.453.dfm,C:\install\Don't touch\ASUTP_Server_App\Unit1.dfm=C:\install\Don't touch\ASUTP_Server_App\u_addNaklad.dfm</Transaction>
+    <Transaction>2009.12.01 12:51:56.421.pas,C:\install\Don't touch\ASUTP_Server_App\u_selectOrg.pas=</Transaction>
+    <Transaction>2009.12.01 12:51:56.421.dfm,C:\install\Don't touch\ASUTP_Server_App\u_selectOrg.dfm=</Transaction>
+    <Transaction>2009.12.01 13:28:29.109.pas,C:\install\Don't touch\ASUTP_Server_App\Unit1.pas=C:\install\Don't touch\ASUTP_Server_App\u_showNaklad.pas</Transaction>
+    <Transaction>2009.12.01 13:28:29.109.dfm,C:\install\Don't touch\ASUTP_Server_App\Unit1.dfm=C:\install\Don't touch\ASUTP_Server_App\u_showNaklad.dfm</Transaction>
+    <Transaction>2009.12.02 08:00:35.140.pas,C:\install\Don't touch\ASUTP_Server_App\Unit1.pas=C:\install\Don't touch\ASUTP_Server_App\u_frmAddAkt.pas</Transaction>
+    <Transaction>2009.12.02 08:00:35.140.dfm,C:\install\Don't touch\ASUTP_Server_App\Unit1.dfm=C:\install\Don't touch\ASUTP_Server_App\u_frmAddAkt.dfm</Transaction>
+    <Transaction>2009.12.07 15:39:29.187.pas,C:\install\Don't touch\ASUTP_Server_App\Unit1.pas=C:\install\Don't touch\ASUTP_Server_App\u_frmAkts.pas</Transaction>
+    <Transaction>2009.12.07 15:39:29.187.dfm,C:\install\Don't touch\ASUTP_Server_App\Unit1.dfm=C:\install\Don't touch\ASUTP_Server_App\u_frmAkts.dfm</Transaction>
+    <Transaction>2009.12.18 13:43:48.000.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_tankView.pas</Transaction>
+    <Transaction>2009.12.18 13:43:48.000.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_tankView.dfm</Transaction>
+    <Transaction>2009.12.21 11:52:32.125.pas,E:\install\ASUTP_Server_App\u_weight.pas=</Transaction>
+    <Transaction>2009.12.21 11:52:32.171.dfm,E:\install\ASUTP_Server_App\u_weight.dfm=</Transaction>
+    <Transaction>2009.12.21 12:11:25.046.pas,E:\install\ASUTP_Server_App\u_frmAkts.pas=</Transaction>
+    <Transaction>2009.12.21 12:11:25.046.dfm,E:\install\ASUTP_Server_App\u_frmAkts.dfm=</Transaction>
+    <Transaction>2009.12.23 15:38:47.390.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_geometric.pas</Transaction>
+    <Transaction>2009.12.23 15:38:47.390.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_geometric.dfm</Transaction>
+    <Transaction>2009.12.23 16:04:44.703.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\geometricsolution.pas</Transaction>
+    <Transaction>2012.10.07 20:00:57.683.pas,G:\11\Unit2.pas=G:\11\zay_view.pas</Transaction>
+    <Transaction>2012.10.07 20:00:57.683.dfm,G:\11\Unit2.dfm=G:\11\zay_view.dfm</Transaction>
+    <Transaction>2012.11.08 22:53:47.163.pas,D:\11\Unit3.pas=D:\11\zlab.pas</Transaction>
+    <Transaction>2012.11.08 22:53:47.163.dfm,D:\11\Unit3.dfm=D:\11\zlab.dfm</Transaction>
+    <Transaction>2012.11.08 23:55:27.812.pas,D:\11\Unit4.pas=D:\11\tsp_zay.pas</Transaction>
+    <Transaction>2012.11.08 23:55:27.812.dfm,D:\11\Unit4.dfm=D:\11\tsp_zay.dfm</Transaction>
+    <Transaction>2012.11.26 21:00:11.804.pas,D:\22\updateZay.pas=D:\22\viewZay.pas</Transaction>
+    <Transaction>2012.11.26 21:00:11.804.dfm,D:\22\updateZay.dfm=D:\22\viewZay.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

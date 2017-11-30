@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{67BD28E0-B009-465C-AD0B-7DB66EC8E4B8}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="ASUTP_Server_App.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Users\supsun\Documents\RAD Studio\Projects\guard.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ASUTP_Server_App">
+			<MSBuild Projects="ASUTP_Server_App.dproj"/>
+		</Target>
+		<Target Name="ASUTP_Server_App:Clean">
+			<MSBuild Targets="Clean" Projects="ASUTP_Server_App.dproj"/>
+		</Target>
+		<Target Name="ASUTP_Server_App:Make">
+			<MSBuild Targets="Make" Projects="ASUTP_Server_App.dproj"/>
+		</Target>
+		<Target Name="guard">
+			<MSBuild Projects="C:\Users\supsun\Documents\RAD Studio\Projects\guard.dproj"/>
+		</Target>
+		<Target Name="guard:Clean">
+			<MSBuild Targets="Clean" Projects="C:\Users\supsun\Documents\RAD Studio\Projects\guard.dproj"/>
+		</Target>
+		<Target Name="guard:Make">
+			<MSBuild Targets="Make" Projects="C:\Users\supsun\Documents\RAD Studio\Projects\guard.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ASUTP_Server_App;guard"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ASUTP_Server_App:Clean;guard:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ASUTP_Server_App:Make;guard:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.06.11 09:41:56.078.pas,C:\Documents and Settings\Administrator.HOME\My Documents\RAD Studio\Projects\Unit1.pas=E:\install\ASUTP_Server_App\U_userMonitor.pas</Transaction>
+    <Transaction>2010.06.11 09:41:56.093.dfm,C:\Documents and Settings\Administrator.HOME\My Documents\RAD Studio\Projects\Unit1.dfm=E:\install\ASUTP_Server_App\U_userMonitor.dfm</Transaction>
+    <Transaction>2010.06.11 09:42:00.968.dproj,C:\Documents and Settings\Administrator.HOME\My Documents\RAD Studio\Projects\Project1.dproj=E:\install\ASUTP_Server_App\UserMonitor.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

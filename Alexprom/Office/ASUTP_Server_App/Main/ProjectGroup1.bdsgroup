@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{4D9FEE66-1978-4CA6-B2D2-25135ACA4691}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="ASUTP_Server_App.exe">ASUTP_Server_App.bdsproj</Projects>
+      <Projects Name="plotncalc.dll">plotncalc.bdsproj</Projects>
+      <Projects Name="probeanalysisinput.dll">probeanalysisinput.bdsproj</Projects>
+      <Projects Name="show_chemical_analisis.dll">show_chemical_analisis.bdsproj</Projects>
+      <Projects Name="sirie_analis.dll">sirie_analis.bdsproj</Projects>
+      <Projects Name="sirie_analisis_report.dll">sirie_analisis_report.bdsproj</Projects>
+      <Projects Name="show_weight_report.dll">show_weight_report.bdsproj</Projects>
+      <Projects Name="e1analisis_form.dll">e1analisis_form.bdsproj</Projects>
+      <Projects Name="edit_tank_data.dll">edit_tank_data.bdsproj</Projects>
+      <Projects Name="new_uppg_akt.dll">new_uppg_akt.bdsproj</Projects>
+      <Projects Name="add_akt_form.dll">add_akt_form.bdsproj</Projects>
+      <Projects Name="newWorkTask.dll">newWorkTask.bdsproj</Projects>
+      <Projects Name="show_uppg_tasks.dll">show_uppg_tasks.bdsproj</Projects>
+      <Projects Name="edituppgakt.dll">edituppgakt.bdsproj</Projects>
+      <Projects Name="new_lab_akt.dll">new_lab_akt.bdsproj</Projects>
+      <Projects Name="lightsOutputReport.dll">lightsOutputReport.bdsproj</Projects>
+      <Projects Name="middleproductreport.dll">middleproductreport.bdsproj</Projects>
+      <Projects Name="startNewInventarization.dll">startNewInventarization.bdsproj</Projects>
+      <Projects Name="showInventarizationReports.dll">showInventarizationReports.bdsproj</Projects>
+      <Projects Name="qc.bpl">qc.bdsproj</Projects>
+      <Projects Name="tank_dic_form.dll">tank_dic_form.bdsproj</Projects>
+      <Projects Name="load_grad_table.dll">load_grad_table.bdsproj</Projects>
+      <Projects Name="new_compound.dll">new_compound.bdsproj</Projects>
+      <Projects Name="sirie_transfer_form.dll">sirie_transfer_form.bdsproj</Projects>
+      <Projects Name="Targets">ASUTP_Server_App.exe plotncalc.dll probeanalysisinput.dll show_chemical_analisis.dll sirie_analis.dll sirie_analisis_report.dll show_weight_report.dll e1analisis_form.dll edit_tank_data.dll new_uppg_akt.dll add_akt_form.dll newWorkTask.dll show_uppg_tasks.dll edituppgakt.dll new_lab_akt.dll lightsOutputReport.dll middleproductreport.dll startNewInventarization.dll showInventarizationReports.dll qc.bpl tank_dic_form.dll load_grad_table.dll new_compound.dll sirie_transfer_form.dll</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+	<StarTeamAssociation></StarTeamAssociation>
+	<StarTeamNonRelativeFiles></StarTeamNonRelativeFiles>
+</BorlandProject>

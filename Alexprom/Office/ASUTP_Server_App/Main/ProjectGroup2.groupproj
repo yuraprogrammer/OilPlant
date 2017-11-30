@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{3A0ECA02-7C97-4525-B410-FD64ACB5D2E5}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="show_uppg_tasks.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="addZay.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="show_uppg_tasks">
+			<MSBuild Projects="show_uppg_tasks.dproj"/>
+		</Target>
+		<Target Name="show_uppg_tasks:Clean">
+			<MSBuild Targets="Clean" Projects="show_uppg_tasks.dproj"/>
+		</Target>
+		<Target Name="show_uppg_tasks:Make">
+			<MSBuild Targets="Make" Projects="show_uppg_tasks.dproj"/>
+		</Target>
+		<Target Name="addZay">
+			<MSBuild Projects="addZay.dproj"/>
+		</Target>
+		<Target Name="addZay:Clean">
+			<MSBuild Targets="Clean" Projects="addZay.dproj"/>
+		</Target>
+		<Target Name="addZay:Make">
+			<MSBuild Targets="Make" Projects="addZay.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="show_uppg_tasks;addZay"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="show_uppg_tasks:Clean;addZay:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="show_uppg_tasks:Make;addZay:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.02.23 11:34:13.875.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\org_dic.bdsproj</Transaction>
+    <Transaction>2010.02.23 11:45:36.296.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\org_dic.bdsproj=E:\install\ASUTP_Server_App\org_dic.bdsproj</Transaction>
+    <Transaction>2010.02.27 13:36:05.875.pas,E:\install\ASUTP_Server_App\u_dm.pas=</Transaction>
+    <Transaction>2010.02.27 13:36:05.875.dfm,E:\install\ASUTP_Server_App\u_dm.dfm=</Transaction>
+    <Transaction>2010.03.03 14:58:10.468.pas,E:\install\ASUTP_Server_App\U_dm_tt.pas=</Transaction>
+    <Transaction>2010.03.03 14:58:10.484.dfm,E:\install\ASUTP_Server_App\U_dm_tt.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,77 @@
+library show_cur_tank_data;
+
+uses
+  SysUtils,
+  Forms,
+  Types,
+  Messages,
+  Dialogs,
+  WIndows,
+  Classes,
+  U_editTankMat in 'U_editTankMat.pas' {editTankMat},
+  u_dm in 'u_dm.pas' {dm: TDataModule};
+
+{$R *.res}
+function show_form_tank_data:boolean;
+begin
+try
+ Application.CreateForm(Tdm, dm);
+ Application.CreateForm(TeditTankMat, editTankMat);
+ editTankMat.ShowModal;
+ editTankMat.Free;
+ dm.Free;
+ Result:=true;
+except
+  Result:=false;
+end;
+end;
+
+exports
+  show_form_tank_data;
+
+
+begin
+  dm.AlexpromCon.BeginTrans;
+  query.Close;
+  query.SQL.Clear;
+  query.SQL.Add('select max(mat_id) from dbo.mat_dic');
+  query.Open;
+  p_key:=query.Fields[0].AsInteger;
+  p_key:=p_key+1;
+  query.Close;
+  query.SQL.Clear;
+  query.SQL.Add('insert into dbo.mat_dic(mat_id, mat_name,color_code) values (:id,:name,:code)');
+  query.Parameters[0].Value:=p_key;
+  query.Parameters[1].Value:=' ';
+  query.Parameters[2].Value:='00000000';
+  query.ExecSQL;
+  Edit1.Text:='';
+  Edit1.Visible:=True;
+  Edit1.SetFocus;
+begin
+end.
+
+query.SQL.Add('insert into dbo.zay(data, nomerzay, vid, kontr, tmc, kol, cena, dostavka, seriaDov,');
+  query.SQL.Add('nomerDov, dataDov, komuDov, remarkDov, schet,');
+  query.SQL.Add('pogr, remark, sost, podalZay) values (:data, :nomerzay,');
+  query.SQL.Add(':vid, :kontr, :tmc, :kol, :cena, :dostavka, :seriaDov, :nomerDov, :dataDov, :komuDov,');
+  query.SQL.Add(':remarkDov, :schet, :pogr, :remark, :sost, :podalZay)');
+  query.Parameters[0].Value:=Edit12.Text;
+  query.Parameters[1].Value:=MaskEdit1.Text;
+  query.Parameters[2].Value:=ComboBox1.Text;
+  query.Parameters[3].Value:=Edit13.Text;
+  query.Parameters[4].Value:=Edit14.Text;
+  query.Parameters[5].Value:=Edit15.Text;
+  query.Parameters[6].Value:=Edit16.Text;
+  query.Parameters[7].Value:=Edit17.Text;
+  query.Parameters[8].Value:=Edit18.Text;
+  query.Parameters[9].Value:=Edit19.Text;
+  query.Parameters[10].Value:=Edit20.Text;
+  query.Parameters[11].Value:=Edit21.Text;
+  query.Parameters[12].Value:=Edit22.Text;
+  query.Parameters[13].Value:=Edit23.Text;
+  query.Parameters[14].Value:=ComboBox4.Text;
+  query.Parameters[15].Value:=Edit24.Text;
+  query.Parameters[16].Value:=0;
+  query.Parameters[17].Value:=Edit25.Text;
+

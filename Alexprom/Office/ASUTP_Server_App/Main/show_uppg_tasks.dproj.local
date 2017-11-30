@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.03.18 14:09:47.000.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\show_uppg_tasks.bdsproj</Transaction>
+    <Transaction>2010.03.18 14:11:09.625.pas,E:\install\ASUTP_Server_App\Unit1.pas=E:\install\ASUTP_Server_App\U_showTasksUppg.pas</Transaction>
+    <Transaction>2010.03.18 14:11:09.625.dfm,E:\install\ASUTP_Server_App\Unit1.dfm=E:\install\ASUTP_Server_App\U_showTasksUppg.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.02.23 10:16:31.546.bdsproj,C:\Documents and Settings\programmer\My Documents\Borland Studio Projects\Project1.bdsproj=E:\install\ASUTP_Server_App\show_cur_tank_data.bdsproj</Transaction>
+    <Transaction>2010.02.27 13:16:08.703.pas,E:\install\ASUTP_Server_App\u_dm.pas=</Transaction>
+    <Transaction>2010.02.27 13:16:08.703.dfm,E:\install\ASUTP_Server_App\u_dm.dfm=</Transaction>
+    <Transaction>2010.03.01 11:42:45.937.pas,E:\install\ASUTP_Server_App\U_dm_tt.pas=</Transaction>
+    <Transaction>2010.03.01 11:42:45.937.dfm,E:\install\ASUTP_Server_App\U_dm_tt.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>
