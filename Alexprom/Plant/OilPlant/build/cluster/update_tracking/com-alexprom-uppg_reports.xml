@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.alexprom.uppg_reports">
-    <module_version install_time="1528233814747" last="true" origin="installer" specification_version="1.0.3">
+    <module_version install_time="1528546081535" last="true" origin="installer" specification_version="1.0.4">
         <file crc="2452026318" name="config/Modules/com-alexprom-uppg_reports.xml"/>
-        <file crc="3981293523" name="modules/com-alexprom-uppg_reports.jar"/>
+        <file crc="25061653" name="modules/com-alexprom-uppg_reports.jar"/>
         <file crc="3342703036" name="modules/ext/DateChooser.jar"/>
     </module_version>
 </module>
