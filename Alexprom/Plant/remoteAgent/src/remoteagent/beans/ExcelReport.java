@@ -25,10 +25,6 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import static remoteagent.beans.AgentBase.dbConfig;
 import static remoteagent.beans.AgentBase.dbData;
 
-/**
- *
- * @author yura_
- */
 public class ExcelReport extends AgentBase{
     private final List<String> archieveTags = new ArrayList<>();
     private final List<String> archieveTagsDesc = new ArrayList<>();
@@ -87,7 +83,7 @@ public class ExcelReport extends AgentBase{
             }else{
                 shift=2;                    
             }
-            int newShift = shift;
+            //int newShift = shift;
             
             int currentHour = d1.getHours();
             if (currentHour>=0 && currentHour<=7){
@@ -99,7 +95,7 @@ public class ExcelReport extends AgentBase{
             {
                 //Определение повторного запуска операций для текущей смены
                 Statement stm = dbData.db.createStatement();
-                String sql="select count(aDate) from dbo.ExcelReport_Data where convert(varchar, aDate) like '"+dateFormat.format(d1)+"%' and aShift="+String.valueOf(shift);
+                String sql="select count(aDate) from dbo.ExcelReport_Data where aDate = '"+dateFormat.format(d1)+"' and aShift="+String.valueOf(shift);
                 //System.out.println(sql);
                 ResultSet rs = stm.executeQuery(sql);                
                 while (rs.next()){
@@ -114,6 +110,7 @@ public class ExcelReport extends AgentBase{
             }
             //Определение признака начала новой смены
             shiftStarted = cnt==0;
+            //shiftStarted = true;
             //System.out.println("Shift started:"+String.valueOf(shiftStarted));
             //Если началась новая смена - создаем файл отчета для предыдущей смены
             if ((shiftStarted)){                
@@ -173,9 +170,9 @@ public class ExcelReport extends AgentBase{
                     operator.setCellValue("Старший оператор:");
                     HSSFCell operatorName = title.createCell(2);
                     Statement opStm = dbData.db.createStatement();
-                    ResultSet opRS = opStm.executeQuery("SELECT TOP 1 aDesc, id FROM dbo.ProcessArchieve where convert(varchar, aDate) like '"+
+                    ResultSet opRS = opStm.executeQuery("SELECT TOP 1 aDesc, id FROM dbo.ProcessArchieve where aDate = '"+
                                        dateFormat.format(reportDate)+
-                                       "%' and aShift="+String.valueOf(preShift)+" order by id desc");
+                                       "' and aShift="+String.valueOf(preShift)+" order by id desc");
                     while (opRS.next()){
                         operatorName.setCellValue(opRS.getString(1));
                     }
@@ -197,16 +194,17 @@ public class ExcelReport extends AgentBase{
                         HSSFRow detailMinRow = sheet.createRow(newRow);
                         HSSFCell detailCellMin = detailMinRow.createCell(0);
                         detailCellMin.setCellValue("Мин. значение");
-                        detailCellMin.setCellStyle(dataCellStyle);
+                        detailCellMin.setCellStyle(headerCellStyle);
                         String maxValue = null;
                         String minValue = null;
                         String avgValue = null;
                         try (Statement stmt = dbData.db.createStatement()) {
-                            String query = "SELECT aTag, MaxValue, MinValue, AvgValue FROM dbo.ExcelReport_Data where convert(varchar, aDate) like '"+
+                            String query = "SELECT aTag, MaxValue, MinValue, AvgValue FROM dbo.ExcelReport_Data where aDate = '"+
                                     dateFormat.format(reportDate)+
-                                    "%' and aShift="+String.valueOf(preShift)+
+                                    "' and aShift="+String.valueOf(preShift)+
                                     " and aTag='"+archieveTags.get(i)+"'";
                             ResultSet rs;
+                            //System.out.println(query);
                             rs = stmt.executeQuery(query);
                             while (rs.next()){
                                 maxValue = rs.getString(2);
@@ -215,23 +213,23 @@ public class ExcelReport extends AgentBase{
                             }
                             HSSFCell valueCellMin = detailMinRow.createCell(1);
                             valueCellMin.setCellValue(minValue);
-                            detailCellMin.setCellStyle(dataCellStyle);
+                            valueCellMin.setCellStyle(headerCellStyle);
                             newRow++;
                             HSSFRow detailMaxRow = sheet.createRow(newRow);
                             HSSFCell detailCellMax = detailMaxRow.createCell(0);
                             detailCellMax.setCellValue("Макс. значение");
-                            detailCellMax.setCellStyle(dataCellStyle);
+                            detailCellMax.setCellStyle(headerCellStyle);
                             HSSFCell valueCellMax = detailMaxRow.createCell(1);
                             valueCellMax.setCellValue(maxValue);
-                            detailCellMin.setCellStyle(dataCellStyle);
+                            valueCellMax.setCellStyle(headerCellStyle);
                             newRow++;
                             HSSFRow detailAvgRow = sheet.createRow(newRow);
                             HSSFCell detailCellAvg = detailAvgRow.createCell(0);
                             detailCellAvg.setCellValue("Средн. значение");
-                            detailCellAvg.setCellStyle(dataCellStyle);
+                            detailCellAvg.setCellStyle(headerCellStyle);
                             HSSFCell valueCellAvg = detailAvgRow.createCell(1);
-                            valueCellAvg.setCellValue(avgValue);
-                            detailCellAvg.setCellStyle(dataCellStyle);
+                            valueCellAvg.setCellValue(String.format("%.6s", avgValue));
+                            valueCellAvg.setCellStyle(headerCellStyle);
                             rs.close();
                         }
                         newRow++;
@@ -241,6 +239,7 @@ public class ExcelReport extends AgentBase{
                     sheet.autoSizeColumn(0);
                     sheet.autoSizeColumn(1);
                     wb.write(fileOut);
+                    wb.close();
                     System.out.println("Making report file "+fileName+".xls complete");
                     Logger.getLogger(ExcelReport.class.getName()).log(Level.INFO, "Making report file "+fileName+".xls complete");
                     reportDone = true;
@@ -255,6 +254,10 @@ public class ExcelReport extends AgentBase{
         }
     }
     
+    private void buildReport(){
+        
+    }
+    
     @Override
     @SuppressWarnings("empty-statement")
     public void run() {
@@ -262,7 +265,7 @@ public class ExcelReport extends AgentBase{
             synchronized(this){                
                 doTask();   
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(LevelToVolume.class.getName()).log(Level.SEVERE, null, ex);
                 }

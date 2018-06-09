@@ -1,17 +1,11 @@
 package remoteagent.beans;
 
-import com.alexprom.libwincctags.WinCCTags;
 import com.alexprom.libwincctags.iWinCCTagReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static remoteagent.beans.AgentBase.dbConfig;
 
 /**
  * Class OilAccount
@@ -76,7 +70,7 @@ public class TSP_Account extends AgentBase{
             {
                 //Определение повторного запуска операций для текущей смены
                 Statement stm = dbData.db.createStatement();
-                String sql="select count(ID) from account_tsp where convert(varchar, aDate) like '"+dateFormat.format(d1)+"%' and aShift="+String.valueOf(shift);                
+                String sql="select count(ID) from account_tsp where aDate = '"+dateFormat.format(d1)+"' and aShift="+String.valueOf(shift);                
                 System.out.println(sql);
                 ResultSet rs = stm.executeQuery(sql);                
                 while (rs.next()){

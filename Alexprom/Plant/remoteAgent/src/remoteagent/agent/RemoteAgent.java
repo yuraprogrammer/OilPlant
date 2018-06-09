@@ -28,6 +28,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import remoteagent.beans.AlarmLimitsUpdater;
 import remoteagent.beans.ArchiveFavoriteParams;
+import remoteagent.beans.CountersReport;
+import remoteagent.beans.DAQ_And_Store;
 import remoteagent.beans.ExcelAlarmReport;
 import remoteagent.beans.ExcelReport;
 import remoteagent.beans.LevelToVolume;
@@ -50,7 +52,9 @@ public class RemoteAgent {
     private static ExcelReport er;
     private static ExcelAlarmReport ear;
     private static AlarmLimitsUpdater alu;
-    private static VoidAgent ta;
+    private static TSP_Account ta;
+    private static DAQ_And_Store daq;
+    private static CountersReport cr;
     private static RemoteAgent singleton;
     private static Thread ltvThread;
     private static Thread oaThread;
@@ -61,52 +65,66 @@ public class RemoteAgent {
     private static Thread earThread;
     private static Thread aluThread;
     private static Thread taThread;
+    private static Thread daqThread;
+    private static Thread crThread;
     private static List<ServerNode> servers;
     private ObjectName[] objName;
     private RemoteMethodRunner[] agent;
+    private static String[] modules;
     
     public void init(){
         try {
             ltv = new LevelToVolume();
-            oa = new OilAccount();
-            pa = new ProductAccount();
+            //oa = new OilAccount();
+            //pa = new ProductAccount();
             afp = new ArchiveFavoriteParams();
             er = new ExcelReport();
             ear = new ExcelAlarmReport();
             alu = new AlarmLimitsUpdater();
-            ta = new VoidAgent();
+            ta = new TSP_Account();
+            daq = new DAQ_And_Store();
+            daq.taskDelay = 10000;
+            cr = new CountersReport();
             ObjectName mLTV = new ObjectName ("agent.remoteagent:type=LevelToVolume");
-            ObjectName mOA = new ObjectName ("agent.remoteagent:type=OilAccount");
-            ObjectName mPA = new ObjectName ("agent.remoteagent:type=ProductAccount");
+            //ObjectName mOA = new ObjectName ("agent.remoteagent:type=OilAccount");
+            //ObjectName mPA = new ObjectName ("agent.remoteagent:type=ProductAccount");
             ObjectName mAFP = new ObjectName ("agent.remoteagent:type=ArchiveFavoriteParams");
             ObjectName mER = new ObjectName ("agent.remoteagent:type=ExcelReport");
             ObjectName mEAR = new ObjectName ("agent.remoteagent:type=ExcelAlarmReport");
             ObjectName mALU = new ObjectName ("agent.remoteagent:type=AlarmLimitsUpdater");
-            ObjectName mTA = new ObjectName ("agent.remoteagent:type=Void_Agent");
+            ObjectName mTA = new ObjectName ("agent.remoteagent:type=TSP_Account");
+            ObjectName mDAQ = new ObjectName ("agent.remoteagent:type=DAQ_And_Store");
+            ObjectName mCR = new ObjectName ("agent.remoteagent:type=CountersReport");
             getMBeanServer().registerMBean(ltv, mLTV);
-            getMBeanServer().registerMBean(oa, mOA);
-            getMBeanServer().registerMBean(pa, mPA);
+            //getMBeanServer().registerMBean(oa, mOA);
+            //getMBeanServer().registerMBean(pa, mPA);
             getMBeanServer().registerMBean(afp, mAFP);
             getMBeanServer().registerMBean(er, mER);
             getMBeanServer().registerMBean(ear, mEAR);
             getMBeanServer().registerMBean(alu, mALU);
             getMBeanServer().registerMBean(ta, mTA);
+            getMBeanServer().registerMBean(daq, mDAQ);
+            getMBeanServer().registerMBean(cr, mCR);
             ltvThread = new Thread(ltv);
             ltvThread.setPriority(Thread.MIN_PRIORITY);
-            oaThread = new Thread(oa);
-            oaThread.setPriority(Thread.MIN_PRIORITY);
-            paThread = new Thread(pa);
-            paThread.setPriority(Thread.MIN_PRIORITY);
+            //oaThread = new Thread(oa);
+            //oaThread.setPriority(Thread.MIN_PRIORITY);
+            //paThread = new Thread(pa);
+            //paThread.setPriority(Thread.MIN_PRIORITY);
             afpThread = new Thread(afp);
             afpThread.setPriority(Thread.MIN_PRIORITY);
             erThread = new Thread(er);
-            erThread.setPriority(Thread.MIN_PRIORITY);
+            erThread.setPriority(Thread.NORM_PRIORITY);
             earThread = new Thread(ear);
-            earThread.setPriority(Thread.MIN_PRIORITY);
+            earThread.setPriority(Thread.NORM_PRIORITY);
             aluThread = new Thread(alu);
             aluThread.setPriority(Thread.MIN_PRIORITY);
             taThread = new Thread(ta);
             taThread.setPriority(Thread.MIN_PRIORITY);
+            daqThread = new Thread(daq);
+            daqThread.setPriority(Thread.NORM_PRIORITY);
+            crThread = new Thread(cr);
+            crThread.setPriority(Thread.NORM_PRIORITY);
         } catch (MalformedObjectNameException | InstanceAlreadyExistsException | MBeanRegistrationException | NotCompliantMBeanException ex) {
             Logger.getLogger(RemoteAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -123,12 +141,7 @@ public class RemoteAgent {
                 System.out.println("Unable create document!!!");
             }
             Document doc = null;
-            File xmlFile = new File(System.getProperty("user.dir")+File.separator+"agents.xml");
-            //String path = System.getProperty("user.dir");
-            //path = path +"\\build\\classes\\remoteagent\\agent\\";
-            //InputStream fis;
-            //URL url = getClass().getResource("agents.xml");
-            //fis = url.openStream();
+            File xmlFile = new File(System.getProperty("user.dir")+File.separator+"agents.xml");            
             doc = db.parse(xmlFile);
             System.out.println("Agents.xml opened!!!");
         
@@ -137,7 +150,7 @@ public class RemoteAgent {
             NodeList agentList = doc.getElementsByTagName("Agent");
             List<AgentNode> agents = getAgents(agentList);
                         
-            String[] modules;
+            
             modules = new String[agents.size()];
             for (int i=0; i<agents.size(); i++){
                 modules[i] = agents.get(i).getName();
@@ -156,8 +169,7 @@ public class RemoteAgent {
             
             servers = getServers(serverList);                    
             agent = new RemoteMethodRunner[modules.length];
-            objName = new ObjectName[modules.length];
-            //agentThreads = new Thread[modules.length];
+            objName = new ObjectName[modules.length];            
             for (int i=0; i<modules.length; i++){
                 
                 agent[i] = RemoteMethodRunner.getDefault(agentIP);
@@ -222,14 +234,35 @@ public class RemoteAgent {
             singleton = new RemoteAgent();
             singleton.init();
             singleton.startRemoteTasks();
-            ltvThread.start();                                                
-            oaThread.start();            
-            paThread.start();            
-            afpThread.start();
-            erThread.start();
-            earThread.start();
-            aluThread.start();
-            taThread.start();
+            for (String module : modules) {
+                //oaThread.start();
+                //paThread.start();
+                if (module.equals("LevelToVolume")) {
+                    ltvThread.start();
+                }
+                if (module.equals("ArchiveFavoriteParams")) {
+                    afpThread.start();
+                }
+                if (module.equals("ExcelReport")) {
+                    erThread.start();
+                }
+                if (module.equals("ExcelAlarmReport")) {
+                    earThread.start();
+                }
+                if (module.equals("AlarmLimitsUpdater")) {
+                    aluThread.start();
+                }
+                if (module.equals("TSP_Account")) {
+                    taThread.start();
+                }
+                if (module.equals("DAQ_And_Store")) {
+                    daqThread.start();
+                }
+                if (module.equals("CountersReport")) {
+                    crThread.start();
+                }
+            }
+            
         }
         return singleton;
     } 

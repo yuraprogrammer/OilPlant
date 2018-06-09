@@ -5,14 +5,16 @@
         <Server name="DataServer" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" URL="jdbc:sqlserver://176.105.202.29:1433" Source="Alexprom_ASUTP" User="roman" Password="roman" />  
     </Servers>
     <Agents>
-        <!--Agent name="LevelToVolume" />
-        <Agent name="OilAccount" />
-        <Agent name="ProductAccount" />
-        <Agent name="ArchiveFavoriteParams" />
-        <Agent name="ExcelReport" />
-		<Agent name="ExcelAlarmReport" />
-        <Agent name="AlarmLimitsUpdater" /-->
-		<Agent name="VoidAgent" />
+        <!-- <Agent name="LevelToVolume" /> -->
+        <!-- <Agent name="OilAccount" /> -->
+        <!-- <Agent name="ProductAccount" /> -->
+        <!-- <Agent name="ArchiveFavoriteParams" /> -->
+        <!-- <Agent name="ExcelReport" /> -->
+		<!-- <Agent name="ExcelAlarmReport" /> -->
+        <!-- <Agent name="AlarmLimitsUpdater" /> -->
+		<!-- <Agent name="TSP_Account" /> -->
+		<Agent name="DAQ_And_Store" />
+		<!-- <Agent name="CountersReport" /> -->
     </Agents>
     <AgentPath name="localhost" />    
 </configuration>

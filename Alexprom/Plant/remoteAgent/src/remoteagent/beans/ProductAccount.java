@@ -1,6 +1,5 @@
 package remoteagent.beans;
 
-import com.alexprom.libwincctags.WinCCTags;
 import com.alexprom.libwincctags.iWinCCTagReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -99,7 +98,7 @@ public class ProductAccount extends AgentBase{
             {
                 //Определение повторного запуска операций для текущей смены
                 Statement stm = dbData.db.createStatement();
-                String sql="select count(ID) from account_product where convert(varchar, aDate) like '"+dateFormat.format(d1)+"%' and aShift="+String.valueOf(shift);
+                String sql="select count(ID) from account_product where convert(varchar, aDate) = '"+dateFormat.format(d1)+"' and aShift="+String.valueOf(shift);
                 System.out.println(sql);
                 ResultSet rs = stm.executeQuery(sql);                
                 while (rs.next()){

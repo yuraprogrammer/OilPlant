@@ -97,7 +97,7 @@ public class ExcelAlarmReport extends AgentBase{
                 shift=2;                    
             }
             int newShift = shift;
-            System.out.println("Date: "+dateFormat.format(d1)+", Shift:"+String.valueOf(newShift));
+            //System.out.println("Date: "+dateFormat.format(d1)+", Shift:"+String.valueOf(newShift));
             int currentHour = d1.getHours();
             if (currentHour>=0 && currentHour<=7){
                 int curDay = d1.getDate();
@@ -108,8 +108,8 @@ public class ExcelAlarmReport extends AgentBase{
             {
                 //Определение повторного запуска операций для текущей смены
                 Statement stm = dbData.db.createStatement();
-                String sql="select count(aDate) from dbo.ExcelReport_Data where convert(varchar, aDate) like '"+dateFormat.format(d1)+"%' and aShift="+String.valueOf(shift);
-                System.out.println(sql);
+                String sql="select count(aDate) from dbo.ExcelReport_Data where aDate = '"+dateFormat.format(d1)+"' and aShift="+String.valueOf(shift);
+                //System.out.println(sql);
                 ResultSet rs = stm.executeQuery(sql);                
                 while (rs.next()){
                     cnt = rs.getInt(1);
@@ -174,7 +174,7 @@ public class ExcelAlarmReport extends AgentBase{
                 }else{
                     fileName = fileName+"_20-00";
                 }
-                System.out.println("Date: "+dateFormat.format(reportDate)+", Shift:"+String.valueOf(preShift));
+                //System.out.println("Date: "+dateFormat.format(reportDate)+", Shift:"+String.valueOf(preShift));
                 try (FileOutputStream fileOut = new FileOutputStream("reports\\"+fileName+"_Alarm.xls")) {
                     HSSFSheet sheet = wb.createSheet(fileName);
                     HSSFRow title = sheet.createRow(0);
@@ -185,9 +185,9 @@ public class ExcelAlarmReport extends AgentBase{
                     operator.setCellValue("Старший оператор:");
                     HSSFCell operatorName = title.createCell(2);
                     Statement opStm = dbData.db.createStatement();
-                    ResultSet opRS = opStm.executeQuery("SELECT TOP 1 aDesc, id FROM dbo.ProcessArchieve where convert(varchar, aDate) like '"+
+                    ResultSet opRS = opStm.executeQuery("SELECT TOP 1 aDesc, id FROM dbo.ProcessArchieve where aDate = '"+
                             dateFormat.format(reportDate)+
-                            "%' and aShift="+String.valueOf(preShift)+" order by id desc");
+                            "' and aShift="+String.valueOf(preShift)+" order by id desc");
                     while (opRS.next()){
                         operatorName.setCellValue(opRS.getString(1));
                     }
@@ -200,11 +200,11 @@ public class ExcelAlarmReport extends AgentBase{
                             //Заполнение заголовка                                                        
                             try (Statement stmt = dbData.db.createStatement()) {
                                 String query = "SELECT TOP 3 MAX(aValue) as aValue, aTag "+
-                                                "FROM dbo.ProcessArchieve where convert(varchar, aDate) like '"+
-                                                dateFormat.format(reportDate)+"%' and aShift="+String.valueOf(preShift)+
+                                                "FROM dbo.ProcessArchieve where aDate = '"+
+                                                dateFormat.format(reportDate)+"' and aShift="+String.valueOf(preShift)+
                                                 " and aTag='"+archieveTags.get(i)+"' and aValue>"+String.valueOf(archieveTagsMax.get(i))+
                                                 " group by aTag, aValue";
-                                System.out.println(query);
+                                //System.out.println(query);
                                 ResultSet rs;
                                 rs = stmt.executeQuery(query);                                
                                 
@@ -220,10 +220,10 @@ public class ExcelAlarmReport extends AgentBase{
                                     newRow++;
                                     HSSFRow extRow = sheet.createRow(newRow);
                                     HSSFCell extCell = extRow.createCell(0);
-                                    extCell.setCellStyle(dataCellStyle);
+                                    extCell.setCellStyle(headerCellStyle);
                                     extCell.setCellValue("Макс. значение");
                                     extCell = extRow.createCell(1);
-                                    extCell.setCellStyle(dataCellStyle);
+                                    extCell.setCellStyle(headerCellStyle);
                                     extCell.setCellValue("Авар. значение");                                    
                                     newRow++;
                                     HSSFRow maxDataRow = sheet.createRow(newRow);
@@ -231,16 +231,16 @@ public class ExcelAlarmReport extends AgentBase{
                                     maxDataCell.setCellStyle(dataCellStyle);
                                     maxDataCell.setCellValue(archieveTagsMax.get(i));
                                     maxDataCell = maxDataRow.createCell(1);
-                                    maxDataCell.setCellStyle(dataCellStyle);
+                                    maxDataCell.setCellStyle(headerCellStyle);
                                     maxDataCell.setCellValue(rs.getString(1));
                                     while (rs.next()){
                                         newRow++;
                                         maxDataRow = sheet.createRow(newRow);
                                         maxDataCell = maxDataRow.createCell(0);
-                                        maxDataCell.setCellStyle(dataCellStyle);
+                                        maxDataCell.setCellStyle(headerCellStyle);
                                         maxDataCell.setCellValue(archieveTagsMax.get(i));
                                         maxDataCell = maxDataRow.createCell(1);
-                                        maxDataCell.setCellStyle(dataCellStyle);
+                                        maxDataCell.setCellStyle(headerCellStyle);
                                         maxDataCell.setCellValue(rs.getString(1));
                                     }
                                     
@@ -248,11 +248,11 @@ public class ExcelAlarmReport extends AgentBase{
                                 }
                                 rs.close();
                                 query = "SELECT TOP 3 MIN(aValue) as aValue, aTag "+
-                                                "FROM dbo.ProcessArchieve where convert(varchar, aDate) like '"+
-                                                dateFormat.format(reportDate)+"%' and aShift="+String.valueOf(preShift)+
+                                                "FROM dbo.ProcessArchieve where aDate = '"+
+                                                dateFormat.format(reportDate)+"' and aShift="+String.valueOf(preShift)+
                                                 " and aTag='"+archieveTags.get(i)+"' and aValue<"+String.valueOf(archieveTagsMin.get(i))+
                                                 " group by aTag, aValue";
-                                System.out.println(query);
+                                //System.out.println(query);
                                 rs = stmt.executeQuery(query);
                                 
                                 if (rs.next()){                                    
@@ -266,27 +266,27 @@ public class ExcelAlarmReport extends AgentBase{
                                     newRow++;
                                     HSSFRow minRow = sheet.createRow(newRow);
                                     HSSFCell minCell = minRow.createCell(0);
-                                    minCell.setCellStyle(dataCellStyle);
+                                    minCell.setCellStyle(headerCellStyle);
                                     minCell.setCellValue("Мин. значение");
                                     minCell = minRow.createCell(1);
-                                    minCell.setCellStyle(dataCellStyle);
+                                    minCell.setCellStyle(headerCellStyle);
                                     minCell.setCellValue("Авар. значение");
                                     newRow++;
                                     HSSFRow minDataRow = sheet.createRow(newRow);
                                     HSSFCell minDataCell = minDataRow.createCell(0);
-                                    minDataCell.setCellStyle(dataCellStyle);
+                                    minDataCell.setCellStyle(headerCellStyle);
                                     minDataCell.setCellValue(archieveTagsMin.get(i));
                                     minDataCell = minDataRow.createCell(1);
-                                    minDataCell.setCellStyle(dataCellStyle);
+                                    minDataCell.setCellStyle(headerCellStyle);
                                     minDataCell.setCellValue(rs.getString(1));
                                     while (rs.next()){
                                         newRow++;
                                         minDataRow = sheet.createRow(newRow);
                                         minDataCell = minDataRow.createCell(0);
-                                        minDataCell.setCellStyle(dataCellStyle);
+                                        minDataCell.setCellStyle(headerCellStyle);
                                         minDataCell.setCellValue(archieveTagsMin.get(i));
                                         minDataCell = minDataRow.createCell(1);
-                                        minDataCell.setCellStyle(dataCellStyle);
+                                        minDataCell.setCellStyle(headerCellStyle);
                                         minDataCell.setCellValue(rs.getString(1));
                                     }
                                     newRow++;    
@@ -307,7 +307,7 @@ public class ExcelAlarmReport extends AgentBase{
                         File f = new File(System.getProperty("user.dir")+"\\reports\\"+fileName+"_Alarm.xls");
                         d.print(f);
                         reportDone = true;
-                        System.out.println("Report complete: "+reportDone);
+                        System.out.println("Making report file "+fileName+".xls complete");
                 }   catch (IOException | SQLException ex) {
                     Logger.getLogger(ExcelAlarmReport.class.getName()).log(Level.SEVERE, null, ex);
                     System.out.println(ex);
@@ -323,7 +323,7 @@ public class ExcelAlarmReport extends AgentBase{
             synchronized(this){                
                 doTask();   
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(LevelToVolume.class.getName()).log(Level.SEVERE, null, ex);
                 }

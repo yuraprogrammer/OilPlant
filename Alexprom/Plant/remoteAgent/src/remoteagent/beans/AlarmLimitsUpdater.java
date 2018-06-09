@@ -1,6 +1,5 @@
 package remoteagent.beans;
 
-import com.alexprom.libwincctags.WinCCTags;
 import com.alexprom.libwincctags.iWinCCTagReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,12 +27,13 @@ public class AlarmLimitsUpdater extends AgentBase{
     
     @Override
     public void initAgent(){
-        tags = iWinCCTagReader.INSTANCE;
-        tags.WinCC_Connect();
+        
     }
     
     @Override
     public void getTask(){
+        tags = iWinCCTagReader.INSTANCE;
+        tags.WinCC_Connect();
         try (Statement stmt = dbConfig.db.createStatement()) {
             ResultSet rs;
             rs = stmt.executeQuery("select PROP_VALUE from viewLevelTags where VAR_CLASS=0 and name=4 and VAR_TYPE=4");
@@ -67,27 +67,27 @@ public class AlarmLimitsUpdater extends AgentBase{
         int cnt = alarmValuesId.size();
         if (cnt!=0){
             if (tags.ProjectStatus()==0){
-            for (int i=0; i<cnt; i++){
-                double alarmHH = tags.ReadTag_Real32(alarmTagsMax.get(i));
-                double alarmLL = tags.ReadTag_Real32(alarmTagsMin.get(i));
-                try (Statement stmt = dbConfig.db.createStatement()) {                    
-                    int id = Integer.parseInt(alarmValuesId.get(i));                    
-                    String query = "update dbo.VAR_PROPERTIES SET PROP_VALUE='"+String.valueOf(alarmLL)+
+                for (int i=0; i<cnt; i++){
+                    double alarmHH = tags.ReadTag_Real32(alarmTagsMax.get(i));
+                    double alarmLL = tags.ReadTag_Real32(alarmTagsMin.get(i));
+                    try (Statement stmt = dbConfig.db.createStatement()) {                    
+                        int id = Integer.parseInt(alarmValuesId.get(i));                    
+                        String query = "update dbo.VAR_PROPERTIES SET PROP_VALUE='"+String.valueOf(alarmLL)+
                                 "' where VAR_ID="+String.valueOf(id);
-                    stmt.execute(query);
-                    id++;
-                    query = "update dbo.VAR_PROPERTIES SET PROP_VALUE='"+String.valueOf(alarmHH)+
+                        stmt.execute(query);
+                        id++;
+                        query = "update dbo.VAR_PROPERTIES SET PROP_VALUE='"+String.valueOf(alarmHH)+
                             "' where VAR_ID="+String.valueOf(id);
-                    stmt.execute(query);
-                    stmt.close();    
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-            }    
-        }
+                        stmt.execute(query);
+                        stmt.close();    
+                    } catch (SQLException ex) {
+                        System.out.println(ex);
+                    }
+                }        
         //tags.disconnect();
         }else{
            System.out.println(AlarmLimitsUpdater.class.getName()+": WinCC Runtime is closed. Task running is aborted");
+        }
         }
     }catch (java.lang.UnsatisfiedLinkError | java.lang.NoClassDefFoundError ex){
         System.out.println("WinCC connection failed!!!");

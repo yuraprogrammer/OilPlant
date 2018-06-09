@@ -1,6 +1,5 @@
 package remoteagent.beans;
 
-import com.alexprom.libwincctags.WinCCTags;
 import com.alexprom.libwincctags.iWinCCTagReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -98,7 +97,7 @@ public class ArchiveFavoriteParams extends AgentBase{
             {
                 //Определение повторного запуска операций для текущей смены
                 Statement stm = dbData.db.createStatement();
-                String sql="select count(ID) from ProcessArchieve where convert(varchar, aDate) like '"+dateFormat.format(d1)+"%' and aShift="+String.valueOf(shift);
+                String sql="select count(ID) from ProcessArchieve where aDate = '"+dateFormat.format(d1)+"' and aShift="+String.valueOf(shift);
                 ResultSet rs = stm.executeQuery(sql);                
                 while (rs.next()){
                     cnt = rs.getInt(1);

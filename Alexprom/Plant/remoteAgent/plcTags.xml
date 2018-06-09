@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <Servers>
+        <Server name="ConfigServer" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" URL="jdbc:sqlserver://R1:1433" Source="OilConfig" User="roman" Password="roman" />
+        <Server name="DataServer" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" URL="jdbc:sqlserver://R1:1433" Source="Alexprom_ASUTP" User="roman" Password="roman" />  
+    </Servers>
+    <AgentPath name="localhost" />
+    <Controllers>
+        <PLC name="PLC_KR3" host="192.168.1.14"/>
+    </Controllers>
+    <Addresses>	
+        <!--PlcTag name="Mass_Flow_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD0" minValue="0" maxValue="100000"/-->
+        <!--PlcTag name="Density_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD4" minValue="0" maxValue="100000"/-->
+        <!--PlcTag name="Temperature_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD8" minValue="0" maxValue="100000"/-->
+	<!--PlcTag name="Volume_Flow_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD12" minValue="0" maxValue="100000"/-->
+	<!--PlcTag name="Pressure_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD16" minValue="0" maxValue="100000"/-->
+	<PlcTag name="Mass_Total_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD20" minValue="0" maxValue="100000"/>
+	<PlcTag name="Volume_Total_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD24" minValue="0" maxValue="100000"/>
+	<!--PlcTag name="Mass_Inventory_1.Value" plcName="PLC_KR3" S7Addr="DB3.DBD28" minValue="0" maxValue="100000"/-->
+
+        <!--PlcTag name="Mass_Flow_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD36" minValue="0" maxValue="100000"/-->
+        <!--PlcTag name="Density_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD40" minValue="0" maxValue="100000"/-->
+        <!--PlcTag name="Temperature_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD44" minValue="0" maxValue="100000"/-->
+	<!--PlcTag name="Volume_Flow_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD48" minValue="0" maxValue="100000"/-->
+	<!--PlcTag name="Pressure_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD52" minValue="0" maxValue="100000"/-->
+	<PlcTag name="Mass_Total_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD56" minValue="0" maxValue="100000"/>
+	<PlcTag name="Volume_Total_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD60" minValue="0" maxValue="100000"/>
+	<!--PlcTag name="Mass_Inventory_2.Value" plcName="PLC_KR3" S7Addr="DB3.DBD64" minValue="0" maxValue="100000"/-->
+
+    </Addresses>
+</configuration>
