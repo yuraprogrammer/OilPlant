@@ -11,9 +11,17 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Projects\\Java\\OilPlant\\UPPG_Reports\\src\\com\\alexprom\\uppg_reports\\"]]></defaultValueExpression>
 	</parameter>
-	<!-- <queryString> -->
-		<!-- <![CDATA[select * from dbo.v_actUPPG where id=3]]> -->
-	<!-- </queryString> -->
+	<parameter name="actID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *
+FROM
+     "dbo"."v_actUPPG" v_actUPPG
+WHERE
+     ID = 3]]>
+	</queryString>
 	<field name="ID" class="java.lang.Long"/>
 	<field name="aDate" class="java.lang.String"/>
 	<field name="aShift" class="java.lang.Integer"/>
@@ -66,7 +74,6 @@
 	<field name="drainVolume" class="java.lang.Integer"/>
 	<field name="drainMass" class="java.math.BigDecimal"/>
 	<field name="drained" class="java.math.BigDecimal"/>
-	<field name="tank_otg_uppg" class="java.lang.String"/>
 	<field name="otg_uppg_startLevel" class="java.math.BigDecimal"/>
 	<field name="otg_uppg_finishLevel" class="java.math.BigDecimal"/>
 	<field name="otg_uppg_startVolume" class="java.math.BigDecimal"/>
@@ -81,22 +88,8 @@
 	<field name="otg_uppg_Mass" class="java.math.BigDecimal"/>
 	<field name="otg_uppg_startTemp" class="java.math.BigDecimal"/>
 	<field name="otg_uppg_endTemp" class="java.math.BigDecimal"/>
-	<field name="tank_otg_tsp" class="java.lang.String"/>
-	<field name="otg_tsp_startLevel" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_finishLevel" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_startVolume" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_endVolume" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_startMass" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_endMass" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_startDensity" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_endDensity" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_startDensity20" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_endDensity20" class="java.math.BigDecimal"/>
 	<field name="otg_tsp_Volume" class="java.math.BigDecimal"/>
 	<field name="otg_tsp_Mass" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_startTemp" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_endTemp" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_tankOrder" class="java.lang.Integer"/>
 	<field name="feed_startData" class="java.lang.Integer"/>
 	<field name="feed_finishData" class="java.lang.Integer"/>
 	<field name="feed_total" class="java.lang.Integer"/>
@@ -110,15 +103,16 @@
 	<field name="Percent_4" class="java.lang.Double"/>
 	<field name="Component_5" class="java.lang.String"/>
 	<field name="Percent_5" class="java.lang.Double"/>
+	<field name="wasteGases" class="java.math.BigDecimal"/>
+	<field name="drained_BLF" class="java.math.BigDecimal"/>
+	<field name="Percent_6" class="java.lang.Double"/>
+	<field name="Component_6" class="java.lang.String"/>
+	<field name="Tank_Name" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="800" splitType="Stretch">
-			<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle" isUsingCache="true">
-				<reportElement mode="Opaque" x="306" y="0" width="249" height="35" uuid="b5d92473-6c30-4466-95e1-d790f7c78306"/>
-				<imageExpression><![CDATA["alexprom_new.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement style="Title" x="30" y="0" width="249" height="18" uuid="12598068-e5ca-41e1-b01d-cc32ba2c859b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -1414,7 +1408,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tank_otg_uppg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Tank_Name}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="482" y="72" width="72" height="12" backcolor="#FFFFCC" uuid="21569d7a-c350-4868-b450-224228218308"/>
@@ -1906,7 +1900,7 @@
 				<text><![CDATA[20:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="166" width="35" height="12" uuid="1f2f5f73-c49f-41fa-9a5d-f571ebee9b75">
+				<reportElement x="41" y="167" width="35" height="12" uuid="1f2f5f73-c49f-41fa-9a5d-f571ebee9b75">
 					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2101,6 +2095,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{drained}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="279" y="0" width="275" height="35" uuid="f943e2de-7f01-4c59-908c-b92fd83dac20"/>
+				<imageExpression><![CDATA["C:\\Projects\\Netbeans\\OilPlant\\report_templates\\alexprom_new.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
