@@ -1,112 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter "/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JPA"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Title" isDefault="true" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="actID" class="java.lang.Long">
-		<defaultValueExpression><![CDATA[./]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<queryString>
-		<![CDATA[SELECT
-     *
-FROM
-     v_actUPPG
-WHERE
-     ID = $P{actID}]]>
+	<queryString language="EJBQL">
+		<![CDATA[SELECT v FROM  VactUPPG v WHERE  v.id = $P{actID}]]>
 	</queryString>
-	<field name="ID" class="java.lang.Long"/>
-	<field name="aDate" class="java.lang.String"/>
-	<field name="aShift" class="java.lang.Integer"/>
-	<field name="mainOper" class="java.lang.String"/>
-	<field name="slaveOper" class="java.lang.String"/>
-	<field name="MassStart_S" class="java.math.BigDecimal"/>
-	<field name="VolumeStart_S" class="java.math.BigDecimal"/>
-	<field name="TempStart_S" class="java.math.BigDecimal"/>
-	<field name="DensityStart_S" class="java.math.BigDecimal"/>
-	<field name="MassStart_B" class="java.math.BigDecimal"/>
-	<field name="VolumeStart_B" class="java.math.BigDecimal"/>
-	<field name="TempStart_B" class="java.math.BigDecimal"/>
-	<field name="DensityStart_B" class="java.math.BigDecimal"/>
-	<field name="MassStart_A" class="java.math.BigDecimal"/>
-	<field name="VolumeStart_A" class="java.math.BigDecimal"/>
-	<field name="TempStart_A" class="java.math.BigDecimal"/>
-	<field name="DensityStart_A" class="java.math.BigDecimal"/>
-	<field name="MassEnd_S" class="java.math.BigDecimal"/>
-	<field name="VolumeEnd_S" class="java.math.BigDecimal"/>
-	<field name="TempEnd_S" class="java.math.BigDecimal"/>
-	<field name="DensityEnd_S" class="java.math.BigDecimal"/>
-	<field name="MassEnd_B" class="java.math.BigDecimal"/>
-	<field name="VolumeEnd_B" class="java.math.BigDecimal"/>
-	<field name="TempEnd_B" class="java.math.BigDecimal"/>
-	<field name="DensityEnd_B" class="java.math.BigDecimal"/>
-	<field name="MassEnd_A" class="java.math.BigDecimal"/>
-	<field name="VolumeEnd_A" class="java.math.BigDecimal"/>
-	<field name="TempEnd_A" class="java.math.BigDecimal"/>
-	<field name="DensityEnd_A" class="java.math.BigDecimal"/>
-	<field name="Processing_Mass" class="java.math.BigDecimal"/>
-	<field name="Processing_Volume" class="java.math.BigDecimal"/>
-	<field name="BLF_Mass" class="java.math.BigDecimal"/>
-	<field name="BLF_Volume" class="java.math.BigDecimal"/>
-	<field name="AKDG_Mass" class="java.math.BigDecimal"/>
-	<field name="AKDF_Volume" class="java.math.BigDecimal"/>
-	<field name="BLF_Percent" class="java.math.BigDecimal"/>
-	<field name="AKDG_Percent" class="java.math.BigDecimal"/>
-	<field name="OTG_Percent" class="java.math.BigDecimal"/>
-	<field name="BLF_AKDG_Percent" class="java.math.BigDecimal"/>
-	<field name="BLF_AKDG_OTG_Percent" class="java.math.BigDecimal"/>
-	<field name="sirieDensity20_Start" class="java.math.BigDecimal"/>
-	<field name="sirieDensity20_End" class="java.math.BigDecimal"/>
-	<field name="blfDensity20_Start" class="java.math.BigDecimal"/>
-	<field name="blfDensity20_End" class="java.math.BigDecimal"/>
-	<field name="akdgDensity20_Start" class="java.math.BigDecimal"/>
-	<field name="akdgDensity20_End" class="java.math.BigDecimal"/>
-	<field name="drainStartLevel" class="java.lang.Integer"/>
-	<field name="drainFinishLevel" class="java.lang.Integer"/>
-	<field name="drainDensity" class="java.math.BigDecimal"/>
-	<field name="drainVolume" class="java.lang.Integer"/>
-	<field name="drainMass" class="java.math.BigDecimal"/>
-	<field name="drained" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_startLevel" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_finishLevel" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_startVolume" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_endVolume" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_startMass" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_endMass" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_startDensity" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_endDensity" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_startDensity20" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_endDensity20" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_Volume" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_Mass" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_startTemp" class="java.math.BigDecimal"/>
-	<field name="otg_uppg_endTemp" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_Volume" class="java.math.BigDecimal"/>
-	<field name="otg_tsp_Mass" class="java.math.BigDecimal"/>
-	<field name="feed_startData" class="java.lang.Integer"/>
-	<field name="feed_finishData" class="java.lang.Integer"/>
-	<field name="feed_total" class="java.lang.Integer"/>
-	<field name="Component_1" class="java.lang.String"/>
-	<field name="Percent_1" class="java.lang.Double"/>
-	<field name="Component_2" class="java.lang.String"/>
-	<field name="Percent_2" class="java.lang.Double"/>
-	<field name="Component_3" class="java.lang.String"/>
-	<field name="Percent_3" class="java.lang.Double"/>
-	<field name="Component_4" class="java.lang.String"/>
-	<field name="Percent_4" class="java.lang.Double"/>
-	<field name="Component_5" class="java.lang.String"/>
-	<field name="Percent_5" class="java.lang.Double"/>
-	<field name="wasteGases" class="java.math.BigDecimal"/>
-	<field name="drained_BLF" class="java.math.BigDecimal"/>
-	<field name="Percent_6" class="java.lang.Double"/>
-	<field name="Component_6" class="java.lang.String"/>
-	<field name="Tank_Name" class="java.lang.String"/>
+	<field name="component1" class="java.lang.String">
+		<fieldDescription><![CDATA[component1]]></fieldDescription>
+	</field>
+	<field name="tempStartA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tempStartA]]></fieldDescription>
+	</field>
+	<field name="component2" class="java.lang.String">
+		<fieldDescription><![CDATA[component2]]></fieldDescription>
+	</field>
+	<field name="BLFAKDGPercent" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[BLFAKDGPercent]]></fieldDescription>
+	</field>
+	<field name="component3" class="java.lang.String">
+		<fieldDescription><![CDATA[component3]]></fieldDescription>
+	</field>
+	<field name="densityStartA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[densityStartA]]></fieldDescription>
+	</field>
+	<field name="component4" class="java.lang.String">
+		<fieldDescription><![CDATA[component4]]></fieldDescription>
+	</field>
+	<field name="otguppgMass" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[otguppgMass]]></fieldDescription>
+	</field>
+	<field name="akdgDensity20Start" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[akdgDensity20Start]]></fieldDescription>
+	</field>
+	<field name="tempStartB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tempStartB]]></fieldDescription>
+	</field>
+	<field name="otguppgstartVolume" class="java.lang.Long">
+		<fieldDescription><![CDATA[otguppgstartVolume]]></fieldDescription>
+	</field>
+	<field name="percent1" class="java.lang.Double">
+		<fieldDescription><![CDATA[percent1]]></fieldDescription>
+	</field>
+	<field name="percent2" class="java.lang.Double">
+		<fieldDescription><![CDATA[percent2]]></fieldDescription>
+	</field>
+	<field name="percent3" class="java.lang.Double">
+		<fieldDescription><![CDATA[percent3]]></fieldDescription>
+	</field>
+	<field name="otguppgendDensity20" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[otguppgendDensity20]]></fieldDescription>
+	</field>
+	<field name="percent4" class="java.lang.Double">
+		<fieldDescription><![CDATA[percent4]]></fieldDescription>
+	</field>
+	<field name="component5" class="java.lang.String">
+		<fieldDescription><![CDATA[component5]]></fieldDescription>
+	</field>
+	<field name="component6" class="java.lang.String">
+		<fieldDescription><![CDATA[component6]]></fieldDescription>
+	</field>
+	<field name="densityStartB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[densityStartB]]></fieldDescription>
+	</field>
+	<field name="feedstartData" class="java.lang.Integer">
+		<fieldDescription><![CDATA[feedstartData]]></fieldDescription>
+	</field>
+	<field name="processingMass" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[processingMass]]></fieldDescription>
+	</field>
+	<field name="otguppgendDensity" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[otguppgendDensity]]></fieldDescription>
+	</field>
+	<field name="drainMass" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[drainMass]]></fieldDescription>
+	</field>
+	<field name="tempEndB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tempEndB]]></fieldDescription>
+	</field>
+	<field name="tempEndA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tempEndA]]></fieldDescription>
+	</field>
+	<field name="massEndB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[massEndB]]></fieldDescription>
+	</field>
+	<field name="percent5" class="java.lang.Double">
+		<fieldDescription><![CDATA[percent5]]></fieldDescription>
+	</field>
+	<field name="massEndA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[massEndA]]></fieldDescription>
+	</field>
+	<field name="percent6" class="java.lang.Double">
+		<fieldDescription><![CDATA[percent6]]></fieldDescription>
+	</field>
+	<field name="tankName" class="java.lang.String">
+		<fieldDescription><![CDATA[tankName]]></fieldDescription>
+	</field>
+	<field name="otguppgendMass" class="java.lang.Long">
+		<fieldDescription><![CDATA[otguppgendMass]]></fieldDescription>
+	</field>
+	<field name="drainedBLF" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[drainedBLF]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="densityStartS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[densityStartS]]></fieldDescription>
+	</field>
+	<field name="massEndS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[massEndS]]></fieldDescription>
+	</field>
+	<field name="otguppgVolume" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[otguppgVolume]]></fieldDescription>
+	</field>
+	<field name="akdgDensity20End" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[akdgDensity20End]]></fieldDescription>
+	</field>
+	<field name="blfDensity20End" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[blfDensity20End]]></fieldDescription>
+	</field>
+	<field name="otguppgstartLevel" class="java.lang.Long">
+		<fieldDescription><![CDATA[otguppgstartLevel]]></fieldDescription>
+	</field>
+	<field name="otguppgstartMass" class="java.lang.Long">
+		<fieldDescription><![CDATA[otguppgstartMass]]></fieldDescription>
+	</field>
+	<field name="feedTotal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[feedTotal]]></fieldDescription>
+	</field>
+	<field name="AKDGPercent" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[AKDGPercent]]></fieldDescription>
+	</field>
+	<field name="OTGPercent" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[OTGPercent]]></fieldDescription>
+	</field>
+	<field name="tempStartS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tempStartS]]></fieldDescription>
+	</field>
+	<field name="wasteGases" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[wasteGases]]></fieldDescription>
+	</field>
+	<field name="BLFAKDGOTGPercent" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[BLFAKDGOTGPercent]]></fieldDescription>
+	</field>
+	<field name="blfDensity20Start" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[blfDensity20Start]]></fieldDescription>
+	</field>
+	<field name="sirieDensity20Start" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[sirieDensity20Start]]></fieldDescription>
+	</field>
+	<field name="ADate" class="java.lang.String">
+		<fieldDescription><![CDATA[ADate]]></fieldDescription>
+	</field>
+	<field name="massStartS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[massStartS]]></fieldDescription>
+	</field>
+	<field name="otguppgendTemp" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[otguppgendTemp]]></fieldDescription>
+	</field>
+	<field name="processingVolume" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[processingVolume]]></fieldDescription>
+	</field>
+	<field name="otguppgendVolume" class="java.lang.Long">
+		<fieldDescription><![CDATA[otguppgendVolume]]></fieldDescription>
+	</field>
+	<field name="otguppgstartDensity20" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[otguppgstartDensity20]]></fieldDescription>
+	</field>
+	<field name="densityEndA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[densityEndA]]></fieldDescription>
+	</field>
+	<field name="densityEndB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[densityEndB]]></fieldDescription>
+	</field>
+	<field name="massStartA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[massStartA]]></fieldDescription>
+	</field>
+	<field name="slaveOper" class="java.lang.String">
+		<fieldDescription><![CDATA[slaveOper]]></fieldDescription>
+	</field>
+	<field name="massStartB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[massStartB]]></fieldDescription>
+	</field>
+	<field name="otgtspVolume" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[otgtspVolume]]></fieldDescription>
+	</field>
+	<field name="otgtspMass" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[otgtspMass]]></fieldDescription>
+	</field>
+	<field name="otguppgstartTemp" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[otguppgstartTemp]]></fieldDescription>
+	</field>
+	<field name="sirieDensity20End" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[sirieDensity20End]]></fieldDescription>
+	</field>
+	<field name="BLFMass" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[BLFMass]]></fieldDescription>
+	</field>
+	<field name="mainOper" class="java.lang.String">
+		<fieldDescription><![CDATA[mainOper]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="volumeStartS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[volumeStartS]]></fieldDescription>
+	</field>
+	<field name="otguppgstartDensity" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[otguppgstartDensity]]></fieldDescription>
+	</field>
+	<field name="AKDFVolume" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[AKDFVolume]]></fieldDescription>
+	</field>
+	<field name="drainStartLevel" class="java.lang.Integer">
+		<fieldDescription><![CDATA[drainStartLevel]]></fieldDescription>
+	</field>
+	<field name="drainVolume" class="java.lang.Integer">
+		<fieldDescription><![CDATA[drainVolume]]></fieldDescription>
+	</field>
+	<field name="drainFinishLevel" class="java.lang.Integer">
+		<fieldDescription><![CDATA[drainFinishLevel]]></fieldDescription>
+	</field>
+	<field name="tempEndS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tempEndS]]></fieldDescription>
+	</field>
+	<field name="densityEndS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[densityEndS]]></fieldDescription>
+	</field>
+	<field name="drained" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[drained]]></fieldDescription>
+	</field>
+	<field name="AShift" class="java.lang.Integer">
+		<fieldDescription><![CDATA[AShift]]></fieldDescription>
+	</field>
+	<field name="feedfinishData" class="java.lang.Integer">
+		<fieldDescription><![CDATA[feedfinishData]]></fieldDescription>
+	</field>
+	<field name="volumeStartB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[volumeStartB]]></fieldDescription>
+	</field>
+	<field name="volumeEndA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[volumeEndA]]></fieldDescription>
+	</field>
+	<field name="volumeEndB" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[volumeEndB]]></fieldDescription>
+	</field>
+	<field name="volumeStartA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[volumeStartA]]></fieldDescription>
+	</field>
+	<field name="otguppgfinishLevel" class="java.lang.Long">
+		<fieldDescription><![CDATA[otguppgfinishLevel]]></fieldDescription>
+	</field>
+	<field name="AKDGMass" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[AKDGMass]]></fieldDescription>
+	</field>
+	<field name="BLFVolume" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[BLFVolume]]></fieldDescription>
+	</field>
+	<field name="drainDensity" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[drainDensity]]></fieldDescription>
+	</field>
+	<field name="BLFPercent" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[BLFPercent]]></fieldDescription>
+	</field>
+	<field name="volumeEndS" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[volumeEndS]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -124,7 +295,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font size="15"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{aDate}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ADate}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="38" width="555" height="1" uuid="331b0db9-1cde-4541-b98a-b86f78a396f3"/>
@@ -184,35 +355,35 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{component1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="252" y="72" width="75" height="12" backcolor="#FFFFCC" uuid="92f82092-1985-494c-a639-b3323882fd92"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{component3}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="174" y="72" width="75" height="12" backcolor="#FFFFCC" uuid="3efbc8bc-9447-465b-b2dd-ef390e2ae160"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{component2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="330" y="72" width="75" height="12" backcolor="#FFFFCC" uuid="7ceb255c-0239-4993-99d4-733bfadc9522"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_4}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{component4}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="407" y="72" width="72" height="12" backcolor="#FFFFCC" uuid="4bff1877-d4a9-4607-ad68-abf62f909a1e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_5}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{component5}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="53" width="555" height="1" uuid="7816ab7d-e358-4270-a166-6c0c7f9ca6a6"/>
@@ -231,35 +402,35 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{percent1}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="174" y="88" width="75" height="12" backcolor="#FFFFCC" uuid="07968c90-c475-4739-a9d6-70f88eae7a69"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_2}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{percent2}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="252" y="88" width="75" height="12" backcolor="#FFFFCC" uuid="5230bd95-68f6-49bc-acdc-0a8896248084"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_3}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{percent3}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="330" y="88" width="75" height="12" backcolor="#FFFFCC" uuid="243284af-fdca-4f04-986b-231536c8ae38"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_4}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{percent4}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="408" y="88" width="72" height="12" backcolor="#FFFFCC" uuid="d58b0df0-28d1-495d-a0ce-56d37b320f93"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_5}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{percent5}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="101" y="39" width="1" height="61" uuid="15aba563-61b2-42b3-a532-f3e10d1d23e3"/>
@@ -350,21 +521,21 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeStart_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{volumeStartS}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="161" y="178" width="45" height="12" uuid="75e66ab4-b2e9-48c1-9889-63fea4488f4f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeEnd_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{volumeEndS}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="162" y="190" width="44" height="12" backcolor="#FFFFCC" uuid="9ad88618-968c-4a3c-a325-881465a82bb0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{processingVolume}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement mode="Transparent" x="0" y="203" width="555" height="1" uuid="dea4c9bc-3843-4985-b4e6-8755a922ccf1"/>
@@ -374,49 +545,49 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityStart_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{densityStartS}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="205" y="178" width="46" height="12" uuid="034e0ebb-b69b-422d-8856-0c773ccf6ed0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityEnd_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{densityEndS}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="251" y="167" width="28" height="12" uuid="a71347a0-784e-4e76-8a67-332882058f68"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempStart_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tempStartS}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="251" y="178" width="28" height="12" uuid="d08a6210-6b89-45ad-990f-b1ff880ee014"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempEnd_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tempEndS}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="280" y="178" width="45" height="12" uuid="1ff1ed82-c2d7-49c2-9340-921ce7a8f3de"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MassEnd_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{massEndS}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="280" y="190" width="45" height="12" backcolor="#FFFFCC" uuid="131afca9-200c-49c3-b4b9-d3a691d62d8c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{processingMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="280" y="167" width="45" height="12" uuid="f4854f1b-c35e-4ffb-956e-c0d53e083dab"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MassStart_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{massStartS}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Title" x="30" y="17" width="24" height="18" uuid="d2d8b52b-3ce7-44c9-ae26-d0dfdda9287f"/>
@@ -437,14 +608,14 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{sirieDensity20_End}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{sirieDensity20End}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="326" y="167" width="45" height="12" uuid="aa82dfd7-7f6b-42bb-881f-0e13c92a9152"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{sirieDensity20_Start}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{sirieDensity20Start}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="2" y="204" width="552" height="13" uuid="87396b29-a81d-4ec1-96de-827f870a7577"/>
@@ -467,7 +638,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFMass}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="253" y="218" width="1" height="116" uuid="2b6925aa-3a2a-4fba-906c-ed0730f9ba6c"/>
@@ -477,21 +648,21 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeEnd_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{volumeEndB}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="328" y="243" width="45" height="12" uuid="78b1f76e-82b2-4d4f-b626-f3b0f9564a17"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{blfDensity20_End}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{blfDensity20End}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="230" width="28" height="12" uuid="b57b3653-0e18-49d2-b57a-07b3bfb812ff"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempStart_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tempStartB}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="42" y="217" width="35" height="12" uuid="ae863791-afe3-4713-8763-00734fd9179c"/>
@@ -515,28 +686,28 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeStart_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{volumeStartB}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="209" y="230" width="45" height="12" uuid="dc9211dd-f72a-4c69-95ab-970842315cc2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityStart_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{densityStartB}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="282" y="230" width="45" height="12" uuid="9d78d3fe-ae8c-4861-a2b8-7e3ae472cde8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MassStart_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{massStartB}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="243" width="28" height="12" uuid="6bd346f8-f036-4686-9547-e433d82c9798"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempEnd_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tempEndB}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="163" y="217" width="45" height="12" uuid="62666a3a-8e7b-4c19-9511-f7d073f7b631"/>
@@ -550,7 +721,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFVolume}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="209" y="217" width="45" height="12" uuid="5f9ce141-225b-4bce-9799-e4ce5e576134"/>
@@ -564,14 +735,14 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{blfDensity20_Start}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{blfDensity20Start}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="282" y="243" width="45" height="12" uuid="8ab69136-e675-4a1c-88bf-4cbf260eb42c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MassEnd_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{massEndB}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="282" y="218" width="1" height="116" uuid="7c4fd87e-a70c-4b61-8ea4-0a6872102d36"/>
@@ -600,7 +771,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityEnd_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{densityEndB}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="282" y="217" width="45" height="12" uuid="dfc26186-b6e1-4c04-8332-5a614c7d911a"/>
@@ -634,14 +805,14 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeEnd_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{volumeEndA}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="209" y="282" width="45" height="12" uuid="92d95b56-fdad-44ab-8fef-f07dd106f9d0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityStart_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{densityStartA}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="163" y="269" width="45" height="12" uuid="f8f859bb-db08-4538-b898-afe5b8ce4b23"/>
@@ -658,7 +829,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MassStart_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{massStartA}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="328" y="269" width="45" height="12" uuid="3cc7b908-a408-4842-a87b-b3e82fbff7a9"/>
@@ -672,7 +843,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeStart_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{volumeStartA}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="42" y="304" width="513" height="1" uuid="23872db6-0424-4090-a433-b0c054d06713"/>
@@ -706,21 +877,21 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDGMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="163" y="306" width="45" height="12" backcolor="#FFFFCC" uuid="d8358018-7406-4829-8c5d-51c46aed9d64"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDFVolume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="282" y="293" width="45" height="12" uuid="b91267ee-ff45-4fb5-bbc6-7ab825df5eae"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{MassEnd_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{massEndA}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="42" y="269" width="35" height="12" uuid="bdb48ab5-7517-4011-aa04-cb7bebdec384"/>
@@ -741,35 +912,35 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{akdgDensity20_Start}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{akdgDensity20Start}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="328" y="293" width="45" height="12" uuid="a0892d45-2a28-4c91-b4fe-c3f5635e10c3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{akdgDensity20_End}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{akdgDensity20End}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="209" y="293" width="45" height="12" uuid="60b12ffa-34ab-4e27-a7f1-5054af27ad74"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityEnd_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{densityEndA}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="293" width="28" height="12" uuid="b13c9d9b-f3d0-4146-9cf6-157ea03c6b93"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempEnd_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tempEndA}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="282" width="28" height="12" uuid="f2c094ab-62cb-4add-8e86-932078d5746d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempStart_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tempStartA}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="372" y="154" width="45" height="12" uuid="ff6edbd0-2889-4714-bb52-5691ee826998"/>
@@ -806,21 +977,21 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{processingVolume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="464" y="167" width="45" height="36" backcolor="#FFFFCC" uuid="aa033264-8577-49da-9bd8-23955a1bcddb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{processingMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0000">
 				<reportElement mode="Opaque" x="418" y="167" width="45" height="36" backcolor="#FFFFCC" uuid="c00af041-9614-495d-b22a-5e9449bd4c89"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}/$F{Processing_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{processingMass}/$F{processingVolume}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="1" y="319" width="554" height="1" uuid="30cb436a-23e8-40dd-98ea-27f3ab13c794"/>
@@ -830,7 +1001,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFMass}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="509" y="243" width="1" height="25" uuid="e1558cf9-115b-4a2c-a73e-433108ff8bd7"/>
@@ -843,7 +1014,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}/$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFMass}/$F{BLFVolume}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="463" y="218" width="1" height="319" uuid="7b69716a-628a-4f25-b61f-5fd30e464288"/>
@@ -853,7 +1024,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFVolume}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="373" y="243" width="45" height="12" uuid="51ccaff0-31d6-43df-b378-213efec45b16"/>
@@ -884,7 +1055,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Percent}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFPercent}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="510" y="243" width="45" height="12" uuid="c029299b-4f53-469f-baf5-38febcd4d419"/>
@@ -912,7 +1083,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDGMass}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="419" y="293" width="45" height="12" uuid="6048a98a-14f4-4fcd-868e-9ef13c3ebbc3"/>
@@ -933,7 +1104,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDFVolume}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="464" y="293" width="45" height="12" uuid="95b0e001-2de6-44d0-b213-0652b33e26be"/>
@@ -961,14 +1132,14 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}/$F{AKDF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDGMass}/$F{AKDFVolume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="306" width="45" height="12" backcolor="#FFFFCC" uuid="8d0314b2-f6cf-4304-a4d1-b2ca71fe41eb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Percent}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDGPercent}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="373" y="269" width="90" height="12" uuid="61203fad-de21-4756-a591-1b01cf36ef1b"/>
@@ -990,11 +1161,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[ОТГ]]></text>
 			</staticText>
-			<subreport>
-				<reportElement style="Detail" mode="Opaque" x="77" y="333" width="295" height="116" uuid="d63e7d36-9951-41b6-abc8-e139d15ac606"/>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report1_subreport1.jasper"]]></subreportExpression>
-			</subreport>
 			<staticText>
 				<reportElement x="42" y="320" width="35" height="12" uuid="00e2370e-3dac-4ef3-9726-afbaf164356e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -1201,84 +1367,84 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endVolume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgendVolume}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="209" y="462" width="45" height="12" uuid="0358ab92-727f-4609-a3a3-bd6a0ae90186"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_startDensity}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgstartDensity}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="163" y="462" width="45" height="12" uuid="c868c0ec-4ad2-4989-8798-011ec11f45a6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_startVolume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgstartVolume}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="328" y="475" width="45" height="12" uuid="06ba78dc-a53a-407c-b145-fd43e73842ad"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endDensity20}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgendDensity20}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="209" y="475" width="45" height="12" uuid="85c4fc50-4fc1-415d-b27c-4a17eb466855"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endDensity}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgendDensity}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="462" width="28" height="12" uuid="a77a1abd-8f50-4589-9bf2-32642db66108"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_startTemp}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgstartTemp}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="282" y="462" width="45" height="12" uuid="931d57f6-cd62-4572-b49c-ab98856a2bcc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_startMass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgstartMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="282" y="475" width="45" height="12" uuid="903e0265-ec4e-41a3-9406-7ff5b2789861"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endMass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgendMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="283" y="487" width="44" height="12" backcolor="#FFFFCC" uuid="29831165-a7eb-4126-8a20-b07bbbcd8db3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endMass}-$F{otg_uppg_startMass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgMass}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="328" y="462" width="45" height="12" uuid="410af955-0c28-45ac-a278-f104f2030834"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_startDensity20}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgstartDensity20}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="163" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="bc7c0be8-f45b-4170-8580-5e1d7beda3e1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endVolume}-$F{otg_uppg_startVolume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgVolume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="475" width="28" height="12" uuid="ff85c6b0-980d-480b-872c-178f2c6b7a0d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endTemp}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgendTemp}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="499" width="555" height="1" uuid="75780b9a-37e3-48a9-8d68-13f7ff1f5591"/>
@@ -1365,56 +1531,56 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgMass}+$F{otgtspMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="373" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="f931f159-4ae6-410c-8334-60a0e2eb7aaa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_tsp_Volume}+$F{otg_uppg_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otgtspVolume}+$F{otguppgVolume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0000">
 				<reportElement mode="Opaque" x="419" y="487" width="44" height="12" backcolor="#FFFFCC" uuid="fbc35cb8-aab4-46c5-9fad-5f167fe9da8f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{otg_uppg_Mass}+$F{otg_tsp_Mass})/($F{otg_tsp_Volume}+$F{otg_uppg_Volume})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{otguppgMass}+$F{otgtspMass})/($F{otgtspVolume}+$F{otguppgVolume})]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="49ac7175-4f09-4997-86fb-eab06480268c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{OTG_Percent}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{OTGPercent}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="113" y="475" width="49" height="12" uuid="a442fcab-ea6e-4a9e-b089-dd88fb2426c2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_finishLevel}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgfinishLevel}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="113" y="462" width="49" height="12" uuid="6acde6ab-6a6f-463f-9e63-dc622c20c91c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_startLevel}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otguppgstartLevel}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="77" y="463" width="35" height="23" uuid="960a20e6-66da-47aa-9c1a-d1a5d0316b79"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Tank_Name}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tankName}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="482" y="72" width="72" height="12" backcolor="#FFFFCC" uuid="21569d7a-c350-4868-b450-224228218308"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_6}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{component6}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="406" y="70" width="1" height="30" uuid="d4e15fdf-13e1-41d0-a20c-8a172e680abe"/>
@@ -1430,7 +1596,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_6}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{percent6}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="1" y="101" width="139" height="12" uuid="d4d8cccd-6005-47c3-86f0-b9615a2d49f0"/>
@@ -1578,14 +1744,14 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{feed_startData}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{feedstartData}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="115" y="525" width="71" height="11" uuid="8f1b4366-6a7a-41a8-85f7-95d6cbdfc11c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{feed_finishData}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{feedfinishData}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="186" y="512" width="1" height="24" uuid="b8259823-fdba-4e05-a122-c139dda12024"/>
@@ -1605,7 +1771,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{feed_total}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{feedTotal}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="115" y="512" width="71" height="12" uuid="80135e7d-fded-4f70-8c3c-304ecdf22e7f"/>
@@ -1649,7 +1815,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_AKDG_Percent}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFAKDGPercent}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="373" y="500" width="45" height="12" uuid="70587408-b96f-482d-bcc0-caf0809760c6"/>
@@ -1663,7 +1829,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}+$F{AKDG_Mass}+$F{otg_uppg_Mass}+$F{otg_tsp_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFMass}+$F{AKDGMass}+$F{otguppgMass}+$F{otgtspMass}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="419" y="500" width="44" height="12" uuid="6f547986-0054-4306-b237-546ee996333f"/>
@@ -1677,14 +1843,14 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{AKDG_Mass}+$F{BLF_Mass}+$F{otg_tsp_Mass}+$F{otg_uppg_Mass})*100.0/($F{Processing_Mass}-$F{drained})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{AKDGMass}+$F{BLFMass}+$F{otgtspMass}+$F{otguppgMass})*100.0/($F{processingMass}-$F{drained})]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="512" width="45" height="24" backcolor="#FFFFCC" uuid="3edd26fd-d7b9-44fe-a029-22fe61a82e02"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_AKDG_OTG_Percent}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLFAKDGOTGPercent}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="510" y="500" width="45" height="12" uuid="73bae0b4-239a-4165-8495-958c240d6440"/>
@@ -1873,7 +2039,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement style="Title" x="54" y="17" width="46" height="18" uuid="320dc0b6-d671-439a-b3f6-bfc24613b038">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="15"/>
@@ -1882,7 +2048,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="167" width="35" height="12" uuid="214e9fd3-476a-4847-9935-d056c4867ed8">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1891,7 +2057,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="178" width="35" height="12" uuid="f71dd396-afc3-4f8b-9bb8-d02553974f98">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1900,7 +2066,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="167" width="35" height="12" uuid="1f2f5f73-c49f-41fa-9a5d-f571ebee9b75">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1909,7 +2075,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="178" width="35" height="12" uuid="5ca8d492-552e-43e1-aeb0-03f0c4b04e8c">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1918,7 +2084,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="242" width="35" height="12" uuid="f4516f82-7f32-46ef-866c-27e1f010d4d6">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1927,7 +2093,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="230" width="35" height="12" uuid="20e194b7-a363-4960-877f-2ef4624a3cb8">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1936,7 +2102,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="293" width="35" height="12" uuid="1f27aa51-6a5c-41b3-884e-759504f063e0">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1945,7 +2111,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="281" width="35" height="12" uuid="8ccf968d-5e76-43c3-9908-9b916441551b">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1954,7 +2120,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="463" width="35" height="12" uuid="39bd85a7-8fb6-4401-94bf-605e3034a729">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1963,7 +2129,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="475" width="35" height="12" uuid="333f2310-3d6e-4aa2-986a-b6d630aee548">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1972,7 +2138,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="333" width="35" height="12" uuid="570d8b84-5ef3-4173-89a0-db5f29cd52ee">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1981,7 +2147,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="437" width="35" height="12" uuid="e7e9a96d-1fce-494c-ac04-cd2aa531a4f1">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1990,7 +2156,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="242" width="35" height="12" uuid="12134f50-59e9-4fc7-a5e2-7cb20fe3a89e">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -1999,7 +2165,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="230" width="35" height="12" uuid="a307bdb3-52eb-4c1d-8831-2b8c41b201c7">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2008,7 +2174,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="293" width="35" height="12" uuid="096d193c-9c1f-411f-9326-15161d46cfba">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2017,7 +2183,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="281" width="35" height="12" uuid="162472fa-76b1-46ab-9632-396459450444">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2026,7 +2192,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="475" width="35" height="12" uuid="0142be1f-5841-43d9-a18a-5fc824cd4feb">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2035,7 +2201,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="463" width="35" height="12" uuid="b1a8881f-7fe5-42a1-84be-b80333c1ae99">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2044,7 +2210,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="437" width="35" height="12" uuid="0958babc-c2bf-4d36-af95-2aca149621ef">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2053,7 +2219,7 @@ WHERE
 			</staticText>
 			<staticText>
 				<reportElement x="41" y="333" width="35" height="12" uuid="b27195fc-52a4-49f1-a545-43524153bfab">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2092,12 +2258,21 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{drained_BLF}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{drainedBLF}]]></textFieldExpression>
 			</textField>
 			<image hAlign="Right" isUsingCache="true">
 				<reportElement style="Title" x="279" y="0" width="275" height="35" uuid="f943e2de-7f01-4c59-908c-b92fd83dac20"/>
-				<imageExpression><![CDATA["C:\\Projects\\Netbeans\\OilPlant\\report_templates\\alexprom_new.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:/Projects/Netbeans/Alexprom/OilPlant/UPPG_Reports/report_templates/alexprom_new.png"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement style="Title" positionType="Float" x="54" y="17" width="46" height="18" uuid="c00583f1-3ea0-4280-a37d-2de969e2c0fa">
+					<printWhenExpression><![CDATA[$F{AShift}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[08:00]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

@@ -5,26 +5,18 @@
  */
 package com.alexprom.uppg_reports;
 
-import com.alexprom.entities.process.VactUPPG;
-import com.microsoft.sqlserver.jdbc.SQLServerDriver;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory;
 import net.sf.jasperreports.view.JasperViewer;
-import org.openide.util.Exceptions;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 
 /**
  *
@@ -32,46 +24,38 @@ import org.openide.util.Exceptions;
  */
 public class UPPG_ShiftReport extends javax.swing.JPanel {
 
-    private String reportSource = "./report_templates/actUPPG.jrxml";
+    private String reportSource = "./report_templates/report1.jrxml";
     //private String reportDest = "./report_results/simple.html";
     private Map<String, Object> params;
     
-    public UPPG_ShiftReport() {
+    public UPPG_ShiftReport(EntityManager em) {
         initComponents();
         
         this.params = new HashMap<>();
         try{
             JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
             params.put("actID", new Long(3));
-            //params.put("SUBREPORT_DIR", "./report_templates/");
-            EntityManager em = Persistence.createEntityManagerFactory("ProcessDictionaryPU").createEntityManager();
+            params.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER, em);
             
-            //JasperViewer.viewReport(jasperPrint);
             try {
                 JasperPrint jasperPrint;
-                jasperPrint = JasperFillManager.fillReport(jasperReport, params, getConnection());
-                //JasperExportManager.exportReportToHtmlFile(jasperPrint, reportDest);
-                JasperViewer jasperView = new JasperViewer(jasperPrint);
-                jasperView.show();
-                //jasperView.setVisible(true);
+                jasperPrint = JasperFillManager.fillReport(jasperReport, params); 
+                JasperViewer jasperView = new JasperViewer(jasperPrint, false);
+                jasperView.setVisible(true);
                 //this.add(viewer);
             } catch (Exception ex) {
-                Exceptions.printStackTrace(ex);
+                NotifyDescriptor d = new NotifyDescriptor.Message(ex, NotifyDescriptor.ERROR_MESSAGE);
+                Object result = DialogDisplayer.getDefault().notify(d);
             }
             
             
         }catch (JRException ex){
-            ex.printStackTrace();
+            NotifyDescriptor d = new NotifyDescriptor.Message(ex, NotifyDescriptor.ERROR_MESSAGE);
+                Object result = DialogDisplayer.getDefault().notify(d);
         }
     
     }
     
-    private static Connection getConnection() throws Exception {
-        DriverManager.registerDriver(new SQLServerDriver());
-        Connection conn = DriverManager.getConnection("jdbc:sqlserver://176.105.202.29:1433;databaseName=Alexprom_ASUTP", "roman", "roman");
-        return conn;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

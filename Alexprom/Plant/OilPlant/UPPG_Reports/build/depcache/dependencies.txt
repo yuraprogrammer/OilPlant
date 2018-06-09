@@ -363,9 +363,9 @@ org.openide.NotifyDescriptor
 ||:com.alexprom.uppg_reports.UPPG_ShiftReport
 com.microsoft.sqlserver.jdbc.SQLServerDriver
 java.sql.DriverManager
-org.openide.util.Exceptions
 javax.persistence.EntityManager
 net.sf.jasperreports.engine.JasperCompileManager
+org.openide.NotifyDescriptor
 net.sf.jasperreports.engine.JasperReport
 javax.swing.GroupLayout$ParallelGroup
 java.lang.Long
@@ -374,7 +374,8 @@ net.sf.jasperreports.engine.JasperFillManager
 com.alexprom.uppg_reports.UPPG_ShiftReport
 net.sf.jasperreports.view.JasperViewer
 javax.swing.JPanel
-javax.persistence.EntityManagerFactory
+org.openide.DialogDisplayer
+net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory
 java.util.HashMap
 java.lang.Exception
 javax.swing.GroupLayout$Alignment
@@ -382,7 +383,7 @@ javax.swing.GroupLayout
 java.lang.Short
 net.sf.jasperreports.engine.JRException
 javax.swing.GroupLayout$Group
-javax.persistence.Persistence
+org.openide.NotifyDescriptor$Message
 ||:com.alexprom.uppg_reports.OtgAccount
 java.lang.Object
 com.alexprom.uppg_reports.OtgAccount

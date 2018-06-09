@@ -36,7 +36,7 @@ public final class PreviewAct implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
         if (tc.getAct()!=null){
-            UPPG_ShiftReport frm = new UPPG_ShiftReport();            
+            UPPG_ShiftReport frm = new UPPG_ShiftReport(tc.getEntityManager());            
         }else{
             NotifyDescriptor d = new NotifyDescriptor.Message("Для просмотра отчета, должен быть открыт акт!!!", NotifyDescriptor.ERROR_MESSAGE);
             Object result = DialogDisplayer.getDefault().notify(d);

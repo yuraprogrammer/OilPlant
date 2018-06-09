@@ -1,4 +1,4 @@
-#Sat Jun 09 17:22:37 MSK 2018
+#Sun Jun 10 02:02:42 MSK 2018
 org.netbeans.core.startup.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.modules.autoupdate.pluginimporter.OpenIDE-Module-Layer=\u0000
 org.netbeans.modules.settings.AutoUpdate-Show-In-Client=false
@@ -146,8 +146,8 @@ org.netbeans.spi.quicksearch.OpenIDE-Module-Install=\u0000
 org.netbeans.core.OpenIDE-Module-Description=\u0000
 org.netbeans.libs.jna.platform.AutoUpdate-Show-In-Client=false
 org.openide.nodes.OpenIDE-Module-Deprecated=\u0000
-org.netbeans.modules.uihandler.AutoUpdate-Show-In-Client=false
 org.netbeans.core.io.ui.AutoUpdate-Show-In-Client=false
+org.netbeans.modules.uihandler.AutoUpdate-Show-In-Client=false
 org.netbeans.api.templates.AutoUpdate-Show-In-Client=false
 org.netbeans.modules.settings.OpenIDE-Module-Description=\u0000
 org.openide.filesystems.OpenIDE-Module-Install=\u0000
@@ -386,8 +386,8 @@ com.alexprom.reports.OpenIDE-Module-Install=\u0000
 org.netbeans.modules.options.keymap.OpenIDE-Module-Install=\u0000
 org.netbeans.modules.print.OpenIDE-Module-Description=\u0000
 net.java.html.sound.AutoUpdate-Show-In-Client=\u0000
-org.netbeans.modules.masterfs.macosx.AutoUpdate-Show-In-Client=false
 org.netbeans.libs.felix.AutoUpdate-Show-In-Client=false
+org.netbeans.modules.masterfs.macosx.AutoUpdate-Show-In-Client=false
 org.netbeans.modules.autoupdate.pluginimporter.AutoUpdate-Show-In-Client=false
 org.netbeans.swing.plaf.OpenIDE-Module-Install=\u0000
 org.openide.util.lookup.AutoUpdate-Show-In-Client=false
@@ -432,8 +432,8 @@ org.openide.util.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.modules.masterfs.windows.OpenIDE-Module-Description=\u0000
 org.openide.filesystems.compat8.OpenIDE-Module-Layer=\u0000
 org.netbeans.modules.autoupdate.services.OpenIDE-Module-Hide-Classpath-Packages=\u0000
-com.alexprom.utils.AutoUpdate-Show-In-Client=true
 org.netbeans.modules.masterfs.AutoUpdate-Show-In-Client=false
+com.alexprom.utils.AutoUpdate-Show-In-Client=true
 org.netbeans.modules.autoupdate.pluginimporter.OpenIDE-Module-Deprecated=\u0000
 org.netbeans.modules.keyring.OpenIDE-Module-Layer=org/netbeans/modules/keyring/layer.xml
 com.alexprom.uppg_reports.OpenIDE-Module-Hide-Classpath-Packages=\u0000

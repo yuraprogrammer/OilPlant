@@ -10,28 +10,63 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter "/>
 	<property name="net.sf.jasperreports.data.adapter" value="DataAdapter.xml"/>
 	<parameter name="actID" class="java.lang.Long"/>
-	<queryString>
-		<![CDATA[SELECT *
-FROM v_otgTspDetail
-WHERE 
-	 actId = $P{actID}]]>
+	<queryString language="EJBQL">
+		<![CDATA[SELECT v FROM VotgTspDetail v WHERE actID = $P{actID}]]>
 	</queryString>
-	<field name="Tank_Name" class="java.lang.String"/>
-	<field name="startLevel" class="java.math.BigDecimal"/>
-	<field name="finishLevel" class="java.math.BigDecimal"/>
-	<field name="actID" class="java.lang.Long"/>
-	<field name="startVolume" class="java.math.BigDecimal"/>
-	<field name="endVolume" class="java.math.BigDecimal"/>
-	<field name="startMass" class="java.math.BigDecimal"/>
-	<field name="startDensity" class="java.math.BigDecimal"/>
-	<field name="endDensity" class="java.math.BigDecimal"/>
-	<field name="startDensity20" class="java.math.BigDecimal"/>
-	<field name="endDensity20" class="java.math.BigDecimal"/>
-	<field name="otgToTspVolume" class="java.math.BigDecimal"/>
-	<field name="otgToTspMass" class="java.math.BigDecimal"/>
-	<field name="startTemp" class="java.math.BigDecimal"/>
-	<field name="endTemp" class="java.math.BigDecimal"/>
-	<field name="endMass" class="java.math.BigDecimal"/>
+	<field name="startTemp" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[startTemp]]></fieldDescription>
+	</field>
+	<field name="otgToTspVolume" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[otgToTspVolume]]></fieldDescription>
+	</field>
+	<field name="startMass" class="java.lang.Long">
+		<fieldDescription><![CDATA[startMass]]></fieldDescription>
+	</field>
+	<field name="startVolume" class="java.lang.Long">
+		<fieldDescription><![CDATA[startVolume]]></fieldDescription>
+	</field>
+	<field name="actID" class="java.lang.Long">
+		<fieldDescription><![CDATA[actID]]></fieldDescription>
+	</field>
+	<field name="otgToTspMass" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[otgToTspMass]]></fieldDescription>
+	</field>
+	<field name="startLevel" class="java.lang.Long">
+		<fieldDescription><![CDATA[startLevel]]></fieldDescription>
+	</field>
+	<field name="startDensity" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[startDensity]]></fieldDescription>
+	</field>
+	<field name="endDensity" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[endDensity]]></fieldDescription>
+	</field>
+	<field name="endDensity20" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[endDensity20]]></fieldDescription>
+	</field>
+	<field name="finishLevel" class="java.lang.Long">
+		<fieldDescription><![CDATA[finishLevel]]></fieldDescription>
+	</field>
+	<field name="endVolume" class="java.lang.Long">
+		<fieldDescription><![CDATA[endVolume]]></fieldDescription>
+	</field>
+	<field name="tankName" class="java.lang.String">
+		<fieldDescription><![CDATA[tankName]]></fieldDescription>
+	</field>
+	<field name="startDensity20" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[startDensity20]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="endTemp" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[endTemp]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="endMass" class="java.lang.Long">
+		<fieldDescription><![CDATA[endMass]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -112,7 +147,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Tank_Name}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tankName}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="86" y="12" width="45" height="12" uuid="18ee3a38-95d6-4c81-b75e-9fc936fa2bd5"/>
