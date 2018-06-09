@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
-	<property name="ireport.zoom" value="1.464100000000001"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Title" isDefault="true" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
-	<style name="Crosstab Data Text" hAlign="Center"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Projects\\Java\\OilPlant\\UPPG_Reports\\src\\com\\alexprom\\uppg_reports\\"]]></defaultValueExpression>
-	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<parameter name="actID" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -18,9 +17,9 @@
 		<![CDATA[SELECT
      *
 FROM
-     "dbo"."v_actUPPG" v_actUPPG
+     v_actUPPG
 WHERE
-     ID = 3]]>
+     ID = $P{actID}]]>
 	</queryString>
 	<field name="ID" class="java.lang.Long"/>
 	<field name="aDate" class="java.lang.String"/>
@@ -992,7 +991,7 @@ WHERE
 				<text><![CDATA[ОТГ]]></text>
 			</staticText>
 			<subreport>
-				<reportElement mode="Opaque" x="77" y="333" width="295" height="116" uuid="d63e7d36-9951-41b6-abc8-e139d15ac606"/>
+				<reportElement style="Detail" mode="Opaque" x="77" y="333" width="295" height="116" uuid="d63e7d36-9951-41b6-abc8-e139d15ac606"/>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report1_subreport1.jasper"]]></subreportExpression>
 			</subreport>
@@ -1011,7 +1010,7 @@ WHERE
 				<text><![CDATA[Данные:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="162" y="218" width="1" height="116" uuid="24df186a-4ed3-4d8f-962d-af58b59be415"/>
+				<reportElement x="162" y="218" width="1" height="114" uuid="24df186a-4ed3-4d8f-962d-af58b59be415"/>
 			</line>
 			<staticText>
 				<reportElement x="77" y="269" width="35" height="12" uuid="eace1915-b79e-4f6b-876a-d65c879a11a4"/>
@@ -1063,7 +1062,7 @@ WHERE
 				<text><![CDATA[ Масса, кг:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="112" y="218" width="1" height="120" uuid="edb940ab-d5fe-4fa7-a428-9ffb51ad2a47"/>
+				<reportElement x="112" y="218" width="1" height="114" uuid="edb940ab-d5fe-4fa7-a428-9ffb51ad2a47"/>
 			</line>
 			<staticText>
 				<reportElement x="113" y="217" width="49" height="12" uuid="a57e7e05-07a8-470f-9479-a14180d66420"/>
@@ -1380,7 +1379,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}/$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{otg_uppg_Mass}+$F{otg_tsp_Mass})/($F{otg_tsp_Volume}+$F{otg_uppg_Volume})]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="49ac7175-4f09-4997-86fb-eab06480268c"/>
@@ -1415,7 +1414,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Component_5}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Component_6}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="406" y="70" width="1" height="30" uuid="d4e15fdf-13e1-41d0-a20c-8a172e680abe"/>
@@ -1431,7 +1430,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Percent_5}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Percent_6}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="1" y="101" width="139" height="12" uuid="d4d8cccd-6005-47c3-86f0-b9615a2d49f0"/>
@@ -1664,7 +1663,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}+$F{AKDG_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLF_Mass}+$F{AKDG_Mass}+$F{otg_uppg_Mass}+$F{otg_tsp_Mass}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="419" y="500" width="44" height="12" uuid="6f547986-0054-4306-b237-546ee996333f"/>
@@ -1673,12 +1672,12 @@ WHERE
 				</textElement>
 				<text><![CDATA[Выход:]]></text>
 			</staticText>
-			<textField pattern="###0.0000">
+			<textField pattern="###0.00">
 				<reportElement mode="Opaque" x="420" y="512" width="43" height="24" backcolor="#FFFFCC" uuid="640dc408-e127-40ce-8089-6fdafe705267"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{AKDG_Mass}+$F{BLF_Mass})/($F{Processing_Mass}-$F{drained})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{AKDG_Mass}+$F{BLF_Mass}+$F{otg_tsp_Mass}+$F{otg_uppg_Mass})*100.0/($F{Processing_Mass}-$F{drained})]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="512" width="45" height="24" backcolor="#FFFFCC" uuid="3edd26fd-d7b9-44fe-a029-22fe61a82e02"/>
@@ -2079,7 +2078,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{drained}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{wasteGases}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="328" y="500" width="44" height="24" uuid="6db54f63-6630-49f6-87fa-35667b0e3622"/>
@@ -2093,10 +2092,10 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{drained}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{drained_BLF}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="279" y="0" width="275" height="35" uuid="f943e2de-7f01-4c59-908c-b92fd83dac20"/>
+			<image hAlign="Right" isUsingCache="true">
+				<reportElement style="Title" x="279" y="0" width="275" height="35" uuid="f943e2de-7f01-4c59-908c-b92fd83dac20"/>
 				<imageExpression><![CDATA["C:\\Projects\\Netbeans\\OilPlant\\report_templates\\alexprom_new.png"]]></imageExpression>
 			</image>
 		</band>
