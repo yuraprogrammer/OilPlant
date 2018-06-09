@@ -8,7 +8,7 @@
         <attr name="WinSys-TCRef-Order" stringvalue="commonDataTopComponent"/>
     </fileobject>
     <fileobject name="output">
-        <attr name="WinSys-TCRef-Order" stringvalue="output/reportLoggerTopComponent"/>
+        <attr name="WinSys-TCRef-Order" stringvalue="reportLoggerTopComponent/output"/>
     </fileobject>
     <fileobject name="properties">
         <attr name="WinSys-TCRef-Order" stringvalue="additionalDataTopComponent/properties"/>

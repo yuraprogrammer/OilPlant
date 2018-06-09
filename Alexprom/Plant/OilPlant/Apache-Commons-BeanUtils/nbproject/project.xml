@@ -127,6 +127,8 @@
                 <package>org.apache.commons.digester.plugins.strategies</package>
                 <package>org.apache.commons.digester.substitution</package>
                 <package>org.apache.commons.digester.xmlrules</package>
+                <package>org.apache.commons.javaflow.api</package>
+                <package>org.apache.commons.javaflow.core</package>
                 <package>org.apache.commons.logging</package>
                 <package>org.apache.commons.logging.impl</package>
                 <package>org.apache.poi</package>
@@ -295,6 +297,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/commons-digester-2.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/commons-digester-2.1.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/net.tascalate.javaflow.api-2.2.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/net.tascalate.javaflow.api-2.2.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/groovy-all-2.0.1.jar</runtime-relative-path>

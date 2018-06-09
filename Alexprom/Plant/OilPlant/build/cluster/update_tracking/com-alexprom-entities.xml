@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.alexprom.entities">
-    <module_version install_time="1528546917738" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1528552115168" last="true" origin="installer" specification_version="1.0">
         <file crc="4063874211" name="config/Modules/com-alexprom-entities.xml"/>
-        <file crc="4042914640" name="modules/com-alexprom-entities.jar"/>
-        <file crc="3813980086" name="modules/ext/ProcessDictionary.jar"/>
+        <file crc="3352024743" name="modules/com-alexprom-entities.jar"/>
+        <file crc="154744765" name="modules/ext/ProcessDictionary.jar"/>
     </module_version>
 </module>
