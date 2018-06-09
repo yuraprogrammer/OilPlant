@@ -41,12 +41,10 @@
   <bounds x="633" y="249" width="806" height="457" />
     </editor-area>
     <screen width="1920" height="1080"/>
-    <active-mode name="editor"/>
     <toolbar configuration="Standard" preferred-icon-size="24"/>
     <tc-list>
   <tc-id id="sirieDataTopComponent"/>
   <tc-id id="commonDataTopComponent"/>
   <tc-id id="additionalDataTopComponent"/>
-  <tc-id id="reportLoggerTopComponent"/>
     </tc-list>
 </windowmanager>

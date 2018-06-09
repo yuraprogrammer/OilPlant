@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.alexprom.reports">
-    <module_version install_time="1528546012900" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1528546918604" last="true" origin="installer" specification_version="1.0">
         <file crc="4214185169" name="config/Modules/com-alexprom-reports.xml"/>
         <file crc="291875760" name="modules/com-alexprom-reports.jar"/>
         <file crc="4043870411" name="modules/ext/jasperreports-6.6.0.jar"/>
