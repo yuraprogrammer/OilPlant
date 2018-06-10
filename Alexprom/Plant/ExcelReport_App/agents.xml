@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <Servers>
+        <Server name="ConfigServer" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" URL="jdbc:sqlserver://176.105.202.29:1433" Source="OilConfig" User="roman" Password="roman" />
+        <Server name="DataServer" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" URL="jdbc:sqlserver://176.105.202.29:1433" Source="Alexprom_ASUTP" User="roman" Password="roman" />  
+    </Servers>
+    <Agents>
+        <Agent name="ExcelReport" />
+		<Agent name="ExcelAlarmReport" />
+		<Agent name="CountersReport" />
+    </Agents>
+    <AgentPath name="localhost" />
+	
+</configuration>

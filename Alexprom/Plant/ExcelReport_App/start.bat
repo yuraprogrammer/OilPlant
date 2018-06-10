@@ -1,0 +1,1 @@
+start javaw -jar dist\ExcelReport_App.jar remoteagent.ui.MainForm
