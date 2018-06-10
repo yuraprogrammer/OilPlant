@@ -41,7 +41,7 @@ public class reportForm extends javax.swing.JFrame implements Runnable{
         int locationX = (screenSize.width - sizeWidth) / 2;
         int locationY = (screenSize.height - sizeHeight) / 2;
         this.setLocation(locationX, locationY);
-        jDateChooser1.setDate(new Date());                     
+        jDateChooser1.setDate(new Date());
         ex = new Exchanger();                
     }                        
     
@@ -55,13 +55,13 @@ public class reportForm extends javax.swing.JFrame implements Runnable{
         jComboBox1 = new javax.swing.JComboBox<>();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jMainReport = new javax.swing.JRadioButton();
         jAlarmReport = new javax.swing.JRadioButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jDialog1.setModal(true);
 
@@ -186,9 +186,9 @@ public class reportForm extends javax.swing.JFrame implements Runnable{
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -340,8 +340,10 @@ public class reportForm extends javax.swing.JFrame implements Runnable{
                     }
                     oldMessage = newMessage;
                     Thread.sleep(1000);                    
-                }   catch (InterruptedException | NumberFormatException exx) {
-                    Logger.getLogger(reportForm.class.getName()).log(Level.SEVERE, null, exx);
+                }   catch (InterruptedException ex) {
+                    Logger.getLogger(reportForm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    Logger.getLogger(reportForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }    
         }        

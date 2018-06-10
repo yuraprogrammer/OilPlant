@@ -1,7 +1,6 @@
 package excelreport;
 
-import java.awt.Desktop;
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -255,120 +254,77 @@ public class ExcelReport extends AgentBase implements Runnable{
                             } catch (InterruptedException ex) {
                                 Logger.getLogger(ExcelReport.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            
+                            HSSFRow headerRow = sheet.createRow(newRow);
+                            HSSFCell headerCell = headerRow.createCell(0);
+                            headerCell.setCellStyle(headerCellStyle);
+                            headerCell.setCellValue(archieveTagsDesc.get(i));                            
+                            sheet.addMergedRegion(new CellRangeAddress(newRow, newRow, 0, 1));
+                            sheet.autoSizeColumn(0);
+                            sheet.autoSizeColumn(1);
                             try (Statement stmt = dbData.db.createStatement()) {
-                                String query = "SELECT TOP 3 MAX(aValue) as aValue, aTag "+
+                                String query = "SELECT MAX(aValue) as aValue, aTag "+
                                                 "FROM dbo.ProcessArchieve where convert(varchar, aDate) like '"+
                                                 dateFormat.format(getReportDate())+"%' and aShift="+String.valueOf(getShift())+
-                                                " and aTag='"+archieveTags.get(i)+"' and aValue>"+String.valueOf(archieveTagsMax.get(i))+
+                                                " and aTag='"+archieveTags.get(i)+"' and aValue>="+String.valueOf(archieveTagsMax.get(i))+
                                                 " group by aTag, aValue";
-                                System.out.println(query);
+                                //System.out.println(query);
+                                newRow++;
+                                HSSFRow extRow = sheet.createRow(newRow);
+                                HSSFCell extCell = extRow.createCell(0);
+                                extCell.setCellStyle(dataCellStyle);
+                                extCell.setCellValue("Макс. значение");
+                                extCell = extRow.createCell(1);
+                                extCell.setCellStyle(dataCellStyle);
+                                extCell.setCellValue("Авар. значение");
                                 ResultSet rs;
-                                rs = stmt.executeQuery(query);                                
-                                
-                                if (rs.next()){
-                                    //rs.first();
-                                    HSSFRow headerRow = sheet.createRow(newRow);
-                                    HSSFCell headerCell = headerRow.createCell(0);
-                                    headerCell.setCellStyle(headerCellStyle);
-                                    headerCell.setCellValue(archieveTagsDesc.get(i));                            
-                                    sheet.addMergedRegion(new CellRangeAddress(newRow, newRow, 0, 1));
-                                    sheet.autoSizeColumn(0);
-                                    sheet.autoSizeColumn(1);
-                                    newRow++;
-                                    HSSFRow extRow = sheet.createRow(newRow);
-                                    HSSFCell extCell = extRow.createCell(0);
-                                    extCell.setCellStyle(dataCellStyle);
-                                    extCell.setCellValue("Макс. значение");
-                                    extCell = extRow.createCell(1);
-                                    extCell.setCellStyle(dataCellStyle);
-                                    extCell.setCellValue("Авар. значение");                                    
-                                    newRow++;
-                                    HSSFRow maxDataRow = sheet.createRow(newRow);
-                                    HSSFCell maxDataCell = maxDataRow.createCell(0);
-                                    maxDataCell.setCellStyle(dataCellStyle);
-                                    maxDataCell.setCellValue(archieveTagsMax.get(i));
-                                    maxDataCell = maxDataRow.createCell(1);
-                                    maxDataCell.setCellStyle(dataCellStyle);
-                                    maxDataCell.setCellValue(rs.getString(1));
-                                    while (rs.next()){
-                                        newRow++;
-                                        maxDataRow = sheet.createRow(newRow);
-                                        maxDataCell = maxDataRow.createCell(0);
-                                        maxDataCell.setCellStyle(dataCellStyle);
-                                        maxDataCell.setCellValue(archieveTagsMax.get(i));
-                                        maxDataCell = maxDataRow.createCell(1);
-                                        maxDataCell.setCellStyle(dataCellStyle);
-                                        maxDataCell.setCellValue(rs.getString(1));
-                                    }
-                                    
-                                } else {
+                                rs = stmt.executeQuery(query);
+                                while (rs.next()){
+                                   newRow++;
+                                   HSSFRow maxDataRow = sheet.createRow(newRow);
+                                   HSSFCell maxDataCell = maxDataRow.createCell(0);
+                                   maxDataCell.setCellStyle(dataCellStyle);
+                                   maxDataCell.setCellValue(archieveTagsMax.get(i));
+                                   maxDataCell = maxDataRow.createCell(1);
+                                   maxDataCell.setCellStyle(dataCellStyle);
+                                   maxDataCell.setCellValue(rs.getString(1));
                                 }
                                 rs.close();
-                                query = "SELECT TOP 3 MIN(aValue) as aValue, aTag "+
+                                query = "SELECT MIN(aValue) as aValue, aTag "+
                                                 "FROM dbo.ProcessArchieve where convert(varchar, aDate) like '"+
                                                 dateFormat.format(getReportDate())+"%' and aShift="+String.valueOf(getShift())+
-                                                " and aTag='"+archieveTags.get(i)+"' and aValue<"+String.valueOf(archieveTagsMin.get(i))+
+                                                " and aTag='"+archieveTags.get(i)+"' and aValue<="+String.valueOf(archieveTagsMin.get(i))+
                                                 " group by aTag, aValue";
-                                System.out.println(query);
                                 rs = stmt.executeQuery(query);
-                                
-                                if (rs.next()){                                    
-                                    HSSFRow headerRow = sheet.createRow(newRow);
-                                    HSSFCell headerCell = headerRow.createCell(0);
-                                    headerCell.setCellStyle(headerCellStyle);
-                                    headerCell.setCellValue(archieveTagsDesc.get(i));                            
-                                    sheet.addMergedRegion(new CellRangeAddress(newRow, newRow, 0, 1));
-                                    sheet.autoSizeColumn(0);
-                                    sheet.autoSizeColumn(1);
-                                    newRow++;
-                                    HSSFRow minRow = sheet.createRow(newRow);
-                                    HSSFCell minCell = minRow.createCell(0);
-                                    minCell.setCellStyle(dataCellStyle);
-                                    minCell.setCellValue("Мин. значение");
-                                    minCell = minRow.createCell(1);
-                                    minCell.setCellStyle(dataCellStyle);
-                                    minCell.setCellValue("Авар. значение");
-                                    newRow++;
-                                    HSSFRow minDataRow = sheet.createRow(newRow);
-                                    HSSFCell minDataCell = minDataRow.createCell(0);
-                                    minDataCell.setCellStyle(dataCellStyle);
-                                    minDataCell.setCellValue(archieveTagsMin.get(i));
-                                    minDataCell = minDataRow.createCell(1);
-                                    minDataCell.setCellStyle(dataCellStyle);
-                                    minDataCell.setCellValue(rs.getString(1));
-                                    while (rs.next()){
-                                        newRow++;
-                                        minDataRow = sheet.createRow(newRow);
-                                        minDataCell = minDataRow.createCell(0);
-                                        minDataCell.setCellStyle(dataCellStyle);
-                                        minDataCell.setCellValue(archieveTagsMin.get(i));
-                                        minDataCell = minDataRow.createCell(1);
-                                        minDataCell.setCellStyle(dataCellStyle);
-                                        minDataCell.setCellValue(rs.getString(1));
-                                    }
-                                    newRow++;    
-                                    newRow++;
-                                    newRow++;
-                                    HSSFRow blankRow = sheet.createRow(newRow);
+                                newRow++;
+                                HSSFRow minRow = sheet.createRow(newRow);
+                                HSSFCell minCell = minRow.createCell(0);
+                                minCell.setCellStyle(dataCellStyle);
+                                minCell.setCellValue("Мин. значение");
+                                minCell = minRow.createCell(1);
+                                minCell.setCellStyle(dataCellStyle);
+                                minCell.setCellValue("Авар. значение");
+                                while (rs.next()){
+                                   newRow++;
+                                   HSSFRow minDataRow = sheet.createRow(newRow);
+                                   HSSFCell minDataCell = minDataRow.createCell(0);
+                                   minDataCell.setCellStyle(dataCellStyle);
+                                   minDataCell.setCellValue(archieveTagsMin.get(i));
+                                   minDataCell = minDataRow.createCell(1);
+                                   minDataCell.setCellStyle(dataCellStyle);
+                                   minDataCell.setCellValue(rs.getString(1));
                                 }
                                 rs.close();
                             }catch (SQLException sqlEX){
-                                System.out.println(sqlEX);
+                                
                             }      
-                            
+                            newRow++;    
+                            newRow++;
+                            newRow++;
+                            HSSFRow blankRow = sheet.createRow(newRow);
                         }
                         sheet.autoSizeColumn(0);
                         sheet.autoSizeColumn(1);
                         wb.write(fileOut);
-                        Desktop d = Desktop.getDesktop();
-                        File f = new File(System.getProperty("user.dir")+"\\reports\\"+fileName+"_"+getReportType()+".xls");
-                        d.print(f);
-/*                        String filePath = "\""+System.getProperty("user.dir")+"\\reports\\"+fileName+"_"+getReportType()+".xls\"";
-                        URI email = URI.create("mailto:alexprom5@gmail.com?subject=report&Attach="+filePath+"&send-now=yes");
-                        System.out.println(email);
-                                                 
-                        d.mail(email);*/
                         reportDone = true;    
         }}      catch (IOException ex) {
                     Logger.getLogger(ExcelReport.class.getName()).log(Level.SEVERE, null, ex);
