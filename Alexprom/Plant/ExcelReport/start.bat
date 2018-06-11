@@ -1,1 +1,0 @@
-start javaw -jar dist\ExcelReport.jar excelreport.Main
