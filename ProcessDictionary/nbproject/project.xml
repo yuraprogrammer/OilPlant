@@ -23,7 +23,12 @@
                     </run-dependency>
                 </dependency>
             </module-dependencies>
-            <public-packages/>
+            <public-packages>
+                <package>com.alexprom.entities.dictionary</package>
+                <package>com.alexprom.entities.process</package>
+                <package>com.alexprom.entities.service</package>
+                <package>com.alexprom.entities.service.exceptions</package>
+            </public-packages>
             <class-path-extension>
                 <runtime-relative-path>ext/ProcessDictionary.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/ProcessDictionary.jar</binary-origin>
