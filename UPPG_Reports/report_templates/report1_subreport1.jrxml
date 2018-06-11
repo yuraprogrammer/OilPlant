@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1_subreport1" language="groovy" pageWidth="752" pageHeight="572" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="956ee5fd-f6b6-4177-93bc-ac861d9ca5fc">
+	<property name="ireport.zoom" value="1.366026910730141"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<!--property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/-->
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="372"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="614"/>
+	<parameter name="actID" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT * FROM v_otgTspDetail v WHERE v.actID = $P{actID}]]>
+	</queryString>
+	<field name="Tank_Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Tank_Name"/>
+	</field>
+	<field name="startLevel" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="startLevel"/>
+	</field>
+	<field name="finishLevel" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="finishLevel"/>
+	</field>
+	<field name="actID" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="actID"/>
+	</field>
+	<field name="startVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="startVolume"/>
+	</field>
+	<field name="endVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="endVolume"/>
+	</field>
+	<field name="startMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="startMass"/>
+	</field>
+	<field name="startDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="startDensity"/>
+	</field>
+	<field name="endDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="endDensity"/>
+	</field>
+	<field name="startDensity20" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="startDensity20"/>
+	</field>
+	<field name="endDensity20" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="endDensity20"/>
+	</field>
+	<field name="otgToTspVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="otgToTspVolume"/>
+	</field>
+	<field name="otgToTspMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="otgToTspMass"/>
+	</field>
+	<field name="startTemp" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="startTemp"/>
+	</field>
+	<field name="endTemp" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="endTemp"/>
+	</field>
+	<field name="endMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="endMass"/>
+	</field>
+	<field name="ID" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField pattern="###0">
+				<reportElement x="36" y="-2" width="49" height="12" uuid="35f57764-1500-4e33-b1fb-343538cdde32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startLevel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="-2" width="45" height="12" uuid="524f390a-b8c2-4087-bc10-e8e13827cc70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startDensity20}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="36" y="11" width="49" height="12" uuid="c0191de1-3d31-4d74-8807-f7da3632ac72"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finishLevel}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="177" y="-2" width="28" height="12" uuid="c5d305ff-9c4b-4b51-b914-5ec6788b6ea5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startTemp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="11" width="45" height="12" uuid="e3045d9a-c58a-4739-b34c-e06df7fbf778"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endDensity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="11" width="45" height="12" uuid="b9f80d3c-2426-4842-8849-ec651f3354b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endDensity20}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="205" y="-2" width="45" height="12" uuid="c55f66fc-f5b6-4d83-8801-1aeb63fe7439"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startMass}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="205" y="11" width="45" height="12" uuid="2f275520-58f7-4c39-81c4-727bcde1ed17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endMass}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="177" y="11" width="28" height="12" uuid="7d330532-136c-4ab3-a55a-bd85c14c70f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endTemp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="-2" width="45" height="12" uuid="caa82ef0-d247-4b2a-b36c-4c093ad4f7fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startDensity}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="2" y="-2" width="35" height="39" uuid="808fff05-e699-44ab-a3cf-584f2c4d5f1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tank_Name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="86" y="11" width="45" height="12" uuid="18ee3a38-95d6-4c81-b75e-9fc936fa2bd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endVolume}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="86" y="-2" width="45" height="12" uuid="f177449d-003f-4dc7-834d-fd0fb747cb04"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startVolume}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="86" y="24" width="45" height="12" backcolor="#FFFFCC" uuid="5d9ed787-5229-4b48-94c4-4b09cc0cfe1d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otgToTspVolume}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="205" y="24" width="45" height="12" backcolor="#FFFFCC" uuid="e8be9d1c-367f-4498-9ff1-8d66e4504f94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otgToTspMass}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="36" y="10" width="259" height="1" uuid="18e7ff07-3aa3-40b0-ace5-bb1b023d391e"/>
+			</line>
+			<line>
+				<reportElement x="36" y="23" width="259" height="1" uuid="40e0ca67-826b-4f5e-9f6d-19cacce277c6"/>
+			</line>
+			<line>
+				<reportElement x="35" y="0" width="1" height="37" uuid="13aa39fa-b1b3-43fe-922d-663b321c8ff2"/>
+			</line>
+			<line>
+				<reportElement x="85" y="0" width="1" height="37" uuid="e6e7210b-c81a-4032-a5eb-bb34dc4ae8e0"/>
+			</line>
+			<line>
+				<reportElement x="131" y="0" width="1" height="37" uuid="2739fa83-d55a-4ed6-8dd6-f6e5f6b97f8b"/>
+			</line>
+			<line>
+				<reportElement x="204" y="0" width="1" height="37" uuid="d69650c8-70d5-426e-ab9c-0cc169613681"/>
+			</line>
+			<line>
+				<reportElement x="250" y="0" width="1" height="37" uuid="b4c17ff4-5820-4f1c-a8ef-a06010dd8c0e"/>
+			</line>
+			<line>
+				<reportElement x="295" y="0" width="1" height="38" uuid="d5c3aaa2-c7d5-4936-a703-8ae33edd901b"/>
+			</line>
+			<line>
+				<reportElement x="176" y="0" width="1" height="23" uuid="b7749016-0171-4799-923b-d23c301221b7"/>
+			</line>
+			<line>
+				<reportElement x="0" y="37" width="295" height="1" uuid="98a69466-1a75-4a09-b656-64ca0ab7411b"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
