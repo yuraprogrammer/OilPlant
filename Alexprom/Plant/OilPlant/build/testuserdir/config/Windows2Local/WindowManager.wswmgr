@@ -45,8 +45,9 @@
     <toolbar configuration="Standard" preferred-icon-size="24"/>
     <tc-list>
   <tc-id id="sirieDataTopComponent"/>
+  <tc-id id="output"/>
+  <tc-id id="reportLoggerTopComponent"/>
   <tc-id id="additionalDataTopComponent"/>
   <tc-id id="commonDataTopComponent"/>
-  <tc-id id="reportLoggerTopComponent"/>
     </tc-list>
 </windowmanager>

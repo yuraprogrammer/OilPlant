@@ -194,12 +194,6 @@
 	<field name="massStartB" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[massStartB]]></fieldDescription>
 	</field>
-	<field name="otgtspVolume" class="java.math.BigInteger">
-		<fieldDescription><![CDATA[otgtspVolume]]></fieldDescription>
-	</field>
-	<field name="otgtspMass" class="java.math.BigInteger">
-		<fieldDescription><![CDATA[otgtspMass]]></fieldDescription>
-	</field>
 	<field name="otguppgstartTemp" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[otguppgstartTemp]]></fieldDescription>
 	</field>
@@ -1526,27 +1520,6 @@
 			<line>
 				<reportElement x="161" y="154" width="1" height="50" uuid="5cc2edf4-83c2-4ee1-815f-dfeb7a3ce92f"/>
 			</line>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="464" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="5f1181b1-279f-4a1d-897a-5697eb7cffae"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{otguppgMass}+$F{otgtspMass}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="373" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="f931f159-4ae6-410c-8334-60a0e2eb7aaa"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{otgtspVolume}+$F{otguppgVolume}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="419" y="487" width="44" height="12" backcolor="#FFFFCC" uuid="fbc35cb8-aab4-46c5-9fad-5f167fe9da8f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[($F{otguppgMass}+$F{otgtspMass})/($F{otgtspVolume}+$F{otguppgVolume})]]></textFieldExpression>
-			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="487" width="45" height="12" backcolor="#FFFFCC" uuid="49ac7175-4f09-4997-86fb-eab06480268c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -1824,13 +1797,6 @@
 				</textElement>
 				<text><![CDATA[Прод. кг:]]></text>
 			</staticText>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="374" y="512" width="44" height="24" backcolor="#FFFFCC" uuid="3730b929-ad74-452b-9c6a-de7eeb653f2c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLFMass}+$F{AKDGMass}+$F{otguppgMass}+$F{otgtspMass}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="419" y="500" width="44" height="12" uuid="6f547986-0054-4306-b237-546ee996333f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -1838,13 +1804,6 @@
 				</textElement>
 				<text><![CDATA[Выход:]]></text>
 			</staticText>
-			<textField pattern="###0.00">
-				<reportElement mode="Opaque" x="420" y="512" width="43" height="24" backcolor="#FFFFCC" uuid="640dc408-e127-40ce-8089-6fdafe705267"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[($F{AKDGMass}+$F{BLFMass}+$F{otgtspMass}+$F{otguppgMass})*100.0/($F{processingMass}-$F{drained})]]></textFieldExpression>
-			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="512" width="45" height="24" backcolor="#FFFFCC" uuid="3edd26fd-d7b9-44fe-a029-22fe61a82e02"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
