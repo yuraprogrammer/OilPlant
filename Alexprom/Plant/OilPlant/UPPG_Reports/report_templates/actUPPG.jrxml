@@ -3,11 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="actID" class="java.lang.Long">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="372"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="614"/>
+	<parameter name="actID" class="java.lang.Long"/>
 	<queryString>
-		<![CDATA[select * from Act_UPPG where ID=$P{actID}]]>
+		<![CDATA[SELECT * FROM dbo.Act_UPPG v WHERE v.ID = $P{actID}]]>
 	</queryString>
 	<field name="ID" class="java.lang.Long"/>
 	<field name="aDate" class="java.lang.String"/>
@@ -16,33 +17,12 @@
 	<field name="slaveOper" class="java.lang.Integer"/>
 	<field name="Complete" class="java.lang.Integer"/>
 	<field name="aCode" class="java.lang.Integer"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band height="79" splitType="Stretch">
-			<textField>
-				<reportElement x="184" y="28" width="100" height="20" uuid="cd298b10-c642-4a83-8968-c711e4500650"/>
-				<textFieldExpression><![CDATA[$F{aDate}]]></textFieldExpression>
-			</textField>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="27" width="100" height="20" uuid="575af7a0-1a9b-47a9-b791-1f843c1a96a7"/>
+				<text><![CDATA[QAZ]]></text>
+			</staticText>
+		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

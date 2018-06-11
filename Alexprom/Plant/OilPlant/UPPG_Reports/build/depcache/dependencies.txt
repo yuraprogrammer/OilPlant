@@ -141,12 +141,14 @@ java.beans.PropertyChangeListener
 com.alexprom.uppg_reports.sirieDataTopComponent
 ||:com.alexprom.uppg_reports.PreviewAct
 org.openide.DialogDisplayer
+com.alexprom.entities.process.ActUPPG
 org.openide.windows.WindowManager
 org.openide.NotifyDescriptor
+java.lang.Long
 org.openide.NotifyDescriptor$Message
-com.alexprom.uppg_reports.UPPG_ShiftReport
-com.alexprom.uppg_reports.sirieDataTopComponent
 java.lang.Object
+com.alexprom.uppg_reports.sirieDataTopComponent
+com.alexprom.uppg_reports.UPPG_ShiftReport
 com.alexprom.uppg_reports.PreviewAct
 java.awt.event.ActionListener
 ||:com.alexprom.uppg_reports.sirieDataTopComponent$22
@@ -361,8 +363,7 @@ com.alexprom.uppg_reports.Installer
 org.openide.NotifyDescriptor$Confirmation
 org.openide.NotifyDescriptor
 ||:com.alexprom.uppg_reports.UPPG_ShiftReport
-com.microsoft.sqlserver.jdbc.SQLServerDriver
-java.sql.DriverManager
+javax.persistence.EntityTransaction
 javax.persistence.EntityManager
 net.sf.jasperreports.engine.JasperCompileManager
 org.openide.NotifyDescriptor
@@ -375,7 +376,6 @@ com.alexprom.uppg_reports.UPPG_ShiftReport
 net.sf.jasperreports.view.JasperViewer
 javax.swing.JPanel
 org.openide.DialogDisplayer
-net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory
 java.util.HashMap
 java.lang.Exception
 javax.swing.GroupLayout$Alignment
@@ -384,6 +384,7 @@ java.lang.Short
 net.sf.jasperreports.engine.JRException
 javax.swing.GroupLayout$Group
 org.openide.NotifyDescriptor$Message
+java.sql.Connection
 ||:com.alexprom.uppg_reports.OtgAccount
 java.lang.Object
 com.alexprom.uppg_reports.OtgAccount

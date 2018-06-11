@@ -5,6 +5,7 @@
  */
 package com.alexprom.uppg_reports;
 
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.EntityManager;
@@ -13,7 +14,6 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.query.JRJpaQueryExecuterFactory;
 import net.sf.jasperreports.view.JasperViewer;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -28,18 +28,20 @@ public class UPPG_ShiftReport extends javax.swing.JPanel {
     //private String reportDest = "./report_results/simple.html";
     private Map<String, Object> params;
     
-    public UPPG_ShiftReport(EntityManager em) {
+    public UPPG_ShiftReport(EntityManager em, long id) {
         initComponents();
         
         this.params = new HashMap<>();
         try{
             JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
-            params.put("actID", new Long(3));
-            params.put(JRJpaQueryExecuterFactory.PARAMETER_JPA_ENTITY_MANAGER, em);
-            
+            em.getTransaction().begin();
+            Connection connection = em.unwrap(Connection.class);
+            em.getTransaction().commit();
+            params.put("actID", id);            
+            params.put("SUBREPORT_DIR", "./report_templates/");            
             try {
                 JasperPrint jasperPrint;
-                jasperPrint = JasperFillManager.fillReport(jasperReport, params); 
+                jasperPrint = JasperFillManager.fillReport(jasperReport, params, connection); 
                 JasperViewer jasperView = new JasperViewer(jasperPrint, false);
                 jasperView.setVisible(true);
                 //this.add(viewer);
