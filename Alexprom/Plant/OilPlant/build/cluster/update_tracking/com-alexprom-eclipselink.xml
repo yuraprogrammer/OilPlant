@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.alexprom.eclipselink">
-    <module_version install_time="1528574837029" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1528724198881" last="true" origin="installer" specification_version="1.0">
         <file crc="1721516962" name="config/Modules/com-alexprom-eclipselink.xml"/>
         <file crc="3987590601" name="modules/com-alexprom-eclipselink.jar"/>
         <file crc="3552562718" name="modules/ext/eclipselink.jar"/>

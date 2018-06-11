@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.alexprom.sqljdbcdriver">
-    <module_version install_time="1528574837499" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1528724199134" last="true" origin="installer" specification_version="1.0">
         <file crc="4060065956" name="config/Modules/com-alexprom-sqljdbcdriver.xml"/>
-        <file crc="412447862" name="modules/com-alexprom-sqljdbcdriver.jar"/>
+        <file crc="151710372" name="modules/com-alexprom-sqljdbcdriver.jar"/>
         <file crc="908596132" name="modules/ext/sqljdbc42.jar"/>
     </module_version>
 </module>
