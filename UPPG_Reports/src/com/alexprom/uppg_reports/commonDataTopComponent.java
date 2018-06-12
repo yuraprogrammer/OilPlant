@@ -663,7 +663,7 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType5.setSelectedIndex(new_5);
                 }
             }
-            sirieContent6.setText(String.format("%.1f", actSirie.getPercent6()));
+            sirieContent5.setText(String.format("%.1f", actSirie.getPercent5()));
             for (int i=0; i<sirieList.size(); i++){
                 if (actSirie.getComponent6()==sirieList.get(i).getId()){
                     old_6 = new_6;
@@ -700,9 +700,9 @@ public final class commonDataTopComponent extends TopComponent {
             new_mixingDensity = actSirieMixing.getSirieDensity().floatValue();
             old_mixingMass = new_mixingMass;
             new_mixingMass = actSirieMixing.getSirieMass().floatValue();
-            sirieMixing_Volume.setText(String.format(".f", new_mixingVolume));
+            sirieMixing_Volume.setText(String.format(".1f", new_mixingVolume));
             sirieMixing_Density.setText(String.format(".4f", new_mixingDensity));
-            sirieMixing_Mass.setText(String.format(".f", new_mixingMass));
+            sirieMixing_Mass.setText(String.format(".1f", new_mixingMass));
             sirieMixing_Volume.setEnabled(permit==0);
             sirieMixing_Density.setEnabled(permit==0);
             sirieMixing_Mass.setEnabled(false);
