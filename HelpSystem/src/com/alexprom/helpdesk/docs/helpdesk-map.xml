@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN" "http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="2.0">
+    <mapID target="com.alexprom.helpdesk.about" url="helpdesk-about.html"/>
+    <mapID target="com.alexprom.helpdesk.start" url="helpdesk-start.html"/>
+    <mapID target="com.alexprom.helpdesk.interfacedescription" url="helpdesk-interfacedescription.html"/>
+    <mapID target="com.alexprom.helpdesk.menudescription" url="helpdesk-menudescription.html"/>
+    <mapID target="com.alexprom.helpdesk.newact" url="helpdesk-newact.html"/>
+    <mapID target="com.alexprom.helpdesk.editact" url="helpdesk-editact.html"/>
+    <mapID target="com.alexprom.helpdesk.saveact" url="helpdesk-saveact.html"/>
+    <mapID target="com.alexprom.helpdesk.updateact" url="helpdesk-updateact.html"/>
+    <mapID target="com.alexprom.helpdesk.printact" url="helpdesk-printact.html"/>
+    <mapID target="com.alexprom.helpdesk.menufile" url="helpdesk-menufile.html"/>
+    <mapID target="com.alexprom.helpdesk.menuedit" url="helpdesk-menuedit.html"/>
+    <mapID target="com.alexprom.helpdesk.menuview" url="helpdesk-menuview.html"/>
+    <mapID target="com.alexprom.helpdesk.menugo" url="helpdesk-menugo.html"/>
+    <mapID target="com.alexprom.helpdesk.menuservice" url="helpdesk-menuservice.html"/>
+    <mapID target="com.alexprom.helpdesk.menuwindow" url="helpdesk-menuwindow.html"/>
+</map>

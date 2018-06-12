@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+    <tocitem text="Акты УППГ-20">
+        <tocitem text="О программе" target="com.alexprom.helpdesk.about"/>
+        <tocitem text="Начало" target="com.alexprom.helpdesk.start">
+            <tocitem text="Описание интерфейса" target="com.alexprom.helpdesk.interfacedescription"/>
+            <tocitem text="Описание меню" target="com.alexprom.helpdesk.menudescription">
+                <tocitem text="Файл" target="com.alexprom.helpdesk.menufile"/>
+                <tocitem text="Правка" target="com.alexprom.helpdesk.menuedit"/>
+                <tocitem text="Вид" target="com.alexprom.helpdesk.menuview"/>
+                <tocitem text="Переход" target="com.alexprom.helpdesk.menugo"/>
+                <tocitem text="Сервис" target="com.alexprom.helpdesk.menuservice"/>
+                <tocitem text="Окно" target="com.alexprom.helpdesk.menuwindow"/>
+                <tocitem text="Справка" target="com.alexprom.helpdesk.menuhelp"/>
+            </tocitem>
+        </tocitem>
+        <tocitem text="Создание акта">
+            <tocitem text="Операция - 'Создать акт'" target="com.alexprom.helpdesk.newact"></tocitem>
+            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
+        </tocitem>
+        <tocitem text="Редактирование акта">
+            <tocitem text="Операция - 'Открыть акт'" target="com.alexprom.helpdesk.editact"></tocitem>
+            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
+        </tocitem>
+        <tocitem text="Сохранение акта">
+            <tocitem text="Операция - 'Сохранить акт'" target="com.alexprom.helpdesk.saveact"></tocitem>
+            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
+        </tocitem>
+        <tocitem text="Обновление акта">
+            <tocitem text="Операция - 'Обновить акт'" target="com.alexprom.helpdesk.updateact"></tocitem>
+            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
+        </tocitem>
+        <tocitem text="Печать акта">
+            <tocitem text="Операция - 'Печатать акт'" target="com.alexprom.helpdesk.printact"></tocitem>
+            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
+        </tocitem>
+    </tocitem>
+</toc>
