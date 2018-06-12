@@ -24,7 +24,7 @@ import org.openide.windows.WindowManager;
     @ActionReference(path = "Menu/File", position = 1550),
     @ActionReference(path = "Toolbars/File", position = 350)
 })
-@Messages("CTL_SaveAct=Сохранить...")
+@Messages("CTL_SaveAct=Сохранить акт...")
 public final class SaveAct implements ActionListener {
    
 

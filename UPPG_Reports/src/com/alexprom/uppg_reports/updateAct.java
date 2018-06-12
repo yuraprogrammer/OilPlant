@@ -21,7 +21,7 @@ import org.openide.windows.WindowManager;
     @ActionReference(path = "Menu/Edit", position = 1100),
     @ActionReference(path = "Toolbars/Edit", position = 100)
 })
-@Messages("CTL_updateAct=Обновить")
+@Messages("CTL_updateAct=Обновить акт")
 public final class updateAct implements ActionListener {
 
     @Override

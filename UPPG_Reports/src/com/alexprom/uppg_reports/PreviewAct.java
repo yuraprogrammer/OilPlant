@@ -30,7 +30,7 @@ import org.openide.windows.WindowManager;
     @ActionReference(path = "Menu/File", position = 1750),
     @ActionReference(path = "Toolbars/File", position = 500)
 })
-@Messages("CTL_PreviewAct=Печать...")
+@Messages("CTL_PreviewAct=Печатать акт...")
 public final class PreviewAct implements ActionListener {
 
     @Override
