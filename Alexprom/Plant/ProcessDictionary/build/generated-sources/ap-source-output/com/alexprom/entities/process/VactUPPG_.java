@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-06-10T01:53:08")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-06-12T09:40:56")
 @StaticMetamodel(VactUPPG.class)
 public class VactUPPG_ { 
 
@@ -26,6 +26,7 @@ public class VactUPPG_ {
     public static volatile SingularAttribute<VactUPPG, Double> percent3;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> otguppgendDensity20;
     public static volatile SingularAttribute<VactUPPG, Double> percent4;
+    public static volatile SingularAttribute<VactUPPG, BigDecimal> sirieMass;
     public static volatile SingularAttribute<VactUPPG, String> component5;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> densityStartB;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> processingMass;
@@ -47,11 +48,13 @@ public class VactUPPG_ {
     public static volatile SingularAttribute<VactUPPG, BigDecimal> densityStartS;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> bLFMass;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> massEndS;
+    public static volatile SingularAttribute<VactUPPG, BigDecimal> sirieVolume;
     public static volatile SingularAttribute<VactUPPG, BigInteger> otguppgVolume;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> akdgDensity20End;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> blfDensity20End;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> bLFAKDGPercent;
     public static volatile SingularAttribute<VactUPPG, Long> otguppgstartLevel;
+    public static volatile SingularAttribute<VactUPPG, BigDecimal> sirieDensity;
     public static volatile SingularAttribute<VactUPPG, Long> otguppgstartMass;
     public static volatile SingularAttribute<VactUPPG, Integer> feedTotal;
     public static volatile SingularAttribute<VactUPPG, BigDecimal> tempStartS;

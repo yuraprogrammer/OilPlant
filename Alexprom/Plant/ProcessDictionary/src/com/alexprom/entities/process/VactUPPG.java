@@ -114,6 +114,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "VactUPPG.findByTankName", query = "SELECT v FROM VactUPPG v WHERE v.tankName = :tankName")})
 public class VactUPPG implements Serializable {
 
+    @Basic(optional = false)
+    @Column(name = "sirieVolume")
+    private BigDecimal sirieVolume;
+    @Basic(optional = false)
+    @Column(name = "sirieDensity")
+    private BigDecimal sirieDensity;
+    @Column(name = "sirieMass")
+    private BigDecimal sirieMass;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -1039,6 +1048,30 @@ public class VactUPPG implements Serializable {
 
     public void setTankName(String tankName) {
         this.tankName = tankName;
+    }
+
+    public BigDecimal getSirieVolume() {
+        return sirieVolume;
+    }
+
+    public void setSirieVolume(BigDecimal sirieVolume) {
+        this.sirieVolume = sirieVolume;
+    }
+
+    public BigDecimal getSirieDensity() {
+        return sirieDensity;
+    }
+
+    public void setSirieDensity(BigDecimal sirieDensity) {
+        this.sirieDensity = sirieDensity;
+    }
+
+    public BigDecimal getSirieMass() {
+        return sirieMass;
+    }
+
+    public void setSirieMass(BigDecimal sirieMass) {
+        this.sirieMass = sirieMass;
     }
     
 }
