@@ -183,6 +183,11 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         return em;
     }
     
+    public void showNumberErroMessage(){
+        NotifyDescriptor nd = new NotifyDescriptor.Message("Неверный формат введенных данных!!!", NotifyDescriptor.ERROR_MESSAGE);
+        Object res = DialogDisplayer.getDefault().notify(nd);
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -1861,7 +1866,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                         content.set(Collections.singleton(otgResult), null);
                     }
                 }catch (java.lang.NumberFormatException e){
-                    
+                    this.showNumberErroMessage();
                 }
                 
             } 
@@ -1886,7 +1891,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgTspDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }
             
         } 
@@ -1921,7 +1926,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                         content.set(Collections.singleton(otgResult), null);
                     }
                 }catch (java.lang.NumberFormatException e){
-                    
+                    this.showNumberErroMessage();
                 }
                 
             } 
@@ -1946,7 +1951,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgUppgDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }
             
         }
@@ -1981,7 +1986,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }}
     }//GEN-LAST:event_otgUppgEnd_DensityPropertyChange
 
@@ -2014,7 +2019,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                         content.set(Collections.singleton(otgResult), null);
                     }
                 }catch (java.lang.NumberFormatException e){
-                    
+                    this.showNumberErroMessage();
                 }
                 
             }
@@ -2039,7 +2044,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgUppgDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }
             
         }
@@ -2074,7 +2079,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }}
     }//GEN-LAST:event_otgUppgStart_DensityPropertyChange
 
@@ -2097,7 +2102,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgTspDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2132,7 +2137,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2166,7 +2171,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2200,7 +2205,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2265,7 +2270,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2290,7 +2295,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgTspDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2324,7 +2329,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2359,7 +2364,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                         content.set(Collections.singleton(otgResult), null);
                     }
                 }catch (java.lang.NumberFormatException e){
-                    
+                    this.showNumberErroMessage();
                 }
                 
             }
@@ -2384,7 +2389,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgTspDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }
             
         }
@@ -2418,7 +2423,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2483,7 +2488,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2508,7 +2513,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgTspDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2542,7 +2547,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2577,7 +2582,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                         content.set(Collections.singleton(otgResult), null);
                     }
                 }catch (java.lang.NumberFormatException e){
-                    
+                    this.showNumberErroMessage();
                 }
                 
         }
@@ -2602,7 +2607,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     otgTspDataChanged = true;
                 }
             }catch (java.lang.NumberFormatException e){
-                
+                this.showNumberErroMessage();
             }
             
         }
@@ -2636,7 +2641,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     content.set(Collections.singleton(otgResult), null);
                 }
             }catch (java.lang.NumberFormatException e){
-
+                this.showNumberErroMessage();
             }
 
         }
@@ -2647,52 +2652,72 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     }//GEN-LAST:event_drain_DensityActionPerformed
 
     private void feedEnd_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_feedEnd_VolumePropertyChange
+        old_FeedEnd = new_FeedEnd;
         if (!feedEnd_Volume.getText().isEmpty()){
-            old_FeedEnd = new_FeedEnd;
-            new_FeedEnd = Integer.parseInt(feedEnd_Volume.getText().trim());
-            old_Feed = new_Feed;
-            new_Feed = new_FeedEnd - new_FeedStart;
-            feed_Water.setText(String.valueOf(new_Feed));            
+            try{
+                new_FeedEnd = Integer.parseInt(feedEnd_Volume.getText().trim());
+                old_Feed = new_Feed;
+                new_Feed = new_FeedEnd - new_FeedStart;
+                feed_Water.setText(String.valueOf(new_Feed));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
     }//GEN-LAST:event_feedEnd_VolumePropertyChange
 
     private void feedStart_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_feedStart_VolumePropertyChange
+        old_FeedStart = new_FeedStart;
         if (!feedStart_Volume.getText().isEmpty()){
-            old_FeedStart = new_FeedStart;
-            new_FeedStart = Integer.parseInt(feedStart_Volume.getText().trim());
-            old_Feed = new_Feed;
-            new_Feed = new_FeedEnd - new_FeedStart;
-            feed_Water.setText(String.valueOf(new_Feed));            
+            try{
+                new_FeedStart = Integer.parseInt(feedStart_Volume.getText().trim());
+                old_Feed = new_Feed;
+                new_Feed = new_FeedEnd - new_FeedStart;
+                feed_Water.setText(String.valueOf(new_Feed));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
     }//GEN-LAST:event_feedStart_VolumePropertyChange
 
     private void drainEnd_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drainEnd_VolumePropertyChange
+        old_DrainVolumeEnd = new_DrainVolumeEnd;
         if (!drainEnd_Volume.getText().isEmpty()){
-            old_DrainVolumeEnd = new_DrainVolumeEnd;
-            new_DrainVolumeEnd = Integer.parseInt(drainEnd_Volume.getText().trim());
-            old_DrainMass = new_DrainMass;
-            new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
-            drain_Mass.setText(String.format("%.1f", new_DrainMass));
+            try{
+                new_DrainVolumeEnd = Integer.parseInt(drainEnd_Volume.getText().trim());
+                old_DrainMass = new_DrainMass;
+                new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
+                drain_Mass.setText(String.format("%.1f", new_DrainMass));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
     }//GEN-LAST:event_drainEnd_VolumePropertyChange
 
     private void drainStart_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drainStart_VolumePropertyChange
+        old_DrainVolumeStart = new_DrainVolumeStart;
         if (!drainStart_Volume.getText().isEmpty()){
-            old_DrainVolumeStart = new_DrainVolumeStart;
-            new_DrainVolumeStart = Integer.parseInt(drainStart_Volume.getText().trim());
-            old_DrainMass = new_DrainMass;
-            new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
-            drain_Mass.setText(String.format("%.1f", new_DrainMass));
+            try{
+                new_DrainVolumeStart = Integer.parseInt(drainStart_Volume.getText().trim());
+                old_DrainMass = new_DrainMass;
+                new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
+                drain_Mass.setText(String.format("%.1f", new_DrainMass));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
     }//GEN-LAST:event_drainStart_VolumePropertyChange
 
     private void drain_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drain_DensityPropertyChange
+        old_DrainDensity = new_DrainDensity;
         if (!drain_Density.getText().isEmpty()){
-            old_DrainDensity = new_DrainDensity;
-            new_DrainDensity = Double.parseDouble(drain_Density.getText().replace(",", ".").trim());
-            old_DrainMass = new_DrainMass;
-            new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
-            drain_Mass.setText(String.format("%.1f", new_DrainMass));
+            try{
+                new_DrainDensity = Double.parseDouble(drain_Density.getText().replace(",", ".").trim());
+                old_DrainMass = new_DrainMass;
+                new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
+                drain_Mass.setText(String.format("%.1f", new_DrainMass));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
 //        this.transferFocus();
     }//GEN-LAST:event_drain_DensityPropertyChange
@@ -2702,9 +2727,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     }//GEN-LAST:event_feedStart_VolumeActionPerformed
 
     private void drained_WaterPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drained_WaterPropertyChange
+        old_drainedWater = new_drainedWater;
         if (!drained_Water.getText().isEmpty()){
-            old_drainedWater = new_drainedWater;
-            new_drainedWater = Double.parseDouble(String.valueOf(drained_Water.getText().replace(",", ".")));            
+            try{
+                new_drainedWater = Double.parseDouble(String.valueOf(drained_Water.getText().replace(",", ".")));            
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
     }//GEN-LAST:event_drained_WaterPropertyChange
 
@@ -2717,9 +2746,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     }//GEN-LAST:event_drained_BLFActionPerformed
 
     private void drained_BLFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drained_BLFPropertyChange
+        old_drainedBLF = new_drainedBLF;
         if (!drained_BLF.getText().isEmpty()){
-            old_drainedBLF = new_drainedBLF;
-            new_drainedBLF = Double.parseDouble(String.valueOf(drained_BLF.getText().replace(",", ".")));            
+            try{
+                new_drainedBLF = Double.parseDouble(String.valueOf(drained_BLF.getText().replace(",", ".")));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
     }//GEN-LAST:event_drained_BLFPropertyChange
 

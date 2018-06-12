@@ -14,6 +14,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
 
@@ -22,7 +23,7 @@ import org.openide.windows.WindowManager;
         id = "com.alexprom.uppg_reports.PreviewAct"
 )
 @ActionRegistration(
-        iconBase = "com/alexprom/uppg_reports/preview.png",
+        iconBase = "com/alexprom/uppg_reports/printer.png",
         displayName = "#CTL_PreviewAct"
 )
 @ActionReferences({
@@ -36,6 +37,23 @@ public final class PreviewAct implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
         if (tc.getAct()!=null){
+            NotifyDescriptor s = new NotifyDescriptor.Confirmation("Сохранить изменения перед выводом на печать?", "Печать акта");
+            Object close = DialogDisplayer.getDefault().notify(s);
+            if (close!=null && close==NotifyDescriptor.YES_OPTION){
+                try {
+                    commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
+                    additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
+                    tc.save();
+                    ctc.save();
+                    atc.save();
+                    NotifyDescriptor ok = new NotifyDescriptor.Message("Сохранение выполнено успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
+                    Object okResult = DialogDisplayer.getDefault().notify(ok);
+                } catch (Exception ex) {
+                    Exceptions.printStackTrace(ex);
+                    NotifyDescriptor err = new NotifyDescriptor.Message("Сохранение не выполнено!!!", NotifyDescriptor.ERROR_MESSAGE);
+                    Object errResult = DialogDisplayer.getDefault().notify(err);
+                }
+            }
             UPPG_ShiftReport frm = new UPPG_ShiftReport(tc.getEntityManager(), tc.getAct().getId());            
         }else{
             NotifyDescriptor d = new NotifyDescriptor.Message("Для просмотра отчета, должен быть открыт акт!!! Открыть акт для печати?" , NotifyDescriptor.OK_CANCEL_OPTION);

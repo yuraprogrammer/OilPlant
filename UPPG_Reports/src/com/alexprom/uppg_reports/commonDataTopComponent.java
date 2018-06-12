@@ -18,6 +18,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.windows.TopComponent;
@@ -429,7 +431,12 @@ public final class commonDataTopComponent extends TopComponent {
         add(jPanel2);
         jPanel2.setBounds(0, 470, 330, 80);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void showNumberErroMessage(){
+        NotifyDescriptor nd = new NotifyDescriptor.Message("Неверный формат введенных данных!!!", NotifyDescriptor.ERROR_MESSAGE);
+        Object res = DialogDisplayer.getDefault().notify(nd);
+    }
+    
     public void setAct(Date actDate, int actShift){
         oldAct = this.newAct;
         if (em!=null){
@@ -476,10 +483,13 @@ public final class commonDataTopComponent extends TopComponent {
 
     private void sirieContent1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent1PropertyChange
         oldContent_1=newContent_1;
+        newContent_1=0;
         if (!sirieContent1.getText().isEmpty()){
-            newContent_1=Float.parseFloat(sirieContent1.getText().replace(",", "."));
-        }else{
-            newContent_1=0;
+            try{
+                newContent_1=Float.parseFloat(sirieContent1.getText().replace(",", "."));
+            }catch (java.lang.NumberFormatException ex){
+                showNumberErroMessage();                
+            }
         }
         sirieDataChanged = true;
     }//GEN-LAST:event_sirieContent1PropertyChange
@@ -494,10 +504,13 @@ public final class commonDataTopComponent extends TopComponent {
 
     private void sirieContent2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent2PropertyChange
         oldContent_2=newContent_2;
+        newContent_2=0;
         if (!sirieContent2.getText().isEmpty()){
-            newContent_2=Float.parseFloat(sirieContent2.getText().replace(",", "."));
-        }else{
-            newContent_2=0;
+            try{
+                newContent_2=Float.parseFloat(sirieContent2.getText().replace(",", "."));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
         sirieDataChanged = true;
     }//GEN-LAST:event_sirieContent2PropertyChange
@@ -512,10 +525,13 @@ public final class commonDataTopComponent extends TopComponent {
 
     private void sirieContent3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent3PropertyChange
         oldContent_3=newContent_3;
+        newContent_3=0;
         if (!sirieContent3.getText().isEmpty()){
-            newContent_3=Float.parseFloat(sirieContent3.getText().replace(",", "."));
-        }else{
-            newContent_3=0;
+            try{
+                newContent_3=Float.parseFloat(sirieContent3.getText().replace(",", "."));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
         sirieDataChanged = true;
     }//GEN-LAST:event_sirieContent3PropertyChange
@@ -530,10 +546,13 @@ public final class commonDataTopComponent extends TopComponent {
 
     private void sirieContent4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent4PropertyChange
         oldContent_4=newContent_4;
+        newContent_4=0;
         if (!sirieContent3.getText().isEmpty()){
-            newContent_4=Float.parseFloat(sirieContent4.getText().replace(",", "."));
-        }else{
-            newContent_4=0;
+            try{
+                newContent_4=Float.parseFloat(sirieContent4.getText().replace(",", "."));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
         sirieDataChanged = true;
     }//GEN-LAST:event_sirieContent4PropertyChange
@@ -548,10 +567,13 @@ public final class commonDataTopComponent extends TopComponent {
 
     private void sirieContent5PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent5PropertyChange
         oldContent_5=newContent_5;
+        newContent_5=0;
         if (!sirieContent5.getText().isEmpty()){
-            newContent_5=Float.parseFloat(sirieContent5.getText().replace(",", "."));
-        }else{
-            newContent_5=0;
+            try{
+                newContent_5=Float.parseFloat(sirieContent5.getText().replace(",", "."));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
         sirieDataChanged = true;
     }//GEN-LAST:event_sirieContent5PropertyChange
@@ -584,10 +606,13 @@ public final class commonDataTopComponent extends TopComponent {
 
     private void sirieContent6PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent6PropertyChange
         oldContent_6=newContent_6;
+        newContent_6=0;
         if (!sirieContent6.getText().isEmpty()){
-            newContent_6=Float.parseFloat(sirieContent6.getText().replace(",", "."));
-        }else{
-            newContent_6=0;
+            try{
+                newContent_6=Float.parseFloat(sirieContent6.getText().replace(",", "."));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
         }
         sirieDataChanged = true;
     }//GEN-LAST:event_sirieContent6PropertyChange
@@ -595,10 +620,14 @@ public final class commonDataTopComponent extends TopComponent {
     private void sirieMixing_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieMixing_VolumePropertyChange
         if (!sirieMixing_Volume.getText().isEmpty()){
             old_mixingVolume = new_mixingVolume;
-            new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());
-            old_mixingMass = new_mixingMass;
-            new_mixingMass = new_mixingVolume*new_mixingDensity;
-            sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
+            try{
+                new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());
+                old_mixingMass = new_mixingMass;
+                new_mixingMass = new_mixingVolume*new_mixingDensity;
+                sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }    
         }
     }//GEN-LAST:event_sirieMixing_VolumePropertyChange
 
@@ -609,12 +638,15 @@ public final class commonDataTopComponent extends TopComponent {
     private void sirieMixing_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieMixing_DensityPropertyChange
         if (!sirieMixing_Density.getText().isEmpty()){
             old_mixingDensity = new_mixingDensity;
-            new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
-            old_mixingMass = new_mixingMass;
-            new_mixingMass = new_mixingVolume*new_mixingDensity;
-            sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
-        }
-        //        this.transferFocus();
+            try{
+                new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
+                old_mixingMass = new_mixingMass;
+                new_mixingMass = new_mixingVolume*new_mixingDensity;
+                sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
+            }catch (java.lang.NumberFormatException ex){
+                this.showNumberErroMessage();
+            }
+        }        
     }//GEN-LAST:event_sirieMixing_DensityPropertyChange
 
     private void fillSirie(Long id, int permit){        
@@ -683,6 +715,7 @@ public final class commonDataTopComponent extends TopComponent {
             sirieType2.setEnabled(permit==0);
             sirieType3.setEnabled(permit==0);
             sirieType4.setEnabled(permit==0);
+            sirieType5.setEnabled(permit==0);
             sirieType6.setEnabled(permit==0);
         }
     }
@@ -700,9 +733,9 @@ public final class commonDataTopComponent extends TopComponent {
             new_mixingDensity = actSirieMixing.getSirieDensity().floatValue();
             old_mixingMass = new_mixingMass;
             new_mixingMass = actSirieMixing.getSirieMass().floatValue();
-            sirieMixing_Volume.setText(String.format(".1f", new_mixingVolume));
-            sirieMixing_Density.setText(String.format(".4f", new_mixingDensity));
-            sirieMixing_Mass.setText(String.format(".1f", new_mixingMass));
+            sirieMixing_Volume.setText(String.format("%.1f", actSirieMixing.getSirieVolume()));
+            sirieMixing_Density.setText(String.format("%.4f", actSirieMixing.getSirieDensity()));
+            sirieMixing_Mass.setText(String.format("%.1f", actSirieMixing.getSirieMass()));
             sirieMixing_Volume.setEnabled(permit==0);
             sirieMixing_Density.setEnabled(permit==0);
             sirieMixing_Mass.setEnabled(false);
@@ -795,17 +828,13 @@ public final class commonDataTopComponent extends TopComponent {
             }
             jComboBox2.removeAllItems();
             jComboBox3.removeAllItems();
-            Query opQuery = em.createNamedQuery("WorkersUppg.findByCode");
-            opQuery.setParameter("code", 3);
+            Query opQuery = em.createNamedQuery("WorkersUppg.findAll");
             mainOpList = opQuery.getResultList();
+            opList = mainOpList;
             for (WorkersUppg o : mainOpList){
-                jComboBox2.addItem(o.getFio());                
-            }
-            opQuery.setParameter("code", 6);
-            opList = opQuery.getResultList();
-            for (WorkersUppg o : opList){
-                jComboBox3.addItem(o.getFio());                
-            }
+                jComboBox2.addItem(o.getFio());
+                jComboBox3.addItem(o.getFio());
+            }            
             jComboBox2.setEnabled(false);
             jComboBox3.setEnabled(false);
 

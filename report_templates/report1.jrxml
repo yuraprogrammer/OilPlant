@@ -2,8 +2,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="493"/>
+	<property name="ireport.y" value="301"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter "/>
 	<style name="Title" isDefault="true" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -272,6 +273,15 @@
 	</field>
 	<field name="Tank_Name" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="Tank_Name"/>
+	</field>
+	<field name="sirieVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="sirieVolume"/>
+	</field>
+	<field name="sirieDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="sirieDensity"/>
+	</field>
+	<field name="sirieMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="sirieMass"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -2226,7 +2236,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Температура дымовых газов (max), °C:]]></text>
+				<text><![CDATA[t дымовых газов (max), °C:]]></text>
 			</staticText>
 			<line>
 				<reportElement x="42" y="558" width="212" height="1" uuid="8237bd3d-df04-4e27-8d1d-eb5228d66d22"/>
@@ -2239,7 +2249,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{drained}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{wasteGases}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="328" y="510" width="44" height="24" uuid="6db54f63-6630-49f6-87fa-35667b0e3622"/>
@@ -2253,7 +2263,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{drained}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{drained_BLF}]]></textFieldExpression>
 			</textField>
 			<subreport>
 				<reportElement mode="Opaque" x="77" y="343" width="295" height="115" uuid="569d0013-0766-4c75-8aa0-a1b43df1bd83"/>
@@ -2267,6 +2277,27 @@
 				<reportElement x="279" y="0" width="276" height="50" uuid="f1d3d695-109a-4775-850f-da8f8c87f6ff"/>
 				<imageExpression><![CDATA["C:\\Projects\\Alexprom\\Plant\\OilPlant\\UPPG_Reports\\report_templates\\alexprom_new.png"]]></imageExpression>
 			</image>
+			<textField pattern="###0">
+				<reportElement x="1" y="137" width="45" height="12" uuid="4edeaf2a-2d7c-4654-ac50-c57191a26d26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sirieVolume}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="137" width="49" height="12" uuid="e0d42227-d4bd-4bcc-8ca1-4b152aa52745"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sirieDensity}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="95" y="137" width="46" height="12" uuid="d6a322e7-b0dd-495a-859a-9dc3dad6415e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sirieMass}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

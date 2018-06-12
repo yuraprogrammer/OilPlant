@@ -43,6 +43,7 @@ public class UPPG_ShiftReport extends javax.swing.JPanel {
                 JasperPrint jasperPrint;
                 jasperPrint = JasperFillManager.fillReport(jasperReport, params, connection); 
                 JasperViewer jasperView = new JasperViewer(jasperPrint, false);
+                jasperView.setTitle("Печать акта переработки за смену");
                 jasperView.setVisible(true);
                 //this.add(viewer);
             } catch (Exception ex) {

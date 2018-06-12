@@ -5,6 +5,7 @@ import com.alexprom.entities.dictionary.VPlotn20;
 import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActDensity20;
 import com.alexprom.entities.process.ActSirie;
+import com.alexprom.entities.process.ActSirieMixing;
 import com.alexprom.entities.process.ActUPPG;
 import com.alexprom.entities.process.CountersDaq;
 import com.alexprom.entities.process.OTGToTSP;
@@ -14,6 +15,7 @@ import com.alexprom.entities.process.UPPGFeedWater;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.ActSirieJpaController;
+import com.alexprom.entities.service.ActSirieMixingJpaController;
 import com.alexprom.entities.service.ActUPPGJpaController;
 import com.alexprom.entities.service.OTGToTSPJpaController;
 import com.alexprom.entities.service.OTGToUPPGJpaController;
@@ -57,7 +59,7 @@ public final class CreateAct implements ActionListener {
     private Date repAct;
     private String dateStr;
     private int shift;
-    private Long newActId, newActSirieId, newActDensity20Id, newActCountersId, newActOtgToTspId, newActOtgToUppgId, newActDrainTankId, newActFeedWaterId;
+    private Long newActId, newActSirieId, newActDensity20Id, newActCountersId, newActOtgToTspId, newActOtgToUppgId, newActDrainTankId, newActFeedWaterId, newActSirieMixingId;
     private double new_SirieTempStart=0, new_SirieDensityStart=0, new_SirieDensity20Start=0;
     private double new_SirieTempEnd=0, new_SirieDensityEnd=0, new_SirieDensity20End=0;
     private double new_BlfTempStart=0, new_BlfDensityStart=0, new_BlfDensity20Start=0;
@@ -192,6 +194,18 @@ public final class CreateAct implements ActionListener {
             id = (Long)maxId+1;
         }else{
             id=null;
+        }
+        return id;
+    }
+    
+    private Long getNewActSirieMixing(){
+        Long id;
+        Query query = em.createNamedQuery("SELECT MAX(a.id) FROM ActSirieMixing");
+        Object maxId = query.getSingleResult();
+        if (maxId!=null){
+            id = (Long)maxId+1;
+        }else{
+            id = null;
         }
         return id;
     }
@@ -383,7 +397,18 @@ public final class CreateAct implements ActionListener {
         UPPGDrainTank newActDrainTank = new UPPGDrainTank();
         UPPGDrainTankJpaController newUPPGDrainTankJpa = new UPPGDrainTankJpaController(emf);
         newActDrainTank.setId(newActDrainTankId);
-        newActDrainTank.setActID(newActId);        
+        newActDrainTank.setActID(newActId);
+        //Получение данных на конец предыдущей смены и запись их на начало текущей
+        UPPGDrainTank prevActDrainTank = new UPPGDrainTank();
+        Query query = em.createNamedQuery("UPPGDrainTank.findByActId");
+        query.setParameter("actId", newActId-1);
+        List<UPPGDrainTank> list = query.getResultList();
+        prevActDrainTank = list.get(0);
+        if (prevActDrainTank!=null){
+            newActDrainTank.setStartLevel(prevActDrainTank.getFinishLevel());
+        }else{
+            newActDrainTank.setStartLevel(0);
+        }
         newUPPGDrainTankJpa.create(newActDrainTank);
     }
     
@@ -391,26 +416,46 @@ public final class CreateAct implements ActionListener {
         UPPGFeedWater newActFeedWater = new UPPGFeedWater();
         UPPGFeedWaterJpaController newFeedWaterJpa = new UPPGFeedWaterJpaController(emf);
         newActFeedWater.setId(newActFeedWaterId);
-        newActFeedWater.setActID(newActId);        
+        newActFeedWater.setActID(newActId);
+        //Получение данных на конец предыдущей смены и запись их на начало текущей
+        UPPGFeedWater prevActFeedWater = new UPPGFeedWater();
+        Query query = em.createNamedQuery("UPPGFeedWater.findByActId");
+        query.setParameter("actId", newActId-1);
+        List<UPPGFeedWater> list = query.getResultList();
+        prevActFeedWater = list.get(0);
+        if (prevActFeedWater!=null){
+            newActFeedWater.setStartData(prevActFeedWater.getFinishData());
+        }else{
+            newActFeedWater.setStartData(0);
+        }
         newFeedWaterJpa.create(newActFeedWater);
+    }
+    
+    private void createActSirieMixing() throws Exception{
+        ActSirieMixing newActSirieMixing = new ActSirieMixing();
+        ActSirieMixingJpaController newSirieMixingJpa = new ActSirieMixingJpaController(emf);
+        newActSirieMixing.setId(newActSirieMixingId);
+        newActSirieMixing.setActID(newActId);
+        newSirieMixingJpa.create(newActSirieMixing);
+        
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         //Проверка, открыт ли акт на редактирование
         if (!checkExist()){
-            NotifyDescriptor create = new NotifyDescriptor.Confirmation("Акт за предыдущую смену не существует!!! Создать?");
+            NotifyDescriptor create = new NotifyDescriptor.Confirmation("Акт за предыдущую смену не существует!!! Создать?", "Новый акт");
             Object result = DialogDisplayer.getDefault().notify(create);
             if (result==NotifyDescriptor.YES_OPTION){
                 try{                    
                     newActId = getNewActId();
                     newActSirieId = getNewActSirieId();
                     newActCountersId = getNewActCountersId();
-                    newActDensity20Id = getNewActDensity20Id();
-                    
+                    newActDensity20Id = getNewActDensity20Id();                    
                     newActOtgToUppgId = getNewActOtgToUppgId();
                     newActDrainTankId = getNewActDrainTankId();
                     newActFeedWaterId = getNewActFeedWaterId();
+                    newActSirieMixingId = getNewActSirieMixing();
                     createActUPPG();
                     createActSirie();
                     createActCounters();
@@ -418,12 +463,17 @@ public final class CreateAct implements ActionListener {
                     createActOtgToTsp();
                     createActOtgToUppg();
                     createUppgDrainTank();
-                    createUppgFeedWater();                    
-                    NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за предыдущую смену с идентификатором "+String.valueOf(newActId)+"создан успешно!!! Открыть для редактирвоания?");
+                    createUppgFeedWater();
+                    createActSirieMixing();
+                    NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за предыдущую смену создан успешно!!! Открыть для редактирвоания?");
                     Object resultDone = DialogDisplayer.getDefault().notify(done);  
                     if (resultDone==NotifyDescriptor.YES_OPTION){
-                        sirieDataTopComponent rtc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
-                        rtc.setAct(repAct, shift);
+                        sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+                        tc.setAct(repAct, shift);
+                        commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
+                        ctc.setAct(repAct, shift);
+                        additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
+                        atc.setAct(repAct, shift);
                     }
                 }catch (Exception ex){
                     NotifyDescriptor error = new NotifyDescriptor.Confirmation(ex.getLocalizedMessage());
