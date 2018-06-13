@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
@@ -2275,7 +2276,7 @@
 			</subreport>
 			<image>
 				<reportElement x="279" y="0" width="276" height="50" uuid="f1d3d695-109a-4775-850f-da8f8c87f6ff"/>
-				<imageExpression><![CDATA["C:\\Projects\\Alexprom\\Plant\\OilPlant\\UPPG_Reports\\report_templates\\alexprom_new.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"alexprom_new.png"]]></imageExpression>
 			</image>
 			<textField pattern="###0">
 				<reportElement x="1" y="137" width="45" height="12" uuid="4edeaf2a-2d7c-4654-ac50-c57191a26d26"/>

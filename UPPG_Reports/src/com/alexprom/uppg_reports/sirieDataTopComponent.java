@@ -2685,7 +2685,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             try{
                 new_DrainVolumeEnd = Integer.parseInt(drainEnd_Volume.getText().trim());
                 old_DrainMass = new_DrainMass;
-                new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
+                new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
                 drain_Mass.setText(String.format("%.1f", new_DrainMass));
             }catch (java.lang.NumberFormatException ex){
                 this.showNumberErroMessage();
@@ -2699,7 +2699,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             try{
                 new_DrainVolumeStart = Integer.parseInt(drainStart_Volume.getText().trim());
                 old_DrainMass = new_DrainMass;
-                new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
+                new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
                 drain_Mass.setText(String.format("%.1f", new_DrainMass));
             }catch (java.lang.NumberFormatException ex){
                 this.showNumberErroMessage();
@@ -2993,7 +2993,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
 
     
     
-    private void fillCounters(Long id, int permit){        
+    public void fillCounters(Long id, int permit){        
         if (em!=null){            
             Query query =em.createNamedQuery("ActCounters.findByActID");            
             query.setParameter("actID", id);
@@ -3046,7 +3046,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }        
     
-    private void fillOtgData(Long id, int permit){
+    public void fillOtgData(Long id, int permit){
         if (em!=null){
             Query query = em.createNamedQuery("OTGToTSP.findByActIdOrder");
             query.setParameter("actID", id);
@@ -3290,7 +3290,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }
     
-    private void fillFeedData(Long id, int permit){
+    public void fillFeedData(Long id, int permit){
         Query query = em.createNamedQuery("UPPGFeedWater.findByActID");
         query.setParameter("actID", id);
         listFeedWater = query.getResultList();
@@ -3309,7 +3309,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         feed_Water.setText(String.format("%d", new_Feed));
     }
     
-    private void fillDrainData(Long id, int permit){
+    public void fillDrainData(Long id, int permit){
         Query query = em.createNamedQuery("UPPGDrainTank.findByActID");
         query.setParameter("actID", id);
         listDrainTank = query.getResultList();
