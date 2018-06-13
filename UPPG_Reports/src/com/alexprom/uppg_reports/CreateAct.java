@@ -12,6 +12,7 @@ import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
+import com.alexprom.entities.process.WasteGasesMax;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.ActSirieJpaController;
@@ -217,6 +218,13 @@ public final class CreateAct implements ActionListener {
         newAct.setId(newActId);
         newAct.setADate(dateFormat.format(repAct));
         newAct.setAShift(shift);
+        Query query = em.createQuery("select v from WasteGasesMax v where v.aDate = '"+dateFormat.format(repAct)+"' AND v.aShift = "+String.valueOf(shift));
+        List<WasteGasesMax> list = query.getResultList();
+        if (!list.isEmpty()){
+            newAct.setMaxValue(list.get(0).getMaxValue());
+        }else{
+            newAct.setMaxValue(BigDecimal.ZERO);
+        }
         newActJpa.create(newAct);        
     }
     
