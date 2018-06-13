@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Акт УППГ" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ff70b70-a1df-4e60-a229-1c7a5d9d88ce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="372"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="614"/>
+	<parameter name="actID" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT * FROM dbo.Act_UPPG v WHERE v.ID = $P{actID}]]>
+	</queryString>
+	<field name="ID" class="java.lang.Long"/>
+	<field name="aDate" class="java.lang.String"/>
+	<field name="aShift" class="java.lang.Integer"/>
+	<field name="mainOper" class="java.lang.Integer"/>
+	<field name="slaveOper" class="java.lang.Integer"/>
+	<field name="Complete" class="java.lang.Integer"/>
+	<field name="aCode" class="java.lang.Integer"/>
+	<detail>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="27" width="100" height="20" uuid="575af7a0-1a9b-47a9-b791-1f843c1a96a7"/>
+				<text><![CDATA[QAZ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

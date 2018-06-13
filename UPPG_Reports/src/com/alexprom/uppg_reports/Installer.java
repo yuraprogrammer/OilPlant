@@ -22,21 +22,24 @@ public class Installer extends ModuleInstall {
     public boolean closing(){
         sirieDataTopComponent stc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
         if (stc.getAct()!=null){
-            NotifyDescriptor s = new NotifyDescriptor.Confirmation("Сохранить изменения перед завершением работы?", "Завершение работы");
-            Object close = DialogDisplayer.getDefault().notify(s);
-            if (close!=null && close==NotifyDescriptor.YES_OPTION){
-                try {
-                    commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
-                    additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
-                    stc.save();
-                    ctc.save();
-                    atc.save();
-                    NotifyDescriptor ok = new NotifyDescriptor.Message("Сохранение выполнено успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
-                    Object okResult = DialogDisplayer.getDefault().notify(ok);
-                } catch (Exception ex) {
-                    Exceptions.printStackTrace(ex);
-                    NotifyDescriptor err = new NotifyDescriptor.Message("Сохранение не выполнено!!!", NotifyDescriptor.ERROR_MESSAGE);
-                    Object errResult = DialogDisplayer.getDefault().notify(err);
+            stc.getEntityManager().refresh(stc.getAct());
+            if (stc.getAct().getComplete()==0){
+                NotifyDescriptor s = new NotifyDescriptor.Confirmation("Сохранить изменения перед завершением работы?", "Завершение работы");
+                Object close = DialogDisplayer.getDefault().notify(s);
+                if (close!=null && close==NotifyDescriptor.YES_OPTION){
+                    try {
+                        commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
+                        additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
+                        stc.save();
+                        ctc.save(stc.getAct().getComplete());
+                        atc.save();
+                        NotifyDescriptor ok = new NotifyDescriptor.Message("Сохранение выполнено успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
+                        Object okResult = DialogDisplayer.getDefault().notify(ok);
+                    } catch (Exception ex) {
+                        Exceptions.printStackTrace(ex);
+                        NotifyDescriptor err = new NotifyDescriptor.Message("Сохранение не выполнено!!!", NotifyDescriptor.ERROR_MESSAGE);
+                        Object errResult = DialogDisplayer.getDefault().notify(err);
+                    }
                 }
             }
         }

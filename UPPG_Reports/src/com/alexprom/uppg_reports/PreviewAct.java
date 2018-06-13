@@ -37,24 +37,34 @@ public final class PreviewAct implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
         if (tc.getAct()!=null){
-            NotifyDescriptor s = new NotifyDescriptor.Confirmation("Сохранить изменения перед выводом на печать?", "Печать акта");
-            Object close = DialogDisplayer.getDefault().notify(s);
-            if (close!=null && close==NotifyDescriptor.YES_OPTION){
-                try {
+            tc.getEntityManager().refresh(tc.getAct());
+            if (tc.getAct().getComplete()==0){
+                NotifyDescriptor s = new NotifyDescriptor.Confirmation("После вывода на печать, акт станет доступен только для просмотра. "
+                                                                    + "Убедитесь, что все данные введены корректно. Печатать?", "Финализация акта");
+                Object finalizationConfirm = DialogDisplayer.getDefault().notify(s);
+                if (finalizationConfirm==NotifyDescriptor.YES_OPTION){
+                    try {
                     commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
                     additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
                     tc.save();
-                    ctc.save();
+                    ctc.save(1);
                     atc.save();
-                    NotifyDescriptor ok = new NotifyDescriptor.Message("Сохранение выполнено успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
+                    NotifyDescriptor ok = new NotifyDescriptor.Message("Финализация выполнена успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
                     Object okResult = DialogDisplayer.getDefault().notify(ok);
+                    ctc.fillSirie(tc.getAct().getId(), 1);
+                    ctc.fillMixingSirie(tc.getAct().getId(), 1);
+                    tc.fillCounters(tc.getAct().getId(), 1);
+                    tc.fillDrainData(tc.getAct().getId(), 1);
+                    tc.fillFeedData(tc.getAct().getId(), 1);
+                    tc.fillOtgData(tc.getAct().getId(), 1);                    
+                    UPPG_ShiftReport frm = new UPPG_ShiftReport(tc.getEntityManager(), tc.getAct().getId());
                 } catch (Exception ex) {
                     Exceptions.printStackTrace(ex);
-                    NotifyDescriptor err = new NotifyDescriptor.Message("Сохранение не выполнено!!!", NotifyDescriptor.ERROR_MESSAGE);
-                    Object errResult = DialogDisplayer.getDefault().notify(err);
+                    NotifyDescriptor err = new NotifyDescriptor.Message("Финализация не выполнена!!!", NotifyDescriptor.ERROR_MESSAGE);
+                    Object errResult = DialogDisplayer.getDefault().notify(err);                    
                 }
-            }
-            UPPG_ShiftReport frm = new UPPG_ShiftReport(tc.getEntityManager(), tc.getAct().getId());            
+                }
+            }            
         }else{
             NotifyDescriptor d = new NotifyDescriptor.Message("Для просмотра отчета, должен быть открыт акт!!! Открыть акт для печати?" , NotifyDescriptor.OK_CANCEL_OPTION);
             Object result = DialogDisplayer.getDefault().notify(d);
@@ -64,11 +74,37 @@ public final class PreviewAct implements ActionListener {
                 DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
                 Object res = DialogDisplayer.getDefault().notify(dd);
                 if (null != res && DialogDescriptor.OK_OPTION == res) {
-                    tc.setAct(frm.getActDate(), frm.getActShift());
                     commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
+                    tc.setAct(frm.getActDate(), frm.getActShift());
                     ctc.setAct(frm.getActDate(), frm.getActShift());
                     additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
                     atc.setAct(frm.getActDate(), frm.getActShift());
+                    if (tc.getAct().getComplete()==0){
+                        NotifyDescriptor s = new NotifyDescriptor.Confirmation("Выбранный акт сохранен, но не финализирован."
+                                                                             + "После вывода на печать, акт станет доступен только для просмотра. "
+                                                                             + "Печатать?", "Финализация акта");
+                        Object finalizationConfirm = DialogDisplayer.getDefault().notify(s);
+                        if (finalizationConfirm==NotifyDescriptor.YES_OPTION){
+                            try {
+                                ctc.save(1);
+                                ctc.fillSirie(tc.getAct().getId(), 1);
+                                ctc.fillMixingSirie(tc.getAct().getId(), 1);
+                                tc.fillCounters(tc.getAct().getId(), 1);
+                                tc.fillDrainData(tc.getAct().getId(), 1);
+                                tc.fillFeedData(tc.getAct().getId(), 1);
+                                tc.fillOtgData(tc.getAct().getId(), 1);
+                                NotifyDescriptor ok = new NotifyDescriptor.Message("Финализация выполнена успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
+                                Object okResult = DialogDisplayer.getDefault().notify(ok);
+                            } catch (Exception ex) {
+                                Exceptions.printStackTrace(ex);
+                                NotifyDescriptor err = new NotifyDescriptor.Message("Финализация не выполнена!!!", NotifyDescriptor.ERROR_MESSAGE);
+                                Object errResult = DialogDisplayer.getDefault().notify(err);
+                                return;
+                            }
+                        } 
+                    }
+                    
+                    
                     UPPG_ShiftReport frm2;
                     frm2 = new UPPG_ShiftReport(tc.getEntityManager(), tc.getAct().getId());
                 }

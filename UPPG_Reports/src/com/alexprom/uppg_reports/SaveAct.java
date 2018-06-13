@@ -40,7 +40,7 @@ public final class SaveAct implements ActionListener {
             try {                
                 stc.save();
                 atc.save();
-                ctc.save();
+                ctc.save(stc.getAct().getComplete());
                 NotifyDescriptor ok = new NotifyDescriptor.Message("Сохранение выполнено успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
                 Object okResult = DialogDisplayer.getDefault().notify(ok);
             } catch (Exception ex) {

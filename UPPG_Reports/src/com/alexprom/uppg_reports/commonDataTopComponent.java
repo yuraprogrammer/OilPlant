@@ -649,7 +649,7 @@ public final class commonDataTopComponent extends TopComponent {
         }        
     }//GEN-LAST:event_sirieMixing_DensityPropertyChange
 
-    private void fillSirie(Long id, int permit){        
+    public void fillSirie(Long id, int permit){        
         if (em!=null){            
             Query query = em.createNamedQuery("ActSirie.findByActID");
             query.setParameter("actID", id);
@@ -720,7 +720,7 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }
     
-    private void fillMixingSirie(Long id, int permit){
+    public void fillMixingSirie(Long id, int permit){
         if (em!=null){            
             Query query = em.createNamedQuery("ActSirieMixing.findByActID");
             query.setParameter("actID", id);
@@ -742,7 +742,7 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }
     
-    public void save() throws Exception{
+    public void save(int permit) throws Exception{
         if (actSirie!=null && sirieDataChanged){
             ActSirieJpaController sirieJpa = new ActSirieJpaController(emf);
             actSirie.setComponent1(new_1);
@@ -764,6 +764,7 @@ public final class commonDataTopComponent extends TopComponent {
             ActUPPGJpaController actJpa = new ActUPPGJpaController(emf);
             newAct.setMainOper(mainOper);
             newAct.setSlaveOper(slaveOper);
+            newAct.setComplete(permit);
             actJpa.edit(newAct);
         }
         if (actSirieMixing!=null){
