@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl"><name>DataAdapter </name><driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver><username>roman</username><password>roman</password><savePassword>true</savePassword><url>jdbc:sqlserver://176.105.202.29:1433;databaseName=Alexprom_ASUTP</url><database></database><serverAddress></serverAddress></jdbcDataAdapter>

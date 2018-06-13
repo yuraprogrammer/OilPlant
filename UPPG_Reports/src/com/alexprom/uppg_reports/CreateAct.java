@@ -200,7 +200,7 @@ public final class CreateAct implements ActionListener {
     
     private Long getNewActSirieMixing(){
         Long id;
-        Query query = em.createNamedQuery("SELECT MAX(a.id) FROM ActSirieMixing");
+        Query query = em.createQuery("SELECT MAX(a.id) FROM ActSirieMixing a");
         Object maxId = query.getSingleResult();
         if (maxId!=null){
             id = (Long)maxId+1;
@@ -400,15 +400,20 @@ public final class CreateAct implements ActionListener {
         newActDrainTank.setActID(newActId);
         //Получение данных на конец предыдущей смены и запись их на начало текущей
         UPPGDrainTank prevActDrainTank = new UPPGDrainTank();
-        Query query = em.createNamedQuery("UPPGDrainTank.findByActId");
-        query.setParameter("actId", newActId-1);
+        Query query = em.createNamedQuery("UPPGDrainTank.findByActID");
+        query.setParameter("actID", newActId-1);
         List<UPPGDrainTank> list = query.getResultList();
         prevActDrainTank = list.get(0);
         if (prevActDrainTank!=null){
             newActDrainTank.setStartLevel(prevActDrainTank.getFinishLevel());
+            newActDrainTank.setFinishLevel(prevActDrainTank.getFinishLevel());            
         }else{
             newActDrainTank.setStartLevel(0);
+            newActDrainTank.setFinishLevel(0);
         }
+        newActDrainTank.setDensity(BigDecimal.ZERO);
+        newActDrainTank.setDrained(BigDecimal.ZERO);
+        newActDrainTank.setDrainedBLF(BigDecimal.ZERO);
         newUPPGDrainTankJpa.create(newActDrainTank);
     }
     
@@ -419,14 +424,16 @@ public final class CreateAct implements ActionListener {
         newActFeedWater.setActID(newActId);
         //Получение данных на конец предыдущей смены и запись их на начало текущей
         UPPGFeedWater prevActFeedWater = new UPPGFeedWater();
-        Query query = em.createNamedQuery("UPPGFeedWater.findByActId");
-        query.setParameter("actId", newActId-1);
+        Query query = em.createNamedQuery("UPPGFeedWater.findByActID");
+        query.setParameter("actID", newActId-1);
         List<UPPGFeedWater> list = query.getResultList();
         prevActFeedWater = list.get(0);
         if (prevActFeedWater!=null){
             newActFeedWater.setStartData(prevActFeedWater.getFinishData());
+            newActFeedWater.setFinishData(prevActFeedWater.getFinishData());
         }else{
             newActFeedWater.setStartData(0);
+            newActFeedWater.setFinishData(0);
         }
         newFeedWaterJpa.create(newActFeedWater);
     }
@@ -436,8 +443,9 @@ public final class CreateAct implements ActionListener {
         ActSirieMixingJpaController newSirieMixingJpa = new ActSirieMixingJpaController(emf);
         newActSirieMixing.setId(newActSirieMixingId);
         newActSirieMixing.setActID(newActId);
-        newSirieMixingJpa.create(newActSirieMixing);
-        
+        newActSirieMixing.setSirieVolume(BigDecimal.ZERO);
+        newActSirieMixing.setSirieDensity(BigDecimal.ZERO);
+        newSirieMixingJpa.create(newActSirieMixing);        
     }
     
     @Override

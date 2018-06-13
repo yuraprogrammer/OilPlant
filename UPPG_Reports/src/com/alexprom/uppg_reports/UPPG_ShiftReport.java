@@ -5,6 +5,7 @@
  */
 package com.alexprom.uppg_reports;
 
+import java.io.File;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,7 @@ import org.openide.NotifyDescriptor;
  */
 public class UPPG_ShiftReport extends javax.swing.JPanel {
 
-    private String reportSource = "./report_templates/report1.jrxml";
+    private String reportSource = /*System.getProperty("user.dir")+File.separator+*/"report_templates"+File.separator+"report1.jrxml";
     //private String reportDest = "./report_results/simple.html";
     private Map<String, Object> params;
     
@@ -38,7 +39,7 @@ public class UPPG_ShiftReport extends javax.swing.JPanel {
             Connection connection = em.unwrap(Connection.class);
             em.getTransaction().commit();
             params.put("actID", id);            
-            params.put("SUBREPORT_DIR", "./report_templates/");            
+            params.put("SUBREPORT_DIR", "report_templates"+File.separator);            
             try {
                 JasperPrint jasperPrint;
                 jasperPrint = JasperFillManager.fillReport(jasperReport, params, connection); 
