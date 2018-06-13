@@ -3,39 +3,40 @@
     <type>org.netbeans.modules.apisupport.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
-            <code-name-base>com.alexprom.entities</code-name-base>
+            <code-name-base>com.alexprom.connection.settings</code-name-base>
             <suite-component/>
             <module-dependencies>
                 <dependency>
-                    <code-name-base>com.alexprom.eclipselink</code-name-base>
+                    <code-name-base>org.netbeans.modules.options.api</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>1.0</specification-version>
+                        <release-version>1</release-version>
+                        <specification-version>1.44.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
-                    <code-name-base>com.alexprom.sqljdbcdriver</code-name-base>
+                    <code-name-base>org.openide.awt</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>1.0</specification-version>
+                        <specification-version>7.65.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
-                    <code-name-base>org.openide.dialogs</code-name-base>
+                    <code-name-base>org.openide.util</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>7.41.1</specification-version>
+                        <specification-version>9.5.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
-                    <code-name-base>org.openide.modules</code-name-base>
+                    <code-name-base>org.openide.util.lookup</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>7.47.1</specification-version>
+                        <specification-version>8.32.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -48,16 +49,8 @@
                 </dependency>
             </module-dependencies>
             <public-packages>
-                <package>com.alexprom.entities</package>
-                <package>com.alexprom.entities.dictionary</package>
-                <package>com.alexprom.entities.process</package>
-                <package>com.alexprom.entities.service</package>
-                <package>com.alexprom.entities.service.exceptions</package>
+                <package>com.alexprom.connection.settings</package>
             </public-packages>
-            <class-path-extension>
-                <runtime-relative-path>ext/ProcessDictionary.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/ProcessDictionary.jar</binary-origin>
-            </class-path-extension>
         </data>
     </configuration>
 </project>

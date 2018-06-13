@@ -1,6 +1,8 @@
 Manifest-Version: 1.0
 AutoUpdate-Show-In-Client: true
 OpenIDE-Module: com.alexprom.entities
+OpenIDE-Module-Install: com/alexprom/entities/Installer.class
+OpenIDE-Module-Layer: com/alexprom/entities/layer.xml
 OpenIDE-Module-Localizing-Bundle: com/alexprom/entities/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
 

@@ -9,3 +9,5 @@
 /Apache-Commons-BeanUtils/build/
 /JasperReports-Library/build/
 /HelpSystem/build/
+/ConnectionSettings/build/
+/ConnectionSettings/nbproject/private/

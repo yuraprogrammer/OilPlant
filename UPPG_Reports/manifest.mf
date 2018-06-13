@@ -6,4 +6,5 @@ OpenIDE-Module-Install: com/alexprom/uppg_reports/Installer.class
 OpenIDE-Module-Layer: com/alexprom/uppg_reports/layer.xml
 OpenIDE-Module-Localizing-Bundle: com/alexprom/uppg_reports/Bundle.properties
 OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.0.6
 
