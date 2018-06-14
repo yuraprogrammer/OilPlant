@@ -95,9 +95,9 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     }
 
     public void updatePersistence(){        
-        GlobalEntityManager gem = new GlobalEntityManager();
-        emf = gem.getEmf();
-        em = gem.getEm();
+        sirieDataTopComponent gem = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+        emf = gem.getEntityManagerFactory();
+        em = gem.getEntityManager();
     }
 
     /**

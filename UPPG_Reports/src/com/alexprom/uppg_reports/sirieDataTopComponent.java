@@ -150,6 +150,20 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         GlobalEntityManager gem = new GlobalEntityManager();
         emf = gem.getEmf();
         em = gem.getEm();
+        if (em!=null){
+            otgTsp_Tank.removeAllItems();
+            otgTsp_Tank1.removeAllItems();
+            otgTsp_Tank2.removeAllItems();
+            otgUppg_Tank.removeAllItems();
+            Query query = em.createNamedQuery("TankDic.findAll");
+            listTank = query.getResultList();
+            for (TankDic t : listTank){
+                otgTsp_Tank.addItem(t.getTankName());
+                otgTsp_Tank1.addItem(t.getTankName());
+                otgTsp_Tank2.addItem(t.getTankName());
+                otgUppg_Tank.addItem(t.getTankName());
+            }
+        }
     }
     
     public ActUPPG getAct(){
@@ -2606,7 +2620,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     }
     
     private void otgTspEnd_Level2PropertyChange(boolean edited) {                                                
-        if (edited){
+        if (edited & em!=null){
             old_OtgTspLevelEnd2 = new_OtgTspLevelEnd2;
             if (!otgTspEnd_Level2.getText().isEmpty()){                
                 try{

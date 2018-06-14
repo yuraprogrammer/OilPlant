@@ -31,6 +31,7 @@ import org.openide.awt.ActionReference;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.NbPreferences;
+import org.openide.windows.WindowManager;
 
 /**
  * Top component which displays something.
@@ -114,9 +115,33 @@ public final class commonDataTopComponent extends TopComponent {
     }
 
     public void updatePersistence(){        
-        GlobalEntityManager gem = new GlobalEntityManager();
-        emf = gem.getEmf();
-        em = gem.getEm();
+        sirieDataTopComponent gem = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+        emf = gem.getEntityManagerFactory();
+        em = gem.getEntityManager();
+        if (em!=null){
+            Query query = em.createNamedQuery("SirieDic.findAll");
+            sirieList = query.getResultList();
+            for (SirieDic s : sirieList){
+                sirieType1.addItem(s.getName());
+                sirieType2.addItem(s.getName());
+                sirieType3.addItem(s.getName());
+                sirieType4.addItem(s.getName());
+                sirieType5.addItem(s.getName());
+                sirieType6.addItem(s.getName());
+            }
+            jComboBox2.removeAllItems();
+            jComboBox3.removeAllItems();
+            Query opQuery = em.createNamedQuery("WorkersUppg.findAll");
+            mainOpList = opQuery.getResultList();
+            opList = mainOpList;
+            for (WorkersUppg o : mainOpList){
+                jComboBox2.addItem(o.getFio());
+                jComboBox3.addItem(o.getFio());
+            }            
+            jComboBox2.setEnabled(false);
+            jComboBox3.setEnabled(false);
+
+        }
     }
     
     /**
