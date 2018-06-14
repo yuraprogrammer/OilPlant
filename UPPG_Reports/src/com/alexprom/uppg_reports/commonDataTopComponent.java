@@ -10,6 +10,8 @@ import com.alexprom.entities.service.ActSirieJpaController;
 import com.alexprom.entities.service.ActSirieMixingJpaController;
 import com.alexprom.entities.service.ActUPPGJpaController;
 import com.alexprom.entities.settings.GlobalEntityManager;
+import com.sun.glass.events.KeyEvent;
+import java.awt.Event;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -232,9 +234,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieContent1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent1.text")); // NOI18N
         sirieContent1.setEnabled(false);
-        sirieContent1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieContent1PropertyChange(evt);
+        sirieContent1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieContent1FocusLost(evt);
+            }
+        });
+        sirieContent1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieContent1KeyPressed(evt);
             }
         });
         jPanel1.add(sirieContent1);
@@ -263,9 +270,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieContent2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent2.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent2.text")); // NOI18N
         sirieContent2.setEnabled(false);
-        sirieContent2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieContent2PropertyChange(evt);
+        sirieContent2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieContent2FocusLost(evt);
+            }
+        });
+        sirieContent2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieContent2KeyPressed(evt);
             }
         });
         jPanel1.add(sirieContent2);
@@ -294,9 +306,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieContent3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent3.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent3.text")); // NOI18N
         sirieContent3.setEnabled(false);
-        sirieContent3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieContent3PropertyChange(evt);
+        sirieContent3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieContent3FocusLost(evt);
+            }
+        });
+        sirieContent3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieContent3KeyPressed(evt);
             }
         });
         jPanel1.add(sirieContent3);
@@ -325,9 +342,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieContent4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent4.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent4.text")); // NOI18N
         sirieContent4.setEnabled(false);
-        sirieContent4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieContent4PropertyChange(evt);
+        sirieContent4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieContent4FocusLost(evt);
+            }
+        });
+        sirieContent4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieContent4KeyPressed(evt);
             }
         });
         jPanel1.add(sirieContent4);
@@ -356,9 +378,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieContent5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent5.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent5.text")); // NOI18N
         sirieContent5.setEnabled(false);
-        sirieContent5.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieContent5PropertyChange(evt);
+        sirieContent5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieContent5FocusLost(evt);
+            }
+        });
+        sirieContent5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieContent5KeyPressed(evt);
             }
         });
         jPanel1.add(sirieContent5);
@@ -387,9 +414,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieContent6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent6.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent6.text")); // NOI18N
         sirieContent6.setEnabled(false);
-        sirieContent6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieContent6PropertyChange(evt);
+        sirieContent6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieContent6FocusLost(evt);
+            }
+        });
+        sirieContent6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieContent6KeyPressed(evt);
             }
         });
         jPanel1.add(sirieContent6);
@@ -409,9 +441,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieMixing_Volume.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Volume.text")); // NOI18N
         sirieMixing_Volume.setEnabled(false);
         sirieMixing_Volume.setFocusCycleRoot(true);
-        sirieMixing_Volume.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieMixing_VolumePropertyChange(evt);
+        sirieMixing_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieMixing_VolumeFocusLost(evt);
+            }
+        });
+        sirieMixing_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieMixing_VolumeKeyPressed(evt);
             }
         });
         jPanel2.add(sirieMixing_Volume);
@@ -424,14 +461,14 @@ public final class commonDataTopComponent extends TopComponent {
         sirieMixing_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieMixing_Density.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Density.text")); // NOI18N
         sirieMixing_Density.setEnabled(false);
-        sirieMixing_Density.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sirieMixing_DensityActionPerformed(evt);
+        sirieMixing_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieMixing_DensityFocusLost(evt);
             }
         });
-        sirieMixing_Density.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieMixing_DensityPropertyChange(evt);
+        sirieMixing_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieMixing_DensityKeyPressed(evt);
             }
         });
         jPanel2.add(sirieMixing_Density);
@@ -504,19 +541,6 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_sirieType1PropertyChange
 
-    private void sirieContent1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent1PropertyChange
-        oldContent_1=newContent_1;
-        newContent_1=0;
-        if (!sirieContent1.getText().isEmpty()){
-            try{
-                newContent_1=Float.parseFloat(sirieContent1.getText().replace(",", "."));
-            }catch (java.lang.NumberFormatException ex){
-                showNumberErroMessage();                
-            }
-        }
-        sirieDataChanged = true;
-    }//GEN-LAST:event_sirieContent1PropertyChange
-
     private void sirieType2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType2PropertyChange
         if (sirieType2.getSelectedIndex()!=-1){
             old_2=new_2;
@@ -524,19 +548,6 @@ public final class commonDataTopComponent extends TopComponent {
             sirieDataChanged = true;
         }
     }//GEN-LAST:event_sirieType2PropertyChange
-
-    private void sirieContent2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent2PropertyChange
-        oldContent_2=newContent_2;
-        newContent_2=0;
-        if (!sirieContent2.getText().isEmpty()){
-            try{
-                newContent_2=Float.parseFloat(sirieContent2.getText().replace(",", "."));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
-            }
-        }
-        sirieDataChanged = true;
-    }//GEN-LAST:event_sirieContent2PropertyChange
 
     private void sirieType3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType3PropertyChange
         if (sirieType3.getSelectedIndex()!=-1){
@@ -546,19 +557,6 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_sirieType3PropertyChange
 
-    private void sirieContent3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent3PropertyChange
-        oldContent_3=newContent_3;
-        newContent_3=0;
-        if (!sirieContent3.getText().isEmpty()){
-            try{
-                newContent_3=Float.parseFloat(sirieContent3.getText().replace(",", "."));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
-            }
-        }
-        sirieDataChanged = true;
-    }//GEN-LAST:event_sirieContent3PropertyChange
-
     private void sirieType4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType4PropertyChange
         if (sirieType4.getSelectedIndex()!=-1){
             old_4=new_4;
@@ -567,19 +565,6 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_sirieType4PropertyChange
 
-    private void sirieContent4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent4PropertyChange
-        oldContent_4=newContent_4;
-        newContent_4=0;
-        if (!sirieContent3.getText().isEmpty()){
-            try{
-                newContent_4=Float.parseFloat(sirieContent4.getText().replace(",", "."));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
-            }
-        }
-        sirieDataChanged = true;
-    }//GEN-LAST:event_sirieContent4PropertyChange
-
     private void sirieType5PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType5PropertyChange
         if (sirieType5.getSelectedIndex()!=-1){
             old_5=new_5;
@@ -587,19 +572,6 @@ public final class commonDataTopComponent extends TopComponent {
             sirieDataChanged = true;
         }
     }//GEN-LAST:event_sirieType5PropertyChange
-
-    private void sirieContent5PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent5PropertyChange
-        oldContent_5=newContent_5;
-        newContent_5=0;
-        if (!sirieContent5.getText().isEmpty()){
-            try{
-                newContent_5=Float.parseFloat(sirieContent5.getText().replace(",", "."));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
-            }
-        }
-        sirieDataChanged = true;
-    }//GEN-LAST:event_sirieContent5PropertyChange
 
     private void jComboBox2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBox2PropertyChange
         if (jComboBox2.getSelectedIndex()!=-1 && newAct!=null){
@@ -627,50 +599,203 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_sirieType6PropertyChange
 
-    private void sirieContent6PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieContent6PropertyChange
+    private void setSirieContent1(boolean edited){
+        oldContent_1=newContent_1;
+            newContent_1=0;
+            if (!sirieContent1.getText().isEmpty()){
+                try{
+                    newContent_1=Float.parseFloat(sirieContent1.getText().replace(",", "."));
+                }catch (java.lang.NumberFormatException ex){
+                    showNumberErroMessage();                
+                }
+            }        
+        sirieDataChanged = edited;
+    }
+    
+    private void setSirieContent2(boolean edited){
+        oldContent_2=newContent_2;
+            newContent_2=0;
+            if (!sirieContent2.getText().isEmpty()){
+                try{
+                    newContent_2=Float.parseFloat(sirieContent2.getText().replace(",", "."));
+                }catch (java.lang.NumberFormatException ex){
+                    showNumberErroMessage();                
+                }
+            }        
+        sirieDataChanged = edited;
+    }
+    
+    private void setSirieContent3(boolean edited){
+        oldContent_3=newContent_3;
+            newContent_3=0;
+            if (!sirieContent3.getText().isEmpty()){
+                try{
+                    newContent_3=Float.parseFloat(sirieContent3.getText().replace(",", "."));
+                }catch (java.lang.NumberFormatException ex){
+                    showNumberErroMessage();                
+                }
+            }        
+        sirieDataChanged = edited;
+    }
+    
+    private void setSirieContent4(boolean edited){
+        oldContent_4=newContent_4;
+            newContent_4=0;
+            if (!sirieContent4.getText().isEmpty()){
+                try{
+                    newContent_4=Float.parseFloat(sirieContent4.getText().replace(",", "."));
+                }catch (java.lang.NumberFormatException ex){
+                    showNumberErroMessage();                
+                }
+            }        
+        sirieDataChanged = edited;
+    }
+    
+    private void setSirieContent5(boolean edited){
+        oldContent_5=newContent_5;
+            newContent_5=0;
+            if (!sirieContent5.getText().isEmpty()){
+                try{
+                    newContent_5=Float.parseFloat(sirieContent5.getText().replace(",", "."));
+                }catch (java.lang.NumberFormatException ex){
+                    showNumberErroMessage();                
+                }
+            }        
+        sirieDataChanged = edited;
+    }
+    
+    private void setSirieContent6(boolean edited){
         oldContent_6=newContent_6;
-        newContent_6=0;
-        if (!sirieContent6.getText().isEmpty()){
-            try{
-                newContent_6=Float.parseFloat(sirieContent6.getText().replace(",", "."));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+            newContent_6=0;
+            if (!sirieContent6.getText().isEmpty()){
+                try{
+                    newContent_6=Float.parseFloat(sirieContent6.getText().replace(",", "."));
+                }catch (java.lang.NumberFormatException ex){
+                    showNumberErroMessage();                
+                }
+            }        
+        sirieDataChanged = edited;
+    }
+    
+    private void setSirieMixingVolume(boolean edited){
+        old_mixingVolume = new_mixingVolume;
+        if (edited){
+            if (!sirieMixing_Volume.getText().isEmpty()){                
+                try{
+                    new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());                    
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }    
+            }else{
+                new_mixingVolume = 0;
             }
-        }
-        sirieDataChanged = true;
-    }//GEN-LAST:event_sirieContent6PropertyChange
-
-    private void sirieMixing_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieMixing_VolumePropertyChange
-        if (!sirieMixing_Volume.getText().isEmpty()){
-            old_mixingVolume = new_mixingVolume;
-            try{
-                new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());
-                old_mixingMass = new_mixingMass;
-                new_mixingMass = new_mixingVolume*new_mixingDensity;
-                sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
-            }    
-        }
-    }//GEN-LAST:event_sirieMixing_VolumePropertyChange
-
-    private void sirieMixing_DensityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sirieMixing_DensityActionPerformed
-
-    }//GEN-LAST:event_sirieMixing_DensityActionPerformed
-
-    private void sirieMixing_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieMixing_DensityPropertyChange
-        if (!sirieMixing_Density.getText().isEmpty()){
-            old_mixingDensity = new_mixingDensity;
-            try{
-                new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
-                old_mixingMass = new_mixingMass;
-                new_mixingMass = new_mixingVolume*new_mixingDensity;
-                sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+            old_mixingMass = new_mixingMass;
+            new_mixingMass = new_mixingVolume*new_mixingDensity;
+            sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
+        }else{
+            new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());
+        }    
+    }
+    
+    private void setSirieMixingDensity(boolean edited){
+        old_mixingDensity = new_mixingDensity;
+        if (edited){
+            if (!sirieMixing_Density.getText().isEmpty()){
+                try{
+                    new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
+                    old_mixingMass = new_mixingMass;
+                    new_mixingMass = new_mixingVolume*new_mixingDensity;
+                    sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                
             }
-        }        
-    }//GEN-LAST:event_sirieMixing_DensityPropertyChange
+        }else{
+            new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
+        } 
+    }
+    
+    private void sirieContent1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent1FocusLost
+        setSirieContent1(true);
+    }//GEN-LAST:event_sirieContent1FocusLost
+
+    private void sirieContent2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent2FocusLost
+        setSirieContent2(true);
+    }//GEN-LAST:event_sirieContent2FocusLost
+
+    private void sirieContent3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent3FocusLost
+        setSirieContent3(true);
+    }//GEN-LAST:event_sirieContent3FocusLost
+
+    private void sirieContent4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent4FocusLost
+        setSirieContent4(true);
+    }//GEN-LAST:event_sirieContent4FocusLost
+
+    private void sirieContent5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent5FocusLost
+        setSirieContent5(true);
+    }//GEN-LAST:event_sirieContent5FocusLost
+
+    private void sirieContent6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent6FocusLost
+        setSirieContent6(true);
+    }//GEN-LAST:event_sirieContent6FocusLost
+
+    private void sirieMixing_VolumeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieMixing_VolumeFocusLost
+        setSirieMixingVolume(true);
+    }//GEN-LAST:event_sirieMixing_VolumeFocusLost
+
+    private void sirieMixing_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieMixing_DensityFocusLost
+        setSirieMixingDensity(true);
+    }//GEN-LAST:event_sirieMixing_DensityFocusLost
+
+    private void sirieContent1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieContent1(true);
+        }
+    }//GEN-LAST:event_sirieContent1KeyPressed
+
+    private void sirieContent2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent2KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieContent2(true);
+        }
+    }//GEN-LAST:event_sirieContent2KeyPressed
+
+    private void sirieContent3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent3KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieContent3(true);
+        }
+    }//GEN-LAST:event_sirieContent3KeyPressed
+
+    private void sirieContent4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent4KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieContent4(true);
+        }
+    }//GEN-LAST:event_sirieContent4KeyPressed
+
+    private void sirieContent5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent5KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieContent5(true);
+        }
+    }//GEN-LAST:event_sirieContent5KeyPressed
+
+    private void sirieContent6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent6KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieContent6(true);
+        }
+    }//GEN-LAST:event_sirieContent6KeyPressed
+
+    private void sirieMixing_VolumeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieMixing_VolumeKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieMixingVolume(true);
+        }
+    }//GEN-LAST:event_sirieMixing_VolumeKeyPressed
+
+    private void sirieMixing_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieMixing_DensityKeyPressed
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setSirieMixingDensity(true);            
+        }
+    }//GEN-LAST:event_sirieMixing_DensityKeyPressed
 
     public void fillSirie(Long id, int permit){        
         if (em!=null){            
@@ -686,7 +811,9 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType1.setSelectedIndex(new_1);
                 }
             }
-            sirieContent1.setText(String.format("%.1f", actSirie.getPercent1()));
+            oldContent_1 = newContent_1;
+            newContent_1 = (float) actSirie.getPercent1();
+            sirieContent1.setText(String.format("%.1f", newContent_1));
             for (int i=0; i<sirieList.size(); i++){
                 if (actSirie.getComponent2()==sirieList.get(i).getId()){
                     old_2 = new_2;
@@ -694,7 +821,9 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType2.setSelectedIndex(new_2);
                 }
             }
-            sirieContent2.setText(String.format("%.1f", actSirie.getPercent2()));
+            oldContent_2 = newContent_2;
+            newContent_2 = (float) actSirie.getPercent2();
+            sirieContent2.setText(String.format("%.1f", newContent_2));            
             for (int i=0; i<sirieList.size(); i++){
                 if (actSirie.getComponent3()==sirieList.get(i).getId()){
                     old_3 = new_3;
@@ -702,7 +831,9 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType3.setSelectedIndex(new_3);
                 }
             }
-            sirieContent3.setText(String.format("%.1f", actSirie.getPercent3()));
+            oldContent_3 = newContent_3;
+            newContent_3 = (float) actSirie.getPercent3();
+            sirieContent3.setText(String.format("%.1f", newContent_3));
             for (int i=0; i<sirieList.size(); i++){
                 if (actSirie.getComponent4()==sirieList.get(i).getId()){
                     old_4 = new_4;
@@ -710,7 +841,9 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType4.setSelectedIndex(new_4);
                 }
             }
-            sirieContent4.setText(String.format("%.1f", actSirie.getPercent4()));
+            oldContent_4 = newContent_4;
+            newContent_4 = (float) actSirie.getPercent4();
+            sirieContent4.setText(String.format("%.1f", newContent_4));
             for (int i=0; i<sirieList.size(); i++){
                 if (actSirie.getComponent5()==sirieList.get(i).getId()){
                     old_5 = new_5;
@@ -718,7 +851,9 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType5.setSelectedIndex(new_5);
                 }
             }
-            sirieContent5.setText(String.format("%.1f", actSirie.getPercent5()));
+            oldContent_5 = newContent_5;
+            newContent_5 = (float) actSirie.getPercent5();
+            sirieContent5.setText(String.format("%.1f", newContent_5));
             for (int i=0; i<sirieList.size(); i++){
                 if (actSirie.getComponent6()==sirieList.get(i).getId()){
                     old_6 = new_6;
@@ -726,7 +861,9 @@ public final class commonDataTopComponent extends TopComponent {
                     sirieType5.setSelectedIndex(new_6);
                 }
             }
-            sirieContent6.setText(String.format("%.1f", actSirie.getPercent6()));
+            oldContent_6 = newContent_6;
+            newContent_6 = (float) actSirie.getPercent6();
+            sirieContent6.setText(String.format("%.1f", newContent_6));
             
             sirieContent1.setEnabled(permit==0);
             sirieContent2.setEnabled(permit==0);
@@ -756,9 +893,9 @@ public final class commonDataTopComponent extends TopComponent {
             new_mixingDensity = actSirieMixing.getSirieDensity().floatValue();
             old_mixingMass = new_mixingMass;
             new_mixingMass = actSirieMixing.getSirieMass().floatValue();
-            sirieMixing_Volume.setText(String.format("%.1f", actSirieMixing.getSirieVolume()));
-            sirieMixing_Density.setText(String.format("%.4f", actSirieMixing.getSirieDensity()));
-            sirieMixing_Mass.setText(String.format("%.1f", actSirieMixing.getSirieMass()));
+            sirieMixing_Volume.setText(String.format("%.1f", new_mixingVolume));
+            sirieMixing_Density.setText(String.format("%.4f", new_mixingDensity));
+            sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
             sirieMixing_Volume.setEnabled(permit==0);
             sirieMixing_Density.setEnabled(permit==0);
             sirieMixing_Mass.setEnabled(false);

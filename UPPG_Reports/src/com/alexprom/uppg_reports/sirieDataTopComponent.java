@@ -16,6 +16,7 @@ import com.alexprom.entities.service.OTGToUPPGJpaController;
 import com.alexprom.entities.service.UPPGDrainTankJpaController;
 import com.alexprom.entities.service.UPPGFeedWaterJpaController;
 import com.alexprom.entities.settings.GlobalEntityManager;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -82,6 +83,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private OTGToTSP otgToTsp, otgToTsp1, otgToTsp2;
     private GradView gradView;
     private List<GradView> listGradView;
+    private ActUPPG newAct, oldAct;
+    
     private int old_OtgTspTank=0, new_OtgTspTank=0;
     private int old_OtgTspTank1=0, new_OtgTspTank1=0;
     private int old_OtgTspTank2=0, new_OtgTspTank2=0;
@@ -97,9 +100,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private int old_DrainVolumeStart=0, new_DrainVolumeStart=0, old_DrainVolumeEnd=0, new_DrainVolumeEnd=0;
     private double old_DrainDensity=0, new_DrainDensity=0;
     private double old_DrainMass=0, new_DrainMass=0, old_drainedWater=0, new_drainedWater=0, old_drainedBLF=0, new_drainedBLF=0;
-    private int old_FeedStart=0, new_FeedStart=0, old_FeedEnd=0, new_FeedEnd=0, old_Feed=0, new_Feed=0;
-    private ActUPPG newAct, oldAct;
-    
+    private int old_FeedStart=0, new_FeedStart=0, old_FeedEnd=0, new_FeedEnd=0, old_Feed=0, new_Feed=0;      
     private double new_OtgTspLevelStart1=0, new_OtgTspVolumeStart1=0, new_OtgTspMassStart1=0, new_OtgTspTempStart1=0, new_OtgTspDensityStart1=0, new_OtgTspDensity20Start1=0;
     private double old_OtgTspLevelStart1=0, old_OtgTspVolumeStart1=0, old_OtgTspMassStart1=0, old_OtgTspTempStart1=0, old_OtgTspDensityStart1=0, old_OtgTspDensity20Start1=0;
     private double new_OtgTspLevelEnd1=0, new_OtgTspVolumeEnd1=0, new_OtgTspMassEnd1=0, new_OtgTspTempEnd1=0, new_OtgTspDensityEnd1=0, new_OtgTspDensity20End1=0;
@@ -745,9 +746,9 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
 
         otgUppg_Tank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         otgUppg_Tank.setEnabled(false);
-        otgUppg_Tank.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgUppg_TankPropertyChange(evt);
+        otgUppg_Tank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otgUppg_TankActionPerformed(evt);
             }
         });
         jPanel7.add(otgUppg_Tank);
@@ -769,9 +770,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgUppgStart_Level.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgUppgStart_Level.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgUppgStart_Level.text")); // NOI18N
         otgUppgStart_Level.setEnabled(false);
-        otgUppgStart_Level.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgUppgStart_LevelPropertyChange(evt);
+        otgUppgStart_Level.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgUppgStart_LevelFocusLost(evt);
+            }
+        });
+        otgUppgStart_Level.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgUppgStart_LevelKeyPressed(evt);
             }
         });
         jPanel8.add(otgUppgStart_Level);
@@ -823,9 +829,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgUppgStart_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgUppgStart_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgUppgStart_Density.text")); // NOI18N
         otgUppgStart_Density.setEnabled(false);
-        otgUppgStart_Density.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgUppgStart_DensityPropertyChange(evt);
+        otgUppgStart_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgUppgStart_DensityFocusLost(evt);
+            }
+        });
+        otgUppgStart_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgUppgStart_DensityKeyPressed(evt);
             }
         });
         jPanel8.add(otgUppgStart_Density);
@@ -856,9 +867,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgUppgEnd_Level.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgUppgEnd_Level.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgUppgEnd_Level.text")); // NOI18N
         otgUppgEnd_Level.setEnabled(false);
-        otgUppgEnd_Level.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgUppgEnd_LevelPropertyChange(evt);
+        otgUppgEnd_Level.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgUppgEnd_LevelFocusLost(evt);
+            }
+        });
+        otgUppgEnd_Level.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgUppgEnd_LevelKeyPressed(evt);
             }
         });
         jPanel9.add(otgUppgEnd_Level);
@@ -910,9 +926,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgUppgEnd_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgUppgEnd_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgUppgEnd_Density.text")); // NOI18N
         otgUppgEnd_Density.setEnabled(false);
-        otgUppgEnd_Density.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgUppgEnd_DensityPropertyChange(evt);
+        otgUppgEnd_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgUppgEnd_DensityFocusLost(evt);
+            }
+        });
+        otgUppgEnd_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgUppgEnd_DensityKeyPressed(evt);
             }
         });
         jPanel9.add(otgUppgEnd_Density);
@@ -940,9 +961,9 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
 
         otgTsp_Tank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         otgTsp_Tank.setEnabled(false);
-        otgTsp_Tank.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTsp_TankPropertyChange(evt);
+        otgTsp_Tank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otgTsp_TankActionPerformed(evt);
             }
         });
         jPanel10.add(otgTsp_Tank);
@@ -964,9 +985,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspStart_Level.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspStart_Level.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspStart_Level.text")); // NOI18N
         otgTspStart_Level.setEnabled(false);
-        otgTspStart_Level.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspStart_LevelPropertyChange(evt);
+        otgTspStart_Level.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspStart_LevelFocusLost(evt);
+            }
+        });
+        otgTspStart_Level.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspStart_LevelKeyPressed(evt);
             }
         });
         jPanel11.add(otgTspStart_Level);
@@ -1029,9 +1055,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspStart_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspStart_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspStart_Density.text")); // NOI18N
         otgTspStart_Density.setEnabled(false);
-        otgTspStart_Density.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspStart_DensityPropertyChange(evt);
+        otgTspStart_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspStart_DensityFocusLost(evt);
+            }
+        });
+        otgTspStart_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspStart_DensityKeyPressed(evt);
             }
         });
         jPanel11.add(otgTspStart_Density);
@@ -1051,9 +1082,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspEnd_Level.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspEnd_Level.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspEnd_Level.text")); // NOI18N
         otgTspEnd_Level.setEnabled(false);
-        otgTspEnd_Level.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspEnd_LevelPropertyChange(evt);
+        otgTspEnd_Level.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspEnd_LevelFocusLost(evt);
+            }
+        });
+        otgTspEnd_Level.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspEnd_LevelKeyPressed(evt);
             }
         });
         jPanel12.add(otgTspEnd_Level);
@@ -1116,9 +1152,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspEnd_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspEnd_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspEnd_Density.text")); // NOI18N
         otgTspEnd_Density.setEnabled(false);
-        otgTspEnd_Density.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspEnd_DensityPropertyChange(evt);
+        otgTspEnd_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspEnd_DensityFocusLost(evt);
+            }
+        });
+        otgTspEnd_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspEnd_DensityKeyPressed(evt);
             }
         });
         jPanel12.add(otgTspEnd_Density);
@@ -1134,9 +1175,9 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
 
         otgTsp_Tank1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         otgTsp_Tank1.setEnabled(false);
-        otgTsp_Tank1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTsp_Tank1PropertyChange(evt);
+        otgTsp_Tank1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otgTsp_Tank1ActionPerformed(evt);
             }
         });
         jPanel10.add(otgTsp_Tank1);
@@ -1153,9 +1194,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspEnd_Level1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspEnd_Level1.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspEnd_Level1.text")); // NOI18N
         otgTspEnd_Level1.setEnabled(false);
-        otgTspEnd_Level1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspEnd_Level1PropertyChange(evt);
+        otgTspEnd_Level1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspEnd_Level1FocusLost(evt);
+            }
+        });
+        otgTspEnd_Level1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspEnd_Level1KeyPressed(evt);
             }
         });
         jPanel13.add(otgTspEnd_Level1);
@@ -1218,9 +1264,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspEnd_Density1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspEnd_Density1.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspEnd_Density1.text")); // NOI18N
         otgTspEnd_Density1.setEnabled(false);
-        otgTspEnd_Density1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspEnd_Density1PropertyChange(evt);
+        otgTspEnd_Density1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspEnd_Density1FocusLost(evt);
+            }
+        });
+        otgTspEnd_Density1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspEnd_Density1KeyPressed(evt);
             }
         });
         jPanel13.add(otgTspEnd_Density1);
@@ -1240,9 +1291,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspStart_Level1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspStart_Level1.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspStart_Level1.text")); // NOI18N
         otgTspStart_Level1.setEnabled(false);
-        otgTspStart_Level1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspStart_Level1PropertyChange(evt);
+        otgTspStart_Level1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspStart_Level1FocusLost(evt);
+            }
+        });
+        otgTspStart_Level1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspStart_Level1KeyPressed(evt);
             }
         });
         jPanel14.add(otgTspStart_Level1);
@@ -1305,9 +1361,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspStart_Density1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspStart_Density1.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspStart_Density1.text")); // NOI18N
         otgTspStart_Density1.setEnabled(false);
-        otgTspStart_Density1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspStart_Density1PropertyChange(evt);
+        otgTspStart_Density1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspStart_Density1FocusLost(evt);
+            }
+        });
+        otgTspStart_Density1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspStart_Density1KeyPressed(evt);
             }
         });
         jPanel14.add(otgTspStart_Density1);
@@ -1323,9 +1384,9 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
 
         otgTsp_Tank2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         otgTsp_Tank2.setEnabled(false);
-        otgTsp_Tank2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTsp_Tank2PropertyChange(evt);
+        otgTsp_Tank2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otgTsp_Tank2ActionPerformed(evt);
             }
         });
         jPanel10.add(otgTsp_Tank2);
@@ -1342,9 +1403,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspEnd_Level2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspEnd_Level2.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspEnd_Level2.text")); // NOI18N
         otgTspEnd_Level2.setEnabled(false);
-        otgTspEnd_Level2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspEnd_Level2PropertyChange(evt);
+        otgTspEnd_Level2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspEnd_Level2FocusLost(evt);
+            }
+        });
+        otgTspEnd_Level2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspEnd_Level2KeyPressed(evt);
             }
         });
         jPanel15.add(otgTspEnd_Level2);
@@ -1407,9 +1473,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspEnd_Density2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspEnd_Density2.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspEnd_Density2.text")); // NOI18N
         otgTspEnd_Density2.setEnabled(false);
-        otgTspEnd_Density2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspEnd_Density2PropertyChange(evt);
+        otgTspEnd_Density2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspEnd_Density2FocusLost(evt);
+            }
+        });
+        otgTspEnd_Density2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspEnd_Density2KeyPressed(evt);
             }
         });
         jPanel15.add(otgTspEnd_Density2);
@@ -1429,9 +1500,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspStart_Level2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspStart_Level2.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspStart_Level2.text")); // NOI18N
         otgTspStart_Level2.setEnabled(false);
-        otgTspStart_Level2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspStart_Level2PropertyChange(evt);
+        otgTspStart_Level2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspStart_Level2FocusLost(evt);
+            }
+        });
+        otgTspStart_Level2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspStart_Level2KeyPressed(evt);
             }
         });
         jPanel16.add(otgTspStart_Level2);
@@ -1494,9 +1570,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTspStart_Density2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgTspStart_Density2.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgTspStart_Density2.text")); // NOI18N
         otgTspStart_Density2.setEnabled(false);
-        otgTspStart_Density2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                otgTspStart_Density2PropertyChange(evt);
+        otgTspStart_Density2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otgTspStart_Density2FocusLost(evt);
+            }
+        });
+        otgTspStart_Density2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                otgTspStart_Density2KeyPressed(evt);
             }
         });
         jPanel16.add(otgTspStart_Density2);
@@ -1664,9 +1745,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drainEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         drainEnd_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drainEnd_Volume.text")); // NOI18N
         drainEnd_Volume.setEnabled(false);
-        drainEnd_Volume.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                drainEnd_VolumePropertyChange(evt);
+        drainEnd_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drainEnd_VolumeFocusLost(evt);
+            }
+        });
+        drainEnd_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drainEnd_VolumeKeyPressed(evt);
             }
         });
         jPanel17.add(drainEnd_Volume);
@@ -1676,9 +1762,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drainStart_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         drainStart_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drainStart_Volume.text")); // NOI18N
         drainStart_Volume.setEnabled(false);
-        drainStart_Volume.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                drainStart_VolumePropertyChange(evt);
+        drainStart_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drainStart_VolumeFocusLost(evt);
+            }
+        });
+        drainStart_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drainStart_VolumeKeyPressed(evt);
             }
         });
         jPanel17.add(drainStart_Volume);
@@ -1708,14 +1799,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drain_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         drain_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drain_Density.text")); // NOI18N
         drain_Density.setEnabled(false);
-        drain_Density.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drain_DensityActionPerformed(evt);
+        drain_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drain_DensityFocusLost(evt);
             }
         });
-        drain_Density.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                drain_DensityPropertyChange(evt);
+        drain_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drain_DensityKeyPressed(evt);
             }
         });
         jPanel17.add(drain_Density);
@@ -1730,14 +1821,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drained_Water.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         drained_Water.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drained_Water.text")); // NOI18N
         drained_Water.setEnabled(false);
-        drained_Water.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drained_WaterActionPerformed(evt);
+        drained_Water.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drained_WaterFocusLost(evt);
             }
         });
-        drained_Water.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                drained_WaterPropertyChange(evt);
+        drained_Water.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drained_WaterKeyPressed(evt);
             }
         });
 
@@ -1751,14 +1842,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drained_BLF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         drained_BLF.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drained_BLF.text")); // NOI18N
         drained_BLF.setEnabled(false);
-        drained_BLF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drained_BLFActionPerformed(evt);
+        drained_BLF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drained_BLFFocusLost(evt);
             }
         });
-        drained_BLF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                drained_BLFPropertyChange(evt);
+        drained_BLF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drained_BLFKeyPressed(evt);
             }
         });
 
@@ -1797,101 +1888,181 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel1.setBounds(310, 180, 160, 80);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void otgTsp_TankPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTsp_TankPropertyChange
-        if (otgTsp_Tank.getSelectedIndex()!=-1){
-            old_OtgTspTank = new_OtgTspTank;            
-            new_OtgTspTank = listTank.get(otgTsp_Tank.getSelectedIndex()).getTankId();
-            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-            query.setParameter("tankId", new_OtgTspTank);
-            query.setParameter("matLevel", new_OtgTspLevelEnd);
-            List<GradView> resultList = query.getResultList();
-            if (!resultList.isEmpty()){
-                old_OtgTspVolumeEnd = new_OtgTspVolumeEnd;
-                if (resultList.get(0).getMatVolume()!=null){
+    private void otgTsp_TankChange(boolean edited){
+        if (edited){
+            if (otgTsp_Tank.getSelectedIndex()!=-1){
+                old_OtgTspTank = new_OtgTspTank;            
+                new_OtgTspTank = listTank.get(otgTsp_Tank.getSelectedIndex()).getTankId();
+                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+                query.setParameter("tankId", new_OtgTspTank);
+                query.setParameter("matLevel", new_OtgTspLevelEnd);
+                List<GradView> resultList = query.getResultList();
+                old_OtgTspVolumeEnd = new_OtgTspVolumeEnd;                    
+                if (!resultList.isEmpty()){
                     new_OtgTspVolumeEnd = resultList.get(0).getMatVolume().doubleValue();
                 }else{
                     new_OtgTspVolumeEnd = 0;
-                }
-                old_OtgTspMassEnd = new_OtgTspMassEnd;
-                new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;
-                otgTspEnd_Volume.setText(String.format("%.2f", new_OtgTspVolumeEnd));
-                otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
-                otgTspDataChanged = true;
-                content.remove(otgResult);
-                otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
-                content.set(Collections.singleton(otgResult), null);
+                }                
+            }else{
+                new_OtgTspVolumeEnd = 0;
             }
+            old_OtgTspMassEnd = new_OtgTspMassEnd;
+            new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;                    
+            otgTspEnd_Volume.setText(String.format("%.2f", new_OtgTspVolumeEnd));
+            otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            content.set(Collections.singleton(otgResult), null);
+        }else{
+            
         }
-    }//GEN-LAST:event_otgTsp_TankPropertyChange
-
-    private void otgUppg_TankPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppg_TankPropertyChange
-        if (otgUppg_Tank.getSelectedIndex()!=-1){
-            old_OtgUppgTank = new_OtgUppgTank;            
-            new_OtgUppgTank = listTank.get(otgUppg_Tank.getSelectedIndex()).getTankId();
-            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-            query.setParameter("tankId", new_OtgUppgTank);
-            query.setParameter("matLevel", new_OtgUppgLevelEnd);
-            List<GradView> resultList = query.getResultList();
-            if (!resultList.isEmpty()){
+        
+    }
+    
+    private void otgTsp_Tank1Change(boolean edited){
+        if (edited){
+            if (otgTsp_Tank1.getSelectedIndex()!=-1){
+                old_OtgTspTank1 = new_OtgTspTank1;            
+                new_OtgTspTank1 = listTank.get(otgTsp_Tank1.getSelectedIndex()).getTankId();
+                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+                query.setParameter("tankId", new_OtgTspTank1);
+                query.setParameter("matLevel", new_OtgTspLevelEnd1);
+                List<GradView> resultList = query.getResultList();
+                old_OtgTspVolumeEnd1 = new_OtgTspVolumeEnd1;                    
+                if (!resultList.isEmpty()){
+                    new_OtgTspVolumeEnd1 = resultList.get(0).getMatVolume().doubleValue();
+                }else{
+                    new_OtgTspVolumeEnd1 = 0;
+                }                
+            }else{
+                new_OtgTspVolumeEnd1 = 0;
+            }
+            old_OtgTspMassEnd1 = new_OtgTspMassEnd1;
+            new_OtgTspMassEnd1 = new_OtgTspVolumeEnd1*new_OtgTspDensityEnd1;                    
+            otgTspEnd_Volume1.setText(String.format("%.2f", new_OtgTspVolumeEnd1));
+            otgTspEnd_Mass1.setText(String.format("%.2f", new_OtgTspMassEnd1));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            content.set(Collections.singleton(otgResult), null);
+        }else{
+            
+        }
+        
+    }
+    
+    private void otgTsp_Tank2Change(boolean edited){
+        if (edited){
+            if (otgTsp_Tank2.getSelectedIndex()!=-1){
+                old_OtgTspTank2 = new_OtgTspTank2;            
+                new_OtgTspTank2 = listTank.get(otgTsp_Tank2.getSelectedIndex()).getTankId();
+                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+                query.setParameter("tankId", new_OtgTspTank2);
+                query.setParameter("matLevel", new_OtgTspLevelEnd2);
+                List<GradView> resultList = query.getResultList();
+                old_OtgTspVolumeEnd2 = new_OtgTspVolumeEnd2;                    
+                if (!resultList.isEmpty()){
+                    new_OtgTspVolumeEnd2 = resultList.get(0).getMatVolume().doubleValue();
+                }else{
+                    new_OtgTspVolumeEnd2 = 0;
+                }                
+            }else{
+                new_OtgTspVolumeEnd2 = 0;
+            }
+            old_OtgTspMassEnd2 = new_OtgTspMassEnd2;
+            new_OtgTspMassEnd2 = new_OtgTspVolumeEnd2*new_OtgTspDensityEnd2;                    
+            otgTspEnd_Volume2.setText(String.format("%.2f", new_OtgTspVolumeEnd2));
+            otgTspEnd_Mass2.setText(String.format("%.2f", new_OtgTspMassEnd2));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            content.set(Collections.singleton(otgResult), null);
+        }else{
+            
+        }
+        
+    }
+    
+    private void otgUppg_TankChange(boolean edited) {
+        if (edited){
+            if (otgUppg_Tank.getSelectedIndex()!=-1){
+                old_OtgUppgTank = new_OtgUppgTank;            
+                new_OtgUppgTank = listTank.get(otgUppg_Tank.getSelectedIndex()).getTankId();
+                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+                query.setParameter("tankId", new_OtgUppgTank);
+                query.setParameter("matLevel", new_OtgUppgLevelEnd);
+                List<GradView> resultList = query.getResultList();
                 old_OtgUppgVolumeEnd = new_OtgUppgVolumeEnd;
-                if (resultList.get(0).getMatVolume()!=null){
+                if (!resultList.isEmpty()){                   
                     new_OtgUppgVolumeEnd = resultList.get(0).getMatVolume().doubleValue();
                 }else{
                     new_OtgUppgVolumeEnd = 0;
                 }
-                old_OtgUppgMassEnd = new_OtgUppgMassEnd;
-                new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
-                otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
-                otgUppgEnd_Volume.setText(String.format("%.2f", new_OtgUppgVolumeEnd));
-                otgUppgDataChanged = true;
-                content.remove(otgResult);
-                otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-                otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-                otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
-                content.set(Collections.singleton(otgResult), null);
-            }
+            }else{
+                new_OtgUppgVolumeEnd = 0;
+            }    
+            old_OtgUppgMassEnd = new_OtgUppgMassEnd;
+            new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
+            otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
+            otgUppgEnd_Volume.setText(String.format("%.2f", new_OtgUppgVolumeEnd));
+            otgUppgDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
+            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            content.set(Collections.singleton(otgResult), null);
+            }        
         }
-    }//GEN-LAST:event_otgUppg_TankPropertyChange
-
-    private void otgTspStart_LevelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_LevelPropertyChange
-        if (!otgTspStart_Level.getText().isEmpty()){
-                old_OtgTspLevelStart = new_OtgTspLevelStart;
+    
+    private void otgTspStart_LevelChange(boolean edited) {                                                 
+        if (edited)    {
+            old_OtgTspLevelStart = new_OtgTspLevelStart;
+            if (!otgTspStart_Level.getText().isEmpty()){                
                 try{
                     new_OtgTspLevelStart = Float.parseFloat(otgTspStart_Level.getText().replace(",", "."));
-                    Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                    query.setParameter("tankId", new_OtgTspTank);
-                    query.setParameter("matLevel", new_OtgTspLevelStart);
-                    List<GradView> resultList = query.getResultList();
-                    if (!resultList.isEmpty()){
-                        old_OtgTspVolumeStart = new_OtgTspVolumeStart;
-                        if (resultList.get(0).getMatVolume()!=null){
-                            new_OtgTspVolumeStart = resultList.get(0).getMatVolume().doubleValue();
-                        }else{
-                            new_OtgTspVolumeStart = 0;
-                        }
-                        otgTspStart_Volume.setText(String.format("%.2f", new_OtgTspVolumeStart));
-                        old_OtgTspMassStart = new_OtgTspMassStart;
-                        new_OtgTspMassStart = new_OtgTspVolumeStart*new_OtgTspDensityStart;
-                        otgTspStart_Mass.setText(String.format("%.2f", new_OtgTspMassStart));
-                        otgTspDataChanged = true;
-                        content.remove(otgResult);
-                        otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                        otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                        otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                        otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
-                        content.set(Collections.singleton(otgResult), null);
-                    }
+                    
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
                 
-            } 
-    }//GEN-LAST:event_otgTspStart_LevelPropertyChange
-
+            }else{
+                new_OtgTspLevelStart = 0;
+            }
+            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+            query.setParameter("tankId", new_OtgTspTank);
+            query.setParameter("matLevel", new_OtgTspLevelStart);
+            List<GradView> resultList = query.getResultList();
+            old_OtgTspVolumeStart = new_OtgTspVolumeStart;
+            if (!resultList.isEmpty()){
+                new_OtgTspVolumeStart = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgTspVolumeStart = 0;
+            }    
+            otgTspStart_Volume.setText(String.format("%.2f", new_OtgTspVolumeStart));
+            old_OtgTspMassStart = new_OtgTspMassStart;
+            new_OtgTspMassStart = new_OtgTspVolumeStart*new_OtgTspDensityStart;
+            otgTspStart_Mass.setText(String.format("%.2f", new_OtgTspMassStart));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            content.set(Collections.singleton(otgResult), null);
+        }
+    }
+    
     private void otgTspStart_TempPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_TempPropertyChange
         if (!otgTspStart_Temp.getText().isEmpty()){
             old_OtgTspTempStart = new_OtgTspTempStart;
@@ -1917,41 +2088,42 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         } 
     }//GEN-LAST:event_otgTspStart_TempPropertyChange
 
-    private void otgUppgEnd_LevelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgEnd_LevelPropertyChange
-        if (!otgUppgEnd_Level.getText().isEmpty()){
-                old_OtgUppgLevelEnd = new_OtgUppgLevelEnd;
+    private void otgUppgEnd_LevelChange(boolean edited) {
+        if (edited){
+            old_OtgUppgLevelEnd = new_OtgUppgLevelEnd;
+            if (!otgUppgEnd_Level.getText().isEmpty()){
                 try{
-                    new_OtgUppgLevelEnd = Float.parseFloat(otgUppgEnd_Level.getText().replace(",", "."));
-                    Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                    query.setParameter("tankId", new_OtgUppgTank);
-                    query.setParameter("matLevel", new_OtgUppgLevelEnd);
-                    List<GradView> resultList = query.getResultList();
-                    if (!resultList.isEmpty()){
-                        old_OtgUppgVolumeEnd = new_OtgUppgVolumeEnd;
-                        if (resultList.get(0).getMatVolume()!=null){
-                            new_OtgUppgVolumeEnd = resultList.get(0).getMatVolume().doubleValue();
-                        }else{
-                            new_OtgUppgVolumeEnd = 0;
-                        }
-                        otgUppgEnd_Volume.setText(String.format("%.2f", new_OtgUppgVolumeEnd));
-                        old_OtgUppgMassEnd = new_OtgUppgMassEnd;
-                        new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
-                        otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
-                        otgUppgDataChanged = true;
-                        content.remove(otgResult);
-                        otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-                        otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-                        otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                        otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                        
-                        content.set(Collections.singleton(otgResult), null);
-                    }
+                    new_OtgUppgLevelEnd = Float.parseFloat(otgUppgEnd_Level.getText().replace(",", "."));                    
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
-                }
-                
-            } 
-    }//GEN-LAST:event_otgUppgEnd_LevelPropertyChange
-
+                }                
+            }else{
+                new_OtgUppgLevelEnd = 0;
+            }
+            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+            query.setParameter("tankId", new_OtgUppgTank);
+            query.setParameter("matLevel", new_OtgUppgLevelEnd);
+            List<GradView> resultList = query.getResultList();
+            old_OtgUppgVolumeEnd = new_OtgUppgVolumeEnd;
+            if (!resultList.isEmpty()){
+                new_OtgUppgVolumeEnd = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgUppgVolumeEnd = 0;
+            }
+            otgUppgEnd_Volume.setText(String.format("%.2f", new_OtgUppgVolumeEnd));
+            old_OtgUppgMassEnd = new_OtgUppgMassEnd;
+            new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
+            otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
+            otgUppgDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
+            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                        
+            content.set(Collections.singleton(otgResult), null);            
+        }
+    }
+    
     private void otgUppgEnd_TempPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgEnd_TempPropertyChange
         if (!otgUppgEnd_Temp.getText().isEmpty()){
             old_OtgUppgTempEnd = new_OtgUppgTempEnd;
@@ -1977,74 +2149,77 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgUppgEnd_TempPropertyChange
 
-    private void otgUppgEnd_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgEnd_DensityPropertyChange
-        if (!otgUppgEnd_Density.getText().isEmpty()){
+    private void otgUppgEnd_DensityChange(boolean edited) {                                                  
+        if (edited){
             old_OtgUppgDensityEnd = new_OtgUppgDensityEnd;
-            try{
-                double value = Double.parseDouble(otgUppgEnd_Density.getText().replace(",", "."));                
-                new_OtgUppgDensityEnd = value;                
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                        +String.valueOf(value)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgUppgTempEnd)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgUppgDensity20End = new_OtgUppgDensity20End;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgUppgDensity20End = Double.parseDouble(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgUppgDensity20End = 0;
-                    }
-                    otgUppgEnd_Density20.setText(String.format("%.4f", new_OtgUppgDensity20End));
-                    old_OtgUppgMassEnd = new_OtgUppgMassEnd;
-                    new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
-                    otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
-                    otgUppgDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-                    otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
-                    content.set(Collections.singleton(otgResult), null);
-                }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
-            }}
-    }//GEN-LAST:event_otgUppgEnd_DensityPropertyChange
-
-    private void otgUppgStart_LevelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelPropertyChange
-        if (!otgUppgStart_Level.getText().isEmpty()){
-                old_OtgUppgLevelStart = new_OtgUppgLevelStart;
-                try{
-                    new_OtgUppgLevelStart = Float.parseFloat(otgUppgStart_Level.getText().replace(",", "."));
-                    Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                    query.setParameter("tankId", new_OtgUppgTank);
-                    query.setParameter("matLevel", new_OtgUppgLevelStart);
-                    List<GradView> resultList = query.getResultList();
-                    if (!resultList.isEmpty()){
-                        old_OtgUppgVolumeStart = new_OtgUppgVolumeStart;
-                        if (resultList.get(0).getMatVolume()!=null){
-                            new_OtgUppgVolumeStart = resultList.get(0).getMatVolume().doubleValue();
-                        }else{
-                            new_OtgUppgVolumeStart = 0;
-                        }
-                        otgUppgStart_Volume.setText(String.format("%.2f", new_OtgUppgVolumeStart));
-                        old_OtgUppgMassStart = new_OtgUppgMassStart;
-                        new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
-                        otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
-                        otgUppgDataChanged = true;
-                        content.remove(otgResult);
-                        otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-                        otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-                        otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                        otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                        
-                        content.set(Collections.singleton(otgResult), null);
-                    }
+            if (!otgUppgEnd_Density.getText().isEmpty()){
+                try{                               
+                    new_OtgUppgDensityEnd = Double.parseDouble(otgUppgEnd_Density.getText().replace(",", "."));                          
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
-                
+            }else{
+                new_OtgUppgDensityEnd=0;
             }
-    }//GEN-LAST:event_otgUppgStart_LevelPropertyChange
-
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                        +String.valueOf(new_OtgUppgDensityEnd)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgUppgTempEnd)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgUppgDensity20End = new_OtgUppgDensity20End;
+            if (!res.isEmpty()){                
+                new_OtgUppgDensity20End = Double.parseDouble(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgUppgDensity20End = 0;
+            }
+            otgUppgEnd_Density20.setText(String.format("%.4f", new_OtgUppgDensity20End));
+            old_OtgUppgMassEnd = new_OtgUppgMassEnd;
+            new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
+            otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
+            otgUppgDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
+            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            content.set(Collections.singleton(otgResult), null);            
+        }
+    }
+    
+    private void otgUppgStart_LevelChange(boolean edited) {                                                  
+        if (edited){
+            old_OtgUppgLevelStart = new_OtgUppgLevelStart;
+            if (!otgUppgStart_Level.getText().isEmpty()){                
+                try{
+                    new_OtgUppgLevelStart = Float.parseFloat(otgUppgStart_Level.getText().replace(",", "."));                    
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+                query.setParameter("tankId", new_OtgUppgTank);
+                query.setParameter("matLevel", new_OtgUppgLevelStart);
+                List<GradView> resultList = query.getResultList();
+                old_OtgUppgVolumeStart = new_OtgUppgVolumeStart;
+                if (!resultList.isEmpty()){
+                    new_OtgUppgVolumeStart = resultList.get(0).getMatVolume().doubleValue();
+                }else{
+                    new_OtgUppgVolumeStart = 0;
+                }
+                otgUppgStart_Volume.setText(String.format("%.2f", new_OtgUppgVolumeStart));
+                old_OtgUppgMassStart = new_OtgUppgMassStart;
+                new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
+                otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
+                otgUppgDataChanged = true;
+                content.remove(otgResult);
+                otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
+                otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
+                otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+                otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                        
+                content.set(Collections.singleton(otgResult), null);                    
+            }else{
+                new_OtgUppgLevelStart = 0;
+            }
+        }
+    }
+    
     private void otgUppgStart_TempPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgStart_TempPropertyChange
         if (!otgUppgStart_Temp.getText().isEmpty()){
             old_OtgUppgTempStart = new_OtgUppgTempStart;
@@ -2070,39 +2245,41 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgUppgStart_TempPropertyChange
 
-    private void otgUppgStart_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityPropertyChange
-        if (!otgUppgStart_Density.getText().isEmpty()){
+    private void otgUppgStart_DensityChange(boolean edited) {
+        if (edited){
             old_OtgUppgDensityStart = new_OtgUppgDensityStart;
-            try{
-                double value = Double.parseDouble(otgUppgStart_Density.getText().replace(",", "."));                
-                new_OtgUppgDensityStart = value;                
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                        +String.valueOf(value)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgUppgTempStart)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgUppgDensity20Start = new_OtgUppgDensity20Start;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgUppgDensity20Start = Double.parseDouble(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgUppgDensity20Start = 0;
-                    }
-                    otgUppgStart_Density20.setText(String.format("%.4f", new_OtgUppgDensity20Start));
-                    old_OtgUppgMassStart = new_OtgUppgMassStart;
-                    new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
-                    otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
-                    otgUppgDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-                    otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
+            if (!otgUppgStart_Density.getText().isEmpty()){
+                try{
+                    new_OtgUppgDensityStart = Double.parseDouble(otgUppgStart_Density.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
                 }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
-            }}
-    }//GEN-LAST:event_otgUppgStart_DensityPropertyChange
-
+            }else{
+                new_OtgUppgDensityStart = 0;
+            }
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                        +String.valueOf(new_OtgUppgDensityStart)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgUppgTempStart)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgUppgDensity20Start = new_OtgUppgDensity20Start;
+            if (!res.isEmpty()){
+                new_OtgUppgDensity20Start = Double.parseDouble(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgUppgDensity20Start = 0;
+            }
+            otgUppgStart_Density20.setText(String.format("%.4f", new_OtgUppgDensity20Start));
+            old_OtgUppgMassStart = new_OtgUppgMassStart;
+            new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
+            otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
+            otgUppgDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
+            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
+        }
+    }
+    
     private void otgTspEnd_TempPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_TempPropertyChange
         if (!otgTspEnd_Temp.getText().isEmpty()){
             old_OtgTspTempEnd = new_OtgTspTempEnd;
@@ -2128,174 +2305,148 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgTspEnd_TempPropertyChange
 
-    private void otgTspEnd_LevelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_LevelPropertyChange
-        if (!otgTspEnd_Level.getText().isEmpty()){
+    private void otgTspEnd_LevelChange(boolean edited) {
+        if (edited){
             old_OtgTspLevelEnd = new_OtgTspLevelEnd;
-            try{
-                new_OtgTspLevelEnd = Float.parseFloat(otgTspEnd_Level.getText().replace(",", "."));
-                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                query.setParameter("tankId", new_OtgTspTank);
-                query.setParameter("matLevel", new_OtgTspLevelEnd);
-                List<GradView> resultList = query.getResultList();
-                if (!resultList.isEmpty()){
-                    old_OtgTspVolumeEnd = new_OtgTspVolumeEnd;
-                    if (resultList.get(0).getMatVolume()!=null){
-                        new_OtgTspVolumeEnd = resultList.get(0).getMatVolume().doubleValue();
-                    }else{
-                        new_OtgTspVolumeEnd = 0;
-                    }
-                    otgTspEnd_Volume.setText(String.format("%.2f", new_OtgTspVolumeEnd));
-                    old_OtgTspMassEnd = new_OtgTspMassEnd;
-                    new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;
-                    otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
+            if (!otgTspEnd_Level.getText().isEmpty()){
+                try{
+                    new_OtgTspLevelEnd = Float.parseFloat(otgTspEnd_Level.getText().replace(",", "."));                    
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
                 }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
+            }else{
+                new_OtgTspLevelEnd = 0;
             }
-
+            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+            query.setParameter("tankId", new_OtgTspTank);
+            query.setParameter("matLevel", new_OtgTspLevelEnd);
+            List<GradView> resultList = query.getResultList();
+            old_OtgTspVolumeEnd = new_OtgTspVolumeEnd;
+            if (!resultList.isEmpty()){
+                new_OtgTspVolumeEnd = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgTspVolumeEnd = 0;
+            }
+            otgTspEnd_Volume.setText(String.format("%.2f", new_OtgTspVolumeEnd));
+            old_OtgTspMassEnd = new_OtgTspMassEnd;
+            new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;
+            otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);                                       
         }
-    }//GEN-LAST:event_otgTspEnd_LevelPropertyChange
-
-    private void otgTspEnd_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_DensityPropertyChange
-        if (!otgTspEnd_Density.getText().isEmpty()){
+    }
+    
+    private void otgTspEnd_DensityChange(boolean edited) {
+        if (edited){
             old_OtgTspDensityEnd = new_OtgTspDensityEnd;
-            try{
-                new_OtgTspDensityEnd = Double.parseDouble(otgTspEnd_Density.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+            if (!otgTspEnd_Density.getText().isEmpty()){            
+                try{
+                    new_OtgTspDensityEnd = Double.parseDouble(otgTspEnd_Density.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_OtgTspDensityEnd = 0;
+            }
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
                     +String.valueOf(new_OtgTspDensityEnd)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempEnd)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgTspDensity20End = new_OtgTspDensity20End;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgTspDensity20End = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgTspDensity20End = 0;
-                    }
-                    otgTspEnd_Density20.setText(String.format("%.4f", new_OtgTspDensity20End));
-                    old_OtgTspMassEnd = new_OtgTspMassEnd;
-                    new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;
-                    otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
-                }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
+            List<VPlotn20> res = query.getResultList();
+            old_OtgTspDensity20End = new_OtgTspDensity20End;
+            if (!res.isEmpty()){
+                new_OtgTspDensity20End = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgTspDensity20End = 0;
             }
-
+            otgTspEnd_Density20.setText(String.format("%.4f", new_OtgTspDensity20End));
+            old_OtgTspMassEnd = new_OtgTspMassEnd;
+            new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;
+            otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
         }
-    }//GEN-LAST:event_otgTspEnd_DensityPropertyChange
-
-    private void otgTspStart_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_DensityPropertyChange
-        if (!otgTspStart_Density.getText().isEmpty()){
+    }
+    
+    private void otgTspStart_DensityChange(boolean edited) {
+        if (edited){
             old_OtgTspDensityStart = new_OtgTspDensityStart;
-            try{
-                new_OtgTspDensityStart = Double.parseDouble(otgTspStart_Density.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                    +String.valueOf(new_OtgTspDensityStart)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempStart)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgTspDensity20Start = new_OtgTspDensity20Start;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgTspDensity20Start = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgTspDensity20Start = 0;
-                    }
-                    otgTspStart_Density20.setText(String.format("%.4f", new_OtgTspDensity20Start));
-                    old_OtgTspMassStart = new_OtgTspMassStart;
-                    new_OtgTspMassStart = new_OtgTspVolumeStart*new_OtgTspDensityStart;
-                    otgTspStart_Mass.setText(String.format("%.2f", new_OtgTspMassStart));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
+            if (!otgTspStart_Density.getText().isEmpty()){
+                try{
+                    new_OtgTspDensityStart = Double.parseDouble(otgTspStart_Density.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
                 }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
+            }else{
+                new_OtgTspDensityStart = 0;
             }
-
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                    +String.valueOf(new_OtgTspDensityStart)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempStart)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgTspDensity20Start = new_OtgTspDensity20Start;
+            if (!res.isEmpty()){
+                new_OtgTspDensity20Start = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgTspDensity20Start = 0;
+            }
+            otgTspStart_Density20.setText(String.format("%.4f", new_OtgTspDensity20Start));
+            old_OtgTspMassStart = new_OtgTspMassStart;
+            new_OtgTspMassStart = new_OtgTspVolumeStart*new_OtgTspDensityStart;
+            otgTspStart_Mass.setText(String.format("%.2f", new_OtgTspMassStart));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);                
         }
-    }//GEN-LAST:event_otgTspStart_DensityPropertyChange
-
-    private void otgTsp_Tank1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTsp_Tank1PropertyChange
-        if (otgTsp_Tank1.getSelectedIndex()!=-1){
-            old_OtgTspTank1 = new_OtgTspTank1;            
-            new_OtgTspTank1 = listTank.get(otgTsp_Tank1.getSelectedIndex()).getTankId();
+    }
+    
+    private void otgTspEnd_Level1Change(boolean edited) {
+        if (edited){
+            old_OtgTspLevelEnd1 = new_OtgTspLevelEnd1;
+            if (!otgTspEnd_Level1.getText().isEmpty()){
+                try{
+                new_OtgTspLevelEnd1 = Float.parseFloat(otgTspEnd_Level1.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_OtgTspLevelEnd1 = 0;
+            }
             Query query = em.createNamedQuery("GradView.findByTankIdLevel");
             query.setParameter("tankId", new_OtgTspTank1);
             query.setParameter("matLevel", new_OtgTspLevelEnd1);
             List<GradView> resultList = query.getResultList();
-            if (!resultList.isEmpty()){
-                old_OtgTspVolumeEnd1 = new_OtgTspVolumeEnd1;
-                if (resultList.get(0).getMatVolume()!=null){
-                    new_OtgTspVolumeEnd1 = resultList.get(0).getMatVolume().doubleValue();
-                }else{
-                    new_OtgTspVolumeEnd1 = 0;
-                }
-                old_OtgTspMassEnd1 = new_OtgTspMassEnd1;
-                new_OtgTspMassEnd1 = new_OtgTspVolumeEnd1*new_OtgTspDensityEnd1;
-                otgTspEnd_Volume1.setText(String.format("%.2f", new_OtgTspVolumeEnd1));
-                otgTspEnd_Mass1.setText(String.format("%.2f", new_OtgTspMassEnd1));
-                otgTspDataChanged = true;
-                content.remove(otgResult);
-                otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
-                content.set(Collections.singleton(otgResult), null);
+            old_OtgTspVolumeEnd1 = new_OtgTspVolumeEnd1;
+            if (!resultList.isEmpty()){          
+                new_OtgTspVolumeEnd1 = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgTspVolumeEnd1 = 0;
             }
+            otgTspEnd_Volume1.setText(String.format("%.2f", new_OtgTspVolumeEnd1));
+            old_OtgTspMassEnd1 = new_OtgTspMassEnd1;
+            new_OtgTspMassEnd1 = new_OtgTspVolumeEnd1*new_OtgTspDensityEnd1;
+            otgTspEnd_Mass1.setText(String.format("%.2f", new_OtgTspMassEnd1));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
         }
-    }//GEN-LAST:event_otgTsp_Tank1PropertyChange
-
-    private void otgTspEnd_Level1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_Level1PropertyChange
-        if (!otgTspEnd_Level1.getText().isEmpty()){
-            old_OtgTspLevelEnd1 = new_OtgTspLevelEnd1;
-            try{
-                new_OtgTspLevelEnd1 = Float.parseFloat(otgTspEnd_Level1.getText().replace(",", "."));
-                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                query.setParameter("tankId", new_OtgTspTank1);
-                query.setParameter("matLevel", new_OtgTspLevelEnd1);
-                List<GradView> resultList = query.getResultList();
-                if (!resultList.isEmpty()){
-                    old_OtgTspVolumeEnd1 = new_OtgTspVolumeEnd1;
-                    if (resultList.get(0).getMatVolume()!=null){
-                        new_OtgTspVolumeEnd1 = resultList.get(0).getMatVolume().doubleValue();
-                    }else{
-                        new_OtgTspVolumeEnd1 = 0;
-                    }
-                    otgTspEnd_Volume1.setText(String.format("%.2f", new_OtgTspVolumeEnd1));
-                    old_OtgTspMassEnd1 = new_OtgTspMassEnd1;
-                    new_OtgTspMassEnd1 = new_OtgTspVolumeEnd1*new_OtgTspDensityEnd1;
-                    otgTspEnd_Mass1.setText(String.format("%.2f", new_OtgTspMassEnd1));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
-                }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
-            }
-
-        }
-    }//GEN-LAST:event_otgTspEnd_Level1PropertyChange
-
+    }
+    
     private void otgTspEnd_Temp1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_Temp1PropertyChange
         if (!otgTspEnd_Temp1.getText().isEmpty()){
             old_OtgTspTempEnd1 = new_OtgTspTempEnd1;
@@ -2321,75 +2472,78 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgTspEnd_Temp1PropertyChange
 
-    private void otgTspEnd_Density1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_Density1PropertyChange
-        if (!otgTspEnd_Density1.getText().isEmpty()){
+    private void otgTspEnd_Density1Change(boolean edited) {
+        if (edited){
             old_OtgTspDensityEnd1 = new_OtgTspDensityEnd1;
-            try{
-                new_OtgTspDensityEnd1 = Double.parseDouble(otgTspEnd_Density1.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                    +String.valueOf(new_OtgTspDensityEnd1)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempEnd1)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgTspDensity20End1 = new_OtgTspDensity20End1;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgTspDensity20End1 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgTspDensity20End1 = 0;
-                    }
-                    otgTspEnd_Density21.setText(String.format("%.4f", new_OtgTspDensity20End1));
-                    old_OtgTspMassEnd1 = new_OtgTspMassEnd1;
-                    new_OtgTspMassEnd1 = new_OtgTspVolumeEnd1*new_OtgTspDensityEnd1;
-                    otgTspEnd_Mass1.setText(String.format("%.2f", new_OtgTspMassEnd1));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
+            if (!otgTspEnd_Density1.getText().isEmpty()){
+                try{
+                    new_OtgTspDensityEnd1 = Double.parseDouble(otgTspEnd_Density1.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
                 }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
+            }else{
+                new_OtgTspDensityEnd1 = 0;
             }
-
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                    +String.valueOf(new_OtgTspDensityEnd1)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempEnd1)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgTspDensity20End1 = new_OtgTspDensity20End1;
+            if (!res.isEmpty()){
+                new_OtgTspDensity20End1 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgTspDensity20End1 = 0;
+            }
+            otgTspEnd_Density21.setText(String.format("%.4f", new_OtgTspDensity20End1));
+            old_OtgTspMassEnd1 = new_OtgTspMassEnd1;
+            new_OtgTspMassEnd1 = new_OtgTspVolumeEnd1*new_OtgTspDensityEnd1;
+            otgTspEnd_Mass1.setText(String.format("%.2f", new_OtgTspMassEnd1));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);                
         }
-    }//GEN-LAST:event_otgTspEnd_Density1PropertyChange
-
-    private void otgTspStart_Level1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_Level1PropertyChange
-        if (!otgTspStart_Level1.getText().isEmpty()){
+    }
+    
+    private void otgTspStart_Level1Change(boolean edited) {                                                  
+        if (edited){
+            if (!otgTspStart_Level1.getText().isEmpty()){
                 old_OtgTspLevelStart1 = new_OtgTspLevelStart1;
                 try{
-                    new_OtgTspLevelStart1 = Float.parseFloat(otgTspStart_Level1.getText().replace(",", "."));
-                    Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                    query.setParameter("tankId", new_OtgTspTank1);
-                    query.setParameter("matLevel", new_OtgTspLevelStart1);
-                    List<GradView> resultList = query.getResultList();
-                    if (!resultList.isEmpty()){
-                        old_OtgTspVolumeStart1 = new_OtgTspVolumeStart1;
-                        if (resultList.get(0).getMatVolume()!=null){
-                            new_OtgTspVolumeStart1 = resultList.get(0).getMatVolume().doubleValue();
-                        }else{
-                            new_OtgTspVolumeStart1 = 0;
-                        }
-                        otgTspStart_Volume1.setText(String.format("%.2f", new_OtgTspVolumeStart1));
-                        old_OtgTspMassStart1 = new_OtgTspMassStart1;
-                        new_OtgTspMassStart1 = new_OtgTspVolumeStart1*new_OtgTspDensityStart1;
-                        otgTspStart_Mass1.setText(String.format("%.2f", new_OtgTspMassStart1));
-                        otgTspDataChanged = true;
-                        content.remove(otgResult);
-                        otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                        otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                        otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                        otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
-                        content.set(Collections.singleton(otgResult), null);
-                    }
+                    new_OtgTspLevelStart1 = Float.parseFloat(otgTspStart_Level1.getText().replace(",", "."));                    
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
                 
+            }else{
+                new_OtgTspLevelStart1 = 0;
             }
-    }//GEN-LAST:event_otgTspStart_Level1PropertyChange
-
+            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+            query.setParameter("tankId", new_OtgTspTank1);
+            query.setParameter("matLevel", new_OtgTspLevelStart1);
+            List<GradView> resultList = query.getResultList();
+            old_OtgTspVolumeStart1 = new_OtgTspVolumeStart1;
+            if (!resultList.isEmpty()){                
+                new_OtgTspVolumeStart1 = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgTspVolumeStart1 = 0;
+            }
+            otgTspStart_Volume1.setText(String.format("%.2f", new_OtgTspVolumeStart1));
+            old_OtgTspMassStart1 = new_OtgTspMassStart1;
+            new_OtgTspMassStart1 = new_OtgTspVolumeStart1*new_OtgTspDensityStart1;
+            otgTspStart_Mass1.setText(String.format("%.2f", new_OtgTspMassStart1));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            content.set(Collections.singleton(otgResult), null);            
+        }
+    }
+    
     private void otgTspStart_Temp1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_Temp1PropertyChange
         if (!otgTspStart_Temp1.getText().isEmpty()){
             old_OtgTspTempStart1 = new_OtgTspTempStart1;
@@ -2415,105 +2569,78 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgTspStart_Temp1PropertyChange
 
-    private void otgTspStart_Density1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_Density1PropertyChange
-        if (!otgTspStart_Density1.getText().isEmpty()){
+    private void otgTspStart_Density1PropertyChange(boolean edited) {
+        if (edited){
             old_OtgTspDensityStart1 = new_OtgTspDensityStart1;
-            try{
-                new_OtgTspDensityStart1 = Double.parseDouble(otgTspStart_Density1.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                    +String.valueOf(new_OtgTspDensityStart1)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempStart1)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgTspDensity20Start1 = new_OtgTspDensity20Start1;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgTspDensity20Start1 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgTspDensity20Start1 = 0;
-                    }
-                    otgTspStart_Density21.setText(String.format("%.4f", new_OtgTspDensity20Start1));
-                    old_OtgTspMassStart1 = new_OtgTspMassStart1;
-                    new_OtgTspMassStart1 = new_OtgTspVolumeStart1*new_OtgTspDensityStart1;
-                    otgTspStart_Mass1.setText(String.format("%.2f", new_OtgTspMassStart1));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
+            if (!otgTspStart_Density1.getText().isEmpty()){
+                try{
+                    new_OtgTspDensityStart1 = Double.parseDouble(otgTspStart_Density1.getText().replace(",", "."));
+                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
                 }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
+            }else{
+                new_OtgTspDensityStart1 = 0;
             }
-
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                    +String.valueOf(new_OtgTspDensityStart1)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempStart1)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgTspDensity20Start1 = new_OtgTspDensity20Start1;
+            if (!res.isEmpty()){
+                new_OtgTspDensity20Start1 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgTspDensity20Start1 = 0;
+            }
+            otgTspStart_Density21.setText(String.format("%.4f", new_OtgTspDensity20Start1));
+            old_OtgTspMassStart1 = new_OtgTspMassStart1;
+            new_OtgTspMassStart1 = new_OtgTspVolumeStart1*new_OtgTspDensityStart1;
+            otgTspStart_Mass1.setText(String.format("%.2f", new_OtgTspMassStart1));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
         }
-    }//GEN-LAST:event_otgTspStart_Density1PropertyChange
-
-    private void otgTsp_Tank2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTsp_Tank2PropertyChange
-        if (otgTsp_Tank2.getSelectedIndex()!=-1){
-            old_OtgTspTank2 = new_OtgTspTank2;            
-            new_OtgTspTank2 = listTank.get(otgTsp_Tank2.getSelectedIndex()).getTankId();
+    }
+    
+    private void otgTspEnd_Level2PropertyChange(boolean edited) {                                                
+        if (edited){
+            old_OtgTspLevelEnd2 = new_OtgTspLevelEnd2;
+            if (!otgTspEnd_Level2.getText().isEmpty()){                
+                try{
+                    new_OtgTspLevelEnd2 = Float.parseFloat(otgTspEnd_Level2.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_OtgTspLevelEnd2 = 0;
+            }
             Query query = em.createNamedQuery("GradView.findByTankIdLevel");
             query.setParameter("tankId", new_OtgTspTank2);
             query.setParameter("matLevel", new_OtgTspLevelEnd2);
             List<GradView> resultList = query.getResultList();
+            old_OtgTspVolumeEnd2 = new_OtgTspVolumeEnd2;
             if (!resultList.isEmpty()){
-                old_OtgTspVolumeEnd2 = new_OtgTspVolumeEnd2;
-                if (resultList.get(0).getMatVolume()!=null){
-                    new_OtgTspVolumeEnd2 = resultList.get(0).getMatVolume().doubleValue();
-                }else{
-                    new_OtgTspVolumeEnd2 = 0;
-                }
-                old_OtgTspMassEnd2 = new_OtgTspMassEnd2;
-                new_OtgTspMassEnd2 = new_OtgTspVolumeEnd2*new_OtgTspDensityEnd2;
-                otgTspEnd_Volume2.setText(String.format("%.2f", new_OtgTspVolumeEnd2));
-                otgTspEnd_Mass2.setText(String.format("%.2f", new_OtgTspMassEnd2));
-                otgTspDataChanged = true;
-                content.remove(otgResult);
-                otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
-                content.set(Collections.singleton(otgResult), null);
+                new_OtgTspVolumeEnd2 = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgTspVolumeEnd2 = 0;
             }
+            otgTspEnd_Volume2.setText(String.format("%.2f", new_OtgTspVolumeEnd2));
+            old_OtgTspMassEnd2 = new_OtgTspMassEnd2;
+            new_OtgTspMassEnd2 = new_OtgTspVolumeEnd2*new_OtgTspDensityEnd2;
+            otgTspEnd_Mass2.setText(String.format("%.2f", new_OtgTspMassEnd2));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
         }
-    }//GEN-LAST:event_otgTsp_Tank2PropertyChange
-
-    private void otgTspEnd_Level2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_Level2PropertyChange
-        if (!otgTspEnd_Level2.getText().isEmpty()){
-            old_OtgTspLevelEnd2 = new_OtgTspLevelEnd2;
-            try{
-                new_OtgTspLevelEnd2 = Float.parseFloat(otgTspEnd_Level2.getText().replace(",", "."));
-                Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                query.setParameter("tankId", new_OtgTspTank2);
-                query.setParameter("matLevel", new_OtgTspLevelEnd2);
-                List<GradView> resultList = query.getResultList();
-                if (!resultList.isEmpty()){
-                    old_OtgTspVolumeEnd2 = new_OtgTspVolumeEnd2;
-                    if (resultList.get(0).getMatVolume()!=null){
-                        new_OtgTspVolumeEnd2 = resultList.get(0).getMatVolume().doubleValue();
-                    }else{
-                        new_OtgTspVolumeEnd2 = 0;
-                    }
-                    otgTspEnd_Volume2.setText(String.format("%.2f", new_OtgTspVolumeEnd2));
-                    old_OtgTspMassEnd2 = new_OtgTspMassEnd2;
-                    new_OtgTspMassEnd2 = new_OtgTspVolumeEnd2*new_OtgTspDensityEnd2;
-                    otgTspEnd_Mass2.setText(String.format("%.2f", new_OtgTspMassEnd2));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
-                }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
-            }
-
-        }
-    }//GEN-LAST:event_otgTspEnd_Level2PropertyChange
-
+    }
+    
     private void otgTspEnd_Temp2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_Temp2PropertyChange
         if (!otgTspEnd_Temp2.getText().isEmpty()){
             old_OtgTspTempEnd2 = new_OtgTspTempEnd2;
@@ -2539,75 +2666,78 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgTspEnd_Temp2PropertyChange
 
-    private void otgTspEnd_Density2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspEnd_Density2PropertyChange
-        if (!otgTspEnd_Density2.getText().isEmpty()){
+    private void otgTspEnd_Density2Change(boolean edited) {
+        if (edited){
             old_OtgTspDensityEnd2 = new_OtgTspDensityEnd2;
-            try{
-                new_OtgTspDensityEnd2 = Double.parseDouble(otgTspEnd_Density2.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                    +String.valueOf(new_OtgTspDensityEnd2)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempEnd2)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgTspDensity20End2 = new_OtgTspDensity20End2;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgTspDensity20End2 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgTspDensity20End2 = 0;
-                    }
-                    otgTspEnd_Density22.setText(String.format("%.4f", new_OtgTspDensity20End2));
-                    old_OtgTspMassEnd2 = new_OtgTspMassEnd2;
-                    new_OtgTspMassEnd2 = new_OtgTspVolumeEnd2*new_OtgTspDensityEnd2;
-                    otgTspEnd_Mass2.setText(String.format("%.2f", new_OtgTspMassEnd2));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
-                }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
-            }
-
-        }
-    }//GEN-LAST:event_otgTspEnd_Density2PropertyChange
-
-    private void otgTspStart_Level2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_Level2PropertyChange
-        if (!otgTspStart_Level2.getText().isEmpty()){
-                old_OtgTspLevelStart2 = new_OtgTspLevelStart2;
+            if (!otgTspEnd_Density2.getText().isEmpty()){
                 try{
-                    new_OtgTspLevelStart2 = Float.parseFloat(otgTspStart_Level2.getText().replace(",", "."));
-                    Query query = em.createNamedQuery("GradView.findByTankIdLevel");
-                    query.setParameter("tankId", new_OtgTspTank2);
-                    query.setParameter("matLevel", new_OtgTspLevelStart2);
-                    List<GradView> resultList = query.getResultList();
-                    if (!resultList.isEmpty()){
-                        old_OtgTspVolumeStart2 = new_OtgTspVolumeStart2;
-                        if (resultList.get(0).getMatVolume()!=null){
-                            new_OtgTspVolumeStart2 = resultList.get(0).getMatVolume().doubleValue();
-                        }else{
-                            new_OtgTspVolumeStart2 = 0;
-                        }
-                        otgTspStart_Volume2.setText(String.format("%.2f", new_OtgTspVolumeStart2));
-                        old_OtgTspMassStart2 = new_OtgTspMassStart2;
-                        new_OtgTspMassStart2 = new_OtgTspVolumeStart2*new_OtgTspDensityStart2;
-                        otgTspStart_Mass2.setText(String.format("%.2f", new_OtgTspMassStart2));
-                        otgTspDataChanged = true;
-                        content.remove(otgResult);
-                        otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                        otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                        otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                        otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
-                        content.set(Collections.singleton(otgResult), null);
-                    }
+                    new_OtgTspDensityEnd2 = Double.parseDouble(otgTspEnd_Density2.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_OtgTspDensityEnd2 = 0;
+            }
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                    +String.valueOf(new_OtgTspDensityEnd2)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempEnd2)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgTspDensity20End2 = new_OtgTspDensity20End2;
+            if (!res.isEmpty()){
+                new_OtgTspDensity20End2 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgTspDensity20End2 = 0;
+            }
+            otgTspEnd_Density22.setText(String.format("%.4f", new_OtgTspDensity20End2));
+            old_OtgTspMassEnd2 = new_OtgTspMassEnd2;
+            new_OtgTspMassEnd2 = new_OtgTspVolumeEnd2*new_OtgTspDensityEnd2;
+            otgTspEnd_Mass2.setText(String.format("%.2f", new_OtgTspMassEnd2));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
+        }
+    }
+    
+    private void otgTspStart_Level2Change(boolean edited) {
+        if (edited){
+            old_OtgTspLevelStart2 = new_OtgTspLevelStart2;
+            if (!otgTspStart_Level2.getText().isEmpty()){
+                try{
+                    new_OtgTspLevelStart2 = Float.parseFloat(otgTspStart_Level2.getText().replace(",", "."));                    
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
                 
+            }else{
+                new_OtgTspLevelStart2 = 0;
+            }
+            Query query = em.createNamedQuery("GradView.findByTankIdLevel");
+            query.setParameter("tankId", new_OtgTspTank2);
+            query.setParameter("matLevel", new_OtgTspLevelStart2);
+            List<GradView> resultList = query.getResultList();
+            old_OtgTspVolumeStart2 = new_OtgTspVolumeStart2;
+            if (!resultList.isEmpty()){                        
+                new_OtgTspVolumeStart2 = resultList.get(0).getMatVolume().doubleValue();
+            }else{
+                new_OtgTspVolumeStart2 = 0;
+            }
+            otgTspStart_Volume2.setText(String.format("%.2f", new_OtgTspVolumeStart2));
+            old_OtgTspMassStart2 = new_OtgTspMassStart2;
+            new_OtgTspMassStart2 = new_OtgTspVolumeStart2*new_OtgTspDensityStart2;
+            otgTspStart_Mass2.setText(String.format("%.2f", new_OtgTspMassStart2));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            content.set(Collections.singleton(otgResult), null);                    
         }
-    }//GEN-LAST:event_otgTspStart_Level2PropertyChange
-
+    }
+    
     private void otgTspStart_Temp2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_Temp2PropertyChange
         if (!otgTspStart_Temp2.getText().isEmpty()){
             old_OtgTspTempStart2 = new_OtgTspTempStart2;
@@ -2633,44 +2763,41 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_otgTspStart_Temp2PropertyChange
 
-    private void otgTspStart_Density2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgTspStart_Density2PropertyChange
-        if (!otgTspStart_Density2.getText().isEmpty()){
+    private void otgTspStart_Density2Change(boolean edited) {
+        if (edited){
             old_OtgTspDensityStart2 = new_OtgTspDensityStart2;
-            try{
-                new_OtgTspDensityStart2 = Double.parseDouble(otgTspStart_Density2.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
-                    +String.valueOf(new_OtgTspDensityStart2)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempStart2)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgTspDensity20Start2 = new_OtgTspDensity20Start2;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgTspDensity20Start2 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgTspDensity20Start2 = 0;
-                    }
-                    otgTspStart_Density22.setText(String.format("%.4f", new_OtgTspDensity20Start2));
-                    old_OtgTspMassStart2 = new_OtgTspMassStart2;
-                    new_OtgTspMassStart2 = new_OtgTspVolumeStart2*new_OtgTspDensityStart2;
-                    otgTspStart_Mass2.setText(String.format("%.2f", new_OtgTspMassStart2));
-                    otgTspDataChanged = true;
-                    content.remove(otgResult);
-                    otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-                    otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-                    otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                    otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-                    content.set(Collections.singleton(otgResult), null);
+            if (!otgTspStart_Density2.getText().isEmpty()){
+                try{
+                   new_OtgTspDensityStart2 = Double.parseDouble(otgTspStart_Density2.getText().replace(",", "."));                
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
                 }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
+            }else{
+                new_OtgTspDensityStart2 = 0;
             }
-
+            Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"
+                    +String.valueOf(new_OtgTspDensityStart2)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgTspTempStart2)));
+            List<VPlotn20> res = query.getResultList();
+            old_OtgTspDensity20Start2 = new_OtgTspDensity20Start2;
+            if (!res.isEmpty()){
+                new_OtgTspDensity20Start2 = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+            }else{
+                new_OtgTspDensity20Start2 = 0;
+            }
+            otgTspStart_Density22.setText(String.format("%.4f", new_OtgTspDensity20Start2));
+            old_OtgTspMassStart2 = new_OtgTspMassStart2;
+            new_OtgTspMassStart2 = new_OtgTspVolumeStart2*new_OtgTspDensityStart2;
+            otgTspStart_Mass2.setText(String.format("%.2f", new_OtgTspMassStart2));
+            otgTspDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            content.set(Collections.singleton(otgResult), null);            
         }
-    }//GEN-LAST:event_otgTspStart_Density2PropertyChange
-
-    private void drain_DensityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drain_DensityActionPerformed
-        
-    }//GEN-LAST:event_drain_DensityActionPerformed
-
+    }
+    
     private void feedEnd_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_feedEnd_VolumePropertyChange
         old_FeedEnd = new_FeedEnd;
         if (!feedEnd_Volume.getText().isEmpty()){
@@ -2699,82 +2826,319 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_feedStart_VolumePropertyChange
 
-    private void drainEnd_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drainEnd_VolumePropertyChange
-        old_DrainVolumeEnd = new_DrainVolumeEnd;
-        if (!drainEnd_Volume.getText().isEmpty()){
-            try{
-                new_DrainVolumeEnd = Integer.parseInt(drainEnd_Volume.getText().trim());
-                old_DrainMass = new_DrainMass;
-                new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
-                drain_Mass.setText(String.format("%.1f", new_DrainMass));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+    private void drainEnd_VolumeChange(boolean edited) {
+        if (edited){
+            old_DrainVolumeEnd = new_DrainVolumeEnd;
+            if (!drainEnd_Volume.getText().isEmpty()){
+                try{
+                    new_DrainVolumeEnd = Integer.parseInt(drainEnd_Volume.getText().trim());
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_DrainVolumeEnd = 0;
             }
+            old_DrainMass = new_DrainMass;
+            new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
+            drain_Mass.setText(String.format("%.1f", new_DrainMass));
         }
-    }//GEN-LAST:event_drainEnd_VolumePropertyChange
-
-    private void drainStart_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drainStart_VolumePropertyChange
-        old_DrainVolumeStart = new_DrainVolumeStart;
-        if (!drainStart_Volume.getText().isEmpty()){
-            try{
-                new_DrainVolumeStart = Integer.parseInt(drainStart_Volume.getText().trim());
-                old_DrainMass = new_DrainMass;
-                new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
-                drain_Mass.setText(String.format("%.1f", new_DrainMass));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+    }
+    
+    private void drainStart_VolumeChange(boolean edited) {
+        if (edited){
+            old_DrainVolumeStart = new_DrainVolumeStart;
+            if (!drainStart_Volume.getText().isEmpty()){
+                try{
+                    new_DrainVolumeStart = Integer.parseInt(drainStart_Volume.getText().trim());                    
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_DrainVolumeStart = 0;
             }
+            old_DrainMass = new_DrainMass;
+            new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
+            drain_Mass.setText(String.format("%.1f", new_DrainMass));
         }
-    }//GEN-LAST:event_drainStart_VolumePropertyChange
-
-    private void drain_DensityPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drain_DensityPropertyChange
-        old_DrainDensity = new_DrainDensity;
-        if (!drain_Density.getText().isEmpty()){
-            try{
-                new_DrainDensity = Double.parseDouble(drain_Density.getText().replace(",", ".").trim());
-                old_DrainMass = new_DrainMass;
-                new_DrainMass = (new_DrainVolumeEnd-new_DrainVolumeStart)*new_DrainDensity;
-                drain_Mass.setText(String.format("%.1f", new_DrainMass));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+    }
+    
+    private void drain_DensityChange(boolean edited) {
+        if (edited){
+            old_DrainDensity = new_DrainDensity;
+            if (!drain_Density.getText().isEmpty()){
+                try{
+                    new_DrainDensity = Double.parseDouble(drain_Density.getText().replace(",", ".").trim());                    
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_DrainDensity = 0;
             }
+            old_DrainMass = new_DrainMass;
+            new_DrainMass = (new_DrainVolumeStart-new_DrainVolumeEnd)*new_DrainDensity;
+            drain_Mass.setText(String.format("%.1f", new_DrainMass));
         }
-//        this.transferFocus();
-    }//GEN-LAST:event_drain_DensityPropertyChange
-
+    }
+    
     private void feedStart_VolumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedStart_VolumeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_feedStart_VolumeActionPerformed
 
-    private void drained_WaterPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drained_WaterPropertyChange
-        old_drainedWater = new_drainedWater;
-        if (!drained_Water.getText().isEmpty()){
-            try{
-                new_drainedWater = Double.parseDouble(String.valueOf(drained_Water.getText().replace(",", ".")));            
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+    private void drained_WaterChange(boolean edited) {
+        if (edited){
+            old_drainedWater = new_drainedWater;
+            if (!drained_Water.getText().isEmpty()){
+                try{
+                    new_drainedWater = Double.parseDouble(String.valueOf(drained_Water.getText().replace(",", ".")));            
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_drainedWater = 0;
             }
         }
-    }//GEN-LAST:event_drained_WaterPropertyChange
-
-    private void drained_WaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drained_WaterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_drained_WaterActionPerformed
-
-    private void drained_BLFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drained_BLFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_drained_BLFActionPerformed
-
-    private void drained_BLFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_drained_BLFPropertyChange
-        old_drainedBLF = new_drainedBLF;
-        if (!drained_BLF.getText().isEmpty()){
-            try{
-                new_drainedBLF = Double.parseDouble(String.valueOf(drained_BLF.getText().replace(",", ".")));
-            }catch (java.lang.NumberFormatException ex){
-                this.showNumberErroMessage();
+    }
+                                                 
+    private void drained_BLFChange(boolean edited) {
+        if (edited){
+            old_drainedBLF = new_drainedBLF;
+            if (!drained_BLF.getText().isEmpty()){
+                try{
+                    new_drainedBLF = Double.parseDouble(String.valueOf(drained_BLF.getText().replace(",", ".")));
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_drainedBLF = 0;
             }
         }
-    }//GEN-LAST:event_drained_BLFPropertyChange
+    }
+    
+    private void otgTsp_TankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otgTsp_TankActionPerformed
+        otgTsp_TankChange(true);
+    }//GEN-LAST:event_otgTsp_TankActionPerformed
+
+    private void otgTsp_Tank1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otgTsp_Tank1ActionPerformed
+        otgTsp_Tank1Change(true);
+    }//GEN-LAST:event_otgTsp_Tank1ActionPerformed
+
+    private void otgTsp_Tank2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otgTsp_Tank2ActionPerformed
+        otgTsp_Tank2Change(true);
+    }//GEN-LAST:event_otgTsp_Tank2ActionPerformed
+
+    private void otgUppg_TankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otgUppg_TankActionPerformed
+        otgUppg_TankChange(true);
+    }//GEN-LAST:event_otgUppg_TankActionPerformed
+
+    private void otgTspEnd_LevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_LevelFocusLost
+        otgTspEnd_LevelChange(true);
+    }//GEN-LAST:event_otgTspEnd_LevelFocusLost
+
+    private void otgTspStart_LevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspStart_LevelFocusLost
+        otgTspStart_LevelChange(true);
+    }//GEN-LAST:event_otgTspStart_LevelFocusLost
+
+    private void otgTspEnd_Level1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_Level1FocusLost
+        otgTspEnd_Level1Change(true);
+    }//GEN-LAST:event_otgTspEnd_Level1FocusLost
+
+    private void otgTspStart_Level1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspStart_Level1FocusLost
+        otgTspStart_Level1Change(true);
+    }//GEN-LAST:event_otgTspStart_Level1FocusLost
+
+    private void otgTspEnd_Level2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_Level2FocusLost
+        otgTspEnd_Level2PropertyChange(true);
+    }//GEN-LAST:event_otgTspEnd_Level2FocusLost
+
+    private void otgTspStart_Level2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspStart_Level2FocusLost
+        otgTspStart_Level2Change(true);
+    }//GEN-LAST:event_otgTspStart_Level2FocusLost
+
+    private void otgUppgEnd_LevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgEnd_LevelFocusLost
+        otgUppgEnd_LevelChange(true);
+    }//GEN-LAST:event_otgUppgEnd_LevelFocusLost
+
+    private void otgUppgStart_LevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelFocusLost
+        otgUppgStart_LevelChange(true);
+    }//GEN-LAST:event_otgUppgStart_LevelFocusLost
+
+    private void otgTspEnd_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_DensityFocusLost
+        otgTspEnd_DensityChange(true);
+    }//GEN-LAST:event_otgTspEnd_DensityFocusLost
+
+    private void otgTspStart_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspStart_DensityFocusLost
+        otgTspStart_DensityChange(true);
+    }//GEN-LAST:event_otgTspStart_DensityFocusLost
+
+    private void otgTspEnd_Density1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_Density1FocusLost
+        otgTspEnd_Density1Change(true);
+    }//GEN-LAST:event_otgTspEnd_Density1FocusLost
+
+    private void otgTspStart_Density1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspStart_Density1FocusLost
+        otgTspStart_Density1PropertyChange(true);
+    }//GEN-LAST:event_otgTspStart_Density1FocusLost
+
+    private void otgTspEnd_Density2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_Density2FocusLost
+        otgTspEnd_Density2Change(true);
+    }//GEN-LAST:event_otgTspEnd_Density2FocusLost
+
+    private void otgTspStart_Density2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspStart_Density2FocusLost
+        otgTspStart_Density2Change(true);
+    }//GEN-LAST:event_otgTspStart_Density2FocusLost
+
+    private void otgUppgEnd_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgEnd_DensityFocusLost
+        otgUppgEnd_DensityChange(true);
+    }//GEN-LAST:event_otgUppgEnd_DensityFocusLost
+
+    private void otgUppgStart_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityFocusLost
+        otgUppgStart_DensityChange(true);
+    }//GEN-LAST:event_otgUppgStart_DensityFocusLost
+
+    private void otgUppgStart_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgUppgStart_DensityChange(true);
+        }
+    }//GEN-LAST:event_otgUppgStart_DensityKeyPressed
+
+    private void otgUppgEnd_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgEnd_DensityKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgUppgEnd_DensityChange(true);
+        }
+    }//GEN-LAST:event_otgUppgEnd_DensityKeyPressed
+
+    private void otgTspStart_Density2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_Density2KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspStart_Density2Change(true);
+        }
+    }//GEN-LAST:event_otgTspStart_Density2KeyPressed
+
+    private void otgTspEnd_Density2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_Density2KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspEnd_Density2Change(true);
+        }
+    }//GEN-LAST:event_otgTspEnd_Density2KeyPressed
+
+    private void otgTspStart_Density1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_Density1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspStart_Density1PropertyChange(true);
+        }
+    }//GEN-LAST:event_otgTspStart_Density1KeyPressed
+
+    private void otgTspEnd_Density1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_Density1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspEnd_Density1Change(true);
+        }
+    }//GEN-LAST:event_otgTspEnd_Density1KeyPressed
+
+    private void otgTspStart_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_DensityKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspStart_DensityChange(true);
+        }    
+    }//GEN-LAST:event_otgTspStart_DensityKeyPressed
+
+    private void otgTspEnd_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_DensityKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspEnd_DensityChange(true);
+        }
+    }//GEN-LAST:event_otgTspEnd_DensityKeyPressed
+
+    private void otgUppgStart_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgUppgStart_LevelChange(true);
+        }
+    }//GEN-LAST:event_otgUppgStart_LevelKeyPressed
+
+    private void otgUppgEnd_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgEnd_LevelKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgUppgEnd_LevelChange(true);
+        }
+    }//GEN-LAST:event_otgUppgEnd_LevelKeyPressed
+
+    private void otgTspStart_Level2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_Level2KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspStart_Level2Change(true);
+        }
+    }//GEN-LAST:event_otgTspStart_Level2KeyPressed
+
+    private void otgTspEnd_Level2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_Level2KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspEnd_Level2PropertyChange(true);
+        }
+    }//GEN-LAST:event_otgTspEnd_Level2KeyPressed
+
+    private void otgTspStart_Level1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_Level1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspStart_Level1Change(true);
+        }
+    }//GEN-LAST:event_otgTspStart_Level1KeyPressed
+
+    private void otgTspEnd_Level1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_Level1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspEnd_Level1Change(true);
+        }
+    }//GEN-LAST:event_otgTspEnd_Level1KeyPressed
+
+    private void otgTspStart_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_LevelKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspStart_LevelChange(true);
+        }
+    }//GEN-LAST:event_otgTspStart_LevelKeyPressed
+
+    private void otgTspEnd_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_LevelKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgTspEnd_LevelChange(true);
+        }
+    }//GEN-LAST:event_otgTspEnd_LevelKeyPressed
+
+    private void drained_WaterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_drained_WaterFocusLost
+        drained_WaterChange(true);
+    }//GEN-LAST:event_drained_WaterFocusLost
+
+    private void drained_WaterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drained_WaterKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            drained_WaterChange(true);
+        }
+    }//GEN-LAST:event_drained_WaterKeyPressed
+
+    private void drained_BLFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_drained_BLFFocusLost
+        drained_BLFChange(true);
+    }//GEN-LAST:event_drained_BLFFocusLost
+
+    private void drained_BLFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drained_BLFKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            drained_BLFChange(true);
+        }
+    }//GEN-LAST:event_drained_BLFKeyPressed
+
+    private void drainEnd_VolumeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_drainEnd_VolumeFocusLost
+        drainEnd_VolumeChange(true);
+    }//GEN-LAST:event_drainEnd_VolumeFocusLost
+
+    private void drainEnd_VolumeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drainEnd_VolumeKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            drainEnd_VolumeChange(true);
+        }
+    }//GEN-LAST:event_drainEnd_VolumeKeyPressed
+
+    private void drainStart_VolumeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_drainStart_VolumeFocusLost
+        drainStart_VolumeChange(true);
+    }//GEN-LAST:event_drainStart_VolumeFocusLost
+
+    private void drainStart_VolumeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drainStart_VolumeKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            drainStart_VolumeChange(true);
+        }
+    }//GEN-LAST:event_drainStart_VolumeKeyPressed
+
+    private void drain_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_drain_DensityFocusLost
+        drain_DensityChange(true);
+    }//GEN-LAST:event_drain_DensityFocusLost
+
+    private void drain_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_drain_DensityKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            drain_DensityChange(true);
+        }
+    }//GEN-LAST:event_drain_DensityKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField akdgEnd_Density;
@@ -3020,6 +3384,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             actCnt = query.getResultList();
             actCounters = actCnt.get(0);
             em.refresh(actCounters);
+            
+            
             sirieStart_Volume.setText(String.format("%.1f", actCounters.getVolumeStartS()));
             sirieStart_Mass.setText(String.format("%.1f", actCounters.getMassStartS()));
             sirieStart_Temp.setText(String.format("%.1f", actCounters.getTempStartS()));
