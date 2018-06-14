@@ -42,6 +42,7 @@ public final class PreviewAct implements ActionListener {
         additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
         ActUPPG act = tc.getAct();
         EntityManager em = tc.getEntityManager();
+        if (em!=null){
         if (act!=null){
             em.refresh(act);
             int permit = act.getComplete();
@@ -57,8 +58,7 @@ public final class PreviewAct implements ActionListener {
                         NotifyDescriptor ok = new NotifyDescriptor.Message("Финализация выполнена успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
                         Object okResult = DialogDisplayer.getDefault().notify(ok);                    
                         
-                    } catch (Exception ex) {
-                        Exceptions.printStackTrace(ex);
+                    } catch (Exception ex) {                        
                         NotifyDescriptor err = new NotifyDescriptor.Message("Финализация не выполнена!!!", NotifyDescriptor.ERROR_MESSAGE);
                         Object errResult = DialogDisplayer.getDefault().notify(err);                    
                     }
@@ -113,6 +113,10 @@ public final class PreviewAct implements ActionListener {
                     frm2 = new UPPG_ShiftReport(tc.getEntityManager(), act.getId());
                 }
             }
+        }
+        }else{
+            NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
+            Object result = DialogDisplayer.getDefault().notify(d);
         }
     }
 }

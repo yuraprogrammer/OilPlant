@@ -15,7 +15,7 @@
                     </run-dependency>
                 </dependency>
                 <dependency>
-                    <code-name-base>com.alexprom.entities</code-name-base>
+                    <code-name-base>com.alexprom.sqljdbcdriver</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>

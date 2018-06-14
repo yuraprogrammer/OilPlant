@@ -1,16 +1,21 @@
 package com.alexprom.uppg_reports;
 
+import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActUPPG;
 import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.service.ActCountersJpaController;
+import com.alexprom.entities.settings.GlobalEntityManager;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.prefs.PreferenceChangeEvent;
+import java.util.prefs.PreferenceChangeListener;
+import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
@@ -22,6 +27,7 @@ import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 import org.openide.util.Utilities;
 import org.openide.windows.WindowManager;
 
@@ -58,8 +64,8 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private OTGToTSP otgToTsp;
     private final long newActId=0, oldActId=0;
     private final sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent"); 
-    private final EntityManagerFactory emf = tc.getEntityManagerFactory();
-    private final EntityManager em = tc.getEntityManager();
+    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
     private List<ActCounters> actCnt;
     private double blfMass, akdgMass, otgMass, sirieMass;
     private double blfDensity, akdgDensity, otgDensity, sirieDensity;
@@ -78,7 +84,20 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         putClientProperty(TopComponent.PROP_SLIDING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_KEEP_PREFERRED_SIZE_WHEN_SLIDED_IN, Boolean.TRUE);
+        updatePersistence();
+        Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
+        pref.addPreferenceChangeListener(new PreferenceChangeListener() {
+        @Override
+        public void preferenceChange(PreferenceChangeEvent evt) {            
+            updatePersistence();
+    }
+});  
+    }
 
+    public void updatePersistence(){        
+        GlobalEntityManager gem = new GlobalEntityManager();
+        emf = gem.getEmf();
+        em = gem.getEm();
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.alexprom.uppg_reports;
 
+import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.dictionary.GradView;
 import com.alexprom.entities.dictionary.TankDic;
 import com.alexprom.entities.dictionary.VPlotn20;
@@ -14,15 +15,18 @@ import com.alexprom.entities.service.OTGToTSPJpaController;
 import com.alexprom.entities.service.OTGToUPPGJpaController;
 import com.alexprom.entities.service.UPPGDrainTankJpaController;
 import com.alexprom.entities.service.UPPGFeedWaterJpaController;
+import com.alexprom.entities.settings.GlobalEntityManager;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.prefs.PreferenceChangeEvent;
+import java.util.prefs.PreferenceChangeListener;
+import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -32,6 +36,7 @@ import org.openide.awt.ActionReference;
 import org.openide.util.Lookup;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 import org.openide.util.lookup.AbstractLookup;
 import org.openide.util.lookup.InstanceContent;
 
@@ -104,12 +109,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private double new_OtgTspLevelEnd2=0, new_OtgTspVolumeEnd2=0, new_OtgTspMassEnd2=0, new_OtgTspTempEnd2=0, new_OtgTspDensityEnd2=0, new_OtgTspDensity20End2=0;
     private double old_OtgTspLevelEnd2=0, old_OtgTspVolumeEnd2=0, old_OtgTspMassEnd2=0, old_OtgTspTempEnd2=0, old_OtgTspDensityEnd2=0, old_OtgTspDensity20End2=0;
     
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProcessDictionaryPU");
-    private final EntityManager em = emf.createEntityManager();
+    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
     private boolean sirieDataChanged, otgTspDataChanged, otgUppgDataChanged = false;
     private final OtgAccount otgResult = new OtgAccount();
     
     private boolean granted=false;
+    private String ip, dbName, uName, uPassword;
+    
     
     public sirieDataTopComponent(){
         initComponents();
@@ -128,7 +135,20 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgTsp_Tank1.removeAllItems();
         otgTsp_Tank2.removeAllItems();
         otgUppg_Tank.removeAllItems();
-               
+        updatePersistence();
+        Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
+        pref.addPreferenceChangeListener(new PreferenceChangeListener() {
+        @Override
+        public void preferenceChange(PreferenceChangeEvent evt) {            
+            updatePersistence();
+    }
+});  
+    }        
+    
+    public void updatePersistence(){        
+        GlobalEntityManager gem = new GlobalEntityManager();
+        emf = gem.getEmf();
+        em = gem.getEm();
     }
     
     public ActUPPG getAct(){

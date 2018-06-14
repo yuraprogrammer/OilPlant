@@ -1,5 +1,6 @@
 package com.alexprom.uppg_reports;
 
+import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.process.ActSirieMixing;
 import com.alexprom.entities.dictionary.SirieDic;
 import com.alexprom.entities.dictionary.WorkersUppg;
@@ -8,14 +9,17 @@ import com.alexprom.entities.process.ActUPPG;
 import com.alexprom.entities.service.ActSirieJpaController;
 import com.alexprom.entities.service.ActSirieMixingJpaController;
 import com.alexprom.entities.service.ActUPPGJpaController;
+import com.alexprom.entities.settings.GlobalEntityManager;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.prefs.PreferenceChangeEvent;
+import java.util.prefs.PreferenceChangeListener;
+import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -24,6 +28,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 
 /**
  * Top component which displays something.
@@ -69,8 +74,8 @@ public final class commonDataTopComponent extends TopComponent {
     private List<ActSirie> act_Sirie;
     private SirieDic sirieDic;
     private List<SirieDic> sirieList;
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProcessDictionaryPU");
-    private final EntityManager em = emf.createEntityManager();
+    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
     private boolean sirieDataChanged=false;
     private ActUPPG newAct, oldAct;
     private ActSirieMixing actSirieMixing;
@@ -96,8 +101,22 @@ public final class commonDataTopComponent extends TopComponent {
         sirieType4.removeAllItems();
         sirieType5.removeAllItems();
         sirieType6.removeAllItems();
+        updatePersistence();
+        Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
+        pref.addPreferenceChangeListener(new PreferenceChangeListener() {
+        @Override
+        public void preferenceChange(PreferenceChangeEvent evt) {            
+            updatePersistence();
+    }
+});  
     }
 
+    public void updatePersistence(){        
+        GlobalEntityManager gem = new GlobalEntityManager();
+        emf = gem.getEmf();
+        em = gem.getEm();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -471,6 +490,9 @@ public final class commonDataTopComponent extends TopComponent {
                     }
                 }
             }
+        }else{
+            NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
+            Object result = DialogDisplayer.getDefault().notify(d);
         }
     }
     private void sirieType1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType1PropertyChange

@@ -1,6 +1,5 @@
 package com.alexprom.connection.settings;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.EntityManager;
@@ -8,17 +7,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.openide.util.NbPreferences;
 
-final class dbConnectionSettingsPanel extends javax.swing.JPanel {
+public final class dbConnectionSettingsPanel extends javax.swing.JPanel {
 
     private final dbConnectionSettingsOptionsPanelController controller;
     private EntityManagerFactory managerFactory = null;
     private EntityManager manager = null;
-    private boolean changed;
+    private boolean changed;    
     
     dbConnectionSettingsPanel(dbConnectionSettingsOptionsPanelController controller) {
         this.controller = controller;
-        initComponents();
-        // TODO listen to changes in form fields and call controller.changed()
+        initComponents();        
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

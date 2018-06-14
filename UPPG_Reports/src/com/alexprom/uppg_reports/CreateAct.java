@@ -22,6 +22,7 @@ import com.alexprom.entities.service.OTGToTSPJpaController;
 import com.alexprom.entities.service.OTGToUPPGJpaController;
 import com.alexprom.entities.service.UPPGDrainTankJpaController;
 import com.alexprom.entities.service.UPPGFeedWaterJpaController;
+import com.alexprom.entities.settings.GlobalEntityManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
@@ -55,8 +56,8 @@ import org.openide.windows.WindowManager;
 })
 @Messages("CTL_CreateAct=Создать акт")
 public final class CreateAct implements ActionListener {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProcessDictionaryPU");
-    private EntityManager em = emf.createEntityManager();
+    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
     private Date repAct;
     private String dateStr;
     private int shift;
@@ -458,6 +459,8 @@ public final class CreateAct implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        updatePersistence();
+        if (em!=null){
         //Проверка, открыт ли акт на редактирование
         if (!checkExist()){
             NotifyDescriptor create = new NotifyDescriptor.Confirmation("Акт за предыдущую смену не существует!!! Создать?", "Новый акт");
@@ -500,5 +503,15 @@ public final class CreateAct implements ActionListener {
             NotifyDescriptor already = new NotifyDescriptor.Message("Акт за предыдущую смену уже существует!!!", NotifyDescriptor.WARNING_MESSAGE);
             Object result = DialogDisplayer.getDefault().notify(already);
         }
+        }else{
+            NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
+            Object result = DialogDisplayer.getDefault().notify(d);
+        }
+    }
+    
+    public void updatePersistence(){        
+        GlobalEntityManager gem = new GlobalEntityManager();
+        emf = gem.getEmf();
+        em = gem.getEm();
     }
 }
