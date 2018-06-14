@@ -78,7 +78,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         initComponents();
         setName(Bundle.CTL_additionalDataTopComponent());
         setToolTipText(Bundle.HINT_additionalDataTopComponent());
-        putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.TRUE);
+        putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.FALSE);
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_SLIDING_DISABLED, Boolean.TRUE);

@@ -9,6 +9,7 @@ import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbPreferences;
@@ -116,11 +117,10 @@ public final class GlobalEntityManager implements iGlobalEntityManager{
             persistenceMap.put("javax.persistence.jdbc.password", String.valueOf(uPassword));
             persistenceMap.put("javax.persistence.jdbc.driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver");
             setEmf(Persistence.createEntityManagerFactory("ProcessDictionaryPU", persistenceMap));
-            setEm(emf.createEntityManager());
-        }catch(javax.persistence.PersistenceException ex){
+            setEm(emf.createEntityManager());            
+        } catch (PersistenceException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             setEmf(null);
             setEm(null);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
             Object result = DialogDisplayer.getDefault().notify(d);
         }

@@ -2,6 +2,7 @@ package com.alexprom.uppg_reports;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
@@ -46,6 +47,35 @@ public final class SaveAct implements ActionListener {
                 NotifyDescriptor err = new NotifyDescriptor.Message("Сохранение не выполнено!!!", NotifyDescriptor.ERROR_MESSAGE);
                 Object errResult = DialogDisplayer.getDefault().notify(err);
             }
+            }
+        }else{
+            NotifyDescriptor err = new NotifyDescriptor.Message("Нет открытого акта для сохранения!!! Открыть?", NotifyDescriptor.ERROR_MESSAGE);
+            Object errResult = DialogDisplayer.getDefault().notify(err);
+            if (errResult==NotifyDescriptor.YES_OPTION){
+                dlgOpenAct frm = new dlgOpenAct();
+                DialogDescriptor dd = new DialogDescriptor(frm, "Выберите дату и смену", true,
+                        DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
+                Object result = DialogDisplayer.getDefault().notify(dd);
+                if (null != result && DialogDescriptor.OK_OPTION == result) {            
+                    stc.setAct(frm.getActDate(), frm.getActShift());                    
+                    ctc.setAct(frm.getActDate(), frm.getActShift());
+                    atc.setAct(frm.getActDate(), frm.getActShift());
+                    if (!ctc.isOpened() || !ctc.isOpened() || !atc.isOpened()){
+                        NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта?", "Открыть акт");
+                        Object open = DialogDisplayer.getDefault().notify(d);
+                        if (open==NotifyDescriptor.YES_OPTION){
+                            if (!ctc.isOpened()){
+                                ctc.open();
+                            }
+                            if (!stc.isOpened()){
+                                stc.open();
+                            }
+                            if (!atc.isOpened()){
+                                atc.open();
+                            }
+                        }
+                    }            
+                }
             }
         }    
     }

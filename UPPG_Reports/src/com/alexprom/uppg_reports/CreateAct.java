@@ -31,7 +31,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -493,6 +492,21 @@ public final class CreateAct implements ActionListener {
                         ctc.setAct(repAct, shift);
                         additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
                         atc.setAct(repAct, shift);
+                        if (!tc.isOpened() || !ctc.isOpened() || !atc.isOpened()){
+                            NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта?", "Открыть акт");
+                            Object open = DialogDisplayer.getDefault().notify(d);
+                            if (open==NotifyDescriptor.YES_OPTION){
+                                if (!tc.isOpened()){
+                                    tc.open();
+                                }
+                                if (!ctc.isOpened()){
+                                    ctc.open();
+                                }
+                                if (!atc.isOpened()){
+                                    atc.open();
+                                }
+                            }
+                        }
                     }
                 }catch (Exception ex){
                     NotifyDescriptor error = new NotifyDescriptor.Confirmation(ex.getLocalizedMessage());

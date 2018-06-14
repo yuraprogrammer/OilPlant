@@ -89,7 +89,7 @@ public final class commonDataTopComponent extends TopComponent {
         initComponents();
         setName(Bundle.CTL_commonDataTopComponent());
         setToolTipText(Bundle.HINT_commonDataTopComponent());
-        putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.TRUE);
+        putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.FALSE);
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_SLIDING_DISABLED, Boolean.TRUE);
@@ -108,7 +108,7 @@ public final class commonDataTopComponent extends TopComponent {
         public void preferenceChange(PreferenceChangeEvent evt) {            
             updatePersistence();
     }
-});  
+});          
     }
 
     public void updatePersistence(){        
@@ -172,7 +172,7 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel13.add(label2);
         label2.setBounds(16, 26, 76, 18);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setEnabled(false);
         jComboBox2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jComboBox2PropertyChange(evt);
@@ -187,7 +187,8 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel13.add(label3);
         label3.setBounds(16, 76, 58, 18);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox3.setEnabled(false);
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
@@ -866,7 +867,8 @@ public final class commonDataTopComponent extends TopComponent {
 
     @Override
     public void componentClosed() {
-        // TODO add custom code on component closing
+        NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта", "Открыть акт");
+        Object open = DialogDisplayer.getDefault().notify(d);
     }
 
     void writeProperties(java.util.Properties p) {
