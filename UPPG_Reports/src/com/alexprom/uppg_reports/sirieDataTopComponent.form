@@ -41,6 +41,7 @@
                 <EtchetBorder/>
               </Border>
               <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel3.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -59,7 +60,7 @@
         <Component class="java.awt.Label" name="label135">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label135.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -115,7 +116,7 @@
         <Component class="java.awt.Label" name="label136">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label136.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -144,7 +145,7 @@
         <Component class="java.awt.Label" name="label137">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label137.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -167,6 +168,7 @@
                 <EtchetBorder/>
               </Border>
               <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel4.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -190,6 +192,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.countersEnd1.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -277,7 +280,7 @@
             <Component class="java.awt.Label" name="label79">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label79.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -292,7 +295,7 @@
             <Component class="java.awt.Label" name="label80">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label80.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -307,7 +310,7 @@
             <Component class="java.awt.Label" name="label81">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label81.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -322,7 +325,7 @@
             <Component class="java.awt.Label" name="label82">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label82.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -337,7 +340,7 @@
             <Component class="java.awt.Label" name="label83">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label83.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -360,6 +363,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.countersStart1.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -447,7 +451,7 @@
             <Component class="java.awt.Label" name="label84">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label84.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -462,7 +466,7 @@
             <Component class="java.awt.Label" name="label85">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label85.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -477,7 +481,7 @@
             <Component class="java.awt.Label" name="label86">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label86.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -492,7 +496,7 @@
             <Component class="java.awt.Label" name="label87">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label87.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -507,10 +511,10 @@
             <Component class="java.awt.Label" name="label88">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label88.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label93.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -532,6 +536,7 @@
                 <EtchetBorder/>
               </Border>
               <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel5.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -555,6 +560,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.countersEnd2.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -642,7 +648,7 @@
             <Component class="java.awt.Label" name="label89">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label89.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -657,7 +663,7 @@
             <Component class="java.awt.Label" name="label90">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label90.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -672,7 +678,7 @@
             <Component class="java.awt.Label" name="label91">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label91.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -687,7 +693,7 @@
             <Component class="java.awt.Label" name="label92">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label92.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -702,7 +708,7 @@
             <Component class="java.awt.Label" name="label93">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label93.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -725,6 +731,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.countersStart2.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -812,7 +819,7 @@
             <Component class="java.awt.Label" name="label94">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label94.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -827,7 +834,7 @@
             <Component class="java.awt.Label" name="label95">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label95.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -842,7 +849,7 @@
             <Component class="java.awt.Label" name="label96">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label96.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -857,7 +864,7 @@
             <Component class="java.awt.Label" name="label97">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label97.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -872,10 +879,10 @@
             <Component class="java.awt.Label" name="label98">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label98.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label93.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -920,6 +927,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel7.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -961,7 +969,7 @@
             <Component class="java.awt.Label" name="label53">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label53.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -969,7 +977,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="20" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="10" y="20" width="70" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -982,6 +990,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel8.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -999,7 +1008,7 @@
                 <Component class="java.awt.Label" name="label54">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label54.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1032,7 +1041,7 @@
                 <Component class="java.awt.Label" name="label55">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label55.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1061,7 +1070,7 @@
                 <Component class="java.awt.Label" name="label56">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label56.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1090,7 +1099,7 @@
                 <Component class="java.awt.Label" name="label57">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label57.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1122,7 +1131,7 @@
                 <Component class="java.awt.Label" name="label58">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label58.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1155,10 +1164,10 @@
                 <Component class="java.awt.Label" name="label59">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label59.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1192,6 +1201,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel9.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1209,7 +1219,7 @@
                 <Component class="java.awt.Label" name="label60">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label60.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1242,7 +1252,7 @@
                 <Component class="java.awt.Label" name="label61">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label61.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1271,7 +1281,7 @@
                 <Component class="java.awt.Label" name="label62">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label62.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1300,7 +1310,7 @@
                 <Component class="java.awt.Label" name="label63">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label63.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1332,7 +1342,7 @@
                 <Component class="java.awt.Label" name="label64">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label64.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1365,10 +1375,10 @@
                 <Component class="java.awt.Label" name="label65">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label65.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1404,6 +1414,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel10.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -1445,7 +1456,7 @@
             <Component class="java.awt.Label" name="label66">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label66.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1453,7 +1464,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="20" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="10" y="20" width="70" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1466,6 +1477,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel11.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1483,7 +1495,7 @@
                 <Component class="java.awt.Label" name="label67">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label67.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1516,7 +1528,7 @@
                 <Component class="java.awt.Label" name="label68">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label68.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1545,7 +1557,7 @@
                 <Component class="java.awt.Label" name="label69">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label69.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1574,7 +1586,7 @@
                 <Component class="java.awt.Label" name="label70">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label70.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1606,7 +1618,7 @@
                 <Component class="java.awt.Label" name="label71">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label71.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1614,14 +1626,14 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="370" y="20" width="40" height="-1"/>
+                      <AbsoluteConstraints x="370" y="20" width="50" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
                 <Component class="java.awt.Label" name="label72">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1676,6 +1688,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel12.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1693,7 +1706,7 @@
                 <Component class="java.awt.Label" name="label73">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label73.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1726,7 +1739,7 @@
                 <Component class="java.awt.Label" name="label74">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label74.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1755,7 +1768,7 @@
                 <Component class="java.awt.Label" name="label75">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label75.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1784,7 +1797,7 @@
                 <Component class="java.awt.Label" name="label76">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label76.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1816,7 +1829,7 @@
                 <Component class="java.awt.Label" name="label77">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label77.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1831,10 +1844,10 @@
                 <Component class="java.awt.Label" name="label78">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label78.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1880,7 +1893,7 @@
             <Component class="java.awt.Label" name="label109">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label109.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1925,6 +1938,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel13.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -1942,7 +1956,7 @@
                 <Component class="java.awt.Label" name="label110">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label110.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1975,7 +1989,7 @@
                 <Component class="java.awt.Label" name="label111">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label111.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2004,7 +2018,7 @@
                 <Component class="java.awt.Label" name="label112">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label112.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2033,7 +2047,7 @@
                 <Component class="java.awt.Label" name="label113">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label113.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2065,7 +2079,7 @@
                 <Component class="java.awt.Label" name="label114">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label114.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2080,10 +2094,10 @@
                 <Component class="java.awt.Label" name="label115">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label115.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2135,6 +2149,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel14.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -2152,7 +2167,7 @@
                 <Component class="java.awt.Label" name="label116">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label116.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2185,7 +2200,7 @@
                 <Component class="java.awt.Label" name="label117">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label117.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2214,7 +2229,7 @@
                 <Component class="java.awt.Label" name="label118">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label118.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2243,7 +2258,7 @@
                 <Component class="java.awt.Label" name="label119">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label119.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2275,7 +2290,7 @@
                 <Component class="java.awt.Label" name="label120">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label120.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2290,10 +2305,10 @@
                 <Component class="java.awt.Label" name="label121">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label121.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2339,7 +2354,7 @@
             <Component class="java.awt.Label" name="label122">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label122.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2384,6 +2399,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel15.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -2401,7 +2417,7 @@
                 <Component class="java.awt.Label" name="label123">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label123.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2434,7 +2450,7 @@
                 <Component class="java.awt.Label" name="label124">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label124.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2463,7 +2479,7 @@
                 <Component class="java.awt.Label" name="label125">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label125.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2492,7 +2508,7 @@
                 <Component class="java.awt.Label" name="label126">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label126.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2524,7 +2540,7 @@
                 <Component class="java.awt.Label" name="label127">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label127.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2539,10 +2555,10 @@
                 <Component class="java.awt.Label" name="label128">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label128.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2594,6 +2610,7 @@
                         <EtchetBorder/>
                       </Border>
                       <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel16.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -2611,7 +2628,7 @@
                 <Component class="java.awt.Label" name="label129">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label129.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2644,7 +2661,7 @@
                 <Component class="java.awt.Label" name="label130">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label130.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2673,7 +2690,7 @@
                 <Component class="java.awt.Label" name="label131">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label131.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2702,7 +2719,7 @@
                 <Component class="java.awt.Label" name="label132">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label132.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2734,7 +2751,7 @@
                 <Component class="java.awt.Label" name="label133">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label133.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2749,10 +2766,10 @@
                 <Component class="java.awt.Label" name="label134">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="0"/>
+                      <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label134.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label72.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2808,6 +2825,7 @@
                 <EtchetBorder/>
               </Border>
               <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel2.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -2851,6 +2869,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.countersEnd.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -2933,7 +2952,7 @@
             <Component class="java.awt.Label" name="label99">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label99.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2948,7 +2967,7 @@
             <Component class="java.awt.Label" name="label100">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label100.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2963,7 +2982,7 @@
             <Component class="java.awt.Label" name="label101">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label101.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2978,7 +2997,7 @@
             <Component class="java.awt.Label" name="label102">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label102.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2993,7 +3012,7 @@
             <Component class="java.awt.Label" name="label103">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label103.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3016,6 +3035,7 @@
                     <EtchetBorder/>
                   </Border>
                   <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.countersStart.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -3098,7 +3118,7 @@
             <Component class="java.awt.Label" name="label104">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label104.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3113,7 +3133,7 @@
             <Component class="java.awt.Label" name="label105">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label105.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3128,7 +3148,7 @@
             <Component class="java.awt.Label" name="label106">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label106.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3143,7 +3163,7 @@
             <Component class="java.awt.Label" name="label107">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label107.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3158,7 +3178,7 @@
             <Component class="java.awt.Label" name="label108">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="0"/>
+                  <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label108.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3183,6 +3203,7 @@
                 <EtchetBorder/>
               </Border>
               <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel17.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -3201,7 +3222,7 @@
         <Component class="java.awt.Label" name="label138">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label138.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3258,7 +3279,7 @@
         <Component class="java.awt.Label" name="label139">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label139.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3287,7 +3308,7 @@
         <Component class="java.awt.Label" name="label140">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label140.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3295,14 +3316,14 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="310" y="20" width="-1" height="-1"/>
+              <AbsoluteConstraints x="310" y="20" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="java.awt.Label" name="label141">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label141.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3343,6 +3364,7 @@
                 <EtchetBorder/>
               </Border>
               <ResourceString PropertyName="titleX" bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.jPanel1.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -3412,7 +3434,7 @@
         <Component class="java.awt.Label" name="label142">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label142.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -3422,7 +3444,7 @@
         <Component class="java.awt.Label" name="label143">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="0"/>
+              <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/alexprom/uppg_reports/Bundle.properties" key="sirieDataTopComponent.label143.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>

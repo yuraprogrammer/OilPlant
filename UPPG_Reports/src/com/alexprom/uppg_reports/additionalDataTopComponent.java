@@ -6,7 +6,6 @@ import com.alexprom.entities.process.ActUPPG;
 import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.service.ActCountersJpaController;
-import com.alexprom.entities.settings.GlobalEntityManager;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -152,7 +151,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel2.border.title"))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel2.setLayout(null);
 
         processing_Volume.setEditable(false);
@@ -167,17 +166,17 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel2.add(processing_Density);
         processing_Density.setBounds(280, 40, 90, 20);
 
-        label100.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label100.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label100.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label100.text")); // NOI18N
         jPanel2.add(label100);
         label100.setBounds(10, 20, 40, 18);
 
-        label101.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label101.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label101.text")); // NOI18N
         jPanel2.add(label101);
         label101.setBounds(140, 20, 40, 18);
 
-        label77.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label77.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label77.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label77.text")); // NOI18N
         jPanel2.add(label77);
         label77.setBounds(280, 20, 50, 18);
@@ -189,7 +188,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         processing_Mass.setBounds(140, 40, 130, 20);
 
         jPanel12.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel12.border.title"))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel12.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel12.setLayout(null);
 
         blf_Volume.setEditable(false);
@@ -204,7 +203,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel12.add(blf_Mass);
         blf_Mass.setBounds(110, 40, 90, 20);
 
-        label53.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label53.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label53.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label53.text")); // NOI18N
         jPanel12.add(label53);
         label53.setBounds(310, 20, 30, 18);
@@ -215,17 +214,17 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel12.add(blf_Percent);
         blf_Percent.setBounds(310, 40, 60, 20);
 
-        label98.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label98.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label98.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label98.text")); // NOI18N
         jPanel12.add(label98);
         label98.setBounds(20, 20, 40, 18);
 
-        label99.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label99.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label99.text")); // NOI18N
         jPanel12.add(label99);
         label99.setBounds(110, 20, 40, 18);
 
-        label78.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label78.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label78.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label78.text")); // NOI18N
         jPanel12.add(label78);
         label78.setBounds(210, 20, 50, 18);
@@ -237,7 +236,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         blf_Density.setBounds(210, 40, 90, 20);
 
         jPanel11.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel11.border.title"))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel11.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel11.setLayout(null);
 
         akdg_Volume.setEditable(false);
@@ -258,22 +257,22 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel11.add(akdg_Percent);
         akdg_Percent.setBounds(310, 40, 60, 20);
 
-        label54.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label54.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label54.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label54.text")); // NOI18N
         jPanel11.add(label54);
         label54.setBounds(310, 20, 30, 18);
 
-        label96.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label96.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label96.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label96.text")); // NOI18N
         jPanel11.add(label96);
         label96.setBounds(20, 20, 40, 18);
 
-        label97.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label97.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label97.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label97.text")); // NOI18N
         jPanel11.add(label97);
         label97.setBounds(110, 20, 40, 18);
 
-        label79.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label79.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label79.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label79.text")); // NOI18N
         jPanel11.add(label79);
         label79.setBounds(210, 20, 50, 18);
@@ -285,7 +284,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         akdg_Density.setBounds(210, 40, 90, 20);
 
         jPanel10.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel10.border.title"))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel10.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel10.setLayout(null);
 
         otg_Volume.setEditable(false);
@@ -306,22 +305,22 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel10.add(otg_Percent);
         otg_Percent.setBounds(310, 40, 60, 20);
 
-        label55.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label55.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label55.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label55.text")); // NOI18N
         jPanel10.add(label55);
         label55.setBounds(310, 20, 30, 18);
 
-        label94.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label94.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label94.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label94.text")); // NOI18N
         jPanel10.add(label94);
         label94.setBounds(20, 20, 40, 18);
 
-        label95.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label95.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label95.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label95.text")); // NOI18N
         jPanel10.add(label95);
         label95.setBounds(110, 20, 40, 18);
 
-        label80.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label80.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label80.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label80.text")); // NOI18N
         jPanel10.add(label80);
         label80.setBounds(210, 20, 50, 18);
@@ -333,10 +332,10 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         otg_Density.setBounds(210, 40, 90, 20);
 
         jPanel13.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel13.border.title"))); // NOI18N
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel13.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel13.setLayout(null);
 
-        label56.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label56.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label56.text")); // NOI18N
         jPanel13.add(label56);
         label56.setBounds(190, 20, 90, 18);
@@ -353,7 +352,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel13.add(blf_akdg_Percent);
         blf_akdg_Percent.setBounds(10, 40, 170, 20);
 
-        label57.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label57.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label57.text")); // NOI18N
         jPanel13.add(label57);
         label57.setBounds(10, 20, 90, 18);

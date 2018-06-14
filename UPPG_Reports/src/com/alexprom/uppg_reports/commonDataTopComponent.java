@@ -58,17 +58,17 @@ import org.openide.windows.WindowManager;
     "HINT_commonDataTopComponent=Основные данные"
 })
 public final class commonDataTopComponent extends TopComponent {
-    private int old_1, new_1=0;
+    private String old_1="", new_1="";
     private float oldContent_1=0, newContent_1=0;
-    private int old_2, new_2=0;
+    private String old_2="", new_2="";
     private float oldContent_2=0, newContent_2=0;
-    private int old_3, new_3=0;
+    private String old_3="", new_3="";
     private float oldContent_3=0, newContent_3=0;
-    private int old_4, new_4=0;
+    private String old_4="", new_4="";
     private float oldContent_4=0, newContent_4=0;
-    private int old_5, new_5=0;
+    private String old_5="", new_5="";
     private float oldContent_5=0, newContent_5=0;
-    private int old_6, new_6=0;
+    private String old_6="", new_6="";
     private float oldContent_6=0, newContent_6=0;
     private float old_mixingDensity = 0, new_mixingDensity=0;
     private float old_mixingVolume = 0, new_mixingVolume=0;
@@ -98,12 +98,12 @@ public final class commonDataTopComponent extends TopComponent {
         putClientProperty(TopComponent.PROP_SLIDING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_KEEP_PREFERRED_SIZE_WHEN_SLIDED_IN, Boolean.TRUE);
-        sirieType1.removeAllItems();
-        sirieType2.removeAllItems();
-        sirieType3.removeAllItems();
-        sirieType4.removeAllItems();
-        sirieType5.removeAllItems();
-        sirieType6.removeAllItems();
+        sirieType1.setText("");
+        sirieType2.setText("");
+        sirieType3.setText("");
+        sirieType4.setText("");
+        sirieType5.setText("");
+        sirieType6.setText("");
         updatePersistence();
         Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
         pref.addPreferenceChangeListener(new PreferenceChangeListener() {
@@ -119,16 +119,6 @@ public final class commonDataTopComponent extends TopComponent {
         emf = gem.getEntityManagerFactory();
         em = gem.getEntityManager();
         if (em!=null){
-            Query query = em.createNamedQuery("SirieDic.findAll");
-            sirieList = query.getResultList();
-            for (SirieDic s : sirieList){
-                sirieType1.addItem(s.getName());
-                sirieType2.addItem(s.getName());
-                sirieType3.addItem(s.getName());
-                sirieType4.addItem(s.getName());
-                sirieType5.addItem(s.getName());
-                sirieType6.addItem(s.getName());
-            }
             jComboBox2.removeAllItems();
             jComboBox3.removeAllItems();
             Query opQuery = em.createNamedQuery("WorkersUppg.findAll");
@@ -159,29 +149,29 @@ public final class commonDataTopComponent extends TopComponent {
         jComboBox3 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         label13 = new java.awt.Label();
-        sirieType1 = new javax.swing.JComboBox<>();
         label14 = new java.awt.Label();
         sirieContent1 = new javax.swing.JFormattedTextField();
         label15 = new java.awt.Label();
         label16 = new java.awt.Label();
-        sirieType2 = new javax.swing.JComboBox<>();
         sirieContent2 = new javax.swing.JFormattedTextField();
         label17 = new java.awt.Label();
         label18 = new java.awt.Label();
-        sirieType3 = new javax.swing.JComboBox<>();
         sirieContent3 = new javax.swing.JFormattedTextField();
         label19 = new java.awt.Label();
         label20 = new java.awt.Label();
-        sirieType4 = new javax.swing.JComboBox<>();
         sirieContent4 = new javax.swing.JFormattedTextField();
         label21 = new java.awt.Label();
         label22 = new java.awt.Label();
-        sirieType5 = new javax.swing.JComboBox<>();
         sirieContent5 = new javax.swing.JFormattedTextField();
         label23 = new java.awt.Label();
-        sirieType6 = new javax.swing.JComboBox<>();
         label24 = new java.awt.Label();
         sirieContent6 = new javax.swing.JFormattedTextField();
+        sirieType1 = new javax.swing.JTextField();
+        sirieType2 = new javax.swing.JTextField();
+        sirieType3 = new javax.swing.JTextField();
+        sirieType4 = new javax.swing.JTextField();
+        sirieType5 = new javax.swing.JTextField();
+        sirieType6 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
         sirieMixing_Volume = new javax.swing.JFormattedTextField();
@@ -190,14 +180,14 @@ public final class commonDataTopComponent extends TopComponent {
         label80 = new java.awt.Label();
         sirieMixing_Mass = new javax.swing.JFormattedTextField();
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel13.border.title"))); // NOI18N
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel13.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel13.setLayout(null);
 
         label2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
-        label2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label2.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label2.text")); // NOI18N
         jPanel13.add(label2);
-        label2.setBounds(16, 26, 76, 18);
+        label2.setBounds(16, 26, 83, 18);
 
         jComboBox2.setEnabled(false);
         jComboBox2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -209,10 +199,10 @@ public final class commonDataTopComponent extends TopComponent {
         jComboBox2.setBounds(16, 46, 300, 20);
 
         label3.setBackground(java.awt.SystemColor.control);
-        label3.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label3.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label3.text")); // NOI18N
         jPanel13.add(label3);
-        label3.setBounds(16, 76, 58, 18);
+        label3.setBounds(16, 76, 64, 18);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         jComboBox3.setEnabled(false);
@@ -232,29 +222,19 @@ public final class commonDataTopComponent extends TopComponent {
         add(jPanel13);
         jPanel13.setBounds(0, 0, 330, 130);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel1.border.title"))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel1.setDoubleBuffered(false);
         jPanel1.setLayout(null);
 
-        label13.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label13.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label13.text")); // NOI18N
         jPanel1.add(label13);
-        label13.setBounds(10, 20, 72, 18);
+        label13.setBounds(10, 20, 81, 18);
 
-        sirieType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sirieType1.setEnabled(false);
-        sirieType1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieType1PropertyChange(evt);
-            }
-        });
-        jPanel1.add(sirieType1);
-        sirieType1.setBounds(10, 40, 250, 20);
-
-        label14.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label14.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label14.text")); // NOI18N
         jPanel1.add(label14);
-        label14.setBounds(270, 20, 19, 18);
+        label14.setBounds(270, 20, 20, 18);
 
         sirieContent1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent1.text")); // NOI18N
@@ -272,25 +252,15 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel1.add(sirieContent1);
         sirieContent1.setBounds(270, 40, 50, 20);
 
-        label15.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label15.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label15.text")); // NOI18N
         jPanel1.add(label15);
-        label15.setBounds(10, 70, 72, 18);
+        label15.setBounds(10, 70, 81, 18);
 
-        label16.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label16.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label16.text")); // NOI18N
         jPanel1.add(label16);
         label16.setBounds(270, 70, 20, 18);
-
-        sirieType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sirieType2.setEnabled(false);
-        sirieType2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieType2PropertyChange(evt);
-            }
-        });
-        jPanel1.add(sirieType2);
-        sirieType2.setBounds(10, 90, 250, 20);
 
         sirieContent2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent2.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent2.text")); // NOI18N
@@ -308,25 +278,15 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel1.add(sirieContent2);
         sirieContent2.setBounds(270, 90, 50, 20);
 
-        label17.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label17.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label17.text")); // NOI18N
         jPanel1.add(label17);
-        label17.setBounds(10, 120, 72, 18);
+        label17.setBounds(10, 120, 81, 18);
 
-        label18.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label18.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label18.text")); // NOI18N
         jPanel1.add(label18);
-        label18.setBounds(270, 120, 19, 18);
-
-        sirieType3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sirieType3.setEnabled(false);
-        sirieType3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieType3PropertyChange(evt);
-            }
-        });
-        jPanel1.add(sirieType3);
-        sirieType3.setBounds(10, 140, 250, 20);
+        label18.setBounds(270, 120, 20, 18);
 
         sirieContent3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent3.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent3.text")); // NOI18N
@@ -344,25 +304,15 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel1.add(sirieContent3);
         sirieContent3.setBounds(270, 140, 50, 20);
 
-        label19.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label19.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label19.text")); // NOI18N
         jPanel1.add(label19);
-        label19.setBounds(10, 170, 72, 20);
+        label19.setBounds(10, 170, 81, 20);
 
-        label20.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label20.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label20.text")); // NOI18N
         jPanel1.add(label20);
         label20.setBounds(270, 170, 20, 20);
-
-        sirieType4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sirieType4.setEnabled(false);
-        sirieType4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieType4PropertyChange(evt);
-            }
-        });
-        jPanel1.add(sirieType4);
-        sirieType4.setBounds(10, 190, 250, 20);
 
         sirieContent4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent4.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent4.text")); // NOI18N
@@ -380,25 +330,15 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel1.add(sirieContent4);
         sirieContent4.setBounds(270, 190, 50, 20);
 
-        label21.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label21.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label21.text")); // NOI18N
         jPanel1.add(label21);
-        label21.setBounds(10, 220, 72, 20);
+        label21.setBounds(10, 220, 81, 20);
 
-        label22.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label22.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label22.text")); // NOI18N
         jPanel1.add(label22);
         label22.setBounds(270, 220, 50, 20);
-
-        sirieType5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sirieType5.setEnabled(false);
-        sirieType5.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieType5PropertyChange(evt);
-            }
-        });
-        jPanel1.add(sirieType5);
-        sirieType5.setBounds(10, 240, 250, 20);
 
         sirieContent5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieContent5.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieContent5.text")); // NOI18N
@@ -416,22 +356,12 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel1.add(sirieContent5);
         sirieContent5.setBounds(270, 240, 50, 20);
 
-        label23.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label23.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label23.text")); // NOI18N
         jPanel1.add(label23);
-        label23.setBounds(10, 270, 72, 20);
+        label23.setBounds(10, 270, 81, 20);
 
-        sirieType6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        sirieType6.setEnabled(false);
-        sirieType6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                sirieType6PropertyChange(evt);
-            }
-        });
-        jPanel1.add(sirieType6);
-        sirieType6.setBounds(10, 290, 250, 20);
-
-        label24.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label24.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label24.text")); // NOI18N
         jPanel1.add(label24);
         label24.setBounds(270, 270, 50, 20);
@@ -452,15 +382,76 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel1.add(sirieContent6);
         sirieContent6.setBounds(270, 290, 50, 20);
 
+        sirieType1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType1.text")); // NOI18N
+        sirieType1.setEnabled(false);
+        sirieType1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieType1FocusLost(evt);
+            }
+        });
+        sirieType1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieType1KeyPressed(evt);
+            }
+        });
+        jPanel1.add(sirieType1);
+        sirieType1.setBounds(10, 40, 250, 20);
+
+        sirieType2.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType2.text")); // NOI18N
+        sirieType2.setEnabled(false);
+        sirieType2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieType2FocusLost(evt);
+            }
+        });
+        sirieType2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieType2KeyPressed(evt);
+            }
+        });
+        jPanel1.add(sirieType2);
+        sirieType2.setBounds(10, 90, 250, 20);
+
+        sirieType3.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType3.text")); // NOI18N
+        sirieType3.setEnabled(false);
+        sirieType3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieType3KeyPressed(evt);
+            }
+        });
+        jPanel1.add(sirieType3);
+        sirieType3.setBounds(10, 140, 250, 20);
+
+        sirieType4.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType4.text")); // NOI18N
+        sirieType4.setEnabled(false);
+        jPanel1.add(sirieType4);
+        sirieType4.setBounds(10, 190, 250, 20);
+
+        sirieType5.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType5.text")); // NOI18N
+        sirieType5.setEnabled(false);
+        jPanel1.add(sirieType5);
+        sirieType5.setBounds(10, 240, 250, 20);
+
+        sirieType6.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType6.text")); // NOI18N
+        sirieType6.setEnabled(false);
+        sirieType6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sirieType6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(sirieType6);
+        sirieType6.setBounds(10, 290, 250, 20);
+
         add(jPanel1);
         jPanel1.setBounds(0, 138, 330, 330);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel2.border.title"))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel2.setLayout(null);
 
+        label1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label1.text")); // NOI18N
         jPanel2.add(label1);
-        label1.setBounds(10, 20, 40, 20);
+        label1.setBounds(10, 20, 40, 18);
 
         sirieMixing_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieMixing_Volume.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Volume.text")); // NOI18N
@@ -479,9 +470,10 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel2.add(sirieMixing_Volume);
         sirieMixing_Volume.setBounds(10, 40, 90, 20);
 
+        label5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label5.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label5.text")); // NOI18N
         jPanel2.add(label5);
-        label5.setBounds(110, 20, 50, 20);
+        label5.setBounds(110, 20, 50, 18);
 
         sirieMixing_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         sirieMixing_Density.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Density.text")); // NOI18N
@@ -499,7 +491,7 @@ public final class commonDataTopComponent extends TopComponent {
         jPanel2.add(sirieMixing_Density);
         sirieMixing_Density.setBounds(110, 40, 90, 20);
 
-        label80.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label80.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label80.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label80.text")); // NOI18N
         jPanel2.add(label80);
         label80.setBounds(210, 20, 40, 18);
@@ -558,46 +550,6 @@ public final class commonDataTopComponent extends TopComponent {
             Object result = DialogDisplayer.getDefault().notify(d);
         }
     }
-    private void sirieType1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType1PropertyChange
-        if (sirieType1.getSelectedIndex()!=-1){
-            old_1=new_1;
-            new_1=sirieList.get(sirieType1.getSelectedIndex()).getId();
-            sirieDataChanged = true;
-        }
-    }//GEN-LAST:event_sirieType1PropertyChange
-
-    private void sirieType2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType2PropertyChange
-        if (sirieType2.getSelectedIndex()!=-1){
-            old_2=new_2;
-            new_2=sirieList.get(sirieType2.getSelectedIndex()).getId();
-            sirieDataChanged = true;
-        }
-    }//GEN-LAST:event_sirieType2PropertyChange
-
-    private void sirieType3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType3PropertyChange
-        if (sirieType3.getSelectedIndex()!=-1){
-            old_3=new_3;
-            new_3=sirieList.get(sirieType3.getSelectedIndex()).getId();
-            sirieDataChanged = true;
-        }
-    }//GEN-LAST:event_sirieType3PropertyChange
-
-    private void sirieType4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType4PropertyChange
-        if (sirieType4.getSelectedIndex()!=-1){
-            old_4=new_4;
-            new_4=sirieList.get(sirieType4.getSelectedIndex()).getId();
-            sirieDataChanged = true;
-        }
-    }//GEN-LAST:event_sirieType4PropertyChange
-
-    private void sirieType5PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType5PropertyChange
-        if (sirieType5.getSelectedIndex()!=-1){
-            old_5=new_5;
-            new_5=sirieList.get(sirieType5.getSelectedIndex()).getId();
-            sirieDataChanged = true;
-        }
-    }//GEN-LAST:event_sirieType5PropertyChange
-
     private void jComboBox2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBox2PropertyChange
         if (jComboBox2.getSelectedIndex()!=-1 && newAct!=null){
             oldMain = mainOper;
@@ -615,14 +567,6 @@ public final class commonDataTopComponent extends TopComponent {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
-
-    private void sirieType6PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_sirieType6PropertyChange
-        if (sirieType6.getSelectedIndex()!=-1){
-            old_6=new_6;
-            new_6=sirieList.get(sirieType6.getSelectedIndex()).getId();
-            sirieDataChanged = true;
-        }
-    }//GEN-LAST:event_sirieType6PropertyChange
 
     private void setSirieContent1(boolean edited){
         oldContent_1=newContent_1;
@@ -822,6 +766,63 @@ public final class commonDataTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_sirieMixing_DensityKeyPressed
 
+    private void sirieType6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sirieType6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sirieType6ActionPerformed
+
+    private void setComponent1(String value){
+        old_1 = new_1;
+        new_1 = value;
+    }
+    
+    private void setComponent2(String value){
+        old_1 = new_2;
+        new_1 = value;
+    }
+    
+    private void setComponent3(String value){
+        old_3 = new_3;
+        new_3 = value;
+    }
+    
+    private void setComponent4(String value){
+        old_4 = new_4;
+        new_4 = value;
+    }
+    
+    private void setComponent5(String value){
+        old_5 = new_5;
+        new_5 = value;
+    }
+    
+    private void setComponent6(String value){
+        old_6 = new_6;
+        new_6 = value;
+    }
+    
+    private void sirieType1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType1FocusLost
+        setComponent1(sirieType1.getText());
+    }//GEN-LAST:event_sirieType1FocusLost
+
+    private void sirieType1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setComponent1(sirieType1.getText());
+            sirieType1.transferFocus();
+        }
+    }//GEN-LAST:event_sirieType1KeyPressed
+
+    private void sirieType2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sirieType2FocusLost
+
+    private void sirieType3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sirieType3KeyPressed
+
+    private void sirieType2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sirieType2KeyPressed
+
     public void fillSirie(Long id, int permit){        
         if (em!=null){            
             Query query = em.createNamedQuery("ActSirie.findByActID");
@@ -829,63 +830,39 @@ public final class commonDataTopComponent extends TopComponent {
             act_Sirie = query.getResultList();
             actSirie = act_Sirie.get(0);
             em.refresh(actSirie);
-            for (int i=0; i<sirieList.size(); i++){
-                if (actSirie.getComponent1()==sirieList.get(i).getId()){
-                    old_1 = new_1;
-                    new_1 = i;
-                    sirieType1.setSelectedIndex(new_1);
-                }
-            }
+            old_1 = new_1;
+            new_1 = actSirie.getComponent1();
+            sirieType1.setText(new_1);
             oldContent_1 = newContent_1;
             newContent_1 = (float) actSirie.getPercent1();
             sirieContent1.setText(String.format("%.1f", newContent_1));
-            for (int i=0; i<sirieList.size(); i++){
-                if (actSirie.getComponent2()==sirieList.get(i).getId()){
-                    old_2 = new_2;
-                    new_2 = i;
-                    sirieType2.setSelectedIndex(new_2);
-                }
-            }
+            old_2 = new_2;
+            new_2 = actSirie.getComponent2();
+            sirieType2.setText(new_2);
             oldContent_2 = newContent_2;
             newContent_2 = (float) actSirie.getPercent2();
             sirieContent2.setText(String.format("%.1f", newContent_2));            
-            for (int i=0; i<sirieList.size(); i++){
-                if (actSirie.getComponent3()==sirieList.get(i).getId()){
-                    old_3 = new_3;
-                    new_3 = i;
-                    sirieType3.setSelectedIndex(new_3);
-                }
-            }
+            old_3 = new_3;
+            new_3 = actSirie.getComponent3();
+            sirieType3.setText(new_3);
             oldContent_3 = newContent_3;
             newContent_3 = (float) actSirie.getPercent3();
             sirieContent3.setText(String.format("%.1f", newContent_3));
-            for (int i=0; i<sirieList.size(); i++){
-                if (actSirie.getComponent4()==sirieList.get(i).getId()){
-                    old_4 = new_4;
-                    new_4 = i;
-                    sirieType4.setSelectedIndex(new_4);
-                }
-            }
+            old_4 = new_4;
+            new_4 = actSirie.getComponent4();
+            sirieType4.setText(new_4);
             oldContent_4 = newContent_4;
             newContent_4 = (float) actSirie.getPercent4();
             sirieContent4.setText(String.format("%.1f", newContent_4));
-            for (int i=0; i<sirieList.size(); i++){
-                if (actSirie.getComponent5()==sirieList.get(i).getId()){
-                    old_5 = new_5;
-                    new_5 = i;
-                    sirieType5.setSelectedIndex(new_5);
-                }
-            }
+            old_5 = new_5;
+            new_5 = actSirie.getComponent5();
+            sirieType5.setText(new_5);
             oldContent_5 = newContent_5;
             newContent_5 = (float) actSirie.getPercent5();
             sirieContent5.setText(String.format("%.1f", newContent_5));
-            for (int i=0; i<sirieList.size(); i++){
-                if (actSirie.getComponent6()==sirieList.get(i).getId()){
-                    old_6 = new_6;
-                    new_6 = i;
-                    sirieType5.setSelectedIndex(new_6);
-                }
-            }
+            old_6 = new_6;
+            new_6 = actSirie.getComponent6();
+            sirieType5.setText(new_6);
             oldContent_6 = newContent_6;
             newContent_6 = (float) actSirie.getPercent6();
             sirieContent6.setText(String.format("%.1f", newContent_6));
@@ -992,26 +969,16 @@ public final class commonDataTopComponent extends TopComponent {
     private javax.swing.JFormattedTextField sirieMixing_Density;
     private javax.swing.JFormattedTextField sirieMixing_Mass;
     private javax.swing.JFormattedTextField sirieMixing_Volume;
-    private javax.swing.JComboBox<String> sirieType1;
-    private javax.swing.JComboBox<String> sirieType2;
-    private javax.swing.JComboBox<String> sirieType3;
-    private javax.swing.JComboBox<String> sirieType4;
-    private javax.swing.JComboBox<String> sirieType5;
-    private javax.swing.JComboBox<String> sirieType6;
+    private javax.swing.JTextField sirieType1;
+    private javax.swing.JTextField sirieType2;
+    private javax.swing.JTextField sirieType3;
+    private javax.swing.JTextField sirieType4;
+    private javax.swing.JTextField sirieType5;
+    private javax.swing.JTextField sirieType6;
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
         if (em!=null){
-            Query query = em.createNamedQuery("SirieDic.findAll");
-            sirieList = query.getResultList();
-            for (SirieDic s : sirieList){
-                sirieType1.addItem(s.getName());
-                sirieType2.addItem(s.getName());
-                sirieType3.addItem(s.getName());
-                sirieType4.addItem(s.getName());
-                sirieType5.addItem(s.getName());
-                sirieType6.addItem(s.getName());
-            }
             jComboBox2.removeAllItems();
             jComboBox3.removeAllItems();
             Query opQuery = em.createNamedQuery("WorkersUppg.findAll");

@@ -439,14 +439,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         setMaximumSize(new java.awt.Dimension(800, 600));
         setOpaque(true);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel3.border.title"))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel3.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel3.setAutoscrolls(true);
         jPanel3.setLayout(null);
 
-        label135.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label135.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label135.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label135.text")); // NOI18N
         jPanel3.add(label135);
-        label135.setBounds(20, 20, 86, 18);
+        label135.setBounds(20, 20, 97, 18);
 
         feedEnd_Volume.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         feedEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -477,10 +477,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel3.add(feedStart_Volume);
         feedStart_Volume.setBounds(130, 40, 90, 20);
 
-        label136.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label136.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label136.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label136.text")); // NOI18N
         jPanel3.add(label136);
-        label136.setBounds(130, 20, 92, 18);
+        label136.setBounds(130, 20, 104, 18);
 
         feed_Water.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         feed_Water.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.feed_Water.text")); // NOI18N
@@ -488,18 +488,18 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel3.add(feed_Water);
         feed_Water.setBounds(230, 40, 70, 20);
 
-        label137.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label137.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label137.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label137.text")); // NOI18N
         jPanel3.add(label137);
-        label137.setBounds(230, 20, 65, 18);
+        label137.setBounds(230, 20, 72, 18);
 
         add(jPanel3);
         jPanel3.setBounds(0, 180, 310, 80);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel4.border.title"))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel4.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel4.setLayout(null);
 
-        countersEnd1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd1.border.title"))); // NOI18N
+        countersEnd1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         countersEnd1.setLayout(null);
 
         blfEnd_Volume.setEditable(false);
@@ -532,27 +532,27 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersEnd1.add(blfEnd_Density20);
         blfEnd_Density20.setBounds(350, 40, 90, 20);
 
-        label79.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label79.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label79.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label79.text")); // NOI18N
         countersEnd1.add(label79);
         label79.setBounds(10, 20, 40, 18);
 
-        label80.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label80.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label80.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label80.text")); // NOI18N
         countersEnd1.add(label80);
         label80.setBounds(120, 20, 40, 18);
 
-        label81.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label81.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label81.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label81.text")); // NOI18N
         countersEnd1.add(label81);
         label81.setBounds(220, 20, 40, 18);
 
-        label82.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label82.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label82.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label82.text")); // NOI18N
         countersEnd1.add(label82);
         label82.setBounds(280, 20, 50, 18);
 
-        label83.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label83.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label83.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label83.text")); // NOI18N
         countersEnd1.add(label83);
         label83.setBounds(350, 20, 80, 18);
@@ -560,7 +560,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel4.add(countersEnd1);
         countersEnd1.setBounds(10, 20, 450, 70);
 
-        countersStart1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart1.border.title"))); // NOI18N
+        countersStart1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         countersStart1.setLayout(null);
 
         blfStart_Volume.setEditable(false);
@@ -593,28 +593,28 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersStart1.add(blfStart_Density20);
         blfStart_Density20.setBounds(350, 40, 90, 20);
 
-        label84.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label84.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label84.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label84.text")); // NOI18N
         countersStart1.add(label84);
         label84.setBounds(10, 20, 40, 18);
 
-        label85.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label85.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label85.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label85.text")); // NOI18N
         countersStart1.add(label85);
         label85.setBounds(120, 20, 40, 18);
 
-        label86.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label86.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label86.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label86.text")); // NOI18N
         countersStart1.add(label86);
         label86.setBounds(220, 20, 40, 18);
 
-        label87.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label87.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label87.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label87.text")); // NOI18N
         countersStart1.add(label87);
         label87.setBounds(280, 20, 50, 18);
 
-        label88.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label88.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label88.text")); // NOI18N
+        label88.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label88.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label93.text")); // NOI18N
         countersStart1.add(label88);
         label88.setBounds(350, 20, 80, 18);
 
@@ -624,10 +624,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         add(jPanel4);
         jPanel4.setBounds(0, 330, 470, 170);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel5.border.title"))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel5.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel5.setLayout(null);
 
-        countersEnd2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd2.border.title"))); // NOI18N
+        countersEnd2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         countersEnd2.setLayout(null);
 
         akdgEnd_Volume.setEditable(false);
@@ -660,27 +660,27 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersEnd2.add(akdgEnd_Density20);
         akdgEnd_Density20.setBounds(350, 40, 90, 20);
 
-        label89.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label89.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label89.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label89.text")); // NOI18N
         countersEnd2.add(label89);
         label89.setBounds(10, 20, 40, 18);
 
-        label90.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label90.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label90.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label90.text")); // NOI18N
         countersEnd2.add(label90);
         label90.setBounds(120, 20, 40, 18);
 
-        label91.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label91.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label91.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label91.text")); // NOI18N
         countersEnd2.add(label91);
         label91.setBounds(220, 20, 40, 18);
 
-        label92.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label92.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label92.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label92.text")); // NOI18N
         countersEnd2.add(label92);
         label92.setBounds(280, 20, 50, 18);
 
-        label93.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label93.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label93.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label93.text")); // NOI18N
         countersEnd2.add(label93);
         label93.setBounds(350, 20, 80, 18);
@@ -688,7 +688,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel5.add(countersEnd2);
         countersEnd2.setBounds(10, 20, 450, 70);
 
-        countersStart2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart2.border.title"))); // NOI18N
+        countersStart2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         countersStart2.setLayout(null);
 
         akdgStart_Volume.setEditable(false);
@@ -721,28 +721,28 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersStart2.add(akdgStart_Density20);
         akdgStart_Density20.setBounds(350, 40, 90, 20);
 
-        label94.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label94.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label94.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label94.text")); // NOI18N
         countersStart2.add(label94);
         label94.setBounds(10, 20, 40, 18);
 
-        label95.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label95.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label95.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label95.text")); // NOI18N
         countersStart2.add(label95);
         label95.setBounds(120, 20, 40, 18);
 
-        label96.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label96.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label96.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label96.text")); // NOI18N
         countersStart2.add(label96);
         label96.setBounds(220, 20, 40, 18);
 
-        label97.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label97.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label97.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label97.text")); // NOI18N
         countersStart2.add(label97);
         label97.setBounds(280, 20, 50, 18);
 
-        label98.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label98.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label98.text")); // NOI18N
+        label98.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label98.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label93.text")); // NOI18N
         countersStart2.add(label98);
         label98.setBounds(350, 20, 80, 18);
 
@@ -755,7 +755,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel6.border.title"))); // NOI18N
         jPanel6.setLayout(null);
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel7.border.title"))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel7.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel7.setLayout(null);
 
         otgUppg_Tank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -768,18 +768,18 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel7.add(otgUppg_Tank);
         otgUppg_Tank.setBounds(10, 40, 80, 20);
 
-        label53.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label53.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label53.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label53.text")); // NOI18N
         jPanel7.add(label53);
-        label53.setBounds(10, 20, 61, 18);
+        label53.setBounds(10, 20, 70, 18);
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel8.border.title"))); // NOI18N
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel8.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel8.setLayout(null);
 
-        label54.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label54.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label54.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label54.text")); // NOI18N
         jPanel8.add(label54);
-        label54.setBounds(10, 20, 32, 18);
+        label54.setBounds(10, 20, 35, 18);
 
         otgUppgStart_Level.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otgUppgStart_Level.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.otgUppgStart_Level.text")); // NOI18N
@@ -797,7 +797,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel8.add(otgUppgStart_Level);
         otgUppgStart_Level.setBounds(10, 40, 90, 20);
 
-        label55.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label55.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label55.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label55.text")); // NOI18N
         jPanel8.add(label55);
         label55.setBounds(110, 20, 30, 18);
@@ -808,10 +808,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel8.add(otgUppgStart_Volume);
         otgUppgStart_Volume.setBounds(110, 40, 90, 20);
 
-        label56.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label56.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label56.text")); // NOI18N
         jPanel8.add(label56);
-        label56.setBounds(210, 20, 34, 18);
+        label56.setBounds(210, 20, 37, 18);
 
         otgUppgStart_Mass.setEditable(false);
         otgUppgStart_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -819,7 +819,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel8.add(otgUppgStart_Mass);
         otgUppgStart_Mass.setBounds(210, 40, 90, 20);
 
-        label57.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label57.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label57.text")); // NOI18N
         jPanel8.add(label57);
         label57.setBounds(310, 20, 30, 18);
@@ -835,7 +835,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel8.add(otgUppgStart_Temp);
         otgUppgStart_Temp.setBounds(310, 40, 50, 20);
 
-        label58.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label58.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label58.text")); // NOI18N
         jPanel8.add(label58);
         label58.setBounds(370, 20, 40, 18);
@@ -856,8 +856,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel8.add(otgUppgStart_Density);
         otgUppgStart_Density.setBounds(370, 40, 60, 20);
 
-        label59.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label59.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label59.text")); // NOI18N
+        label59.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label59.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel8.add(label59);
         label59.setBounds(440, 20, 80, 18);
 
@@ -870,10 +870,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel7.add(jPanel8);
         jPanel8.setBounds(100, 90, 540, 70);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel9.border.title"))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel9.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel9.setLayout(null);
 
-        label60.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label60.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label60.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label60.text")); // NOI18N
         jPanel9.add(label60);
         label60.setBounds(10, 20, 40, 18);
@@ -894,7 +894,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel9.add(otgUppgEnd_Level);
         otgUppgEnd_Level.setBounds(10, 40, 90, 20);
 
-        label61.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label61.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label61.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label61.text")); // NOI18N
         jPanel9.add(label61);
         label61.setBounds(110, 20, 30, 18);
@@ -905,7 +905,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel9.add(otgUppgEnd_Volume);
         otgUppgEnd_Volume.setBounds(110, 40, 90, 20);
 
-        label62.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label62.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label62.text")); // NOI18N
         jPanel9.add(label62);
         label62.setBounds(210, 20, 40, 18);
@@ -916,7 +916,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel9.add(otgUppgEnd_Mass);
         otgUppgEnd_Mass.setBounds(210, 40, 90, 20);
 
-        label63.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label63.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label63.text")); // NOI18N
         jPanel9.add(label63);
         label63.setBounds(310, 20, 30, 18);
@@ -932,7 +932,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel9.add(otgUppgEnd_Temp);
         otgUppgEnd_Temp.setBounds(310, 40, 50, 20);
 
-        label64.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label64.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label64.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label64.text")); // NOI18N
         jPanel9.add(label64);
         label64.setBounds(370, 20, 40, 18);
@@ -953,8 +953,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel9.add(otgUppgEnd_Density);
         otgUppgEnd_Density.setBounds(370, 40, 60, 20);
 
-        label65.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label65.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label65.text")); // NOI18N
+        label65.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label65.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel9.add(label65);
         label65.setBounds(440, 20, 80, 18);
 
@@ -970,7 +970,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel6.add(jPanel7);
         jPanel7.setBounds(10, 480, 650, 170);
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel10.border.title"))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel10.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel10.setLayout(null);
 
         otgTsp_Tank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -983,15 +983,15 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(otgTsp_Tank);
         otgTsp_Tank.setBounds(10, 40, 80, 20);
 
-        label66.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label66.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label66.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label66.text")); // NOI18N
         jPanel10.add(label66);
-        label66.setBounds(10, 20, 61, 18);
+        label66.setBounds(10, 20, 70, 18);
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel11.border.title"))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel11.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel11.setLayout(null);
 
-        label67.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label67.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label67.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label67.text")); // NOI18N
         jPanel11.add(label67);
         label67.setBounds(10, 20, 30, 18);
@@ -1012,7 +1012,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel11.add(otgTspStart_Level);
         otgTspStart_Level.setBounds(10, 40, 90, 20);
 
-        label68.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label68.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label68.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label68.text")); // NOI18N
         jPanel11.add(label68);
         label68.setBounds(110, 20, 30, 18);
@@ -1023,7 +1023,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel11.add(otgTspStart_Volume);
         otgTspStart_Volume.setBounds(110, 40, 90, 20);
 
-        label69.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label69.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label69.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label69.text")); // NOI18N
         jPanel11.add(label69);
         label69.setBounds(210, 20, 40, 18);
@@ -1034,7 +1034,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel11.add(otgTspStart_Mass);
         otgTspStart_Mass.setBounds(210, 40, 90, 20);
 
-        label70.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label70.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label70.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label70.text")); // NOI18N
         jPanel11.add(label70);
         label70.setBounds(310, 20, 30, 18);
@@ -1050,15 +1050,15 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel11.add(otgTspStart_Temp);
         otgTspStart_Temp.setBounds(310, 40, 50, 20);
 
-        label71.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label71.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label71.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label71.text")); // NOI18N
         jPanel11.add(label71);
-        label71.setBounds(370, 20, 40, 18);
+        label71.setBounds(370, 20, 50, 18);
 
-        label72.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label72.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label72.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel11.add(label72);
-        label72.setBounds(440, 20, 80, 18);
+        label72.setBounds(440, 20, 85, 18);
 
         otgTspStart_Density20.setEditable(false);
         otgTspStart_Density20.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -1085,10 +1085,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(jPanel11);
         jPanel11.setBounds(100, 90, 540, 70);
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel12.border.title"))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel12.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel12.setLayout(null);
 
-        label73.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label73.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label73.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label73.text")); // NOI18N
         jPanel12.add(label73);
         label73.setBounds(10, 20, 40, 18);
@@ -1109,7 +1109,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel12.add(otgTspEnd_Level);
         otgTspEnd_Level.setBounds(10, 40, 90, 20);
 
-        label74.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label74.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label74.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label74.text")); // NOI18N
         jPanel12.add(label74);
         label74.setBounds(110, 20, 40, 18);
@@ -1120,7 +1120,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel12.add(otgTspEnd_Volume);
         otgTspEnd_Volume.setBounds(110, 40, 90, 20);
 
-        label75.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label75.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label75.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label75.text")); // NOI18N
         jPanel12.add(label75);
         label75.setBounds(210, 20, 40, 18);
@@ -1131,7 +1131,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel12.add(otgTspEnd_Mass);
         otgTspEnd_Mass.setBounds(210, 40, 90, 20);
 
-        label76.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label76.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label76.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label76.text")); // NOI18N
         jPanel12.add(label76);
         label76.setBounds(310, 20, 40, 18);
@@ -1147,13 +1147,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel12.add(otgTspEnd_Temp);
         otgTspEnd_Temp.setBounds(310, 40, 50, 20);
 
-        label77.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label77.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label77.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label77.text")); // NOI18N
         jPanel12.add(label77);
         label77.setBounds(370, 20, 50, 18);
 
-        label78.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label78.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label78.text")); // NOI18N
+        label78.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label78.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel12.add(label78);
         label78.setBounds(440, 20, 80, 18);
 
@@ -1182,10 +1182,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(jPanel12);
         jPanel12.setBounds(100, 20, 540, 70);
 
-        label109.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label109.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label109.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label109.text")); // NOI18N
         jPanel10.add(label109);
-        label109.setBounds(10, 160, 61, 18);
+        label109.setBounds(10, 160, 69, 18);
 
         otgTsp_Tank1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         otgTsp_Tank1.setEnabled(false);
@@ -1197,10 +1197,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(otgTsp_Tank1);
         otgTsp_Tank1.setBounds(10, 180, 80, 20);
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel13.border.title"))); // NOI18N
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel13.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel13.setLayout(null);
 
-        label110.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label110.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label110.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label110.text")); // NOI18N
         jPanel13.add(label110);
         label110.setBounds(10, 20, 40, 18);
@@ -1221,7 +1221,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel13.add(otgTspEnd_Level1);
         otgTspEnd_Level1.setBounds(10, 40, 90, 20);
 
-        label111.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label111.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label111.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label111.text")); // NOI18N
         jPanel13.add(label111);
         label111.setBounds(110, 20, 40, 18);
@@ -1232,7 +1232,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel13.add(otgTspEnd_Volume1);
         otgTspEnd_Volume1.setBounds(110, 40, 90, 20);
 
-        label112.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label112.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label112.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label112.text")); // NOI18N
         jPanel13.add(label112);
         label112.setBounds(210, 20, 40, 18);
@@ -1243,7 +1243,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel13.add(otgTspEnd_Mass1);
         otgTspEnd_Mass1.setBounds(210, 40, 90, 20);
 
-        label113.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label113.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label113.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label113.text")); // NOI18N
         jPanel13.add(label113);
         label113.setBounds(310, 20, 40, 18);
@@ -1259,13 +1259,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel13.add(otgTspEnd_Temp1);
         otgTspEnd_Temp1.setBounds(310, 40, 50, 20);
 
-        label114.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label114.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label114.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label114.text")); // NOI18N
         jPanel13.add(label114);
         label114.setBounds(370, 20, 50, 18);
 
-        label115.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label115.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label115.text")); // NOI18N
+        label115.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label115.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel13.add(label115);
         label115.setBounds(440, 20, 80, 18);
 
@@ -1294,10 +1294,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(jPanel13);
         jPanel13.setBounds(100, 160, 540, 70);
 
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel14.border.title"))); // NOI18N
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel14.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel14.setLayout(null);
 
-        label116.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label116.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label116.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label116.text")); // NOI18N
         jPanel14.add(label116);
         label116.setBounds(10, 20, 30, 18);
@@ -1318,7 +1318,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel14.add(otgTspStart_Level1);
         otgTspStart_Level1.setBounds(10, 40, 90, 20);
 
-        label117.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label117.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label117.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label117.text")); // NOI18N
         jPanel14.add(label117);
         label117.setBounds(110, 20, 30, 18);
@@ -1329,7 +1329,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel14.add(otgTspStart_Volume1);
         otgTspStart_Volume1.setBounds(110, 40, 90, 20);
 
-        label118.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label118.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label118.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label118.text")); // NOI18N
         jPanel14.add(label118);
         label118.setBounds(210, 20, 40, 18);
@@ -1340,7 +1340,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel14.add(otgTspStart_Mass1);
         otgTspStart_Mass1.setBounds(210, 40, 90, 20);
 
-        label119.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label119.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label119.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label119.text")); // NOI18N
         jPanel14.add(label119);
         label119.setBounds(310, 20, 30, 18);
@@ -1356,15 +1356,15 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel14.add(otgTspStart_Temp1);
         otgTspStart_Temp1.setBounds(310, 40, 50, 20);
 
-        label120.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label120.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label120.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label120.text")); // NOI18N
         jPanel14.add(label120);
         label120.setBounds(370, 20, 40, 18);
 
-        label121.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label121.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label121.text")); // NOI18N
+        label121.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label121.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel14.add(label121);
-        label121.setBounds(440, 20, 80, 18);
+        label121.setBounds(440, 20, 85, 18);
 
         otgTspStart_Density21.setEditable(false);
         otgTspStart_Density21.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -1391,10 +1391,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(jPanel14);
         jPanel14.setBounds(100, 230, 540, 70);
 
-        label122.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label122.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label122.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label122.text")); // NOI18N
         jPanel10.add(label122);
-        label122.setBounds(10, 300, 61, 18);
+        label122.setBounds(10, 300, 69, 18);
 
         otgTsp_Tank2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         otgTsp_Tank2.setEnabled(false);
@@ -1406,10 +1406,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(otgTsp_Tank2);
         otgTsp_Tank2.setBounds(10, 320, 80, 20);
 
-        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel15.border.title"))); // NOI18N
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel15.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel15.setLayout(null);
 
-        label123.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label123.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label123.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label123.text")); // NOI18N
         jPanel15.add(label123);
         label123.setBounds(10, 20, 40, 18);
@@ -1430,7 +1430,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel15.add(otgTspEnd_Level2);
         otgTspEnd_Level2.setBounds(10, 40, 90, 20);
 
-        label124.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label124.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label124.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label124.text")); // NOI18N
         jPanel15.add(label124);
         label124.setBounds(110, 20, 40, 18);
@@ -1441,7 +1441,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel15.add(otgTspEnd_Volume2);
         otgTspEnd_Volume2.setBounds(110, 40, 90, 20);
 
-        label125.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label125.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label125.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label125.text")); // NOI18N
         jPanel15.add(label125);
         label125.setBounds(210, 20, 40, 18);
@@ -1452,7 +1452,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel15.add(otgTspEnd_Mass2);
         otgTspEnd_Mass2.setBounds(210, 40, 90, 20);
 
-        label126.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label126.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label126.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label126.text")); // NOI18N
         jPanel15.add(label126);
         label126.setBounds(310, 20, 40, 18);
@@ -1468,13 +1468,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel15.add(otgTspEnd_Temp2);
         otgTspEnd_Temp2.setBounds(310, 40, 50, 20);
 
-        label127.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label127.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label127.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label127.text")); // NOI18N
         jPanel15.add(label127);
         label127.setBounds(370, 20, 50, 18);
 
-        label128.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label128.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label128.text")); // NOI18N
+        label128.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label128.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel15.add(label128);
         label128.setBounds(440, 20, 80, 18);
 
@@ -1503,10 +1503,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(jPanel15);
         jPanel15.setBounds(100, 300, 540, 70);
 
-        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel16.border.title"))); // NOI18N
+        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel16.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel16.setLayout(null);
 
-        label129.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label129.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label129.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label129.text")); // NOI18N
         jPanel16.add(label129);
         label129.setBounds(10, 20, 30, 18);
@@ -1527,7 +1527,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel16.add(otgTspStart_Level2);
         otgTspStart_Level2.setBounds(10, 40, 90, 20);
 
-        label130.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label130.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label130.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label130.text")); // NOI18N
         jPanel16.add(label130);
         label130.setBounds(110, 20, 30, 18);
@@ -1538,7 +1538,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel16.add(otgTspStart_Volume2);
         otgTspStart_Volume2.setBounds(110, 40, 90, 20);
 
-        label131.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label131.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label131.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label131.text")); // NOI18N
         jPanel16.add(label131);
         label131.setBounds(210, 20, 40, 18);
@@ -1549,7 +1549,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel16.add(otgTspStart_Mass2);
         otgTspStart_Mass2.setBounds(210, 40, 90, 20);
 
-        label132.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label132.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label132.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label132.text")); // NOI18N
         jPanel16.add(label132);
         label132.setBounds(310, 20, 30, 18);
@@ -1565,15 +1565,15 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel16.add(otgTspStart_Temp2);
         otgTspStart_Temp2.setBounds(310, 40, 50, 20);
 
-        label133.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label133.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label133.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label133.text")); // NOI18N
         jPanel16.add(label133);
         label133.setBounds(370, 20, 40, 18);
 
-        label134.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        label134.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label134.text")); // NOI18N
+        label134.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label134.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label72.text")); // NOI18N
         jPanel16.add(label134);
-        label134.setBounds(440, 20, 80, 18);
+        label134.setBounds(440, 20, 85, 18);
 
         otgTspStart_Density22.setEditable(false);
         otgTspStart_Density22.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -1606,9 +1606,9 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         add(jPanel6);
         jPanel6.setBounds(470, 0, 670, 657);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel2.border.title"))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
-        countersEnd.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd.border.title"))); // NOI18N
+        countersEnd.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         countersEnd.setLayout(null);
 
         sirieEnd_Volume.setEditable(false);
@@ -1641,32 +1641,32 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersEnd.add(sirieEnd_Density20);
         sirieEnd_Density20.setBounds(340, 40, 90, 20);
 
-        label99.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label99.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label99.text")); // NOI18N
         countersEnd.add(label99);
         label99.setBounds(10, 20, 40, 18);
 
-        label100.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label100.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label100.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label100.text")); // NOI18N
         countersEnd.add(label100);
         label100.setBounds(110, 20, 40, 18);
 
-        label101.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label101.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label101.text")); // NOI18N
         countersEnd.add(label101);
         label101.setBounds(210, 20, 40, 18);
 
-        label102.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label102.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label102.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label102.text")); // NOI18N
         countersEnd.add(label102);
         label102.setBounds(270, 20, 50, 18);
 
-        label103.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label103.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label103.text")); // NOI18N
         countersEnd.add(label103);
         label103.setBounds(340, 20, 80, 18);
 
-        countersStart.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart.border.title"))); // NOI18N
+        countersStart.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         countersStart.setLayout(null);
 
         sirieStart_Volume.setEditable(false);
@@ -1699,27 +1699,27 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersStart.add(sirieStart_Density20);
         sirieStart_Density20.setBounds(340, 40, 90, 20);
 
-        label104.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label104.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label104.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label104.text")); // NOI18N
         countersStart.add(label104);
         label104.setBounds(10, 20, 40, 18);
 
-        label105.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label105.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label105.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label105.text")); // NOI18N
         countersStart.add(label105);
         label105.setBounds(110, 20, 40, 18);
 
-        label106.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label106.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label106.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label106.text")); // NOI18N
         countersStart.add(label106);
         label106.setBounds(210, 20, 40, 18);
 
-        label107.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label107.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label107.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label107.text")); // NOI18N
         countersStart.add(label107);
         label107.setBounds(270, 20, 50, 18);
 
-        label108.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label108.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label108.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label108.text")); // NOI18N
         countersStart.add(label108);
         label108.setBounds(340, 20, 80, 18);
@@ -1746,14 +1746,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         add(jPanel2);
         jPanel2.setBounds(0, 0, 470, 170);
 
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel17.border.title"))); // NOI18N
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel17.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel17.setAutoscrolls(true);
         jPanel17.setLayout(null);
 
-        label138.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label138.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label138.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label138.text")); // NOI18N
         jPanel17.add(label138);
-        label138.setBounds(20, 20, 86, 18);
+        label138.setBounds(20, 20, 97, 18);
 
         drainEnd_Volume.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         drainEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -1789,10 +1789,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel17.add(drainStart_Volume);
         drainStart_Volume.setBounds(130, 40, 90, 20);
 
-        label139.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label139.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label139.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label139.text")); // NOI18N
         jPanel17.add(label139);
-        label139.setBounds(130, 20, 92, 18);
+        label139.setBounds(130, 20, 104, 18);
 
         drain_Mass.setEditable(false);
         drain_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -1800,12 +1800,12 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel17.add(drain_Mass);
         drain_Mass.setBounds(310, 40, 150, 20);
 
-        label140.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label140.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label140.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label140.text")); // NOI18N
         jPanel17.add(label140);
-        label140.setBounds(310, 20, 70, 18);
+        label140.setBounds(310, 20, 80, 18);
 
-        label141.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label141.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label141.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label141.text")); // NOI18N
         jPanel17.add(label141);
         label141.setBounds(230, 20, 50, 18);
@@ -1829,7 +1829,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         add(jPanel17);
         jPanel17.setBounds(0, 260, 470, 70);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel1.border.title"))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         drained_Water.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         drained_Water.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -1846,10 +1846,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             }
         });
 
-        label142.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label142.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label142.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label142.text")); // NOI18N
 
-        label143.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        label143.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label143.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label143.text")); // NOI18N
 
         drained_BLF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
