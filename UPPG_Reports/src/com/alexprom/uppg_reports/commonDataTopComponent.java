@@ -11,7 +11,6 @@ import com.alexprom.entities.service.ActSirieMixingJpaController;
 import com.alexprom.entities.service.ActUPPGJpaController;
 import com.alexprom.entities.settings.GlobalEntityManager;
 import com.sun.glass.events.KeyEvent;
-import java.awt.Event;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,6 +21,7 @@ import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -108,16 +108,18 @@ public final class commonDataTopComponent extends TopComponent {
         Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
         pref.addPreferenceChangeListener(new PreferenceChangeListener() {
         @Override
-        public void preferenceChange(PreferenceChangeEvent evt) {            
+        public void preferenceChange(PreferenceChangeEvent evt) {                        
             updatePersistence();
     }
 });          
     }
 
-    public void updatePersistence(){        
-        sirieDataTopComponent gem = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
-        emf = gem.getEntityManagerFactory();
-        em = gem.getEntityManager();
+    public void updatePersistence(){                
+        sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+        if (tc!=null){
+            emf = tc.getEntityManagerFactory();
+            em = tc.getEntityManager();
+        }
         if (em!=null){
             jComboBox2.removeAllItems();
             jComboBox3.removeAllItems();
@@ -131,6 +133,8 @@ public final class commonDataTopComponent extends TopComponent {
             jComboBox2.setEnabled(false);
             jComboBox3.setEnabled(false);
 
+        }else{
+                
         }
     }
     
@@ -414,6 +418,11 @@ public final class commonDataTopComponent extends TopComponent {
 
         sirieType3.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType3.text")); // NOI18N
         sirieType3.setEnabled(false);
+        sirieType3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieType3FocusLost(evt);
+            }
+        });
         sirieType3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 sirieType3KeyPressed(evt);
@@ -424,19 +433,49 @@ public final class commonDataTopComponent extends TopComponent {
 
         sirieType4.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType4.text")); // NOI18N
         sirieType4.setEnabled(false);
+        sirieType4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieType4FocusLost(evt);
+            }
+        });
+        sirieType4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieType4KeyPressed(evt);
+            }
+        });
         jPanel1.add(sirieType4);
         sirieType4.setBounds(10, 190, 250, 20);
 
         sirieType5.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType5.text")); // NOI18N
         sirieType5.setEnabled(false);
+        sirieType5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieType5FocusLost(evt);
+            }
+        });
+        sirieType5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieType5KeyPressed(evt);
+            }
+        });
         jPanel1.add(sirieType5);
         sirieType5.setBounds(10, 240, 250, 20);
 
         sirieType6.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieType6.text")); // NOI18N
         sirieType6.setEnabled(false);
+        sirieType6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieType6FocusLost(evt);
+            }
+        });
         sirieType6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sirieType6ActionPerformed(evt);
+            }
+        });
+        sirieType6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieType6KeyPressed(evt);
             }
         });
         jPanel1.add(sirieType6);
@@ -532,7 +571,7 @@ public final class commonDataTopComponent extends TopComponent {
                             oldMain = mainOper;
                             mainOper = i;
                             jComboBox2.setSelectedIndex(mainOper);
-                            jComboBox2.setEnabled(true);
+                            jComboBox2.setEnabled(newAct.getComplete()==0);
                         }
                     }
                     for (int i=0; i<opList.size(); i++){
@@ -540,14 +579,11 @@ public final class commonDataTopComponent extends TopComponent {
                             oldSlave = slaveOper;
                             slaveOper = i;
                             jComboBox3.setSelectedIndex(slaveOper);
-                            jComboBox3.setEnabled(true);
+                            jComboBox3.setEnabled(newAct.getComplete()==0);
                         }
                     }
                 }
             }
-        }else{
-            NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
-            Object result = DialogDisplayer.getDefault().notify(d);
         }
     }
     private void jComboBox2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBox2PropertyChange
@@ -721,48 +757,56 @@ public final class commonDataTopComponent extends TopComponent {
     private void sirieContent1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent1KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieContent1(true);
+            sirieContent1.transferFocus();
         }
     }//GEN-LAST:event_sirieContent1KeyPressed
 
     private void sirieContent2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent2KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieContent2(true);
+            sirieContent2.transferFocus();
         }
     }//GEN-LAST:event_sirieContent2KeyPressed
 
     private void sirieContent3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent3KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieContent3(true);
+            sirieContent3.transferFocus();
         }
     }//GEN-LAST:event_sirieContent3KeyPressed
 
     private void sirieContent4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent4KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieContent4(true);
+            sirieContent4.transferFocus();
         }
     }//GEN-LAST:event_sirieContent4KeyPressed
 
     private void sirieContent5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent5KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieContent5(true);
+            sirieContent5.transferFocus();
         }
     }//GEN-LAST:event_sirieContent5KeyPressed
 
     private void sirieContent6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieContent6KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieContent6(true);
+            sirieContent6.transferFocus();
         }
     }//GEN-LAST:event_sirieContent6KeyPressed
 
     private void sirieMixing_VolumeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieMixing_VolumeKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             setSirieMixingVolume(true);
+            sirieMixing_Volume.transferFocus();
         }
     }//GEN-LAST:event_sirieMixing_VolumeKeyPressed
 
     private void sirieMixing_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieMixing_DensityKeyPressed
          if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            setSirieMixingDensity(true);            
+            setSirieMixingDensity(true);
+            sirieMixing_Density.transferFocus();
         }
     }//GEN-LAST:event_sirieMixing_DensityKeyPressed
 
@@ -776,8 +820,8 @@ public final class commonDataTopComponent extends TopComponent {
     }
     
     private void setComponent2(String value){
-        old_1 = new_2;
-        new_1 = value;
+        old_2 = new_2;
+        new_2 = value;
     }
     
     private void setComponent3(String value){
@@ -812,16 +856,59 @@ public final class commonDataTopComponent extends TopComponent {
     }//GEN-LAST:event_sirieType1KeyPressed
 
     private void sirieType2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType2FocusLost
-        // TODO add your handling code here:
+        setComponent2(sirieType2.getText());
     }//GEN-LAST:event_sirieType2FocusLost
 
     private void sirieType3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType3KeyPressed
-        // TODO add your handling code here:
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setComponent3(sirieType3.getText());
+            sirieType3.transferFocus();
+        }
     }//GEN-LAST:event_sirieType3KeyPressed
 
     private void sirieType2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType2KeyPressed
-        // TODO add your handling code here:
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setComponent2(sirieType2.getText());
+            sirieType2.transferFocus();
+        }
     }//GEN-LAST:event_sirieType2KeyPressed
+
+    private void sirieType4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType4KeyPressed
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setComponent4(sirieType4.getText());
+            sirieType4.transferFocus();
+        }
+    }//GEN-LAST:event_sirieType4KeyPressed
+
+    private void sirieType5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType5KeyPressed
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setComponent5(sirieType5.getText());
+            sirieType5.transferFocus();
+        }
+    }//GEN-LAST:event_sirieType5KeyPressed
+
+    private void sirieType6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieType6KeyPressed
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setComponent6(sirieType6.getText());
+            sirieType6.transferFocus();
+        }
+    }//GEN-LAST:event_sirieType6KeyPressed
+
+    private void sirieType3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType3FocusLost
+        setComponent3(sirieType3.getText());
+    }//GEN-LAST:event_sirieType3FocusLost
+
+    private void sirieType4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType4FocusLost
+        setComponent4(sirieType4.getText());
+    }//GEN-LAST:event_sirieType4FocusLost
+
+    private void sirieType5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType5FocusLost
+        setComponent5(sirieType5.getText());
+    }//GEN-LAST:event_sirieType5FocusLost
+
+    private void sirieType6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieType6FocusLost
+        setComponent6(sirieType6.getText());
+    }//GEN-LAST:event_sirieType6FocusLost
 
     public void fillSirie(Long id, int permit){        
         if (em!=null){            
@@ -991,6 +1078,8 @@ public final class commonDataTopComponent extends TopComponent {
             jComboBox2.setEnabled(false);
             jComboBox3.setEnabled(false);
 
+        }else{
+            this.close();
         }
     }
 

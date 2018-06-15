@@ -57,7 +57,7 @@ public final class SaveAct implements ActionListener {
                         DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
                 Object result = DialogDisplayer.getDefault().notify(dd);
                 if (null != result && DialogDescriptor.OK_OPTION == result) {            
-                    stc.setAct(frm.getActDate(), frm.getActShift());                    
+                    stc.setActParams(frm.getActDate(), frm.getActShift());                    
                     ctc.setAct(frm.getActDate(), frm.getActShift());
                     atc.setAct(frm.getActDate(), frm.getActShift());
                     if (!ctc.isOpened() || !ctc.isOpened() || !atc.isOpened()){

@@ -62,11 +62,21 @@ public final class CreateAct implements ActionListener {
     private int shift;
     private Long newActId, newActSirieId, newActDensity20Id, newActCountersId, newActOtgToTspId, newActOtgToUppgId, newActDrainTankId, newActFeedWaterId, newActSirieMixingId;
     private double new_SirieTempStart=0, new_SirieDensityStart=0, new_SirieDensity20Start=0;
+    private double new_SirieVolumeStart=0, new_SirieMassStart=0;
+    private double new_SirieVolumeEnd=0, new_SirieMassEnd=0;
+    private double new_AkdgVolumeStart=0, new_AkdgMassStart=0;
+    private double new_AkdgVolumeEnd=0, new_AkdgMassEnd=0;
+    private double new_BlfVolumeStart=0, new_BlfMassStart=0;
+    private double new_BlfVolumeEnd=0, new_BlfMassEnd=0;
     private double new_SirieTempEnd=0, new_SirieDensityEnd=0, new_SirieDensity20End=0;
     private double new_BlfTempStart=0, new_BlfDensityStart=0, new_BlfDensity20Start=0;
     private double new_BlfTempEnd=0, new_BlfDensityEnd=0, new_BlfDensity20End=0; 
     private double new_AkdgTempStart=0, new_AkdgDensityStart=0, new_AkdgDensity20Start=0;
     private double new_AkdgTempEnd=0, new_AkdgDensityEnd=0, new_AkdgDensity20End=0; 
+    private double new_AkdgDensity=0, new_BLFDensity=0, new_OTGDensity=0, new_ProcessingDensity=0;
+    private double new_SirieVolume=0, new_SirieMass=0;
+    private double new_AkdgVolume=0, new_AkdgMass=0;
+    private double new_BlfVolume=0, new_BlfMass=0;
     
     private boolean checkExist(){
         boolean exist;        
@@ -232,7 +242,13 @@ public final class CreateAct implements ActionListener {
         ActSirie newActSirie = new ActSirie();
         ActSirieJpaController newActSirieJpa = new ActSirieJpaController(emf);
         newActSirie.setId(newActSirieId);
-        newActSirie.setActID(newActId);        
+        newActSirie.setActID(newActId);
+        newActSirie.setComponent1("");
+        newActSirie.setComponent2("");
+        newActSirie.setComponent3("");
+        newActSirie.setComponent4("");
+        newActSirie.setComponent5("");
+        newActSirie.setComponent6("");
         newActSirieJpa.create(newActSirie);
     }
     
@@ -255,12 +271,18 @@ public final class CreateAct implements ActionListener {
         ActCountersJpaController newActCountersJpa = new ActCountersJpaController(emf);                
         newActCounters.setId(newActSirieId);
         newActCounters.setActID(newActId);
-        newActCounters.setVolumeStartS(getTagValue(dateStr, shift, "Volume_Total_1.Value"));
-        newActCounters.setVolumeStartB(getTagValue(dateStr, shift, "Volume_Total_2.Value"));
-        newActCounters.setVolumeStartA(getTagValue(dateStr, shift, "Volume_Total_3.Value"));
-        newActCounters.setMassStartS(getTagValue(dateStr, shift, "Mass_Total_1.Value"));
-        newActCounters.setMassStartB(getTagValue(dateStr, shift, "Mass_Total_2.Value"));
-        newActCounters.setMassStartA(getTagValue(dateStr, shift, "Mass_Total_3.Value"));
+        new_SirieVolumeStart = getTagValue(dateStr, shift, "Volume_Total_1.Value").doubleValue();
+        newActCounters.setVolumeStartS(BigDecimal.valueOf(new_SirieVolumeStart));
+        new_BlfVolumeStart = getTagValue(dateStr, shift, "Volume_Total_2.Value").doubleValue();
+        newActCounters.setVolumeStartB(BigDecimal.valueOf(new_BlfVolumeStart));
+        new_AkdgVolumeStart = getTagValue(dateStr, shift, "Volume_Total_3.Value").doubleValue();
+        newActCounters.setVolumeStartA(BigDecimal.valueOf(new_AkdgVolumeStart));
+        new_SirieMassStart = getTagValue(dateStr, shift, "Mass_Total_1.Value").doubleValue();
+        newActCounters.setMassStartS(BigDecimal.valueOf(new_SirieMassStart));
+        new_BlfMassStart = getTagValue(dateStr, shift, "Mass_Total_2.Value").doubleValue();
+        newActCounters.setMassStartB(BigDecimal.valueOf(new_BlfMassStart));
+        new_AkdgMassStart = getTagValue(dateStr, shift, "Mass_Total_3.Value").doubleValue();
+        newActCounters.setMassStartA(BigDecimal.valueOf(new_AkdgMassStart));
         new_SirieTempStart = getTagValue(dateStr, shift, "Temperature_1.Value").doubleValue();
         newActCounters.setTempStartS(BigDecimal.valueOf(new_SirieTempStart));
         new_BlfTempStart = getTagValue(dateStr, shift, "Temperature_2.Value").doubleValue();
@@ -277,12 +299,18 @@ public final class CreateAct implements ActionListener {
         newActCounters.setBLFPercent(BigDecimal.ZERO);
         newActCounters.setOTGPercent(BigDecimal.ZERO);
         if (shift==1){
-            newActCounters.setVolumeEndS(getTagValue(dateStr, 2, "Volume_Total_1.Value"));
-            newActCounters.setVolumeEndB(getTagValue(dateStr, 2, "Volume_Total_2.Value"));
-            newActCounters.setVolumeEndA(getTagValue(dateStr, 2, "Volume_Total_3.Value"));
-            newActCounters.setMassEndS(getTagValue(dateStr, 2, "Mass_Total_1.Value"));
-            newActCounters.setMassEndB(getTagValue(dateStr, 2, "Mass_Total_2.Value"));
-            newActCounters.setMassEndA(getTagValue(dateStr, 2, "Mass_Total_3.Value"));            
+            new_SirieVolumeEnd = getTagValue(dateStr, 2, "Volume_Total_1.Value").doubleValue();
+            newActCounters.setVolumeEndS(BigDecimal.valueOf(new_SirieVolumeEnd));
+            new_BlfVolumeEnd = getTagValue(dateStr, 2, "Volume_Total_2.Value").doubleValue();
+            newActCounters.setVolumeEndB(BigDecimal.valueOf(new_BlfVolumeEnd));
+            new_AkdgVolumeEnd = getTagValue(dateStr, 2, "Volume_Total_3.Value").doubleValue();
+            newActCounters.setVolumeEndA(BigDecimal.valueOf(new_AkdgVolumeEnd));
+            new_SirieMassEnd = getTagValue(dateStr, 2, "Mass_Total_1.Value").doubleValue();
+            newActCounters.setMassEndS(BigDecimal.valueOf(new_SirieMassEnd));
+            new_BlfMassEnd = getTagValue(dateStr, 2, "Mass_Total_2.Value").doubleValue();
+            newActCounters.setMassEndB(BigDecimal.valueOf(new_BlfMassEnd));
+            new_AkdgMassEnd = getTagValue(dateStr, 2, "Mass_Total_3.Value").doubleValue();
+            newActCounters.setMassEndA(BigDecimal.valueOf(new_AkdgMassEnd));
             new_SirieTempEnd = getTagValue(dateStr, 2, "Temperature_1.Value").doubleValue();
             newActCounters.setTempEndS(BigDecimal.valueOf(new_SirieTempEnd));
             new_BlfTempEnd = getTagValue(dateStr, 2, "Temperature_2.Value").doubleValue();
@@ -300,12 +328,18 @@ public final class CreateAct implements ActionListener {
             next.setDate(repAct.getDate()+1);
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             String nextDate = df.format(next);
-            newActCounters.setVolumeEndS(getTagValue(nextDate, 1, "Volume_Total_1.Value"));
-            newActCounters.setVolumeEndB(getTagValue(nextDate, 1, "Volume_Total_2.Value"));
-            newActCounters.setVolumeEndA(getTagValue(nextDate, 1, "Volume_Total_3.Value"));
-            newActCounters.setMassEndS(getTagValue(nextDate, 1, "Mass_Total_1.Value"));
-            newActCounters.setMassEndB(getTagValue(nextDate, 1, "Mass_Total_2.Value"));
-            newActCounters.setMassEndA(getTagValue(nextDate, 1, "Mass_Total_3.Value"));
+            new_SirieVolumeEnd = getTagValue(nextDate, 1, "Volume_Total_1.Value").doubleValue();            
+            newActCounters.setVolumeEndS(BigDecimal.valueOf(new_SirieVolumeEnd));
+            new_BlfVolumeEnd = getTagValue(nextDate, 1, "Volume_Total_2.Value").doubleValue();
+            newActCounters.setVolumeEndB(BigDecimal.valueOf(new_BlfVolumeEnd));
+            new_AkdgVolumeEnd = getTagValue(nextDate, 1, "Volume_Total_3.Value").doubleValue();
+            newActCounters.setVolumeEndA(BigDecimal.valueOf(new_AkdgVolumeEnd));
+            new_SirieMassEnd = getTagValue(nextDate, 1, "Mass_Total_1.Value").doubleValue();
+            newActCounters.setMassEndS(BigDecimal.valueOf(new_SirieMassEnd));
+            new_BlfMassEnd = getTagValue(nextDate, 1, "Mass_Total_2.Value").doubleValue();
+            newActCounters.setMassEndB(BigDecimal.valueOf(new_BlfMassEnd));
+            new_AkdgMassEnd = getTagValue(nextDate, 1, "Mass_Total_3.Value").doubleValue();
+            newActCounters.setMassEndA(BigDecimal.valueOf(new_AkdgMassEnd));
             new_SirieTempEnd = getTagValue(nextDate, 1, "Temperature_1.Value").doubleValue();
             newActCounters.setTempEndS(BigDecimal.valueOf(new_SirieTempEnd));
             new_BlfTempEnd = getTagValue(nextDate, 1, "Temperature_2.Value").doubleValue();
@@ -319,6 +353,28 @@ public final class CreateAct implements ActionListener {
             new_AkdgDensityEnd = getTagValue(nextDate, 1, "Density_3.Value").doubleValue();
             newActCounters.setDensityEndA(BigDecimal.valueOf(new_AkdgDensityEnd));
         }
+        new_SirieVolume = new_SirieVolumeEnd-new_SirieVolumeStart;
+        new_BlfVolume = new_BlfVolumeEnd-new_BlfVolumeStart;
+        new_AkdgVolume = new_AkdgVolumeEnd-new_AkdgVolumeStart;
+        
+        new_SirieMass = new_SirieMassEnd-new_SirieMassStart;
+        new_BlfMass = new_BlfMassEnd-new_BlfMassStart;
+        new_AkdgMass = new_AkdgMassEnd-new_AkdgMassStart;
+        
+        if (new_SirieVolume!=0){
+            new_ProcessingDensity = new_SirieMass/new_SirieVolume;
+        }
+        newActCounters.setProcessingDinsity(BigDecimal.valueOf(new_ProcessingDensity));
+        if (new_BlfVolume!=0){
+            new_BLFDensity = new_BlfMass/new_BlfVolume;
+        }
+        newActCounters.setBLFDensity(BigDecimal.valueOf(new_BLFDensity));
+        if (new_AkdgVolume!=0){
+            new_AkdgDensity = new_AkdgMass/new_AkdgVolume;
+        }
+        newActCounters.setAKDGDensity(BigDecimal.valueOf(new_AkdgDensity));
+        newActCounters.setOTGDensity(BigDecimal.ZERO);
+        
         newActCountersJpa.create(newActCounters);
     }
         
@@ -351,7 +407,7 @@ public final class CreateAct implements ActionListener {
         new_BlfDensity20End = getDensity20(new_BlfDensityEnd, new_BlfTempEnd).doubleValue();
         newActDensity20.setBlfDensity20End(BigDecimal.valueOf(new_BlfDensity20End));
         new_AkdgDensity20End = getDensity20(new_AkdgDensityEnd, new_AkdgTempEnd).doubleValue();
-        newActDensity20.setAkdgDensity20End(BigDecimal.valueOf(new_AkdgDensity20End));
+        newActDensity20.setAkdgDensity20End(BigDecimal.valueOf(new_AkdgDensity20End));        
         newActDensity20Jpa.create(newActDensity20);
     }
     
@@ -487,7 +543,7 @@ public final class CreateAct implements ActionListener {
                     Object resultDone = DialogDisplayer.getDefault().notify(done);  
                     if (resultDone==NotifyDescriptor.YES_OPTION){
                         sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
-                        tc.setAct(repAct, shift);
+                        tc.setActParams(repAct, shift);
                         commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
                         ctc.setAct(repAct, shift);
                         additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");

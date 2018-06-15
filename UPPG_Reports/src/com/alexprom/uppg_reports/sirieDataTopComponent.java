@@ -28,6 +28,7 @@ import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -123,6 +124,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         initComponents();
         setName(Bundle.CTL_sirieDataTopComponent());
         setToolTipText(Bundle.HINT_sirieDataTopComponent());
+        //this.setFont(Font.BOLD);
         putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.FALSE);
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
@@ -140,13 +142,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
         pref.addPreferenceChangeListener(new PreferenceChangeListener() {
         @Override
-        public void preferenceChange(PreferenceChangeEvent evt) {            
+        public void preferenceChange(PreferenceChangeEvent evt) {                        
             updatePersistence();
     }
 });  
     }        
     
-    public void updatePersistence(){        
+    public void updatePersistence(){                        
         GlobalEntityManager gem = new GlobalEntityManager();
         emf = gem.getEmf();
         em = gem.getEm();
@@ -170,7 +172,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         return newAct;
     }
     
-    public void setAct(Date actDate, int actShift){    
+    public void setActParams(Date actDate, int actShift){
         oldAct = this.newAct;
         if (em!=null){            
             Query query = em.createNamedQuery("ActUPPG.findByDateShift");
@@ -180,25 +182,40 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             query.setParameter("aShift", actShift);
             List<ActUPPG> act = query.getResultList();            
             if (!act.isEmpty()){
-                this.newAct = act.get(0);
-                if (newAct!=oldAct){                                        
-                    setDisplayName("Акт за "+newAct.getADate()+" за "+newAct.getAShift()+"-ю смену");
-                    fillCounters(newAct.getId(), newAct.getComplete());         
-                    fillOtgData(newAct.getId(), newAct.getComplete());
-                    fillFeedData(newAct.getId(), newAct.getComplete());
-                    fillDrainData(newAct.getId(), newAct.getComplete());
-                    setLookup();
-                }else{
-                    NotifyDescriptor d = new NotifyDescriptor.Message
-                                    ("Акт с выбранными парамерами уже открыт!!!", NotifyDescriptor.WARNING_MESSAGE);
-                                    DialogDisplayer.getDefault().notify(d);
-                }
+                setAct(act.get(0));
+                fillActFields(newAct);
+            }else{
+                setAct(null);
+           }    
+        }else{
+            NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
+            Object result = DialogDisplayer.getDefault().notify(d);
+        }
+    }
+    
+    public void setAct(ActUPPG act){
+        newAct = act;        
+    }
+    
+    public void fillActFields(ActUPPG act){
+        if (act!=null){
+            if (newAct!=oldAct){                                        
+                setDisplayName("Акт за "+newAct.getADate()+" за "+newAct.getAShift()+"-ю смену");
+                fillCounters(newAct.getId(), newAct.getComplete());         
+                fillOtgData(newAct.getId(), newAct.getComplete());
+                fillFeedData(newAct.getId(), newAct.getComplete());
+                fillDrainData(newAct.getId(), newAct.getComplete());
+                setLookup();
             }else{
                 NotifyDescriptor d = new NotifyDescriptor.Message
+                                    ("Акт с выбранными парамерами уже открыт!!!", NotifyDescriptor.WARNING_MESSAGE);
+                                    DialogDisplayer.getDefault().notify(d);
+            }
+        }else{
+            NotifyDescriptor d = new NotifyDescriptor.Message
                                     ("Акт с выбранными парамерами не существует!!!", NotifyDescriptor.WARNING_MESSAGE);
                                     DialogDisplayer.getDefault().notify(d);            
-            }
-        }
+        }        
     }
     
     public void setLookup(){
@@ -3373,6 +3390,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                 otgTsp_Tank2.addItem(t.getTankName());
                 otgUppg_Tank.addItem(t.getTankName());
             }
+        }else{
+            this.close();
         }
     }
 
@@ -3829,4 +3848,5 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     public Lookup getLookup(){
         return this.lookup;
     }        
+    
 }

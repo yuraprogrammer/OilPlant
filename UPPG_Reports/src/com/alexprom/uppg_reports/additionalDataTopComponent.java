@@ -6,6 +6,7 @@ import com.alexprom.entities.process.ActUPPG;
 import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.service.ActCountersJpaController;
+import com.alexprom.entities.settings.GlobalEntityManager;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
@@ -61,8 +63,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private ActCounters actCounters;
     private OTGToUPPG otgToUPPG;
     private OTGToTSP otgToTsp;
-    private final long newActId=0, oldActId=0;
-    private final sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent"); 
+    private final long newActId=0, oldActId=0;    
     private EntityManagerFactory emf = null;
     private EntityManager em = null;
     private List<ActCounters> actCnt;
@@ -87,16 +88,19 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         Preferences pref = NbPreferences.forModule(dbConnectionSettingsPanel.class);
         pref.addPreferenceChangeListener(new PreferenceChangeListener() {
         @Override
-        public void preferenceChange(PreferenceChangeEvent evt) {            
+        public void preferenceChange(PreferenceChangeEvent evt) {                        
             updatePersistence();
     }
 });  
     }
 
-    public void updatePersistence(){        
-        sirieDataTopComponent gem = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
-        emf = gem.getEntityManagerFactory();
-        em = gem.getEntityManager();
+    public void updatePersistence(){               
+        sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+        if (tc!=null){
+            emf = tc.getEntityManagerFactory();
+            em = tc.getEntityManager();
+        }
+               
     }
 
     /**
@@ -426,8 +430,13 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
-        this.otgResult = Utilities.actionsGlobalContext().lookupResult(OtgAccount.class);
-        this.otgResult.addLookupListener(this);
+        if (em!=null){
+            this.otgResult = Utilities.actionsGlobalContext().lookupResult(OtgAccount.class);
+            this.otgResult.addLookupListener(this);
+        }else{
+            
+            this.close();
+        }
     }
 
     @Override

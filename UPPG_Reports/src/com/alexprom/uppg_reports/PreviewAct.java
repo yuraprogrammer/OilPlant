@@ -80,7 +80,7 @@ public final class PreviewAct implements ActionListener {
                 DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
                 Object res = DialogDisplayer.getDefault().notify(dd);
                 if (null != res && DialogDescriptor.OK_OPTION == res) {
-                    tc.setAct(frm.getActDate(), frm.getActShift());
+                    tc.setActParams(frm.getActDate(), frm.getActShift());
                     ctc.setAct(frm.getActDate(), frm.getActShift());
                     atc.setAct(frm.getActDate(), frm.getActShift());                    
                     act = tc.getAct();

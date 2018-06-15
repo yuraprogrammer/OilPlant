@@ -11,7 +11,7 @@ public class Installer extends ModuleInstall {
 
     @Override
     public void restored() {
-        //GlobalEntityManager peristence = new GlobalEntityManager();
+        GlobalEntityManager peristence = new GlobalEntityManager();
     }
 
 }

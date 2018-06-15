@@ -25,8 +25,10 @@ import org.openide.windows.WindowManager;
     @ActionReference(path = "Toolbars/File", position = 300)
 })
 @Messages("CTL_OpenAct=Открыть акт")
-public final class OpenAct implements ActionListener {
 
+public final class OpenAct implements ActionListener {
+   
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         dlgOpenAct frm = new dlgOpenAct();
@@ -34,28 +36,41 @@ public final class OpenAct implements ActionListener {
                         DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
         Object result = DialogDisplayer.getDefault().notify(dd);
         if (null != result && DialogDescriptor.OK_OPTION == result) {            
-            sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");            
-            tc.setAct(frm.getActDate(), frm.getActShift());
-            commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");            
-            ctc.setAct(frm.getActDate(), frm.getActShift());
-            additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");            
-            atc.setAct(frm.getActDate(), frm.getActShift());
-            if (!tc.isOpened() || !ctc.isOpened() || !atc.isOpened()){
-                NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта?", "Открыть акт");
-                Object open = DialogDisplayer.getDefault().notify(d);
-                if (open==NotifyDescriptor.YES_OPTION){
-                    if (!tc.isOpened()){
-                        tc.open();
-                    }
-                    if (!ctc.isOpened()){
-                        ctc.open();
-                    }
-                    if (!atc.isOpened()){
-                        atc.open();
+            sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+            if (tc==null){
+                sirieDataTopComponent sdtc = new sirieDataTopComponent();
+                tc = sdtc;
+            }
+            if (tc.getEntityManager()!=null){
+                tc.setActParams(frm.getActDate(), frm.getActShift());
+                commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
+                if (ctc==null){
+                    commonDataTopComponent cdtc = new commonDataTopComponent();
+                    ctc = cdtc;
+                }
+                ctc.setAct(frm.getActDate(), frm.getActShift());
+                additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");            
+                if (atc==null){
+                    additionalDataTopComponent adtc = new additionalDataTopComponent();
+                    atc = adtc;
+                }
+                atc.setAct(frm.getActDate(), frm.getActShift());
+                if (!tc.isOpened() || !ctc.isOpened() || !atc.isOpened()){
+                    NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта?", "Открыть акт");
+                    Object open = DialogDisplayer.getDefault().notify(d);
+                    if (open==NotifyDescriptor.YES_OPTION){
+                        if (!tc.isOpened()){
+                            tc.open();
+                        }
+                        if (!ctc.isOpened()){
+                            ctc.open();
+                        }
+                        if (!atc.isOpened()){
+                            atc.open();
+                        }
                     }
                 }
             }
-            
         }
     }
 }

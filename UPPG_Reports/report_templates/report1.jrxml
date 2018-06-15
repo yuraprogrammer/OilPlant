@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="296"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter "/>
 	<style name="Title" isDefault="true" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
@@ -14,7 +14,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT * FROM  v_actUPPG  WHERE  ID = $P{actID}]]>
+		<![CDATA[SELECT * FROM  v_actUPPG   WHERE  ID = $P{actID}]]>
 	</queryString>
 	<field name="ID" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="ID"/>
@@ -229,32 +229,17 @@
 	<field name="feed_total" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="feed_total"/>
 	</field>
-	<field name="Component_1" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_1"/>
-	</field>
 	<field name="Percent_1" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.label" value="Percent_1"/>
-	</field>
-	<field name="Component_2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_2"/>
 	</field>
 	<field name="Percent_2" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.label" value="Percent_2"/>
 	</field>
-	<field name="Component_3" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_3"/>
-	</field>
 	<field name="Percent_3" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.label" value="Percent_3"/>
 	</field>
-	<field name="Component_4" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_4"/>
-	</field>
 	<field name="Percent_4" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.label" value="Percent_4"/>
-	</field>
-	<field name="Component_5" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_5"/>
 	</field>
 	<field name="Percent_5" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.label" value="Percent_5"/>
@@ -264,9 +249,6 @@
 	</field>
 	<field name="Percent_6" class="java.lang.Double">
 		<property name="com.jaspersoft.studio.field.label" value="Percent_6"/>
-	</field>
-	<field name="Component_6" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_6"/>
 	</field>
 	<field name="Tank_Name" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="Tank_Name"/>
@@ -281,6 +263,28 @@
 		<property name="com.jaspersoft.studio.field.label" value="sirieMass"/>
 	</field>
 	<field name="maxValue" class="java.math.BigDecimal"/>
+	<field name="Component_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_1"/>
+	</field>
+	<field name="Component_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_2"/>
+	</field>
+	<field name="Component_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_3"/>
+	</field>
+	<field name="Component_4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_4"/>
+	</field>
+	<field name="Component_5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_5"/>
+	</field>
+	<field name="Component_6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_6"/>
+	</field>
+	<field name="Processing_Dinsity" class="java.math.BigDecimal"/>
+	<field name="BLF_Density" class="java.math.BigDecimal"/>
+	<field name="AKDG_Density" class="java.math.BigDecimal"/>
+	<field name="OTG_Density" class="java.math.BigDecimal"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -994,7 +998,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}/$F{Processing_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Processing_Dinsity}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="1" y="329" width="554" height="1" uuid="30cb436a-23e8-40dd-98ea-27f3ab13c794"/>
@@ -1017,7 +1021,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}/$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{BLF_Density}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="463" y="228" width="1" height="319" uuid="7b69716a-628a-4f25-b61f-5fd30e464288"/>
@@ -1135,7 +1139,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}/$F{AKDF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{AKDG_Density}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="316" width="45" height="12" backcolor="#FFFFCC" uuid="8d0314b2-f6cf-4304-a4d1-b2ca71fe41eb"/>
@@ -1534,7 +1538,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otg_tsp_Mass}+$F{otg_uppg_Mass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement mode="Opaque" x="373" y="497" width="45" height="12" backcolor="#FFFFCC" uuid="f931f159-4ae6-410c-8334-60a0e2eb7aaa"/>
@@ -1548,7 +1552,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}/$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{OTG_Density}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
 				<reportElement mode="Opaque" x="510" y="497" width="45" height="12" backcolor="#FFFFCC" uuid="49ac7175-4f09-4997-86fb-eab06480268c"/>
