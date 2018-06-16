@@ -3028,18 +3028,21 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private void otgUppgStart_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             otgUppgStart_DensityChange(true);
+            otgUppgStart_Density.transferFocus();
         }
     }//GEN-LAST:event_otgUppgStart_DensityKeyPressed
 
     private void otgUppgEnd_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgEnd_DensityKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             otgUppgEnd_DensityChange(true);
+            otgUppgEnd_Density.transferFocus();
         }
     }//GEN-LAST:event_otgUppgEnd_DensityKeyPressed
 
     private void otgTspStart_Density2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspStart_Density2KeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             otgTspStart_Density2Change(true);
+            otgTspStart_Density.transferFocus();
         }
     }//GEN-LAST:event_otgTspStart_Density2KeyPressed
 
@@ -3118,6 +3121,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private void otgTspEnd_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgTspEnd_LevelKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             otgTspEnd_LevelChange(true);
+            otgTspEnd_Level.transferFocus();
         }
     }//GEN-LAST:event_otgTspEnd_LevelKeyPressed
 

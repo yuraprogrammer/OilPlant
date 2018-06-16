@@ -988,6 +988,8 @@ public final class commonDataTopComponent extends TopComponent {
             sirieMixing_Volume.setEnabled(permit==0);
             sirieMixing_Density.setEnabled(permit==0);
             sirieMixing_Mass.setEnabled(false);
+            jComboBox2.setEnabled(permit==0);
+            jComboBox3.setEnabled(permit==0);
         }
     }
     
