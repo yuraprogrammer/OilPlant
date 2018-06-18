@@ -529,8 +529,14 @@ public final class CreateAct implements ActionListener {
                 try {
                     Date createDate = frm.getActDate();
                     int createShift = frm.getActShift();
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     Date current = new Date();
-                    if (createDate.after(current) || (createDate.equals(current) && createShift>=getCurrentShift())){
+                    boolean eq = createDate.equals(df.parse(df.format(current)));
+                    boolean after = createDate.after(df.parse(df.format(current)));
+                    if ((after) || ((eq) & createShift>=getCurrentShift())){
+                        NotifyDescriptor notFinished = new NotifyDescriptor.Message("Нельзя создать акт за незавершенную смену!!!", NotifyDescriptor.WARNING_MESSAGE);
+                        Object resultNotFinished = DialogDisplayer.getDefault().notify(notFinished);
+                    }else{    
                         if (!checkExist(createDate, createShift)){
                             NotifyDescriptor create = new NotifyDescriptor.Confirmation("Акт за выбранную смену не существует!!! Создать?", "Новый акт");
                             Object createResult = DialogDisplayer.getDefault().notify(create);
@@ -587,9 +593,6 @@ public final class CreateAct implements ActionListener {
                             NotifyDescriptor already = new NotifyDescriptor.Message("Акт за предыдущую смену уже существует!!!", NotifyDescriptor.WARNING_MESSAGE);
                             Object resultAlready = DialogDisplayer.getDefault().notify(already);                
                         }
-                    }else{
-                        NotifyDescriptor notFinished = new NotifyDescriptor.Message("Нельзя создать акт за незавершенную смену!!!", NotifyDescriptor.WARNING_MESSAGE);
-                        Object resultNotFinished = DialogDisplayer.getDefault().notify(notFinished);
                     }    
                 } catch (ParseException ex) {
                         Exceptions.printStackTrace(ex);
