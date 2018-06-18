@@ -421,10 +421,10 @@ public final class CreateAct implements ActionListener {
         }
     }
     
-    private void createActOtgToUppg() throws Exception{
-        OTGToUPPG newActOtgToUppg = new OTGToUPPG();
+    private void createActOtgToUppg() throws Exception{        
         OTGToUPPGJpaController newOTGToUPPGJpa = new OTGToUPPGJpaController(emf);
-        newActOtgToUppg.setId(newActOtgToUppgId);
+        OTGToUPPG newActOtgToUppg = new OTGToUPPG();
+        newActOtgToUppg.setId(getNewActOtgToUppgId());
         newActOtgToUppg.setActID(newActId);
         newActOtgToUppg.setTankID(78);
         newActOtgToUppg.setStartLevel(0);
@@ -440,6 +440,7 @@ public final class CreateAct implements ActionListener {
         newActOtgToUppg.setEndDensity(BigDecimal.ZERO);
         newActOtgToUppg.setEndDensity20(BigDecimal.ZERO);
         newOTGToUPPGJpa.create(newActOtgToUppg);
+            
     }
     
     private void createUppgDrainTank() throws Exception{

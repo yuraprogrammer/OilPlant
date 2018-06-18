@@ -296,7 +296,43 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         label96 = new java.awt.Label();
         label97 = new java.awt.Label();
         label98 = new java.awt.Label();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        countersEnd = new javax.swing.JPanel();
+        sirieEnd_Volume = new javax.swing.JFormattedTextField();
+        sirieEnd_Mass = new javax.swing.JFormattedTextField();
+        sirieEnd_Temp = new javax.swing.JFormattedTextField();
+        sirieEnd_Density = new javax.swing.JFormattedTextField();
+        sirieEnd_Density20 = new javax.swing.JFormattedTextField();
+        label99 = new java.awt.Label();
+        label100 = new java.awt.Label();
+        label101 = new java.awt.Label();
+        label102 = new java.awt.Label();
+        label103 = new java.awt.Label();
+        countersStart = new javax.swing.JPanel();
+        sirieStart_Volume = new javax.swing.JFormattedTextField();
+        sirieStart_Mass = new javax.swing.JFormattedTextField();
+        sirieStart_Temp = new javax.swing.JFormattedTextField();
+        sirieStart_Density = new javax.swing.JFormattedTextField();
+        sirieStart_Density20 = new javax.swing.JFormattedTextField();
+        label104 = new java.awt.Label();
+        label105 = new java.awt.Label();
+        label106 = new java.awt.Label();
+        label107 = new java.awt.Label();
+        label108 = new java.awt.Label();
+        jPanel17 = new javax.swing.JPanel();
+        label138 = new java.awt.Label();
+        drainEnd_Volume = new javax.swing.JFormattedTextField();
+        drainStart_Volume = new javax.swing.JFormattedTextField();
+        label139 = new java.awt.Label();
+        drain_Mass = new javax.swing.JFormattedTextField();
+        label140 = new java.awt.Label();
+        label141 = new java.awt.Label();
+        drain_Density = new javax.swing.JFormattedTextField();
+        jPanel1 = new javax.swing.JPanel();
+        drained_Water = new javax.swing.JFormattedTextField();
+        label142 = new java.awt.Label();
+        label143 = new java.awt.Label();
+        drained_BLF = new javax.swing.JFormattedTextField();
         jPanel7 = new javax.swing.JPanel();
         otgUppg_Tank = new javax.swing.JComboBox<>();
         label53 = new java.awt.Label();
@@ -411,43 +447,6 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         label134 = new java.awt.Label();
         otgTspStart_Density22 = new javax.swing.JFormattedTextField();
         otgTspStart_Density2 = new javax.swing.JFormattedTextField();
-        jPanel2 = new javax.swing.JPanel();
-        countersEnd = new javax.swing.JPanel();
-        sirieEnd_Volume = new javax.swing.JFormattedTextField();
-        sirieEnd_Mass = new javax.swing.JFormattedTextField();
-        sirieEnd_Temp = new javax.swing.JFormattedTextField();
-        sirieEnd_Density = new javax.swing.JFormattedTextField();
-        sirieEnd_Density20 = new javax.swing.JFormattedTextField();
-        label99 = new java.awt.Label();
-        label100 = new java.awt.Label();
-        label101 = new java.awt.Label();
-        label102 = new java.awt.Label();
-        label103 = new java.awt.Label();
-        countersStart = new javax.swing.JPanel();
-        sirieStart_Volume = new javax.swing.JFormattedTextField();
-        sirieStart_Mass = new javax.swing.JFormattedTextField();
-        sirieStart_Temp = new javax.swing.JFormattedTextField();
-        sirieStart_Density = new javax.swing.JFormattedTextField();
-        sirieStart_Density20 = new javax.swing.JFormattedTextField();
-        label104 = new java.awt.Label();
-        label105 = new java.awt.Label();
-        label106 = new java.awt.Label();
-        label107 = new java.awt.Label();
-        label108 = new java.awt.Label();
-        jPanel17 = new javax.swing.JPanel();
-        label138 = new java.awt.Label();
-        drainEnd_Volume = new javax.swing.JFormattedTextField();
-        drainStart_Volume = new javax.swing.JFormattedTextField();
-        label139 = new java.awt.Label();
-        drain_Mass = new javax.swing.JFormattedTextField();
-        label140 = new java.awt.Label();
-        label141 = new java.awt.Label();
-        drain_Density = new javax.swing.JFormattedTextField();
-        jPanel1 = new javax.swing.JPanel();
-        drained_Water = new javax.swing.JFormattedTextField();
-        label142 = new java.awt.Label();
-        label143 = new java.awt.Label();
-        drained_BLF = new javax.swing.JFormattedTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setAutoscrolls(true);
@@ -769,8 +768,300 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         add(jPanel5);
         jPanel5.setBounds(0, 510, 470, 167);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel6.border.title"))); // NOI18N
-        jPanel6.setLayout(null);
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        countersEnd.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        countersEnd.setLayout(null);
+
+        sirieEnd_Volume.setEditable(false);
+        sirieEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieEnd_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Volume.text")); // NOI18N
+        countersEnd.add(sirieEnd_Volume);
+        sirieEnd_Volume.setBounds(10, 40, 90, 20);
+
+        sirieEnd_Mass.setEditable(false);
+        sirieEnd_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieEnd_Mass.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Mass.text")); // NOI18N
+        countersEnd.add(sirieEnd_Mass);
+        sirieEnd_Mass.setBounds(110, 40, 90, 20);
+
+        sirieEnd_Temp.setEditable(false);
+        sirieEnd_Temp.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieEnd_Temp.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Temp.text")); // NOI18N
+        countersEnd.add(sirieEnd_Temp);
+        sirieEnd_Temp.setBounds(210, 40, 50, 20);
+
+        sirieEnd_Density.setEditable(false);
+        sirieEnd_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieEnd_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Density.text")); // NOI18N
+        countersEnd.add(sirieEnd_Density);
+        sirieEnd_Density.setBounds(270, 40, 60, 20);
+
+        sirieEnd_Density20.setEditable(false);
+        sirieEnd_Density20.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieEnd_Density20.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Density20.text")); // NOI18N
+        countersEnd.add(sirieEnd_Density20);
+        sirieEnd_Density20.setBounds(340, 40, 90, 20);
+
+        label99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label99.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label99.text")); // NOI18N
+        countersEnd.add(label99);
+        label99.setBounds(10, 20, 40, 18);
+
+        label100.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label100.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label100.text")); // NOI18N
+        countersEnd.add(label100);
+        label100.setBounds(110, 20, 40, 18);
+
+        label101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label101.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label101.text")); // NOI18N
+        countersEnd.add(label101);
+        label101.setBounds(210, 20, 40, 18);
+
+        label102.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label102.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label102.text")); // NOI18N
+        countersEnd.add(label102);
+        label102.setBounds(270, 20, 50, 18);
+
+        label103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label103.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label103.text")); // NOI18N
+        countersEnd.add(label103);
+        label103.setBounds(340, 20, 80, 18);
+
+        countersStart.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        countersStart.setLayout(null);
+
+        sirieStart_Volume.setEditable(false);
+        sirieStart_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieStart_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Volume.text")); // NOI18N
+        countersStart.add(sirieStart_Volume);
+        sirieStart_Volume.setBounds(10, 40, 90, 20);
+
+        sirieStart_Mass.setEditable(false);
+        sirieStart_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieStart_Mass.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Mass.text")); // NOI18N
+        countersStart.add(sirieStart_Mass);
+        sirieStart_Mass.setBounds(110, 40, 90, 20);
+
+        sirieStart_Temp.setEditable(false);
+        sirieStart_Temp.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieStart_Temp.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Temp.text")); // NOI18N
+        countersStart.add(sirieStart_Temp);
+        sirieStart_Temp.setBounds(210, 40, 50, 20);
+
+        sirieStart_Density.setEditable(false);
+        sirieStart_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieStart_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Density.text")); // NOI18N
+        countersStart.add(sirieStart_Density);
+        sirieStart_Density.setBounds(270, 40, 60, 20);
+
+        sirieStart_Density20.setEditable(false);
+        sirieStart_Density20.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieStart_Density20.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Density20.text")); // NOI18N
+        countersStart.add(sirieStart_Density20);
+        sirieStart_Density20.setBounds(340, 40, 90, 20);
+
+        label104.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label104.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label104.text")); // NOI18N
+        countersStart.add(label104);
+        label104.setBounds(10, 20, 40, 18);
+
+        label105.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label105.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label105.text")); // NOI18N
+        countersStart.add(label105);
+        label105.setBounds(110, 20, 40, 18);
+
+        label106.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label106.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label106.text")); // NOI18N
+        countersStart.add(label106);
+        label106.setBounds(210, 20, 40, 18);
+
+        label107.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label107.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label107.text")); // NOI18N
+        countersStart.add(label107);
+        label107.setBounds(270, 20, 50, 18);
+
+        label108.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label108.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label108.text")); // NOI18N
+        countersStart.add(label108);
+        label108.setBounds(340, 20, 80, 18);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(countersStart, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                    .addComponent(countersEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(73, 73, 73))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(countersEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(countersStart, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(jPanel2);
+        jPanel2.setBounds(0, 0, 470, 170);
+
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel17.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel17.setAutoscrolls(true);
+        jPanel17.setLayout(null);
+
+        label138.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label138.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label138.text")); // NOI18N
+        jPanel17.add(label138);
+        label138.setBounds(20, 20, 97, 18);
+
+        drainEnd_Volume.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        drainEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        drainEnd_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drainEnd_Volume.text")); // NOI18N
+        drainEnd_Volume.setEnabled(false);
+        drainEnd_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drainEnd_VolumeFocusLost(evt);
+            }
+        });
+        drainEnd_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drainEnd_VolumeKeyPressed(evt);
+            }
+        });
+        jPanel17.add(drainEnd_Volume);
+        drainEnd_Volume.setBounds(20, 40, 100, 20);
+
+        drainStart_Volume.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        drainStart_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        drainStart_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drainStart_Volume.text")); // NOI18N
+        drainStart_Volume.setEnabled(false);
+        drainStart_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drainStart_VolumeFocusLost(evt);
+            }
+        });
+        drainStart_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drainStart_VolumeKeyPressed(evt);
+            }
+        });
+        jPanel17.add(drainStart_Volume);
+        drainStart_Volume.setBounds(130, 40, 90, 20);
+
+        label139.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label139.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label139.text")); // NOI18N
+        jPanel17.add(label139);
+        label139.setBounds(130, 20, 104, 18);
+
+        drain_Mass.setEditable(false);
+        drain_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        drain_Mass.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drain_Mass.text")); // NOI18N
+        jPanel17.add(drain_Mass);
+        drain_Mass.setBounds(310, 40, 150, 20);
+
+        label140.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label140.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label140.text")); // NOI18N
+        jPanel17.add(label140);
+        label140.setBounds(310, 20, 80, 18);
+
+        label141.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label141.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label141.text")); // NOI18N
+        jPanel17.add(label141);
+        label141.setBounds(230, 20, 50, 18);
+
+        drain_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        drain_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drain_Density.text")); // NOI18N
+        drain_Density.setEnabled(false);
+        drain_Density.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drain_DensityFocusLost(evt);
+            }
+        });
+        drain_Density.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drain_DensityKeyPressed(evt);
+            }
+        });
+        jPanel17.add(drain_Density);
+        drain_Density.setBounds(230, 40, 70, 20);
+
+        add(jPanel17);
+        jPanel17.setBounds(0, 260, 470, 70);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        drained_Water.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        drained_Water.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        drained_Water.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drained_Water.text")); // NOI18N
+        drained_Water.setEnabled(false);
+        drained_Water.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drained_WaterFocusLost(evt);
+            }
+        });
+        drained_Water.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drained_WaterKeyPressed(evt);
+            }
+        });
+
+        label142.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label142.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label142.text")); // NOI18N
+
+        label143.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label143.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label143.text")); // NOI18N
+
+        drained_BLF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        drained_BLF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        drained_BLF.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drained_BLF.text")); // NOI18N
+        drained_BLF.setEnabled(false);
+        drained_BLF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                drained_BLFFocusLost(evt);
+            }
+        });
+        drained_BLF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                drained_BLFKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(drained_Water)
+                    .addComponent(label142, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(drained_BLF, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label143, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label143, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(drained_BLF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(label142, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(drained_Water, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        add(jPanel1);
+        jPanel1.setBounds(310, 180, 160, 80);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel7.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel7.setLayout(null);
@@ -984,8 +1275,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel7.add(jPanel9);
         jPanel9.setBounds(100, 20, 540, 70);
 
-        jPanel6.add(jPanel7);
-        jPanel7.setBounds(10, 480, 650, 170);
+        add(jPanel7);
+        jPanel7.setBounds(470, 450, 650, 170);
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel10.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel10.setLayout(null);
@@ -1617,306 +1908,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         jPanel10.add(jPanel16);
         jPanel16.setBounds(100, 370, 540, 70);
 
-        jPanel6.add(jPanel10);
-        jPanel10.setBounds(10, 20, 650, 450);
-
-        add(jPanel6);
-        jPanel6.setBounds(470, 0, 670, 657);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-
-        countersEnd.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersEnd.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-        countersEnd.setLayout(null);
-
-        sirieEnd_Volume.setEditable(false);
-        sirieEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieEnd_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Volume.text")); // NOI18N
-        countersEnd.add(sirieEnd_Volume);
-        sirieEnd_Volume.setBounds(10, 40, 90, 20);
-
-        sirieEnd_Mass.setEditable(false);
-        sirieEnd_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieEnd_Mass.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Mass.text")); // NOI18N
-        countersEnd.add(sirieEnd_Mass);
-        sirieEnd_Mass.setBounds(110, 40, 90, 20);
-
-        sirieEnd_Temp.setEditable(false);
-        sirieEnd_Temp.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieEnd_Temp.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Temp.text")); // NOI18N
-        countersEnd.add(sirieEnd_Temp);
-        sirieEnd_Temp.setBounds(210, 40, 50, 20);
-
-        sirieEnd_Density.setEditable(false);
-        sirieEnd_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieEnd_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Density.text")); // NOI18N
-        countersEnd.add(sirieEnd_Density);
-        sirieEnd_Density.setBounds(270, 40, 60, 20);
-
-        sirieEnd_Density20.setEditable(false);
-        sirieEnd_Density20.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieEnd_Density20.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieEnd_Density20.text")); // NOI18N
-        countersEnd.add(sirieEnd_Density20);
-        sirieEnd_Density20.setBounds(340, 40, 90, 20);
-
-        label99.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label99.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label99.text")); // NOI18N
-        countersEnd.add(label99);
-        label99.setBounds(10, 20, 40, 18);
-
-        label100.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label100.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label100.text")); // NOI18N
-        countersEnd.add(label100);
-        label100.setBounds(110, 20, 40, 18);
-
-        label101.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label101.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label101.text")); // NOI18N
-        countersEnd.add(label101);
-        label101.setBounds(210, 20, 40, 18);
-
-        label102.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label102.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label102.text")); // NOI18N
-        countersEnd.add(label102);
-        label102.setBounds(270, 20, 50, 18);
-
-        label103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label103.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label103.text")); // NOI18N
-        countersEnd.add(label103);
-        label103.setBounds(340, 20, 80, 18);
-
-        countersStart.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.countersStart.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-        countersStart.setLayout(null);
-
-        sirieStart_Volume.setEditable(false);
-        sirieStart_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieStart_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Volume.text")); // NOI18N
-        countersStart.add(sirieStart_Volume);
-        sirieStart_Volume.setBounds(10, 40, 90, 20);
-
-        sirieStart_Mass.setEditable(false);
-        sirieStart_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieStart_Mass.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Mass.text")); // NOI18N
-        countersStart.add(sirieStart_Mass);
-        sirieStart_Mass.setBounds(110, 40, 90, 20);
-
-        sirieStart_Temp.setEditable(false);
-        sirieStart_Temp.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieStart_Temp.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Temp.text")); // NOI18N
-        countersStart.add(sirieStart_Temp);
-        sirieStart_Temp.setBounds(210, 40, 50, 20);
-
-        sirieStart_Density.setEditable(false);
-        sirieStart_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieStart_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Density.text")); // NOI18N
-        countersStart.add(sirieStart_Density);
-        sirieStart_Density.setBounds(270, 40, 60, 20);
-
-        sirieStart_Density20.setEditable(false);
-        sirieStart_Density20.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        sirieStart_Density20.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.sirieStart_Density20.text")); // NOI18N
-        countersStart.add(sirieStart_Density20);
-        sirieStart_Density20.setBounds(340, 40, 90, 20);
-
-        label104.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label104.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label104.text")); // NOI18N
-        countersStart.add(label104);
-        label104.setBounds(10, 20, 40, 18);
-
-        label105.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label105.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label105.text")); // NOI18N
-        countersStart.add(label105);
-        label105.setBounds(110, 20, 40, 18);
-
-        label106.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label106.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label106.text")); // NOI18N
-        countersStart.add(label106);
-        label106.setBounds(210, 20, 40, 18);
-
-        label107.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label107.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label107.text")); // NOI18N
-        countersStart.add(label107);
-        label107.setBounds(270, 20, 50, 18);
-
-        label108.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label108.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label108.text")); // NOI18N
-        countersStart.add(label108);
-        label108.setBounds(340, 20, 80, 18);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(countersStart, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
-                    .addComponent(countersEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(73, 73, 73))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(countersEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(countersStart, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        add(jPanel2);
-        jPanel2.setBounds(0, 0, 470, 170);
-
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel17.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-        jPanel17.setAutoscrolls(true);
-        jPanel17.setLayout(null);
-
-        label138.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label138.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label138.text")); // NOI18N
-        jPanel17.add(label138);
-        label138.setBounds(20, 20, 97, 18);
-
-        drainEnd_Volume.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        drainEnd_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        drainEnd_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drainEnd_Volume.text")); // NOI18N
-        drainEnd_Volume.setEnabled(false);
-        drainEnd_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                drainEnd_VolumeFocusLost(evt);
-            }
-        });
-        drainEnd_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                drainEnd_VolumeKeyPressed(evt);
-            }
-        });
-        jPanel17.add(drainEnd_Volume);
-        drainEnd_Volume.setBounds(20, 40, 100, 20);
-
-        drainStart_Volume.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        drainStart_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        drainStart_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drainStart_Volume.text")); // NOI18N
-        drainStart_Volume.setEnabled(false);
-        drainStart_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                drainStart_VolumeFocusLost(evt);
-            }
-        });
-        drainStart_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                drainStart_VolumeKeyPressed(evt);
-            }
-        });
-        jPanel17.add(drainStart_Volume);
-        drainStart_Volume.setBounds(130, 40, 90, 20);
-
-        label139.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label139.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label139.text")); // NOI18N
-        jPanel17.add(label139);
-        label139.setBounds(130, 20, 104, 18);
-
-        drain_Mass.setEditable(false);
-        drain_Mass.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        drain_Mass.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drain_Mass.text")); // NOI18N
-        jPanel17.add(drain_Mass);
-        drain_Mass.setBounds(310, 40, 150, 20);
-
-        label140.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label140.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label140.text")); // NOI18N
-        jPanel17.add(label140);
-        label140.setBounds(310, 20, 80, 18);
-
-        label141.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label141.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label141.text")); // NOI18N
-        jPanel17.add(label141);
-        label141.setBounds(230, 20, 50, 18);
-
-        drain_Density.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        drain_Density.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drain_Density.text")); // NOI18N
-        drain_Density.setEnabled(false);
-        drain_Density.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                drain_DensityFocusLost(evt);
-            }
-        });
-        drain_Density.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                drain_DensityKeyPressed(evt);
-            }
-        });
-        jPanel17.add(drain_Density);
-        drain_Density.setBounds(230, 40, 70, 20);
-
-        add(jPanel17);
-        jPanel17.setBounds(0, 260, 470, 70);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-
-        drained_Water.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        drained_Water.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        drained_Water.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drained_Water.text")); // NOI18N
-        drained_Water.setEnabled(false);
-        drained_Water.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                drained_WaterFocusLost(evt);
-            }
-        });
-        drained_Water.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                drained_WaterKeyPressed(evt);
-            }
-        });
-
-        label142.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label142.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label142.text")); // NOI18N
-
-        label143.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label143.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.label143.text")); // NOI18N
-
-        drained_BLF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        drained_BLF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        drained_BLF.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.drained_BLF.text")); // NOI18N
-        drained_BLF.setEnabled(false);
-        drained_BLF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                drained_BLFFocusLost(evt);
-            }
-        });
-        drained_BLF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                drained_BLFKeyPressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(drained_Water)
-                    .addComponent(label142, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(drained_BLF, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label143, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label143, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(drained_BLF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label142, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(drained_Water, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        add(jPanel1);
-        jPanel1.setBounds(310, 180, 160, 80);
+        add(jPanel10);
+        jPanel10.setBounds(470, 0, 650, 450);
     }// </editor-fold>//GEN-END:initComponents
     
     private void otgTsp_TankChange(boolean edited){
@@ -1945,8 +1938,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                
             content.set(Collections.singleton(otgResult), null);
         }else{
             
@@ -1980,8 +1973,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                
             content.set(Collections.singleton(otgResult), null);
         }else{
             
@@ -2015,8 +2008,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                
             content.set(Collections.singleton(otgResult), null);
         }else{
             
@@ -2046,13 +2039,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
             otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
             otgUppgEnd_Volume.setText(String.format("%.2f", new_OtgUppgVolumeEnd));
-            otgUppgDataChanged = true;
-            content.remove(otgResult);
-            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                
-            content.set(Collections.singleton(otgResult), null);
+            otgUppgDataChanged = true;            
             }        
         }
     
@@ -2088,8 +2075,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
             content.set(Collections.singleton(otgResult), null);
         }
     }
@@ -2145,13 +2132,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_OtgUppgMassEnd = new_OtgUppgMassEnd;
             new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
             otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
-            otgUppgDataChanged = true;
-            content.remove(otgResult);
-            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                        
-            content.set(Collections.singleton(otgResult), null);            
+            otgUppgDataChanged = true;            
         }
     }
     
@@ -2205,13 +2186,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_OtgUppgMassEnd = new_OtgUppgMassEnd;
             new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
             otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
-            otgUppgDataChanged = true;
-            content.remove(otgResult);
-            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
-            content.set(Collections.singleton(otgResult), null);            
+            otgUppgDataChanged = true;            
         }
     }
     
@@ -2238,44 +2213,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                 old_OtgUppgMassStart = new_OtgUppgMassStart;
                 new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
                 otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
-                otgUppgDataChanged = true;
-                content.remove(otgResult);
-                otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-                otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-                otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-                otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                        
-                content.set(Collections.singleton(otgResult), null);                    
+                otgUppgDataChanged = true;                   
             }else{
                 new_OtgUppgLevelStart = 0;
             }
         }
     }
     
-    private void otgUppgStart_TempPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgStart_TempPropertyChange
-        if (!otgUppgStart_Temp.getText().isEmpty()){
-            old_OtgUppgTempStart = new_OtgUppgTempStart;
-            try{
-                new_OtgUppgTempStart = Double.parseDouble(otgUppgStart_Temp.getText().replace(",", "."));
-                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"+
-                        String.valueOf(new_OtgUppgDensityStart)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgUppgTempStart)));
-                List<VPlotn20> res = query.getResultList();
-                if (!res.isEmpty()){
-                    old_OtgUppgDensity20Start = new_OtgUppgDensity20Start;
-                    if (res.get(0).getPlotn20()!=null){
-                        new_OtgUppgDensity20Start = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
-                    }else{
-                        new_OtgUppgDensity20Start = 0;
-                    }
-                    otgUppgStart_Density20.setText(String.format("%.4f", new_OtgUppgDensity20Start));
-                    otgUppgDataChanged = true;
-                }
-            }catch (java.lang.NumberFormatException e){
-                this.showNumberErroMessage();
-            }
-            
-        }
-    }//GEN-LAST:event_otgUppgStart_TempPropertyChange
-
     private void otgUppgStart_DensityChange(boolean edited) {
         if (edited){
             old_OtgUppgDensityStart = new_OtgUppgDensityStart;
@@ -2301,13 +2245,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_OtgUppgMassStart = new_OtgUppgMassStart;
             new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
             otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
-            otgUppgDataChanged = true;
-            content.remove(otgResult);
-            otgResult.setUppgVolumeValue(new_OtgUppgVolumeEnd-new_OtgUppgVolumeStart);
-            otgResult.setUppgMassValue(new_OtgUppgMassEnd-new_OtgUppgMassStart);
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
-            content.set(Collections.singleton(otgResult), null);            
+            otgUppgDataChanged = true;            
         }
     }
     
@@ -2366,8 +2304,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);                                       
         }
     }
@@ -2401,8 +2339,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2436,8 +2374,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);                
         }
     }
@@ -2472,8 +2410,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2532,8 +2470,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);                
         }
     }
@@ -2569,8 +2507,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2630,8 +2568,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2666,8 +2604,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2726,8 +2664,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2763,8 +2701,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
             content.set(Collections.singleton(otgResult), null);                    
         }
     }
@@ -2823,8 +2761,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             content.remove(otgResult);
             otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
             otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
-            otgResult.setMassValue(otgResult.getTspMassValue()+otgResult.getUppgMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue()+otgResult.getUppgVolumeValue());                    
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
             content.set(Collections.singleton(otgResult), null);            
         }
     }
@@ -2989,10 +2927,6 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgUppgEnd_LevelChange(true);
     }//GEN-LAST:event_otgUppgEnd_LevelFocusLost
 
-    private void otgUppgStart_LevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelFocusLost
-        otgUppgStart_LevelChange(true);
-    }//GEN-LAST:event_otgUppgStart_LevelFocusLost
-
     private void otgTspEnd_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgTspEnd_DensityFocusLost
         otgTspEnd_DensityChange(true);
     }//GEN-LAST:event_otgTspEnd_DensityFocusLost
@@ -3020,17 +2954,6 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private void otgUppgEnd_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgEnd_DensityFocusLost
         otgUppgEnd_DensityChange(true);
     }//GEN-LAST:event_otgUppgEnd_DensityFocusLost
-
-    private void otgUppgStart_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityFocusLost
-        otgUppgStart_DensityChange(true);
-    }//GEN-LAST:event_otgUppgStart_DensityFocusLost
-
-    private void otgUppgStart_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            otgUppgStart_DensityChange(true);
-            otgUppgStart_Density.transferFocus();
-        }
-    }//GEN-LAST:event_otgUppgStart_DensityKeyPressed
 
     private void otgUppgEnd_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgEnd_DensityKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
@@ -3075,12 +2998,6 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             otgTspEnd_DensityChange(true);
         }
     }//GEN-LAST:event_otgTspEnd_DensityKeyPressed
-
-    private void otgUppgStart_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            otgUppgStart_LevelChange(true);
-        }
-    }//GEN-LAST:event_otgUppgStart_LevelKeyPressed
 
     private void otgUppgEnd_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgEnd_LevelKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
@@ -3175,6 +3092,52 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         }
     }//GEN-LAST:event_drain_DensityKeyPressed
 
+    private void otgUppgStart_DensityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgUppgStart_DensityChange(true);
+            otgUppgStart_Density.transferFocus();
+        }
+    }//GEN-LAST:event_otgUppgStart_DensityKeyPressed
+
+    private void otgUppgStart_DensityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgStart_DensityFocusLost
+        otgUppgStart_DensityChange(true);
+    }//GEN-LAST:event_otgUppgStart_DensityFocusLost
+
+    private void otgUppgStart_TempPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgUppgStart_TempPropertyChange
+        if (!otgUppgStart_Temp.getText().isEmpty()){
+            old_OtgUppgTempStart = new_OtgUppgTempStart;
+            try{
+                new_OtgUppgTempStart = Double.parseDouble(otgUppgStart_Temp.getText().replace(",", "."));
+                Query query = em.createQuery("SELECT v FROM VPlotn20 v WHERE v.plotn like '"+
+                    String.valueOf(new_OtgUppgDensityStart)+"%' AND v.temperName = "+String.format("%d", Math.round(new_OtgUppgTempStart)));
+                List<VPlotn20> res = query.getResultList();
+                if (!res.isEmpty()){
+                    old_OtgUppgDensity20Start = new_OtgUppgDensity20Start;
+                    if (res.get(0).getPlotn20()!=null){
+                        new_OtgUppgDensity20Start = Float.parseFloat(res.get(0).getPlotn20().replace(",", "."));
+                    }else{
+                        new_OtgUppgDensity20Start = 0;
+                    }
+                    otgUppgStart_Density20.setText(String.format("%.4f", new_OtgUppgDensity20Start));
+                    otgUppgDataChanged = true;
+                }
+            }catch (java.lang.NumberFormatException e){
+                this.showNumberErroMessage();
+            }
+
+        }
+    }//GEN-LAST:event_otgUppgStart_TempPropertyChange
+
+    private void otgUppgStart_LevelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            otgUppgStart_LevelChange(true);
+        }
+    }//GEN-LAST:event_otgUppgStart_LevelKeyPressed
+
+    private void otgUppgStart_LevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgUppgStart_LevelFocusLost
+        otgUppgStart_LevelChange(true);
+    }//GEN-LAST:event_otgUppgStart_LevelFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField akdgEnd_Density;
     private javax.swing.JFormattedTextField akdgEnd_Density20;
@@ -3224,7 +3187,6 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
