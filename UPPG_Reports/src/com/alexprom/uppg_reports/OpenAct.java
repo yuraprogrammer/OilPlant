@@ -34,6 +34,7 @@ public final class OpenAct implements ActionListener {
         dlgOpenAct frm = new dlgOpenAct();
         DialogDescriptor dd = new DialogDescriptor(frm, "Выберите дату и смену", true,
                         DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
+        dd.setModal(true);        
         Object result = DialogDisplayer.getDefault().notify(dd);
         if (null != result && DialogDescriptor.OK_OPTION == result) {            
             sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");

@@ -44,7 +44,7 @@ public final class PreviewAct implements ActionListener {
         EntityManager em = tc.getEntityManager();
         if (em!=null){
         if (act!=null){
-            em.refresh(act);
+//            em.refresh(act);
             int permit = act.getComplete();
             if (permit==0){
                 NotifyDescriptor s = new NotifyDescriptor.Confirmation("После вывода на печать, акт станет доступен только для просмотра. "

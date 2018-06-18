@@ -5,6 +5,7 @@
  */
 package com.alexprom.uppg_reports;
 
+import com.alexprom.entities.process.ActUPPG;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.modules.ModuleInstall;
@@ -21,7 +22,8 @@ public class Installer extends ModuleInstall {
     @Override
     public boolean closing(){
         sirieDataTopComponent stc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
-        if (stc.getAct()!=null){
+        ActUPPG act = stc.getAct();
+        if (act!=null){
             stc.getEntityManager().refresh(stc.getAct());
             if (stc.getAct().getComplete()==0){
                 NotifyDescriptor s = new NotifyDescriptor.Confirmation("Сохранить изменения перед завершением работы?", "Завершение работы");

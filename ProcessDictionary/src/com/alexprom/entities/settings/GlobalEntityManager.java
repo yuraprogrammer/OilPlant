@@ -42,7 +42,7 @@ public final class GlobalEntityManager implements iGlobalEntityManager{
             if (evt.getKey().equals("userPassword")) {                
                 uPassword = evt.getNewValue();
             } 
-            updatePersistence();
+            //updatePersistence();
     }
 });  
     }

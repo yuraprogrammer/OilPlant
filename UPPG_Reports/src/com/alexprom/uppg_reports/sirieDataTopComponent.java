@@ -125,7 +125,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         setName(Bundle.CTL_sirieDataTopComponent());
         setToolTipText(Bundle.HINT_sirieDataTopComponent());
         //this.setFont(Font.BOLD);
-        putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.FALSE);
+        putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_SLIDING_DISABLED, Boolean.FALSE);
