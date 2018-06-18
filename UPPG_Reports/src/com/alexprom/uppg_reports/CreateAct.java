@@ -26,18 +26,22 @@ import com.alexprom.entities.settings.GlobalEntityManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
 
@@ -78,37 +82,18 @@ public final class CreateAct implements ActionListener {
     private double new_AkdgVolume=0, new_AkdgMass=0;
     private double new_BlfVolume=0, new_BlfMass=0;
     
-    private boolean checkExist(){
+    private boolean checkExist(Date reportDate, int reportShift) throws ParseException{
         boolean exist;        
-        int rep2 = 0;        
-        Date d1 = new Date();       //Текущие дата и время
-        Date d2 = new Date();       //Дата и время первой смены сегодня
-        Date d3 = new Date();       //Дата и время второй смены сегодня
-        d2.setHours(8);             
-        d2.setMinutes(0);
-        d2.setSeconds(0);
-        d3.setHours(20);
-        d3.setMinutes(0);
-        d3.setSeconds(0); 
-        int cnt = 0;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");            
-        //Определение номера отчетной смены    
-        if (d1.after(d2) && !d1.after(d3)){
-            shift=2;
-            int curDay = d1.getDate();
-            int yesterday = curDay-1;
-            d1.setDate(yesterday);
-        }else{
-            shift=1;
-        }
-        dateStr = dateFormat.format(d1);
+        shift = reportShift;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        dateStr = df.format(reportDate);
         Query query = em.createNamedQuery("ActUPPG.findByDateShift");
         query.setParameter("aDate", dateStr);
         query.setParameter("aShift", shift);
         List<ActUPPG> list = query.getResultList();
         exist = !list.isEmpty();
-        if (!exist){
-            repAct = d1;            
+        if (!exist){                        
+            repAct = reportDate;
         }
         return exist;
     }
@@ -512,71 +497,105 @@ public final class CreateAct implements ActionListener {
         newSirieMixingJpa.create(newActSirieMixing);        
     }
     
+    private int getCurrentShift(){
+        int currentShift=1;
+        Date now = new Date();
+        Date shift_1 = new Date();
+        shift_1.setHours(8);
+        shift_1.setMinutes(0);
+        shift_1.setSeconds(0);
+        Date shift_2 = new Date();
+        shift_2.setHours(20);
+        shift_2.setMinutes(0);
+        shift_2.setSeconds(0);
+        if (now.after(shift_1) && now.before(shift_2)){
+            currentShift=1;
+        }else{
+            currentShift=2;
+        }
+        return currentShift;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         updatePersistence();
         if (em!=null){
-        //Проверка, открыт ли акт на редактирование
-        if (!checkExist()){
-            NotifyDescriptor create = new NotifyDescriptor.Confirmation("Акт за предыдущую смену не существует!!! Создать?", "Новый акт");
-            Object result = DialogDisplayer.getDefault().notify(create);
-            if (result==NotifyDescriptor.YES_OPTION){
-                try{                    
-                    newActId = getNewActId();
-                    newActSirieId = getNewActSirieId();
-                    newActCountersId = getNewActCountersId();
-                    newActDensity20Id = getNewActDensity20Id();                    
-                    newActOtgToUppgId = getNewActOtgToUppgId();
-                    newActDrainTankId = getNewActDrainTankId();
-                    newActFeedWaterId = getNewActFeedWaterId();
-                    newActSirieMixingId = getNewActSirieMixing();
-                    createActUPPG();
-                    createActSirie();
-                    createActCounters();
-                    createActDensity20();
-                    createActOtgToTsp();
-                    createActOtgToUppg();
-                    createUppgDrainTank();
-                    createUppgFeedWater();
-                    createActSirieMixing();
-                    NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за предыдущую смену создан успешно!!! Открыть для редактирвоания?");
-                    Object resultDone = DialogDisplayer.getDefault().notify(done);  
-                    if (resultDone==NotifyDescriptor.YES_OPTION){
-                        sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
-                        tc.setActParams(repAct, shift);
-                        commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
-                        ctc.setAct(repAct, shift);
-                        additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
-                        atc.setAct(repAct, shift);
-                        if (!tc.isOpened() || !ctc.isOpened() || !atc.isOpened()){
-                            NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта?", "Открыть акт");
-                            Object open = DialogDisplayer.getDefault().notify(d);
-                            if (open==NotifyDescriptor.YES_OPTION){
-                                if (!tc.isOpened()){
-                                    tc.open();
-                                }
-                                if (!ctc.isOpened()){
-                                    ctc.open();
-                                }
-                                if (!atc.isOpened()){
-                                    atc.open();
+            dlgOpenAct frm = new dlgOpenAct();
+            DialogDescriptor dd = new DialogDescriptor(frm, "Выберите дату и смену", true,
+                        DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
+            dd.setModal(true);        
+            Object result = DialogDisplayer.getDefault().notify(dd);
+            if (null != result && DialogDescriptor.OK_OPTION == result) {                                        
+                try {
+                    Date createDate = frm.getActDate();
+                    int createShift = frm.getActShift();
+                    Date current = new Date();
+                    if (createDate.after(current) || (createDate.equals(current) && createShift>=getCurrentShift())){
+                        if (!checkExist(createDate, createShift)){
+                            NotifyDescriptor create = new NotifyDescriptor.Confirmation("Акт за выбранную смену не существует!!! Создать?", "Новый акт");
+                            Object createResult = DialogDisplayer.getDefault().notify(create);
+                            if (createResult==NotifyDescriptor.YES_OPTION){
+                                try{
+                                    newActId = getNewActId();
+                                    newActSirieId = getNewActSirieId();
+                                    newActCountersId = getNewActCountersId();
+                                    newActDensity20Id = getNewActDensity20Id();
+                                    newActOtgToUppgId = getNewActOtgToUppgId();
+                                    newActDrainTankId = getNewActDrainTankId();
+                                    newActFeedWaterId = getNewActFeedWaterId();
+                                    newActSirieMixingId = getNewActSirieMixing();
+                                    createActUPPG();
+                                    createActSirie();
+                                    createActCounters();
+                                    createActDensity20();
+                                    createActOtgToTsp();
+                                    createActOtgToUppg();
+                                    createUppgDrainTank();
+                                    createUppgFeedWater();
+                                    createActSirieMixing();
+                                    NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за выбранную смену создан успешно!!! Открыть для редактирвоания?");
+                                    Object resultDone = DialogDisplayer.getDefault().notify(done);
+                                    if (resultDone==NotifyDescriptor.YES_OPTION){                                    
+                                        sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
+                                        tc.setActParams(repAct, shift);
+                                        commonDataTopComponent ctc = (commonDataTopComponent)WindowManager.getDefault().findTopComponent("commonDataTopComponent");
+                                        ctc.setAct(repAct, shift);
+                                        additionalDataTopComponent atc = (additionalDataTopComponent)WindowManager.getDefault().findTopComponent("additionalDataTopComponent");
+                                        atc.setAct(repAct, shift);
+                                        if (!tc.isOpened() || !ctc.isOpened() || !atc.isOpened()){
+                                            NotifyDescriptor d = new NotifyDescriptor.Confirmation("Открыть окна отображения данных акта?", "Открыть акт");
+                                            Object open = DialogDisplayer.getDefault().notify(d);
+                                            if (open==NotifyDescriptor.YES_OPTION){
+                                                if (!tc.isOpened()){
+                                                    tc.open();
+                                                }
+                                                if (!ctc.isOpened()){
+                                                    ctc.open();
+                                                }
+                                                if (!atc.isOpened()){
+                                                    atc.open();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }catch (Exception ex){
+                                    NotifyDescriptor error = new NotifyDescriptor.Confirmation(ex.getLocalizedMessage());
+                                    Object resultDone = DialogDisplayer.getDefault().notify(error);
                                 }
                             }
+                        }else{
+                            NotifyDescriptor already = new NotifyDescriptor.Message("Акт за предыдущую смену уже существует!!!", NotifyDescriptor.WARNING_MESSAGE);
+                            Object resultAlready = DialogDisplayer.getDefault().notify(already);                
                         }
-                    }
-                }catch (Exception ex){
-                    NotifyDescriptor error = new NotifyDescriptor.Confirmation(ex.getLocalizedMessage());
-                    Object resultDone = DialogDisplayer.getDefault().notify(error);  
-                }
+                    }else{
+                        NotifyDescriptor notFinished = new NotifyDescriptor.Message("Нельзя создать акт за незавершенную смену!!!", NotifyDescriptor.WARNING_MESSAGE);
+                        Object resultNotFinished = DialogDisplayer.getDefault().notify(notFinished);
+                    }    
+                } catch (ParseException ex) {
+                        Exceptions.printStackTrace(ex);
+                }                
             }
-        }else{
-            NotifyDescriptor already = new NotifyDescriptor.Message("Акт за предыдущую смену уже существует!!!", NotifyDescriptor.WARNING_MESSAGE);
-            Object result = DialogDisplayer.getDefault().notify(already);
-        }
-        }else{
-            NotifyDescriptor d = new NotifyDescriptor.Message("Не установлена связь с базой данных. Выполните настройки соединения и повторите попытку.", NotifyDescriptor.ERROR_MESSAGE);
-            Object result = DialogDisplayer.getDefault().notify(d);
-        }
+        }                   
     }
     
     public void updatePersistence(){        
