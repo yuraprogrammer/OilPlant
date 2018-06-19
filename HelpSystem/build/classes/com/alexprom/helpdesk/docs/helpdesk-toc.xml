@@ -11,7 +11,10 @@
                 <tocitem text="Правка" target="com.alexprom.helpdesk.menuedit"/>
                 <tocitem text="Вид" target="com.alexprom.helpdesk.menuview"/>
                 <tocitem text="Переход" target="com.alexprom.helpdesk.menugo"/>
-                <tocitem text="Сервис" target="com.alexprom.helpdesk.menuservice"/>
+                <tocitem text="Сервис" target="com.alexprom.helpdesk.menuservice">
+                    <tocitem text="Подключаемые модули" target="com.alexprom.helpdesk.pluggins"/>
+                    <tocitem text="Параметры" target="com.alexprom.helpdesk.settings"/>
+                </tocitem>
                 <tocitem text="Окно" target="com.alexprom.helpdesk.menuwindow"/>
                 <tocitem text="Справка" target="com.alexprom.helpdesk.menuhelp"/>
             </tocitem>

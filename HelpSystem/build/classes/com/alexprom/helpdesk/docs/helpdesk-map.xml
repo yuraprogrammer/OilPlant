@@ -34,4 +34,6 @@ and open the template in the editor.
     <mapID target="com.alexprom.helpdesk.feedingdata" url="helpdesk-feedingdata.html"/>
     <mapID target="com.alexprom.helpdesk.drainingdata" url="helpdesk-drainingdata.html"/>
     <mapID target="com.alexprom.helpdesk.draintankdata" url="helpdesk-draintankdata.html"/>
+    <mapID target="com.alexprom.helpdesk.pluggins" url="helpdesk-pluggins.html"/>
+    <mapID target="com.alexprom.helpdesk.settings" url="helpdesk-settings.html"/>
 </map>
