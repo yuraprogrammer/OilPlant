@@ -15,26 +15,27 @@
                 <tocitem text="Окно" target="com.alexprom.helpdesk.menuwindow"/>
                 <tocitem text="Справка" target="com.alexprom.helpdesk.menuhelp"/>
             </tocitem>
+            <tocitem text="Описание рабочей области приложения" target="com.alexprom.helpdesk.workareadesc">
+                <tocitem text="Основные данные" target="com.alexprom.helpdesk.workcommon"/>
+                <tocitem text="Данные по переработке" target="com.alexprom.helpdesk.workmain">
+                    <tocitem text="Показания по переработке сырья" target="com.alexprom.helpdesk.processingdata"/>
+                    <tocitem text="Показания по производству БЛФ" target="com.alexprom.helpdesk.blfdata"/>
+                    <tocitem text="Показания по производству АкДГ" target="com.alexprom.helpdesk.akdgdata"/>
+                    <tocitem text="Показания по производству ОТГ" target="com.alexprom.helpdesk.otgdata"/>
+                    <tocitem text="Показания по подпитке воды" target="com.alexprom.helpdesk.feedingdata"/>
+                    <tocitem text="Показания по выкачке из дренажной емкости" target="com.alexprom.helpdesk.draintankdata"/>
+                    <tocitem text="Показания по дренированию" target="com.alexprom.helpdesk.drainingdata"/>
+                </tocitem>
+                <tocitem text="Итого за смену" target="com.alexprom.helpdesk.workresult"/>
+                <tocitem text="Уведомления" target="com.alexprom.helpdesk.workpush"/>
+            </tocitem>
         </tocitem>
-        <tocitem text="Создание акта">
+        <tocitem text="Работа с актом">
             <tocitem text="Операция - 'Создать акт'" target="com.alexprom.helpdesk.newact"></tocitem>
-            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
-        </tocitem>
-        <tocitem text="Редактирование акта">
-            <tocitem text="Операция - 'Открыть акт'" target="com.alexprom.helpdesk.editact"></tocitem>
-            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
-        </tocitem>
-        <tocitem text="Сохранение акта">
+            <tocitem text="Операция - 'Открыть акт'" target="com.alexprom.helpdesk.openact"></tocitem>
             <tocitem text="Операция - 'Сохранить акт'" target="com.alexprom.helpdesk.saveact"></tocitem>
-            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
-        </tocitem>
-        <tocitem text="Обновление акта">
             <tocitem text="Операция - 'Обновить акт'" target="com.alexprom.helpdesk.updateact"></tocitem>
-            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
-        </tocitem>
-        <tocitem text="Печать акта">
-            <tocitem text="Операция - 'Печатать акт'" target="com.alexprom.helpdesk.printact"></tocitem>
-            <tocitem text="Описание меню" target="com.alexprom.helpdesk.start"></tocitem>
-        </tocitem>
+            <tocitem text="Операция - 'Печатать акт'" target="com.alexprom.helpdesk.printact"></tocitem>                        
+        </tocitem>        
     </tocitem>
 </toc>

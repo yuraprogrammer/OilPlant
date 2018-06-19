@@ -11,7 +11,7 @@ and open the template in the editor.
     <mapID target="com.alexprom.helpdesk.interfacedescription" url="helpdesk-interfacedescription.html"/>
     <mapID target="com.alexprom.helpdesk.menudescription" url="helpdesk-menudescription.html"/>
     <mapID target="com.alexprom.helpdesk.newact" url="helpdesk-newact.html"/>
-    <mapID target="com.alexprom.helpdesk.editact" url="helpdesk-editact.html"/>
+    <mapID target="com.alexprom.helpdesk.openact" url="helpdesk-openact.html"/>
     <mapID target="com.alexprom.helpdesk.saveact" url="helpdesk-saveact.html"/>
     <mapID target="com.alexprom.helpdesk.updateact" url="helpdesk-updateact.html"/>
     <mapID target="com.alexprom.helpdesk.printact" url="helpdesk-printact.html"/>
@@ -21,4 +21,17 @@ and open the template in the editor.
     <mapID target="com.alexprom.helpdesk.menugo" url="helpdesk-menugo.html"/>
     <mapID target="com.alexprom.helpdesk.menuservice" url="helpdesk-menuservice.html"/>
     <mapID target="com.alexprom.helpdesk.menuwindow" url="helpdesk-menuwindow.html"/>
+    <mapID target="com.alexprom.helpdesk.menuhelp" url="helpdesk-menuhelp.html"/>
+    <mapID target="com.alexprom.helpdesk.workareadesc" url="helpdesk-workareadesc.html"/>
+    <mapID target="com.alexprom.helpdesk.workcommon" url="helpdesk-workcommon.html"/>
+    <mapID target="com.alexprom.helpdesk.workmain" url="helpdesk-workmain.html"/>
+    <mapID target="com.alexprom.helpdesk.workresult" url="helpdesk-workresult.html"/>
+    <mapID target="com.alexprom.helpdesk.workpush" url="helpdesk-workpush.html"/>
+    <mapID target="com.alexprom.helpdesk.processingdata" url="helpdesk-processingdata.html"/>
+    <mapID target="com.alexprom.helpdesk.blfdata" url="helpdesk-blfdata.html"/>
+    <mapID target="com.alexprom.helpdesk.akdgdata" url="helpdesk-akdgdata.html"/>
+    <mapID target="com.alexprom.helpdesk.otgdata" url="helpdesk-otgdata.html"/>
+    <mapID target="com.alexprom.helpdesk.feedingdata" url="helpdesk-feedingdata.html"/>
+    <mapID target="com.alexprom.helpdesk.drainingdata" url="helpdesk-drainingdata.html"/>
+    <mapID target="com.alexprom.helpdesk.draintankdata" url="helpdesk-draintankdata.html"/>
 </map>
