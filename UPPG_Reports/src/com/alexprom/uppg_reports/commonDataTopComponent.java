@@ -112,6 +112,18 @@ public final class commonDataTopComponent extends TopComponent {
             updatePersistence();
     }
 });          
+        Preferences userData = NbPreferences.forModule(Installer.class);
+        userData.addPreferenceChangeListener(new PreferenceChangeListener() {
+            @Override
+            public void preferenceChange(PreferenceChangeEvent evt) {                
+                if (newAct!=null){
+                    fillSirie(newAct.getId(), getPermissive());
+                    fillMixingSirie(newAct.getId(), getPermissive());
+                    jComboBox2.setEnabled((newAct.getComplete()==0) || (getPermissive()==0));
+                    jComboBox3.setEnabled((newAct.getComplete()==0) || (getPermissive()==0));
+                }
+            }
+        });
     }
 
     public void updatePersistence(){                
@@ -550,6 +562,16 @@ public final class commonDataTopComponent extends TopComponent {
         Object res = DialogDisplayer.getDefault().notify(nd);
     }
     
+    private int getPermissive(){
+        int notPermit=1;
+        String userName = NbPreferences.forModule(Installer.class).get("userName", "");
+        String userPassword = NbPreferences.forModule(Installer.class).get("userPassword", "");
+        if (userName.equals("operator") & userPassword.equals("operator")){
+            notPermit = 0;
+        }
+        return notPermit;
+    }
+    
     public void setAct(Date actDate, int actShift){
         oldAct = this.newAct;
         if (em!=null){
@@ -558,12 +580,19 @@ public final class commonDataTopComponent extends TopComponent {
             String aDate = df.format(actDate);
             query.setParameter("aDate", aDate);
             query.setParameter("aShift", actShift);
+            
             List<ActUPPG> act = query.getResultList();            
             if (!act.isEmpty()){
                 this.newAct = act.get(0);
+                em.refresh(newAct);
                 if (newAct!=oldAct){                                        
-                    fillSirie(newAct.getId(), newAct.getComplete());
-                    fillMixingSirie(newAct.getId(), newAct.getComplete());
+                    if (getPermissive()==1){
+                        fillSirie(newAct.getId(), 1);
+                        fillMixingSirie(newAct.getId(), 1);
+                    }else{
+                        fillSirie(newAct.getId(), newAct.getComplete());
+                        fillMixingSirie(newAct.getId(), newAct.getComplete());
+                    }
                     int actMainOper = newAct.getMainOper();
                     int actSlaveOper = newAct.getSlaveOper();                
                     for (int i=0; i<mainOpList.size(); i++){
@@ -571,7 +600,7 @@ public final class commonDataTopComponent extends TopComponent {
                             oldMain = mainOper;
                             mainOper = i;
                             jComboBox2.setSelectedIndex(mainOper);
-                            jComboBox2.setEnabled(newAct.getComplete()==0);
+                            jComboBox2.setEnabled((newAct.getComplete()==0) || (getPermissive()==0));
                         }
                     }
                     for (int i=0; i<opList.size(); i++){
@@ -579,7 +608,7 @@ public final class commonDataTopComponent extends TopComponent {
                             oldSlave = slaveOper;
                             slaveOper = i;
                             jComboBox3.setSelectedIndex(slaveOper);
-                            jComboBox3.setEnabled(newAct.getComplete()==0);
+                            jComboBox3.setEnabled((newAct.getComplete()==0) || (getPermissive()==0));
                         }
                     }
                 }

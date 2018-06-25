@@ -43,6 +43,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 @ActionID(
@@ -517,9 +518,20 @@ public final class CreateAct implements ActionListener {
         return currentShift;
     }
     
+    private int getPermissive(){
+        int notPermit=1;
+        String userName = NbPreferences.forModule(Installer.class).get("userName", "");
+        String userPassword = NbPreferences.forModule(Installer.class).get("userPassword", "");
+        if (userName.equals("operator") & userPassword.equals("operator")){
+            notPermit = 0;
+        }
+        return notPermit;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         updatePersistence();
+        if (getPermissive()==0){
         if (em!=null){
             dlgOpenAct frm = new dlgOpenAct();
             DialogDescriptor dd = new DialogDescriptor(frm, "Выберите дату и смену", true,
@@ -599,7 +611,12 @@ public final class CreateAct implements ActionListener {
                         Exceptions.printStackTrace(ex);
                 }                
             }
-        }                   
+        }  
+        }else{
+            NotifyDescriptor notGranted = new NotifyDescriptor.Message("У Вас нет привелегий для выполнения операции 'Создать акт'!!! "
+                    + "Войдите в систему под другими учетными данными.", NotifyDescriptor.WARNING_MESSAGE);
+            Object privilegie = DialogDisplayer.getDefault().notify(notGranted); 
+        }
     }
     
     public void updatePersistence(){        

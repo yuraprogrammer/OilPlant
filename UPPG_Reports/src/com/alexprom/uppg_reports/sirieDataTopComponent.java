@@ -70,8 +70,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private UPPGFeedWater feedWater;
     private UPPGDrainTank drainTank;
     private final int complete=0;
-    private final InstanceContent content;
-    private final Lookup lookup;
+    private final InstanceContent content;    
+    private final Lookup lookup;    
     private List<ActCounters> actCnt;
     private List<ActDensity20> actDensity_20;
     private List<TankDic> listTank;
@@ -144,8 +144,20 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         @Override
         public void preferenceChange(PreferenceChangeEvent evt) {                        
             updatePersistence();
-    }
-});  
+        }
+        });
+        Preferences userData = NbPreferences.forModule(Installer.class);
+        userData.addPreferenceChangeListener(new PreferenceChangeListener() {
+            @Override
+            public void preferenceChange(PreferenceChangeEvent evt) {
+                getPermissive();
+                if (newAct!=null){
+                    fillActFields(newAct);
+                }
+            }
+        });
+        
+    
     }        
     
     public void updatePersistence(){                        
@@ -166,6 +178,16 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                 otgUppg_Tank.addItem(t.getTankName());
             }
         }
+    }
+    
+    private int getPermissive(){
+        int notPermit=1;
+        String userName = NbPreferences.forModule(Installer.class).get("userName", "");
+        String userPassword = NbPreferences.forModule(Installer.class).get("userPassword", "");
+        if (userName.equals("operator") & userPassword.equals("operator")){
+            notPermit = 0;
+        }
+        return notPermit;
     }
     
     public ActUPPG getAct(){
@@ -201,10 +223,17 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         if (act!=null){
             if (newAct!=oldAct){                                        
                 setDisplayName("Акт за "+newAct.getADate()+" за "+newAct.getAShift()+"-ю смену");
-                fillCounters(newAct.getId(), newAct.getComplete());         
-                fillOtgData(newAct.getId(), newAct.getComplete());
-                fillFeedData(newAct.getId(), newAct.getComplete());
-                fillDrainData(newAct.getId(), newAct.getComplete());
+                if (getPermissive()==1){
+                    fillCounters(newAct.getId(), 1);
+                    fillOtgData(newAct.getId(), 1);
+                    fillFeedData(newAct.getId(), 1);
+                    fillDrainData(newAct.getId(), 1);
+                }else{
+                    fillCounters(newAct.getId(), newAct.getComplete());         
+                    fillOtgData(newAct.getId(), newAct.getComplete());
+                    fillFeedData(newAct.getId(), newAct.getComplete());
+                    fillDrainData(newAct.getId(), newAct.getComplete());
+                }
                 setLookup();
             }else{
                 NotifyDescriptor d = new NotifyDescriptor.Message

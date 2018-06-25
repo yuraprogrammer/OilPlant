@@ -18,6 +18,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 @ActionID(
@@ -35,6 +36,16 @@ import org.openide.windows.WindowManager;
 @Messages("CTL_PreviewAct=Печатать акт...")
 public final class PreviewAct implements ActionListener {
 
+    private int getPermissive(){
+        int notPermit=1;
+        String userName = NbPreferences.forModule(Installer.class).get("userName", "");
+        String userPassword = NbPreferences.forModule(Installer.class).get("userPassword", "");
+        if (userName.equals("operator") & userPassword.equals("operator")){
+            notPermit = 0;
+        }
+        return notPermit;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         sirieDataTopComponent tc = (sirieDataTopComponent)WindowManager.getDefault().findTopComponent("sirieDataTopComponent");
@@ -46,6 +57,7 @@ public final class PreviewAct implements ActionListener {
         if (act!=null){
 //            em.refresh(act);
             int permit = act.getComplete();
+            if (getPermissive()==0){
             if (permit==0){
                 NotifyDescriptor s = new NotifyDescriptor.Confirmation("После вывода на печать, акт станет доступен только для просмотра. "
                                                                     + "Убедитесь, что все данные введены корректно. Печатать?", "Финализация акта");
@@ -63,7 +75,7 @@ public final class PreviewAct implements ActionListener {
                         Object errResult = DialogDisplayer.getDefault().notify(err);                    
                     }
                 }
-            }
+            }}
             ctc.fillSirie(act.getId(), 1);
             ctc.fillMixingSirie(act.getId(), 1);
             tc.fillCounters(act.getId(), 1);

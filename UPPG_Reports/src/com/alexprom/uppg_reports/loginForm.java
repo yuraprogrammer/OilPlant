@@ -1,9 +1,33 @@
 package com.alexprom.uppg_reports;
 
-public class loginForm extends javax.swing.JPanel {
+import java.awt.event.KeyEvent;
+import org.openide.util.NbPreferences;
 
+public class loginForm extends javax.swing.JPanel {
+    
+    private String uName;
+    private String uPassword;
+
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
+    public String getuPassword() {
+        return uPassword;
+    }
+
+    public void setuPassword(String uPassword) {
+        this.uPassword = uPassword;
+    }
+    
     public loginForm() {
         initComponents();
+        uName=NbPreferences.forModule(Installer.class).get("userName", "");
+        uPassword="";
     }
 
     @SuppressWarnings("unchecked")
@@ -17,6 +41,16 @@ public class loginForm extends javax.swing.JPanel {
 
         eLogin.setText(org.openide.util.NbBundle.getMessage(loginForm.class, "loginForm.eLogin.text")); // NOI18N
         eLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        eLogin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eLoginFocusLost(evt);
+            }
+        });
+        eLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eLoginKeyPressed(evt);
+            }
+        });
 
         label1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         label1.setText(org.openide.util.NbBundle.getMessage(loginForm.class, "loginForm.label1.text")); // NOI18N
@@ -26,6 +60,16 @@ public class loginForm extends javax.swing.JPanel {
 
         ePassword.setText(org.openide.util.NbBundle.getMessage(loginForm.class, "loginForm.ePassword.text")); // NOI18N
         ePassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ePassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ePasswordFocusLost(evt);
+            }
+        });
+        ePassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ePasswordKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,6 +97,26 @@ public class loginForm extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void eLoginFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eLoginFocusLost
+       setuName(eLogin.getText());       
+    }//GEN-LAST:event_eLoginFocusLost
+
+    private void ePasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ePasswordFocusLost
+        setuPassword(String.valueOf(ePassword.getPassword()));
+    }//GEN-LAST:event_ePasswordFocusLost
+
+    private void eLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eLoginKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setuName(eLogin.getText());
+        }
+    }//GEN-LAST:event_eLoginKeyPressed
+
+    private void ePasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ePasswordKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setuPassword(String.valueOf(ePassword.getPassword()));
+        }
+    }//GEN-LAST:event_ePasswordKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -576,6 +576,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             actCounters.setBLFPercent(BigDecimal.valueOf(blfPercent));
             actCounters.setAKDGPercent(BigDecimal.valueOf(akdgPercent));
             actCounters.setOTGPercent(BigDecimal.valueOf(otgPercent));
+            actCounters.setOTGDensity(BigDecimal.valueOf(otgDensity));
             countersJpa.edit(actCounters);
         }
         

@@ -6,17 +6,31 @@
 package com.alexprom.uppg_reports;
 
 import com.alexprom.entities.process.ActUPPG;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.modules.ModuleInstall;
 import org.openide.util.Exceptions;
+import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 public class Installer extends ModuleInstall {
 
     @Override
     public void restored() {
-        // TODO
+        loginForm login = new loginForm();
+        DialogDescriptor dd = new DialogDescriptor(login, "Введите имя пользователя и пароль", true,
+                        DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
+        dd.setModal(true);        
+        Object result = DialogDisplayer.getDefault().notify(dd);
+        if (null != result && DialogDescriptor.OK_OPTION == result) {
+            String userName = login.getuName();
+            String userPassword = login.getuPassword();
+            NbPreferences.forModule(Installer.class).put("userName", userName);
+            NbPreferences.forModule(Installer.class).put("userPassword", userPassword);            
+        }else{
+            System.exit(0);
+        }
     }
     
     @Override
