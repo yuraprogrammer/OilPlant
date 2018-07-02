@@ -66,7 +66,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private EntityManager em = null;
     private List<ActCounters> actCnt;
     private double blfMass, akdgMass, otgMass, sirieMass;
-    private double blfDensity, akdgDensity, otgDensity, sirieDensity;
+    private double blfDensity, akdgDensity, otgDensity, sirieDensity, e9Gravity, e9Mass;
     private double blfVolume, akdgVolume, otgVolume, sirieVolume;
     private double blfPercent, akdgPercent, otgPercent, blf_akdgPercent, blf_akdg_otgPercent;
     private ActUPPG newAct, oldAct;
@@ -148,6 +148,8 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         blf_akdg_otg_Percent = new javax.swing.JFormattedTextField();
         blf_akdg_Percent = new javax.swing.JFormattedTextField();
         label57 = new java.awt.Label();
+        label58 = new java.awt.Label();
+        e9_Gravity = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -340,24 +342,35 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         label56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label56.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label56.text")); // NOI18N
         jPanel13.add(label56);
-        label56.setBounds(190, 20, 120, 18);
+        label56.setBounds(120, 20, 120, 18);
 
         blf_akdg_otg_Percent.setEditable(false);
         blf_akdg_otg_Percent.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         blf_akdg_otg_Percent.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.blf_akdg_otg_Percent.text")); // NOI18N
         jPanel13.add(blf_akdg_otg_Percent);
-        blf_akdg_otg_Percent.setBounds(190, 40, 180, 20);
+        blf_akdg_otg_Percent.setBounds(120, 40, 120, 20);
 
         blf_akdg_Percent.setEditable(false);
         blf_akdg_Percent.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         blf_akdg_Percent.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.blf_akdg_Percent.text")); // NOI18N
         jPanel13.add(blf_akdg_Percent);
-        blf_akdg_Percent.setBounds(10, 40, 170, 20);
+        blf_akdg_Percent.setBounds(10, 40, 100, 20);
 
         label57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label57.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label57.text")); // NOI18N
         jPanel13.add(label57);
         label57.setBounds(10, 20, 90, 18);
+
+        label58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label58.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label58.text")); // NOI18N
+        jPanel13.add(label58);
+        label58.setBounds(250, 20, 120, 18);
+
+        e9_Gravity.setEditable(false);
+        e9_Gravity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        e9_Gravity.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.e9_Gravity.text")); // NOI18N
+        jPanel13.add(e9_Gravity);
+        e9_Gravity.setBounds(250, 40, 120, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -380,8 +393,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
                 .addGap(1, 1, 1)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -396,6 +408,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private javax.swing.JFormattedTextField blf_Volume;
     private javax.swing.JFormattedTextField blf_akdg_Percent;
     private javax.swing.JFormattedTextField blf_akdg_otg_Percent;
+    private javax.swing.JFormattedTextField e9_Gravity;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -408,6 +421,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private java.awt.Label label55;
     private java.awt.Label label56;
     private java.awt.Label label57;
+    private java.awt.Label label58;
     private java.awt.Label label77;
     private java.awt.Label label78;
     private java.awt.Label label79;
@@ -475,19 +489,23 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdgMass = actCounters.getAKDGMass().doubleValue();
             akdg_Mass.setText(String.format("%.1f", akdgMass));
             if (type==1){
-                if (sirieMass!=0){
-                    blfPercent = blfMass*100/sirieMass;
-                    akdgPercent = akdgMass*100/sirieMass;
-                    otgPercent = otgMass*100/sirieMass;
-                }else{
-                    blfPercent = 0;
-                    akdgPercent = 0;
-                    otgPercent = 0;
-                }
+                blfPercent = sirieMass!=0 ? blfMass*100/sirieMass : 0;
+                akdgPercent = sirieMass!=0 ? akdgMass*100/sirieMass : 0;
+                otgPercent = sirieMass!=0 ? otgMass*100/sirieMass : 0;
+                sirieDensity = sirieVolume!=0 ? sirieMass/sirieVolume : 0;           
+                blfDensity = blfVolume!=0 ? blfMass/blfVolume : 0;                
+                akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;                
+                otgDensity = otgVolume!=0 ? otgMass/otgVolume : 0;
+                e9Gravity = sirieMass!=0 ? e9Mass/(sirieMass/1000.0) : 0;
             }else{
                 blfPercent = actCounters.getBLFPercent().doubleValue();
                 akdgPercent = actCounters.getAKDGPercent().doubleValue();
                 otgPercent = actCounters.getOTGPercent().doubleValue();
+                sirieDensity = actCounters.getProcessingDinsity().doubleValue();
+                blfDensity = actCounters.getBLFDensity().doubleValue();
+                akdgDensity = actCounters.getAKDGDensity().doubleValue();
+                otgDensity = actCounters.getOTGDensity().doubleValue();
+                e9Gravity = actCounters.getE9Gravity().doubleValue();
             }
             blf_akdgPercent = blfPercent+akdgPercent;
             blf_akdg_otgPercent = blfPercent+akdgPercent+otgPercent;
@@ -495,38 +513,12 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdg_Percent.setText(String.format("%.1f", akdgPercent));
             otg_Percent.setText(String.format("%.1f", otgPercent));
             blf_akdg_Percent.setText(String.format("%.1f", blf_akdgPercent));
-            blf_akdg_otg_Percent.setText(String.format("%.1f", blf_akdg_otgPercent));
-            if (type==1){
-                if (sirieVolume!=0){
-                    sirieDensity = sirieMass/sirieVolume;
-                }else{
-                    sirieDensity = 0;
-                }
-                if (blfVolume!=0){
-                    blfDensity = blfMass/blfVolume;
-                }else{
-                    blfDensity = 0;
-                }
-                if (akdgVolume!=0){
-                    akdgDensity = akdgMass/akdgVolume;
-                }else{
-                    akdgDensity = 0;
-                }
-                if (otgVolume!=0){
-                    otgDensity = otgMass/otgVolume;
-                }else{
-                    otgDensity = 0;
-                }
-            }else{
-                sirieDensity = actCounters.getProcessingDinsity().doubleValue();
-                blfDensity = actCounters.getBLFDensity().doubleValue();
-                akdgDensity = actCounters.getAKDGDensity().doubleValue();
-                otgDensity = actCounters.getOTGDensity().doubleValue();
-            }
+            blf_akdg_otg_Percent.setText(String.format("%.1f", blf_akdg_otgPercent));            
             processing_Density.setText(String.format("%.4f", sirieDensity));
             blf_Density.setText(String.format("%.4f", blfDensity));
             akdg_Density.setText(String.format("%.4f", akdgDensity));
             otg_Density.setText(String.format("%.4f", otgDensity));
+            e9_Gravity.setText(String.format("%.2f", e9Gravity));
         }
     }
     
@@ -554,15 +546,14 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         Collection<? extends Lookup.Item<OtgAccount>> otg = otgResult.allItems();
         if (otg.iterator().hasNext()){
             otgMass = otg.iterator().next().getInstance().getMassValue();
+            e9Mass = otg.iterator().next().getInstance().getUppgMassValue();
+            e9Gravity = sirieMass!=0 ? e9Mass/(sirieMass/1000.0) : 0;
             otgVolume = otg.iterator().next().getInstance().getVolumeValue();
-            if (sirieMass!=0){
-                otgPercent = otgMass*100/sirieMass;
-            }else{
-                otgPercent=0;
-            }
+            otgPercent = sirieMass!=0 ? otgMass*100/sirieMass:0;
             otg_Mass.setText(String.format("%.1f", otgMass));
             otg_Volume.setText(String.format("%.1f", otgVolume));
             otg_Percent.setText(String.format("%.1f", otgPercent));
+            e9_Gravity.setText(String.format("%.2f", e9Gravity));
             if (newAct!=null){
                 fillCounters(newAct.getId(),1);
             }
@@ -577,6 +568,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             actCounters.setAKDGPercent(BigDecimal.valueOf(akdgPercent));
             actCounters.setOTGPercent(BigDecimal.valueOf(otgPercent));
             actCounters.setOTGDensity(BigDecimal.valueOf(otgDensity));
+            actCounters.setE9Gravity(BigDecimal.valueOf(e9Gravity));
             countersJpa.edit(actCounters);
         }
         

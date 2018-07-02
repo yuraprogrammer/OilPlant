@@ -360,7 +360,7 @@ public final class CreateAct implements ActionListener {
         }
         newActCounters.setAKDGDensity(BigDecimal.valueOf(new_AkdgDensity));
         newActCounters.setOTGDensity(BigDecimal.ZERO);
-        
+        newActCounters.setE9Gravity(BigDecimal.ZERO);
         newActCountersJpa.create(newActCounters);
     }
         

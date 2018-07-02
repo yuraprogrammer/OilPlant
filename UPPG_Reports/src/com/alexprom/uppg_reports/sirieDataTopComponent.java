@@ -2068,6 +2068,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
             otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
             otgUppgEnd_Volume.setText(String.format("%.2f", new_OtgUppgVolumeEnd));
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
+            otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
+            content.set(Collections.singleton(otgResult), null);
             otgUppgDataChanged = true;            
             }        
         }
@@ -2161,7 +2168,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_OtgUppgMassEnd = new_OtgUppgMassEnd;
             new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
             otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
-            otgUppgDataChanged = true;            
+            otgUppgDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
+            otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
+            content.set(Collections.singleton(otgResult), null);
         }
     }
     
@@ -2215,6 +2229,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_OtgUppgMassEnd = new_OtgUppgMassEnd;
             new_OtgUppgMassEnd = new_OtgUppgVolumeEnd*new_OtgUppgDensityEnd;
             otgUppgEnd_Mass.setText(String.format("%.2f", new_OtgUppgMassEnd));
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
+            otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
+            content.set(Collections.singleton(otgResult), null);
             otgUppgDataChanged = true;            
         }
     }
@@ -2246,6 +2267,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             }else{
                 new_OtgUppgLevelStart = 0;
             }
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
+            otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
+            content.set(Collections.singleton(otgResult), null);
         }
     }
     
@@ -2274,7 +2302,14 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_OtgUppgMassStart = new_OtgUppgMassStart;
             new_OtgUppgMassStart = new_OtgUppgVolumeStart*new_OtgUppgDensityStart;
             otgUppgStart_Mass.setText(String.format("%.2f", new_OtgUppgMassStart));
-            otgUppgDataChanged = true;            
+            otgUppgDataChanged = true;
+            content.remove(otgResult);
+            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+            otgResult.setTspMassValue((new_OtgTspMassEnd-new_OtgTspMassStart)+(new_OtgTspMassEnd1-new_OtgTspMassStart1)+(new_OtgTspMassEnd2-new_OtgTspMassStart2));
+            otgResult.setMassValue(otgResult.getTspMassValue());
+            otgResult.setVolumeValue(otgResult.getTspVolumeValue());
+            otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
+            content.set(Collections.singleton(otgResult), null);
         }
     }
     
