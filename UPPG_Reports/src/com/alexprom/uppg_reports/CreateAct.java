@@ -499,8 +499,7 @@ public final class CreateAct implements ActionListener {
         newSirieMixingJpa.create(newActSirieMixing);        
     }
     
-    private int getCurrentShift(){
-        int currentShift=1;
+    private int getCurrentShift(){        
         Date now = new Date();
         Date shift_1 = new Date();
         shift_1.setHours(8);
@@ -510,11 +509,7 @@ public final class CreateAct implements ActionListener {
         shift_2.setHours(20);
         shift_2.setMinutes(0);
         shift_2.setSeconds(0);
-        if (now.after(shift_1) && now.before(shift_2)){
-            currentShift=1;
-        }else{
-            currentShift=2;
-        }
+        int currentShift = (now.after(shift_2) || now.before(shift_1)) ? 2 : 1;
         return currentShift;
     }
     
@@ -544,9 +539,14 @@ public final class CreateAct implements ActionListener {
                     int createShift = frm.getActShift();
                     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     Date current = new Date();
-                    boolean eq = createDate.equals(df.parse(df.format(current)));
-                    boolean after = createDate.after(df.parse(df.format(current)));
-                    if ((after) || ((eq) & createShift>=getCurrentShift())){
+                    String createString = df.format(createDate);
+                    String currentString = df.format(current);
+                    //Текущая дата совпадает с датой создаваемого акта                    
+                    boolean eq = createString.equals(currentString);
+                    //Дата создаваемого акта позже текущего времени
+                    boolean after = createDate.after(current);
+                    //Дата создаваемого актв позже текущего времени или даты совпадают и смена больше или равна текущей
+                    if ((after) || ((eq) && createShift>=getCurrentShift())){
                         NotifyDescriptor notFinished = new NotifyDescriptor.Message("Нельзя создать акт за незавершенную смену!!!", NotifyDescriptor.WARNING_MESSAGE);
                         Object resultNotFinished = DialogDisplayer.getDefault().notify(notFinished);
                     }else{    
