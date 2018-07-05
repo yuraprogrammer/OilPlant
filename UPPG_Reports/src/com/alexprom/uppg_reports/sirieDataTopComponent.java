@@ -28,7 +28,6 @@ import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -4046,7 +4045,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_LoadVolume = new_LoadVolume;
             new_LoadVolume = otgToUppg.getLoadVolume();
             old_LoadMass = new_LoadMass;
-            new_LoadMass = otgToUppg.getLoadMass().doubleValue();
+            new_LoadMass = otgToUppg.getLoadMass()!=null ? otgToUppg.getLoadMass().doubleValue() : 0;
             old_LoadDensity = new_LoadDensity;
             new_LoadDensity = otgToUppg.getLoadDensity().doubleValue();
             old_LoadTemp = new_LoadTemp;

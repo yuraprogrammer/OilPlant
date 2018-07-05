@@ -488,22 +488,17 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdg_Volume.setText(String.format("%.1f", akdgVolume));
             akdgMass = actCounters.getAKDGMass().doubleValue();
             akdg_Mass.setText(String.format("%.1f", akdgMass));
-            if (type==1){
-                blfPercent = sirieMass!=0 ? blfMass*100/sirieMass : 0;
-                akdgPercent = sirieMass!=0 ? akdgMass*100/sirieMass : 0;
-                otgPercent = sirieMass!=0 ? otgMass*100/sirieMass : 0;
-                sirieDensity = sirieVolume!=0 ? sirieMass/sirieVolume : 0;           
-                blfDensity = blfVolume!=0 ? blfMass/blfVolume : 0;                
-                akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;                
+            blfPercent = sirieMass!=0 ? blfMass*100/sirieMass : 0;
+            akdgPercent = sirieMass!=0 ? akdgMass*100/sirieMass : 0;
+            sirieDensity = sirieVolume!=0 ? sirieMass/sirieVolume : 0;           
+            blfDensity = blfVolume!=0 ? blfMass/blfVolume : 0;                
+            akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;                
+            if (type==1){               
+                otgPercent = sirieMass!=0 ? otgMass*100/sirieMass : 0;                
                 otgDensity = otgVolume!=0 ? otgMass/otgVolume : 0;
                 e9Gravity = sirieMass!=0 ? e9Mass/(sirieMass/1000.0) : 0;
-            }else{
-                blfPercent = actCounters.getBLFPercent().doubleValue();
-                akdgPercent = actCounters.getAKDGPercent().doubleValue();
-                otgPercent = actCounters.getOTGPercent().doubleValue();
-                sirieDensity = actCounters.getProcessingDinsity().doubleValue();
-                blfDensity = actCounters.getBLFDensity().doubleValue();
-                akdgDensity = actCounters.getAKDGDensity().doubleValue();
+            }else{                
+                otgPercent = actCounters.getOTGPercent().doubleValue();                
                 otgDensity = actCounters.getOTGDensity().doubleValue();
                 e9Gravity = actCounters.getE9Gravity().doubleValue();
             }

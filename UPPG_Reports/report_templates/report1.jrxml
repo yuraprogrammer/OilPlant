@@ -314,6 +314,9 @@
 	<field name="loadDensity20" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="loadDensity20"/>
 	</field>
+	<field name="maxTempFurnace" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="maxTempFurnace"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -1709,9 +1712,9 @@
 				<text><![CDATA[08:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="43" y="562" width="211" height="12" uuid="ec56f528-2d7c-4712-9d07-2c19eea49254"/>
+				<reportElement x="43" y="562" width="116" height="12" uuid="ec56f528-2d7c-4712-9d07-2c19eea49254"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[t дымовых газов (max), °C:]]></text>
 			</staticText>
@@ -1722,7 +1725,7 @@
 				<reportElement x="1" y="585" width="554" height="1" uuid="329e6f97-cd12-4a35-8b73-7621de89491d"/>
 			</line>
 			<textField pattern="###0">
-				<reportElement x="41" y="574" width="212" height="11" uuid="5fe3846b-a997-4c01-8ab6-bf417c89a45a"/>
+				<reportElement x="41" y="574" width="118" height="11" uuid="5fe3846b-a997-4c01-8ab6-bf417c89a45a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -1868,6 +1871,23 @@
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{loadDensity20}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="162" y="562" width="90" height="12" uuid="65532fed-8d5b-47b8-ab47-3ae4d534d99a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[t из печи (max), °C:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="160" y="561" width="1" height="24" uuid="68fce6cf-bc40-4368-a4e2-e4c35f079086"/>
+			</line>
+			<textField pattern="###0">
+				<reportElement x="162" y="574" width="90" height="11" uuid="8fbde3b8-494e-4f6b-8f26-4601b35956a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maxTempFurnace}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

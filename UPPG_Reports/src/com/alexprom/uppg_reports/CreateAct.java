@@ -12,6 +12,7 @@ import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
+import com.alexprom.entities.process.VFurnaceOutTemp;
 import com.alexprom.entities.process.WasteGasesMax;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
@@ -221,6 +222,13 @@ public final class CreateAct implements ActionListener {
         }else{
             newAct.setMaxValue(BigDecimal.ZERO);
         }
+        query = em.createQuery("select v from VFurnaceOutTemp v where v.aDate = '"+dateFormat.format(repAct)+"' AND v.aShift = "+String.valueOf(shift));
+        List<VFurnaceOutTemp> lst = query.getResultList();
+        if (!lst.isEmpty()){
+            newAct.setMaxTempFurnace(lst.get(0).getMaxValue());
+        }else{
+            newAct.setMaxTempFurnace(BigDecimal.ZERO);
+        }        
         newActJpa.create(newAct);        
     }
     
@@ -440,6 +448,10 @@ public final class CreateAct implements ActionListener {
         newActOtgToUppg.setEndTemp(BigDecimal.ZERO);
         newActOtgToUppg.setEndDensity(BigDecimal.ZERO);
         newActOtgToUppg.setEndDensity20(BigDecimal.ZERO);
+        newActOtgToUppg.setLoadVolume(0);
+        newActOtgToUppg.setLoadDensity(BigDecimal.ZERO);
+        newActOtgToUppg.setLoadTemp(BigDecimal.ZERO);
+        newActOtgToUppg.setLoadDensity20(BigDecimal.ZERO);
         newOTGToUPPGJpa.create(newActOtgToUppg);
             
     }
