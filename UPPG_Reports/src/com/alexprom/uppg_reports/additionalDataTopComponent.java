@@ -65,9 +65,10 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private EntityManagerFactory emf = null;
     private EntityManager em = null;
     private List<ActCounters> actCnt;
-    private double blfMass, akdgMass, otgMass, sirieMass;
+    private List<OTGToTSP> otgToTSP;
+    private double blfMass, akdgMass, otgMass=0, sirieMass;
     private double blfDensity, akdgDensity, otgDensity, sirieDensity, e9Gravity, e9Mass;
-    private double blfVolume, akdgVolume, otgVolume, sirieVolume;
+    private double blfVolume, akdgVolume, otgVolume=0, sirieVolume;
     private double blfPercent, akdgPercent, otgPercent, blf_akdgPercent, blf_akdg_otgPercent;
     private ActUPPG newAct, oldAct;
     private final Long curActId=Long.valueOf(0);
@@ -475,7 +476,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             query.setParameter("actID", id);
             actCnt = query.getResultList();
             actCounters = actCnt.get(0);
-            em.refresh(actCounters);
+            em.refresh(actCounters);            
             sirieVolume = actCounters.getProcessingVolume().doubleValue();
             processing_Volume.setText(String.format("%.1f", sirieVolume));
             sirieMass = actCounters.getProcessingMass().doubleValue();
@@ -493,14 +494,21 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             sirieDensity = sirieVolume!=0 ? sirieMass/sirieVolume : 0;           
             blfDensity = blfVolume!=0 ? blfMass/blfVolume : 0;                
             akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;                
-            if (type==1){               
-                otgPercent = sirieMass!=0 ? otgMass*100/sirieMass : 0;                
-                otgDensity = otgVolume!=0 ? otgMass/otgVolume : 0;
-                e9Gravity = sirieMass!=0 ? e9Mass/(sirieMass/1000.0) : 0;
-            }else{                
+            if (type!=1){                
                 otgPercent = actCounters.getOTGPercent().doubleValue();                
                 otgDensity = actCounters.getOTGDensity().doubleValue();
                 e9Gravity = actCounters.getE9Gravity().doubleValue();
+                query = em.createNamedQuery("OTGToTSP.findByActID");
+                query.setParameter("actID", id);
+                otgToTSP = query.getResultList();
+                otgVolume=0;
+                otgMass=0;
+                for (int i=0; i<otgToTSP.size(); i++){
+                    otgToTsp = otgToTSP.get(i);
+                    otgVolume = otgVolume + otgToTsp.getOtgToTspVolume().doubleValue();
+                    otgMass = otgMass +otgToTsp.getOtgToTspMass().doubleValue();
+                }
+                
             }
             blf_akdgPercent = blfPercent+akdgPercent;
             blf_akdg_otgPercent = blfPercent+akdgPercent+otgPercent;
@@ -514,6 +522,8 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdg_Density.setText(String.format("%.4f", akdgDensity));
             otg_Density.setText(String.format("%.4f", otgDensity));
             e9_Gravity.setText(String.format("%.2f", e9Gravity));
+            otg_Mass.setText(String.format("%.1f", otgMass));
+            otg_Volume.setText(String.format("%.1f", otgVolume));
         }
     }
     
@@ -545,10 +555,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             e9Gravity = sirieMass!=0 ? e9Mass/(sirieMass/1000.0) : 0;
             otgVolume = otg.iterator().next().getInstance().getVolumeValue();
             otgPercent = sirieMass!=0 ? otgMass*100/sirieMass:0;
-            otg_Mass.setText(String.format("%.1f", otgMass));
-            otg_Volume.setText(String.format("%.1f", otgVolume));
-            otg_Percent.setText(String.format("%.1f", otgPercent));
-            e9_Gravity.setText(String.format("%.2f", e9Gravity));
+            
             if (newAct!=null){
                 fillCounters(newAct.getId(),1);
             }

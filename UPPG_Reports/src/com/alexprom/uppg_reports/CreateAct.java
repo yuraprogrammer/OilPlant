@@ -215,14 +215,14 @@ public final class CreateAct implements ActionListener {
         newAct.setId(newActId);
         newAct.setADate(dateFormat.format(repAct));
         newAct.setAShift(shift);
-        Query query = em.createQuery("select v from WasteGasesMax v where v.aDate = '"+dateFormat.format(repAct)+"' AND v.aShift = "+String.valueOf(shift));
+        Query query = em.createQuery("select v from WasteGasesMax v where v.aDate = '"+dateFormat.format(repAct)+"' AND v.aShift = "+String.valueOf(shift)+" order by v.maxValue DESC");
         List<WasteGasesMax> list = query.getResultList();
         if (!list.isEmpty()){
             newAct.setMaxValue(list.get(0).getMaxValue());
         }else{
             newAct.setMaxValue(BigDecimal.ZERO);
         }
-        query = em.createQuery("select v from VFurnaceOutTemp v where v.aDate = '"+dateFormat.format(repAct)+"' AND v.aShift = "+String.valueOf(shift));
+        query = em.createQuery("select v from VFurnaceOutTemp v where v.aDate = '"+dateFormat.format(repAct)+"' AND v.aShift = "+String.valueOf(shift)+" order by v.maxValue DESC");
         List<VFurnaceOutTemp> lst = query.getResultList();
         if (!lst.isEmpty()){
             newAct.setMaxTempFurnace(lst.get(0).getMaxValue());
