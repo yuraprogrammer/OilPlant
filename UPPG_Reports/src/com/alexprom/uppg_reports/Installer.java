@@ -27,7 +27,12 @@ public class Installer extends ModuleInstall {
             String userName = login.getuName();
             String userPassword = login.getuPassword();
             NbPreferences.forModule(Installer.class).put("userName", userName);
-            NbPreferences.forModule(Installer.class).put("userPassword", userPassword);            
+            NbPreferences.forModule(Installer.class).put("userPassword", userPassword);
+            if (userName.isEmpty() && userPassword.isEmpty()){
+                NotifyDescriptor s = new NotifyDescriptor.Message("Поля имени пользователя и пароля не могут быть пустыми", 0);
+                Object close = DialogDisplayer.getDefault().notify(s);
+                System.exit(0);
+            }
         }else{
             System.exit(0);
         }
