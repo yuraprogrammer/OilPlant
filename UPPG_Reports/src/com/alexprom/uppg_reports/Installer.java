@@ -5,6 +5,7 @@
  */
 package com.alexprom.uppg_reports;
 
+import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.process.ActUPPG;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
@@ -18,6 +19,8 @@ public class Installer extends ModuleInstall {
 
     @Override
     public void restored() {
+        NbPreferences.forModule(Installer.class).put("userName", "operator");
+        NbPreferences.forModule(Installer.class).put("userPassword", "operator");
         loginForm login = new loginForm();
         DialogDescriptor dd = new DialogDescriptor(login, "Введите имя пользователя и пароль", true,
                         DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, null);
@@ -26,8 +29,12 @@ public class Installer extends ModuleInstall {
         if (null != result && DialogDescriptor.OK_OPTION == result) {
             String userName = login.getuName();
             String userPassword = login.getuPassword();
-            NbPreferences.forModule(Installer.class).put("userName", userName);
-            NbPreferences.forModule(Installer.class).put("userPassword", userPassword);
+            if (!NbPreferences.forModule(Installer.class).get("userName", "").equals(userName) | !NbPreferences.forModule(Installer.class).get("userPassword", "").equals(userPassword)){
+                NotifyDescriptor s = new NotifyDescriptor.Message("Имея пользователя или пароль введены неверно", NotifyDescriptor.Message.ERROR_MESSAGE);
+                Object close = DialogDisplayer.getDefault().notify(s);
+                System.exit(0);
+            }
+            
             if (userName.isEmpty() && userPassword.isEmpty()){
                 NotifyDescriptor s = new NotifyDescriptor.Message("Поля имени пользователя и пароля не могут быть пустыми", 0);
                 Object close = DialogDisplayer.getDefault().notify(s);
