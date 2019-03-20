@@ -243,6 +243,7 @@ public final class CreateAct implements ActionListener {
         newActSirie.setComponent4("");
         newActSirie.setComponent5("");
         newActSirie.setComponent6("");
+        newActSirie.setPercent1(100.0);
         newActSirieJpa.create(newActSirie);
     }
     

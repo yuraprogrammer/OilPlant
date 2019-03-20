@@ -4,12 +4,12 @@ import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.process.ActSirieMixing;
 import com.alexprom.entities.dictionary.SirieDic;
 import com.alexprom.entities.dictionary.WorkersUppg;
+import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActSirie;
 import com.alexprom.entities.process.ActUPPG;
 import com.alexprom.entities.service.ActSirieJpaController;
 import com.alexprom.entities.service.ActSirieMixingJpaController;
 import com.alexprom.entities.service.ActUPPGJpaController;
-import com.alexprom.entities.settings.GlobalEntityManager;
 import com.sun.glass.events.KeyEvent;
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -21,7 +21,6 @@ import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -83,6 +82,8 @@ public final class commonDataTopComponent extends TopComponent {
     private ActUPPG newAct, oldAct;
     private ActSirieMixing actSirieMixing;
     List<ActSirieMixing> listSirieMixing;
+    private ActCounters actCounters;
+    private List<ActCounters> actCnt;
     private List<WorkersUppg> mainOpList;
     private List<WorkersUppg> opList;
     private int mainOper=100, oldMain=100;
@@ -562,6 +563,11 @@ public final class commonDataTopComponent extends TopComponent {
         Object res = DialogDisplayer.getDefault().notify(nd);
     }
     
+    public void showAmountErrorMessage(){
+        NotifyDescriptor nd = new NotifyDescriptor.Message("Общее количество компонентов больше 100%!!!", NotifyDescriptor.ERROR_MESSAGE);
+        Object res = DialogDisplayer.getDefault().notify(nd);
+    }
+    
     private int getPermissive(){
         int notPermit=1;
         String userName = NbPreferences.forModule(Installer.class).get("userName", "");
@@ -665,6 +671,9 @@ public final class commonDataTopComponent extends TopComponent {
             if (!sirieContent3.getText().isEmpty()){
                 try{
                     newContent_3=Float.parseFloat(sirieContent3.getText().replace(",", "."));
+                    newContent_1 = (float) (100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+                    sirieContent1.setText(String.format("%.1f", newContent_1));
+                    setSirieContent1(true);
                 }catch (java.lang.NumberFormatException ex){
                     showNumberErroMessage();                
                 }
@@ -678,6 +687,9 @@ public final class commonDataTopComponent extends TopComponent {
             if (!sirieContent4.getText().isEmpty()){
                 try{
                     newContent_4=Float.parseFloat(sirieContent4.getText().replace(",", "."));
+                    newContent_1 = (float) (100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+                    sirieContent1.setText(String.format("%.1f", newContent_1));
+                    setSirieContent1(true);
                 }catch (java.lang.NumberFormatException ex){
                     showNumberErroMessage();                
                 }
@@ -691,6 +703,9 @@ public final class commonDataTopComponent extends TopComponent {
             if (!sirieContent5.getText().isEmpty()){
                 try{
                     newContent_5=Float.parseFloat(sirieContent5.getText().replace(",", "."));
+                    newContent_1 = (float) (100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+                    sirieContent1.setText(String.format("%.1f", newContent_1));
+                    setSirieContent1(true);
                 }catch (java.lang.NumberFormatException ex){
                     showNumberErroMessage();                
                 }
@@ -725,6 +740,20 @@ public final class commonDataTopComponent extends TopComponent {
             }
             old_mixingMass = new_mixingMass;
             new_mixingMass = new_mixingVolume*new_mixingDensity;
+            oldContent_1 = newContent_1;
+            oldContent_2 = newContent_2;
+            Query query =em.createNamedQuery("ActCounters.findByActID");            
+            query.setParameter("actID", newAct.getId());
+            actCnt = query.getResultList();
+            actCounters = actCnt.get(0);
+            em.refresh(actCounters);            
+            double sirieMass = actCounters.getProcessingMass().doubleValue();
+            newContent_2 = (float)(new_mixingMass*100/sirieMass);
+            newContent_1 = (float)(100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+            sirieContent1.setText(String.format("%.1f", newContent_1));
+            sirieContent2.setText(String.format("%.1f", newContent_2));
+            setSirieContent1(true);
+            setSirieContent2(true);
             sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
         }else{
             new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());
@@ -739,6 +768,20 @@ public final class commonDataTopComponent extends TopComponent {
                     new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
                     old_mixingMass = new_mixingMass;
                     new_mixingMass = new_mixingVolume*new_mixingDensity;
+                    oldContent_1 = newContent_1;
+                    oldContent_2 = newContent_2;
+                    Query query =em.createNamedQuery("ActCounters.findByActID");            
+                    query.setParameter("actID", newAct.getId());
+                    actCnt = query.getResultList();
+                    actCounters = actCnt.get(0);
+                    em.refresh(actCounters);            
+                    double sirieMass = actCounters.getProcessingMass().doubleValue();
+                    newContent_2 = (float)(new_mixingMass*100/sirieMass);
+                    newContent_1 = (float)(100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+                    sirieContent1.setText(String.format("%.1f", newContent_1));
+                    sirieContent2.setText(String.format("%.1f", newContent_2));
+                    setSirieContent1(true);
+                    setSirieContent2(true);
                     sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
                 }catch (java.lang.NumberFormatException ex){
                     this.showNumberErroMessage();
@@ -983,8 +1026,8 @@ public final class commonDataTopComponent extends TopComponent {
             newContent_6 = (float) actSirie.getPercent6();
             sirieContent6.setText(String.format("%.1f", newContent_6));
             
-            sirieContent1.setEnabled(permit==0);
-            sirieContent2.setEnabled(permit==0);
+            sirieContent1.setEnabled(false);
+            sirieContent2.setEnabled(false);
             sirieContent3.setEnabled(permit==0);
             sirieContent4.setEnabled(permit==0);
             sirieContent5.setEnabled(permit==0);
