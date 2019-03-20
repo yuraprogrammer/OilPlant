@@ -64,10 +64,6 @@
                 </dependency>
             </module-dependencies>
             <public-packages>
-                <package>com.alexprom.entities.dictionary</package>
-                <package>com.alexprom.entities.process</package>
-                <package>com.alexprom.entities.service</package>
-                <package>com.alexprom.entities.service.exceptions</package>
                 <package>com.alexprom.entities.settings</package>
             </public-packages>
             <class-path-extension>
