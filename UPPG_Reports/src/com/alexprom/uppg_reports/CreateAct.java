@@ -567,6 +567,7 @@ public final class CreateAct implements ActionListener {
                             Object createResult = DialogDisplayer.getDefault().notify(create);
                             if (createResult==NotifyDescriptor.YES_OPTION){
                                 try{
+                                    em.getTransaction().begin();
                                     newActId = getNewActId();
                                     newActSirieId = getNewActSirieId();
                                     newActCountersId = getNewActCountersId();
@@ -584,6 +585,7 @@ public final class CreateAct implements ActionListener {
                                     createUppgDrainTank();
                                     createUppgFeedWater();
                                     createActSirieMixing();
+                                    em.getTransaction().commit();
                                     NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за выбранную смену создан успешно!!! Открыть для редактирвоания?");
                                     Object resultDone = DialogDisplayer.getDefault().notify(done);
                                     if (resultDone==NotifyDescriptor.YES_OPTION){                                    
@@ -612,6 +614,7 @@ public final class CreateAct implements ActionListener {
                                 }catch (Exception ex){
                                     NotifyDescriptor error = new NotifyDescriptor.Confirmation(ex.getLocalizedMessage());
                                     Object resultDone = DialogDisplayer.getDefault().notify(error);
+                                    em.getTransaction().rollback();
                                 }
                             }
                         }else{

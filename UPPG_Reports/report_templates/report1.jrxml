@@ -1603,7 +1603,7 @@
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
-				<text><![CDATA[б) Запрещается уход с рабочего места операторов, не заполнивших отчет                     	/____________________/      /А.В.Самойленко/]]></text>
+				<text><![CDATA[б) Запрещается уход с рабочего места операторов, не заполнивших отчет                     	/____________________/      /В.В.Самойленко/]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="767" width="185" height="12" uuid="7e59f8a3-4f82-4277-9bb0-4b02cc991a61"/>
