@@ -72,6 +72,11 @@ public final class commonDataTopComponent extends TopComponent {
     private float old_mixingDensity = 0, new_mixingDensity=0;
     private float old_mixingVolume = 0, new_mixingVolume=0;
     private float old_mixingMass = 0, new_mixingMass=0;
+    
+    private float old_processingMixDensity = 0, new_processingMixDensity=0;
+    private float old_processingMixVolume = 0, new_processingMixVolume=0;
+    private float old_processingMixMass = 0, new_processingMixMass=0;
+    
     private ActSirie actSirie;
     private List<ActSirie> act_Sirie;
     private SirieDic sirieDic;
@@ -196,6 +201,13 @@ public final class commonDataTopComponent extends TopComponent {
         sirieMixing_Density = new javax.swing.JFormattedTextField();
         label80 = new java.awt.Label();
         sirieMixing_Mass = new javax.swing.JFormattedTextField();
+        jPanel3 = new javax.swing.JPanel();
+        sirieMixing_Volume1 = new javax.swing.JFormattedTextField();
+        sirieMixing_Density1 = new javax.swing.JFormattedTextField();
+        sirieMixing_Mass1 = new javax.swing.JFormattedTextField();
+        label4 = new java.awt.Label();
+        label6 = new java.awt.Label();
+        label81 = new java.awt.Label();
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel13.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel13.setLayout(null);
@@ -555,7 +567,67 @@ public final class commonDataTopComponent extends TopComponent {
         sirieMixing_Mass.setBounds(210, 40, 110, 20);
 
         add(jPanel2);
-        jPanel2.setBounds(0, 470, 330, 80);
+        jPanel2.setBounds(0, 470, 330, 70);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.jPanel3.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel3.setLayout(null);
+
+        sirieMixing_Volume1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieMixing_Volume1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Volume1.text")); // NOI18N
+        sirieMixing_Volume1.setEnabled(false);
+        sirieMixing_Volume1.setFocusCycleRoot(true);
+        sirieMixing_Volume1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieMixing_Volume1FocusLost(evt);
+            }
+        });
+        sirieMixing_Volume1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieMixing_Volume1KeyPressed(evt);
+            }
+        });
+        jPanel3.add(sirieMixing_Volume1);
+        sirieMixing_Volume1.setBounds(10, 40, 90, 20);
+
+        sirieMixing_Density1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieMixing_Density1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Density1.text")); // NOI18N
+        sirieMixing_Density1.setEnabled(false);
+        sirieMixing_Density1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sirieMixing_Density1FocusLost(evt);
+            }
+        });
+        sirieMixing_Density1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sirieMixing_Density1KeyPressed(evt);
+            }
+        });
+        jPanel3.add(sirieMixing_Density1);
+        sirieMixing_Density1.setBounds(110, 40, 90, 20);
+
+        sirieMixing_Mass1.setEditable(false);
+        sirieMixing_Mass1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        sirieMixing_Mass1.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.sirieMixing_Mass1.text")); // NOI18N
+        jPanel3.add(sirieMixing_Mass1);
+        sirieMixing_Mass1.setBounds(210, 40, 110, 20);
+
+        label4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label4.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label4.text")); // NOI18N
+        jPanel3.add(label4);
+        label4.setBounds(10, 20, 40, 18);
+
+        label6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label6.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label6.text")); // NOI18N
+        jPanel3.add(label6);
+        label6.setBounds(110, 20, 50, 18);
+
+        label81.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label81.setText(org.openide.util.NbBundle.getMessage(commonDataTopComponent.class, "commonDataTopComponent.label81.text")); // NOI18N
+        jPanel3.add(label81);
+        label81.setBounds(210, 20, 40, 18);
+
+        add(jPanel3);
+        jPanel3.setBounds(0, 540, 330, 70);
     }// </editor-fold>//GEN-END:initComponents
     
     public void showNumberErroMessage(){
@@ -739,21 +811,7 @@ public final class commonDataTopComponent extends TopComponent {
                 new_mixingVolume = 0;
             }
             old_mixingMass = new_mixingMass;
-            new_mixingMass = new_mixingVolume*new_mixingDensity;
-            oldContent_1 = newContent_1;
-            oldContent_2 = newContent_2;
-            Query query =em.createNamedQuery("ActCounters.findByActID");            
-            query.setParameter("actID", newAct.getId());
-            actCnt = query.getResultList();
-            actCounters = actCnt.get(0);
-            em.refresh(actCounters);            
-            double sirieMass = actCounters.getProcessingMass().doubleValue();
-            newContent_2 = (float)(new_mixingMass*100/sirieMass);
-            newContent_1 = (float)(100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
-            sirieContent1.setText(String.format("%.1f", newContent_1));
-            sirieContent2.setText(String.format("%.1f", newContent_2));
-            setSirieContent1(true);
-            setSirieContent2(true);
+            new_mixingMass = new_mixingVolume*new_mixingDensity;            
             sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
         }else{
             new_mixingVolume = Float.parseFloat(sirieMixing_Volume.getText().replace(",", ".").trim());
@@ -766,33 +824,19 @@ public final class commonDataTopComponent extends TopComponent {
             if (!sirieMixing_Density.getText().isEmpty()){
                 try{
                     new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
-                    old_mixingMass = new_mixingMass;
-                    new_mixingMass = new_mixingVolume*new_mixingDensity;
-                    oldContent_1 = newContent_1;
-                    oldContent_2 = newContent_2;
-                    Query query =em.createNamedQuery("ActCounters.findByActID");            
-                    query.setParameter("actID", newAct.getId());
-                    actCnt = query.getResultList();
-                    actCounters = actCnt.get(0);
-                    em.refresh(actCounters);            
-                    double sirieMass = actCounters.getProcessingMass().doubleValue();
-                    newContent_2 = (float)(new_mixingMass*100/sirieMass);
-                    newContent_1 = (float)(100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
-                    sirieContent1.setText(String.format("%.1f", newContent_1));
-                    sirieContent2.setText(String.format("%.1f", newContent_2));
-                    setSirieContent1(true);
-                    setSirieContent2(true);
-                    sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
                 }catch (java.lang.NumberFormatException ex){
                     this.showNumberErroMessage();
                 }
             }else{
-                
+                new_mixingVolume = 0;
             }
+            old_mixingMass = new_mixingMass;
+            new_mixingMass = new_mixingVolume*new_mixingDensity;                    
+            sirieMixing_Mass.setText(String.format("%.1f", new_mixingMass));
         }else{
             new_mixingDensity = Float.parseFloat(sirieMixing_Density.getText().replace(",", ".").trim());
         } 
-    }
+    }    
     
     private void sirieContent1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieContent1FocusLost
         setSirieContent1(true);
@@ -982,6 +1026,96 @@ public final class commonDataTopComponent extends TopComponent {
         setComponent6(sirieType6.getText());
     }//GEN-LAST:event_sirieType6FocusLost
 
+    private void sirieMixing_Volume1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieMixing_Volume1FocusLost
+        setProcessingMixVolume(true);
+    }//GEN-LAST:event_sirieMixing_Volume1FocusLost
+
+    private void sirieMixing_Volume1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieMixing_Volume1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setProcessingMixVolume(true);
+            sirieMixing_Density1.transferFocus();
+        }
+    }//GEN-LAST:event_sirieMixing_Volume1KeyPressed
+
+    private void sirieMixing_Density1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sirieMixing_Density1FocusLost
+        setProcessingMixDensity(true);
+    }//GEN-LAST:event_sirieMixing_Density1FocusLost
+
+    private void sirieMixing_Density1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sirieMixing_Density1KeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            setProcessingMixDensity(true);
+            sirieMixing_Density1.transferFocus();
+        }
+    }//GEN-LAST:event_sirieMixing_Density1KeyPressed
+
+    private void setProcessingMixDensity(boolean edited){
+        old_processingMixDensity = new_processingMixDensity;
+        if (edited){
+            if (!sirieMixing_Density1.getText().isEmpty()){
+                try{
+                    new_processingMixDensity = Float.parseFloat(sirieMixing_Density1.getText().replace(",", ".").trim());                    
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_processingMixDensity = 0;
+            }
+            old_processingMixMass = new_processingMixMass;
+            new_processingMixMass = new_processingMixVolume*new_processingMixDensity;                    
+            oldContent_1 = newContent_1;
+            oldContent_2 = newContent_2;
+            Query query =em.createNamedQuery("ActCounters.findByActID");            
+            query.setParameter("actID", newAct.getId());
+            actCnt = query.getResultList();
+            actCounters = actCnt.get(0);
+            em.refresh(actCounters);            
+            double sirieMass = actCounters.getProcessingMass().doubleValue();
+            newContent_2 = (float)(new_processingMixMass*100/sirieMass);
+            newContent_1 = (float)(100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+            sirieContent1.setText(String.format("%.1f", newContent_1));
+            sirieContent2.setText(String.format("%.1f", newContent_2));
+            setSirieContent1(true);
+            setSirieContent2(true);
+            sirieMixing_Mass1.setText(String.format("%.1f", new_processingMixMass));
+        }else{
+            new_processingMixDensity = Float.parseFloat(sirieMixing_Density1.getText().replace(",", ".").trim());
+        }                         
+    }
+    
+    private void setProcessingMixVolume(boolean edited){
+        old_processingMixVolume = new_processingMixVolume;
+        if (edited){
+            if (!sirieMixing_Volume1.getText().isEmpty()){
+                try{
+                    new_processingMixVolume = Float.parseFloat(sirieMixing_Volume1.getText().replace(",", ".").trim());                    
+                }catch (java.lang.NumberFormatException ex){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_processingMixVolume = 0;
+            }
+            old_processingMixMass = new_processingMixMass;
+            new_processingMixMass = new_processingMixVolume*new_processingMixDensity;                    
+            oldContent_1 = newContent_1;
+            oldContent_2 = newContent_2;
+            Query query =em.createNamedQuery("ActCounters.findByActID");            
+            query.setParameter("actID", newAct.getId());
+            actCnt = query.getResultList();
+            actCounters = actCnt.get(0);
+            em.refresh(actCounters);            
+            double sirieMass = actCounters.getProcessingMass().doubleValue();
+            newContent_2 = (float)(new_processingMixMass*100/sirieMass);
+            newContent_1 = (float)(100.0 - newContent_2 - newContent_3 - newContent_4 - newContent_5);
+            sirieContent1.setText(String.format("%.1f", newContent_1));
+            sirieContent2.setText(String.format("%.1f", newContent_2));
+            setSirieContent1(true);
+            setSirieContent2(true);
+            sirieMixing_Mass1.setText(String.format("%.1f", new_processingMixMass));
+        }else{
+            new_processingMixVolume = Float.parseFloat(sirieMixing_Volume1.getText().replace(",", ".").trim());
+        }
+    }
+    
     public void fillSirie(Long id, int permit){        
         if (em!=null){            
             Query query = em.createNamedQuery("ActSirie.findByActID");
@@ -1060,6 +1194,9 @@ public final class commonDataTopComponent extends TopComponent {
             sirieMixing_Volume.setEnabled(permit==0);
             sirieMixing_Density.setEnabled(permit==0);
             sirieMixing_Mass.setEnabled(false);
+            sirieMixing_Volume1.setEnabled(permit==0);
+            sirieMixing_Density1.setEnabled(permit==0);
+            sirieMixing_Mass1.setEnabled(false);
             jComboBox2.setEnabled(permit==0);
             jComboBox3.setEnabled(permit==0);
         }
@@ -1104,6 +1241,7 @@ public final class commonDataTopComponent extends TopComponent {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private java.awt.Label label1;
     private java.awt.Label label13;
     private java.awt.Label label14;
@@ -1119,8 +1257,11 @@ public final class commonDataTopComponent extends TopComponent {
     private java.awt.Label label23;
     private java.awt.Label label24;
     private java.awt.Label label3;
+    private java.awt.Label label4;
     private java.awt.Label label5;
+    private java.awt.Label label6;
     private java.awt.Label label80;
+    private java.awt.Label label81;
     private javax.swing.JFormattedTextField sirieContent1;
     private javax.swing.JFormattedTextField sirieContent2;
     private javax.swing.JFormattedTextField sirieContent3;
@@ -1128,8 +1269,11 @@ public final class commonDataTopComponent extends TopComponent {
     private javax.swing.JFormattedTextField sirieContent5;
     private javax.swing.JFormattedTextField sirieContent6;
     private javax.swing.JFormattedTextField sirieMixing_Density;
+    private javax.swing.JFormattedTextField sirieMixing_Density1;
     private javax.swing.JFormattedTextField sirieMixing_Mass;
+    private javax.swing.JFormattedTextField sirieMixing_Mass1;
     private javax.swing.JFormattedTextField sirieMixing_Volume;
+    private javax.swing.JFormattedTextField sirieMixing_Volume1;
     private javax.swing.JTextField sirieType1;
     private javax.swing.JTextField sirieType2;
     private javax.swing.JTextField sirieType3;
