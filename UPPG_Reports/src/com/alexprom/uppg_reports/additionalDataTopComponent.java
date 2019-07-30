@@ -496,7 +496,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;                
             if (type!=1){                
                 otgPercent = actCounters.getOTGPercent().doubleValue();                
-                otgDensity = actCounters.getOTGDensity().doubleValue();
+                
                 e9Gravity = actCounters.getE9Gravity().doubleValue();
                 query = em.createNamedQuery("OTGToTSP.findByActID");
                 query.setParameter("actID", id);
@@ -508,7 +508,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
                     otgVolume = otgVolume + otgToTsp.getOtgToTspVolume().doubleValue();
                     otgMass = otgMass +otgToTsp.getOtgToTspMass().doubleValue();
                 }
-                
+                otgDensity = otgMass/otgVolume;
             }
             blf_akdgPercent = blfPercent+akdgPercent;
             blf_akdg_otgPercent = blfPercent+akdgPercent+otgPercent;
