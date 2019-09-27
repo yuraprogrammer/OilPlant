@@ -111,6 +111,8 @@ public final class PreviewAct implements ActionListener {
                                 tc.fillDrainData(act.getId(), 1);
                                 tc.fillFeedData(act.getId(), 1);
                                 tc.fillOtgData(act.getId(), 1);
+                                tc.save();
+                                atc.save();
                                 NotifyDescriptor ok = new NotifyDescriptor.Message("Финализация выполнена успешно!!!", NotifyDescriptor.INFORMATION_MESSAGE);
                                 Object okResult = DialogDisplayer.getDefault().notify(ok);
                             } catch (Exception ex) {
