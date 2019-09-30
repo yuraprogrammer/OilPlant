@@ -121,7 +121,15 @@ public final class PreviewAct implements ActionListener {
                                 Object errResult = DialogDisplayer.getDefault().notify(err);
                                 return;
                             }
-                        } 
+                        }
+                    }else{
+                        try {
+                            ctc.save(1);
+                            tc.save();
+                            atc.save(); 
+                        } catch (Exception ex) {
+                            Exceptions.printStackTrace(ex);
+                        }
                     }
                     UPPG_ShiftReport frm2;
                     frm2 = new UPPG_ShiftReport(tc.getEntityManager(), act.getId());
