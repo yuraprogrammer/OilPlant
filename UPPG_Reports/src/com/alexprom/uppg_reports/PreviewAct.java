@@ -75,13 +75,22 @@ public final class PreviewAct implements ActionListener {
                         Object errResult = DialogDisplayer.getDefault().notify(err);                    
                     }
                 }
-            }}
+            }}else{
+                
+            }
             ctc.fillSirie(act.getId(), 1);
             ctc.fillMixingSirie(act.getId(), 1);
             tc.fillCounters(act.getId(), 1);
             tc.fillDrainData(act.getId(), 1);
             tc.fillFeedData(act.getId(), 1);
-            tc.fillOtgData(act.getId(), 1);                    
+            tc.fillOtgData(act.getId(), 1); 
+            try {
+                    tc.save();
+                    ctc.save(1);
+                    atc.save();
+                } catch (Exception ex) {
+                    Exceptions.printStackTrace(ex);
+                }
             UPPG_ShiftReport frm = new UPPG_ShiftReport(tc.getEntityManager(), act.getId());            
         }else{
             NotifyDescriptor d = new NotifyDescriptor.Message("Для просмотра отчета, должен быть открыт акт!!! Открыть акт для печати?" , NotifyDescriptor.OK_CANCEL_OPTION);

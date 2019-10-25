@@ -29,6 +29,8 @@ import java.util.prefs.Preferences;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -155,8 +157,41 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                 }
             }
         });
-        
-    
+        DocumentListener vol_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgLoad_VolumeChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgLoad_VolumeChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgLoad_VolumeChange(true);
+            }
+            
+        };
+        otgLoad_Volume.getDocument().addDocumentListener(vol_listener);
+        DocumentListener den_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+               otgLoad_DensityChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgLoad_DensityChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgLoad_DensityChange(true);
+            }            
+        };
+        otgLoad_Density.getDocument().addDocumentListener(den_listener);
     }        
     
     public void updatePersistence(){                        
@@ -1328,6 +1363,11 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgLoad_Volume.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 otgLoad_VolumeFocusLost(evt);
+            }
+        });
+        otgLoad_Volume.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                otgLoad_VolumePropertyChange(evt);
             }
         });
         otgLoad_Volume.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3504,6 +3544,10 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private void otgLoad_TempFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otgLoad_TempFocusLost
         otgLoad_TempChange(true);
     }//GEN-LAST:event_otgLoad_TempFocusLost
+
+    private void otgLoad_VolumePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_otgLoad_VolumePropertyChange
+                
+    }//GEN-LAST:event_otgLoad_VolumePropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField akdgEnd_Density;
