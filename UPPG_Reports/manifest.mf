@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 AutoUpdate-Show-In-Client: true
 OpenIDE-Module: com.alexprom.uppg_reports
-OpenIDE-Module-Implementation-Version: 3
+OpenIDE-Module-Implementation-Version: 4
 OpenIDE-Module-Install: com/alexprom/uppg_reports/Installer.class
 OpenIDE-Module-Layer: com/alexprom/uppg_reports/layer.xml
 OpenIDE-Module-Localizing-Bundle: com/alexprom/uppg_reports/Bundle.properties
