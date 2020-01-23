@@ -35,9 +35,11 @@ public class UPPG_ShiftReport extends javax.swing.JPanel {
         this.params = new HashMap<>();
         try{
             JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
-            em.getTransaction().begin();
+            
+                em.getTransaction().begin();
+            
             Connection connection = em.unwrap(Connection.class);
-            //em.getTransaction().commit();
+            
             params.put("actID", id);            
             params.put("SUBREPORT_DIR", "report_templates"+File.separator);            
             try {
@@ -51,7 +53,7 @@ public class UPPG_ShiftReport extends javax.swing.JPanel {
                 NotifyDescriptor d = new NotifyDescriptor.Message(ex, NotifyDescriptor.ERROR_MESSAGE);
                 Object result = DialogDisplayer.getDefault().notify(d);
             }
-            
+            em.getTransaction().rollback();
             
         }catch (JRException ex){
             NotifyDescriptor d = new NotifyDescriptor.Message(ex, NotifyDescriptor.ERROR_MESSAGE);

@@ -192,6 +192,294 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             }            
         };
         otgLoad_Density.getDocument().addDocumentListener(den_listener);
+        
+        DocumentListener otgTspEnd_Level_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspEnd_LevelChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspEnd_LevelChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspEnd_LevelChange(true);
+            }
+        };
+        otgTspEnd_Level.getDocument().addDocumentListener(otgTspEnd_Level_listener);
+        
+        DocumentListener otgTspEnd_Density_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspEnd_DensityChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspEnd_DensityChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspEnd_DensityChange(true);
+            }
+        };
+        otgTspEnd_Density.getDocument().addDocumentListener(otgTspEnd_Density_listener);
+        
+        DocumentListener otgTspStart_Level_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspStart_LevelChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspStart_LevelChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspStart_LevelChange(true);
+            }
+        };
+        otgTspStart_Level.getDocument().addDocumentListener(otgTspStart_Level_listener);
+        
+        DocumentListener otgTspStart_Density_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspStart_DensityChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspStart_DensityChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspStart_DensityChange(true);
+            }
+        };
+        otgTspStart_Density.getDocument().addDocumentListener(otgTspStart_Density_listener);
+        
+        DocumentListener otgTspEnd_Level1_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspEnd_Level1Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspEnd_Level1Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspEnd_Level1Change(true);
+            }
+        };
+        otgTspEnd_Level1.getDocument().addDocumentListener(otgTspEnd_Level1_listener);
+        
+        DocumentListener otgTspEnd_Density1_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspEnd_Density1Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspEnd_Density1Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspEnd_Density1Change(true);
+            }
+        };
+        otgTspEnd_Density1.getDocument().addDocumentListener(otgTspEnd_Density1_listener);
+        
+        DocumentListener otgTspStart_Level1_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspStart_Level1Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspStart_Level1Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspStart_Level1Change(true);
+            }
+        };
+        otgTspStart_Level1.getDocument().addDocumentListener(otgTspStart_Level1_listener);
+        
+        DocumentListener otgTspStart_Density1_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspStart_Density1PropertyChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspStart_Density1PropertyChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspStart_Density1PropertyChange(true);
+            }
+        };
+        otgTspStart_Density1.getDocument().addDocumentListener(otgTspStart_Density1_listener);
+        
+        DocumentListener otgTspEnd_Level2_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspEnd_Level2PropertyChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspEnd_Level2PropertyChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspEnd_Level2PropertyChange(true);
+            }
+        };
+        otgTspEnd_Level2.getDocument().addDocumentListener(otgTspEnd_Level2_listener);
+        
+        DocumentListener otgTspEnd_Density2_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspEnd_Density2Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspEnd_Density2Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspEnd_Density2Change(true);
+            }
+        };
+        otgTspEnd_Density2.getDocument().addDocumentListener(otgTspEnd_Density2_listener);
+        
+        DocumentListener otgTspStart_Level2_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspStart_Level2Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspStart_Level2Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspStart_Level2Change(true);
+            }
+        };
+        otgTspStart_Level2.getDocument().addDocumentListener(otgTspStart_Level2_listener);
+        
+        DocumentListener otgTspStart_Density2_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgTspStart_Density2Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgTspStart_Density2Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgTspStart_Density2Change(true);
+            }
+        };
+        otgTspStart_Density2.getDocument().addDocumentListener(otgTspStart_Density2_listener);
+        
+        DocumentListener otgUppgEnd_Level_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgUppgEnd_LevelChange(true);                
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgUppgEnd_LevelChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgUppgEnd_LevelChange(true);
+            }
+        };
+        otgUppgEnd_Level.getDocument().addDocumentListener(otgUppgEnd_Level_listener);
+        
+        DocumentListener otgUppgEnd_Density_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgUppgEnd_DensityChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgUppgEnd_DensityChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgUppgEnd_DensityChange(true);
+            }
+        };
+        otgUppgEnd_Density.getDocument().addDocumentListener(otgUppgEnd_Density_listener);
+        
+        DocumentListener otgUppgStart_Level_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgUppgStart_LevelChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgUppgStart_LevelChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgUppgStart_LevelChange(true);
+            }
+        };
+        otgUppgStart_Level.getDocument().addDocumentListener(otgUppgStart_Level_listener);
+        
+        DocumentListener otgUppgStart_Density_listener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                otgUppgStart_DensityChange(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                otgUppgStart_DensityChange(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                otgUppgStart_DensityChange(true);
+            }
+        };
+        otgUppgStart_Density.getDocument().addDocumentListener(otgUppgStart_Density_listener);
     }        
     
     public void updatePersistence(){                        
@@ -2084,13 +2372,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     
     private void lookupOtgData(){
         content.remove(otgResult);
-            otgResult.setTspVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
-            otgResult.setTspMassValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)*new_OtgTspDensityEnd+
+        otgResult.setVolumeValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)+(new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)+(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2));
+        otgResult.setMassValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)*new_OtgTspDensityEnd+
                                         (new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)*new_OtgTspDensityEnd1+
                                         (new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2)*new_OtgTspDensityEnd2);
-            otgResult.setMassValue(otgResult.getTspMassValue());
-            otgResult.setVolumeValue(otgResult.getTspVolumeValue());                    
-            content.set(Collections.singleton(otgResult), null);
+        otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
+        otgResult.setUppgVolumeValue(new_OtgUppgVolumeStart-new_OtgUppgVolumeEnd);
+        content.set(Collections.singleton(otgResult), null);
     }
     
     private void otgTsp_TankChange(boolean edited){
