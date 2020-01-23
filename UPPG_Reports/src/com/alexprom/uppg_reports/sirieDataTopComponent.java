@@ -2580,7 +2580,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             }
             otgTspEnd_Volume.setText(String.format("%.2f", new_OtgTspVolumeEnd));
             old_OtgTspMassEnd = new_OtgTspMassEnd;
-            new_OtgTspMassEnd = (new_OtgTspVolumeEnd-new_OtgTspVolumeStart)*new_OtgTspDensityEnd;
+            new_OtgTspMassEnd = new_OtgTspVolumeEnd*new_OtgTspDensityEnd;
             otgTspEnd_Mass.setText(String.format("%.2f", new_OtgTspMassEnd));
             otgTspDataChanged = true;
             lookupOtgData();                                     
