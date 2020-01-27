@@ -2376,8 +2376,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         otgResult.setMassValue((new_OtgTspVolumeEnd-new_OtgTspVolumeStart)*new_OtgTspDensityEnd+
                                         (new_OtgTspVolumeEnd1-new_OtgTspVolumeStart1)*new_OtgTspDensityEnd1+
                                         (new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2)*new_OtgTspDensityEnd2);
-        otgResult.setUppgMassValue(new_OtgUppgMassStart-new_OtgUppgMassEnd);
-        otgResult.setUppgVolumeValue(new_OtgUppgVolumeStart-new_OtgUppgVolumeEnd);
+        otgResult.setUppgMassValue(new_OtgUppgMassStart+new_LoadMass-new_OtgUppgMassEnd);
+        otgResult.setUppgVolumeValue(new_OtgUppgVolumeStart+new_LoadVolume-new_OtgUppgVolumeEnd);
         content.set(Collections.singleton(otgResult), null);
     }
     
