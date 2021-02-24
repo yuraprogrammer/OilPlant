@@ -1,3 +1,0 @@
-||:com.alexprom.helpdesk.docs.package-info
-java.lang.Object
-com.alexprom.helpdesk.docs.package-info

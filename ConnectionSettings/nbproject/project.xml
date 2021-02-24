@@ -4,10 +4,10 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
             <code-name-base>com.alexprom.connection.settings</code-name-base>
-            <suite-component/>
+            <standalone/>
             <module-dependencies>
                 <dependency>
-                    <code-name-base>com.alexprom.eclipselink</code-name-base>
+                    <code-name-base>com.alexprom.tsp_account.eclipselink</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
@@ -15,7 +15,7 @@
                     </run-dependency>
                 </dependency>
                 <dependency>
-                    <code-name-base>com.alexprom.sqljdbcdriver</code-name-base>
+                    <code-name-base>com.alexprom.tsp_account.sqldriver</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>

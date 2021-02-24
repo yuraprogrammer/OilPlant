@@ -4,7 +4,27 @@ public class OtgAccount {
     private double massValue;
     private double volumeValue;
     private Long id;
+    
+    private double newProdMassValue;
+    private double newProdVolumeValue;
 
+    public double getNewProdMassValue() {
+        return newProdMassValue;
+    }
+
+    public void setNewProdMassValue(double newProdMassValue) {
+        this.newProdMassValue = newProdMassValue;
+    }
+
+    public double getNewProdVolumeValue() {
+        return newProdVolumeValue;
+    }
+
+    public void setNewProdVolumeValue(double newProdVolumeValue) {
+        this.newProdVolumeValue = newProdVolumeValue;
+    }
+
+    
     public Long getId() {
         return id;
     }

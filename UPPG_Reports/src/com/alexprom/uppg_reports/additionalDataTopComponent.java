@@ -66,10 +66,11 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private EntityManager em = null;
     private List<ActCounters> actCnt;
     private List<OTGToTSP> otgToTSP;
-    private double blfMass, akdgMass, otgMass=0, sirieMass;
-    private double blfDensity, akdgDensity, otgDensity, sirieDensity, e9Gravity, e9Mass;
-    private double blfVolume, akdgVolume, otgVolume=0, sirieVolume;
-    private double blfPercent, akdgPercent, otgPercent, blf_akdgPercent, blf_akdg_otgPercent;
+    private double blfMass, akdgMass, otgMass=0, sirieMass, newProdMass;
+    private double blfDensity, akdgDensity, otgDensity, sirieDensity, e9Gravity, e9Mass, newProdDensity;
+    private double blfVolume, akdgVolume, otgVolume=0, sirieVolume, newProdVolume;
+    private double blfPercent, akdgPercent, otgPercent, blf_akdgPercent, blf_akdg_otgPercent, newProdPercent;
+    
     private ActUPPG newAct, oldAct;
     private final Long curActId=Long.valueOf(0);
     
@@ -151,6 +152,15 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         label57 = new java.awt.Label();
         label58 = new java.awt.Label();
         e9_Gravity = new javax.swing.JFormattedTextField();
+        jPanel14 = new javax.swing.JPanel();
+        otg_Volume1 = new javax.swing.JFormattedTextField();
+        otg_Mass1 = new javax.swing.JFormattedTextField();
+        otg_Percent1 = new javax.swing.JFormattedTextField();
+        label59 = new java.awt.Label();
+        label102 = new java.awt.Label();
+        label103 = new java.awt.Label();
+        label81 = new java.awt.Label();
+        otg_Density1 = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -373,6 +383,54 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel13.add(e9_Gravity);
         e9_Gravity.setBounds(250, 40, 120, 20);
 
+        jPanel14.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel14.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel14.setLayout(null);
+
+        otg_Volume1.setEditable(false);
+        otg_Volume1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otg_Volume1.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.otg_Volume1.text")); // NOI18N
+        jPanel14.add(otg_Volume1);
+        otg_Volume1.setBounds(14, 40, 80, 20);
+
+        otg_Mass1.setEditable(false);
+        otg_Mass1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otg_Mass1.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.otg_Mass1.text")); // NOI18N
+        jPanel14.add(otg_Mass1);
+        otg_Mass1.setBounds(110, 40, 90, 20);
+
+        otg_Percent1.setEditable(false);
+        otg_Percent1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otg_Percent1.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.otg_Percent1.text")); // NOI18N
+        jPanel14.add(otg_Percent1);
+        otg_Percent1.setBounds(310, 40, 60, 20);
+
+        label59.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label59.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label59.text")); // NOI18N
+        jPanel14.add(label59);
+        label59.setBounds(310, 20, 30, 18);
+
+        label102.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label102.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label102.text")); // NOI18N
+        jPanel14.add(label102);
+        label102.setBounds(20, 20, 40, 18);
+
+        label103.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label103.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label103.text")); // NOI18N
+        jPanel14.add(label103);
+        label103.setBounds(110, 20, 40, 18);
+
+        label81.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label81.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label81.text")); // NOI18N
+        jPanel14.add(label81);
+        label81.setBounds(210, 20, 50, 18);
+
+        otg_Density1.setEditable(false);
+        otg_Density1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otg_Density1.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.otg_Density1.text")); // NOI18N
+        jPanel14.add(otg_Density1);
+        otg_Density1.setBounds(210, 40, 90, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -382,6 +440,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,7 +452,9 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -414,19 +475,24 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label100;
     private java.awt.Label label101;
+    private java.awt.Label label102;
+    private java.awt.Label label103;
     private java.awt.Label label53;
     private java.awt.Label label54;
     private java.awt.Label label55;
     private java.awt.Label label56;
     private java.awt.Label label57;
     private java.awt.Label label58;
+    private java.awt.Label label59;
     private java.awt.Label label77;
     private java.awt.Label label78;
     private java.awt.Label label79;
     private java.awt.Label label80;
+    private java.awt.Label label81;
     private java.awt.Label label94;
     private java.awt.Label label95;
     private java.awt.Label label96;
@@ -434,9 +500,13 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
     private java.awt.Label label98;
     private java.awt.Label label99;
     private javax.swing.JFormattedTextField otg_Density;
+    private javax.swing.JFormattedTextField otg_Density1;
     private javax.swing.JFormattedTextField otg_Mass;
+    private javax.swing.JFormattedTextField otg_Mass1;
     private javax.swing.JFormattedTextField otg_Percent;
+    private javax.swing.JFormattedTextField otg_Percent1;
     private javax.swing.JFormattedTextField otg_Volume;
+    private javax.swing.JFormattedTextField otg_Volume1;
     private javax.swing.JFormattedTextField processing_Density;
     private javax.swing.JFormattedTextField processing_Mass;
     private javax.swing.JFormattedTextField processing_Volume;
@@ -491,9 +561,10 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdg_Mass.setText(String.format("%.1f", akdgMass));
             blfPercent = sirieMass!=0 ? blfMass*100/sirieMass : 0;
             akdgPercent = sirieMass!=0 ? akdgMass*100/sirieMass : 0;
+            newProdPercent = sirieMass!=0 ? newProdMass*100/sirieMass : 0;
             sirieDensity = sirieVolume!=0 ? sirieMass/sirieVolume : 0;           
             blfDensity = blfVolume!=0 ? blfMass/blfVolume : 0;                
-            akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;                
+            akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;
             if (type!=1){                
                 otgPercent = actCounters.getOTGPercent().doubleValue();                
                 
@@ -524,6 +595,11 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             e9_Gravity.setText(String.format("%.2f", e9Gravity));
             otg_Mass.setText(String.format("%.1f", otgMass));
             otg_Volume.setText(String.format("%.1f", otgVolume));
+            otg_Volume1.setText(String.format("%.1f", newProdVolume));
+            otg_Mass1.setText(String.format("%.1f", newProdMass));
+            newProdDensity = newProdVolume!=0 ? newProdMass/newProdVolume : 0;
+            otg_Density1.setText(String.format("%.4f", newProdDensity));
+            otg_Percent1.setText(String.format("%.1f", newProdPercent));
         }
     }
     
