@@ -11,6 +11,8 @@ import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
+import com.alexprom.entities.service.ActCountersJpaController;
+import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.OTGToTSPJpaController;
 import com.alexprom.entities.service.OTGToUPPGJpaController;
 import com.alexprom.entities.service.UPPGDrainTankJpaController;
@@ -69,7 +71,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private ActCounters actCounters;
     private ActDensity20 actDensity20;
     private UPPGFeedWater feedWater;
-    private UPPGDrainTank drainTank;
+    private UPPGDrainTank drainTank;    
     private final int complete=0;
     private final InstanceContent content;    
     private final Lookup lookup;    
@@ -480,6 +482,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             }
         };
         otgUppgStart_Density.getDocument().addDocumentListener(otgUppgStart_Density_listener);
+        
     }        
     
     public void updatePersistence(){                        
@@ -4373,7 +4376,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             otgToTsp1.setEndDensity(BigDecimal.valueOf(new_OtgTspDensityEnd1));
             otgToTsp1.setEndDensity20(BigDecimal.valueOf(new_OtgTspDensity20End1));
             otgToTsp1.setTankOrder(2);
-            otgTspJpa.edit(otgToTsp1);
+            otgTspJpa.edit(otgToTsp1);            
             otgToTsp2.setTankID(new_OtgTspTank2);
             otgToTsp2.setStartLevel((long) new_OtgTspLevelStart2);
             otgToTsp2.setStartVolume((long) new_OtgTspVolumeStart2);
@@ -4388,7 +4391,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             otgToTsp2.setEndDensity(BigDecimal.valueOf(new_OtgTspDensityEnd2));
             otgToTsp2.setEndDensity20(BigDecimal.valueOf(new_OtgTspDensity20End2));
             otgToTsp2.setTankOrder(3);
-            otgTspJpa.edit(otgToTsp2);
+            otgTspJpa.edit(otgToTsp2);            
         }
         if (feedWater!=null){
             UPPGFeedWaterJpaController feedJpa = new UPPGFeedWaterJpaController(emf);
@@ -4404,6 +4407,26 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             drainTank.setDrained(BigDecimal.valueOf(new_drainedWater));
             drainTank.setDrainedBLF(BigDecimal.valueOf(new_drainedBLF));
             drainJpa.edit(drainTank);
+        }
+        
+        if (actCounters!=null){
+            ActCountersJpaController countersJpa = new ActCountersJpaController(emf);            
+            actCounters.setVolumeStartR(BigDecimal.valueOf(new_OtgTspVolumeStart2));
+            actCounters.setMassStartR(BigDecimal.valueOf(new_OtgTspMassStart2));
+            actCounters.setTempStartR(BigDecimal.valueOf(new_OtgTspTempStart2));
+            actCounters.setDensityStartR(BigDecimal.valueOf(new_OtgTspDensityStart2));                       
+            actCounters.setVolumeEndR(BigDecimal.valueOf(new_OtgTspVolumeEnd2));
+            actCounters.setMassEndR(BigDecimal.valueOf(new_OtgTspMassEnd2));
+            actCounters.setTempEndR(BigDecimal.valueOf(new_OtgTspTempEnd2));
+            actCounters.setDensityEndR(BigDecimal.valueOf(new_OtgTspDensityEnd2));
+            countersJpa.edit(actCounters);
+        }
+        
+        if (actDensity20!=null){
+            ActDensity20JpaController density20Jpa = new ActDensity20JpaController(emf);
+            actDensity20.setRvoDensity20Start(BigDecimal.valueOf(new_OtgTspDensity20Start2));
+            actDensity20.setRvoDensity20End(BigDecimal.valueOf(new_OtgTspDensity20End2));
+            density20Jpa.edit(actDensity20);
         }
     }            
     

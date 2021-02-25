@@ -3,9 +3,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="301"/>
+	<property name="ireport.y" value="288"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter "/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
 	<style name="Title" isDefault="true" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -15,7 +15,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT * FROM  v_actUPPG  WHERE  ID = $P{actID}]]>
+		<![CDATA[SELECT * FROM  v_actUPPG WHERE  ID = $P{actID}]]>
 	</queryString>
 	<field name="ID" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="ID"/>
@@ -173,6 +173,93 @@
 	<field name="drained" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="drained"/>
 	</field>
+	<field name="otg_uppg_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_Volume"/>
+	</field>
+	<field name="otg_uppg_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_Mass"/>
+	</field>
+	<field name="otg_tsp_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="otg_tsp_Volume"/>
+	</field>
+	<field name="otg_tsp_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="otg_tsp_Mass"/>
+	</field>
+	<field name="feed_startData" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="feed_startData"/>
+	</field>
+	<field name="feed_finishData" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="feed_finishData"/>
+	</field>
+	<field name="feed_total" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="feed_total"/>
+	</field>
+	<field name="Percent_1" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Percent_1"/>
+	</field>
+	<field name="Percent_2" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Percent_2"/>
+	</field>
+	<field name="Percent_3" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Percent_3"/>
+	</field>
+	<field name="Percent_4" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Percent_4"/>
+	</field>
+	<field name="Percent_5" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Percent_5"/>
+	</field>
+	<field name="drained_BLF" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="drained_BLF"/>
+	</field>
+	<field name="Percent_6" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Percent_6"/>
+	</field>
+	<field name="Tank_Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Tank_Name"/>
+	</field>
+	<field name="sirieVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="sirieVolume"/>
+	</field>
+	<field name="sirieDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="sirieDensity"/>
+	</field>
+	<field name="sirieMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="sirieMass"/>
+	</field>
+	<field name="maxValue" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="maxValue"/>
+	</field>
+	<field name="Component_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_1"/>
+	</field>
+	<field name="Component_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_2"/>
+	</field>
+	<field name="Component_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_3"/>
+	</field>
+	<field name="Component_4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_4"/>
+	</field>
+	<field name="Component_5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_5"/>
+	</field>
+	<field name="Component_6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Component_6"/>
+	</field>
+	<field name="Processing_Dinsity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Processing_Dinsity"/>
+	</field>
+	<field name="BLF_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="BLF_Density"/>
+	</field>
+	<field name="AKDG_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="AKDG_Density"/>
+	</field>
+	<field name="OTG_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="OTG_Density"/>
+	</field>
 	<field name="otg_uppg_startLevel" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startLevel"/>
 	</field>
@@ -203,92 +290,38 @@
 	<field name="otg_uppg_endDensity20" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endDensity20"/>
 	</field>
-	<field name="otg_uppg_Volume" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_Volume"/>
-	</field>
-	<field name="otg_uppg_Mass" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_Mass"/>
-	</field>
 	<field name="otg_uppg_startTemp" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startTemp"/>
 	</field>
 	<field name="otg_uppg_endTemp" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endTemp"/>
 	</field>
-	<field name="otg_tsp_Volume" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="otg_tsp_Volume"/>
+	<field name="E9_Gravity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="E9_Gravity"/>
 	</field>
-	<field name="otg_tsp_Mass" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="otg_tsp_Mass"/>
+	<field name="loadVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="loadVolume"/>
 	</field>
-	<field name="feed_startData" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="feed_startData"/>
+	<field name="loadDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="loadDensity"/>
 	</field>
-	<field name="feed_finishData" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="feed_finishData"/>
+	<field name="loadMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="loadMass"/>
 	</field>
-	<field name="feed_total" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="feed_total"/>
+	<field name="loadTemp" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="loadTemp"/>
 	</field>
-	<field name="Component_1" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_1"/>
+	<field name="loadDensity20" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="loadDensity20"/>
 	</field>
-	<field name="Percent_1" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.label" value="Percent_1"/>
-	</field>
-	<field name="Component_2" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_2"/>
-	</field>
-	<field name="Percent_2" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.label" value="Percent_2"/>
-	</field>
-	<field name="Component_3" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_3"/>
-	</field>
-	<field name="Percent_3" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.label" value="Percent_3"/>
-	</field>
-	<field name="Component_4" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_4"/>
-	</field>
-	<field name="Percent_4" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.label" value="Percent_4"/>
-	</field>
-	<field name="Component_5" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_5"/>
-	</field>
-	<field name="Percent_5" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.label" value="Percent_5"/>
-	</field>
-	<field name="wasteGases" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="wasteGases"/>
-	</field>
-	<field name="drained_BLF" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="drained_BLF"/>
-	</field>
-	<field name="Percent_6" class="java.lang.Double">
-		<property name="com.jaspersoft.studio.field.label" value="Percent_6"/>
-	</field>
-	<field name="Component_6" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Component_6"/>
-	</field>
-	<field name="Tank_Name" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="Tank_Name"/>
-	</field>
-	<field name="sirieVolume" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="sirieVolume"/>
-	</field>
-	<field name="sirieDensity" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="sirieDensity"/>
-	</field>
-	<field name="sirieMass" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="sirieMass"/>
+	<field name="maxTempFurnace" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="maxTempFurnace"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="800" splitType="Stretch">
+		<band height="799" splitType="Stretch">
 			<staticText>
 				<reportElement style="Title" x="10" y="0" width="249" height="18" uuid="12598068-e5ca-41e1-b01d-cc32ba2c859b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -451,58 +484,10 @@
 				<reportElement x="328" y="80" width="1" height="30" uuid="eddf1301-111e-44ab-a2d1-6a2c7c547d94"/>
 			</line>
 			<line>
-				<reportElement x="0" y="49" width="1" height="522" uuid="75d65c93-d8ad-49cc-83e4-f5708b20c91f"/>
+				<reportElement x="0" y="49" width="1" height="536" uuid="75d65c93-d8ad-49cc-83e4-f5708b20c91f"/>
 			</line>
-			<staticText>
-				<reportElement x="42" y="164" width="35" height="12" uuid="768437b4-a90d-44de-91a3-ad77d41ca714"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Время:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="161" y="164" width="45" height="12" uuid="7bda8776-14dc-4f9b-8b6f-bee62c2ef656"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Объем, л:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="205" y="164" width="46" height="12" uuid="be54ef9d-cdf1-4e50-aea2-4cf6a9a44c4b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ρ, кг/л:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="251" y="164" width="28" height="12" uuid="31db062b-610f-4eaf-a349-b5181ea95a24"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[t+, °С,:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="280" y="164" width="45" height="12" uuid="4a1affd6-a31c-43cd-8ec5-bd0fa828567e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Масса, кг:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="326" y="164" width="45" height="12" uuid="a85c3dfb-78b7-4178-b121-1cb960dbfadf"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ρ+20, кг/л:]]></text>
-			</staticText>
 			<line>
 				<reportElement x="41" y="176" width="513" height="1" uuid="346c7675-c889-40d1-bf23-d3731a1d6497"/>
-			</line>
-			<line>
-				<reportElement x="42" y="188" width="329" height="1" uuid="8264b5ec-256b-45ce-bde0-212ee598c033"/>
-			</line>
-			<line>
-				<reportElement x="76" y="164" width="1" height="50" uuid="595932d0-5a54-4dee-88f2-1c1a9b1897f4"/>
 			</line>
 			<line>
 				<reportElement x="206" y="164" width="1" height="49" uuid="78cbd68f-5565-49b5-bd7d-c3d15522a57f"/>
@@ -520,80 +505,14 @@
 				<reportElement x="371" y="164" width="1" height="50" uuid="a0f859ae-ebf7-4d5b-830e-c127dbecdf49"/>
 			</line>
 			<line>
-				<reportElement x="42" y="199" width="329" height="1" uuid="b5c7c3de-46a6-4702-b7db-0f4ec96b3761"/>
-			</line>
-			<textField pattern="###0">
-				<reportElement x="161" y="177" width="45" height="12" uuid="2be06dee-5ea4-43f0-ae69-555267680da4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeStart_S}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="161" y="188" width="45" height="12" uuid="75e66ab4-b2e9-48c1-9889-63fea4488f4f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeEnd_S}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="162" y="200" width="44" height="12" backcolor="#FFFFCC" uuid="9ad88618-968c-4a3c-a325-881465a82bb0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Volume}]]></textFieldExpression>
-			</textField>
-			<line>
 				<reportElement mode="Transparent" x="0" y="213" width="555" height="1" uuid="dea4c9bc-3843-4985-b4e6-8755a922ccf1"/>
 			</line>
-			<textField>
-				<reportElement x="205" y="177" width="46" height="12" uuid="f96a1b17-4b37-41f7-9ad9-031582f64b63"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityStart_S}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="205" y="188" width="46" height="12" uuid="034e0ebb-b69b-422d-8856-0c773ccf6ed0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityEnd_S}]]></textFieldExpression>
-			</textField>
 			<textField pattern="###0">
-				<reportElement x="251" y="177" width="28" height="12" uuid="a71347a0-784e-4e76-8a67-332882058f68"/>
+				<reportElement mode="Opaque" x="251" y="177" width="28" height="36" backcolor="#FFFFCC" uuid="a71347a0-784e-4e76-8a67-332882058f68"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TempStart_S}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="251" y="188" width="28" height="12" uuid="d08a6210-6b89-45ad-990f-b1ff880ee014"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TempEnd_S}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="280" y="188" width="45" height="12" uuid="1ff1ed82-c2d7-49c2-9340-921ce7a8f3de"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MassEnd_S}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="280" y="200" width="45" height="12" backcolor="#FFFFCC" uuid="131afca9-200c-49c3-b4b9-d3a691d62d8c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="280" y="177" width="45" height="12" uuid="f4854f1b-c35e-4ffb-956e-c0d53e083dab"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MassStart_S}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{TempStart_S}+$F{TempEnd_S})/2]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Title" x="10" y="17" width="24" height="18" uuid="d2d8b52b-3ce7-44c9-ae26-d0dfdda9287f"/>
@@ -610,18 +529,11 @@
 				<text><![CDATA[смену]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="326" y="188" width="45" height="12" uuid="c2a1c854-b42c-4c8c-97b9-c2b5dcda856d"/>
+				<reportElement mode="Opaque" x="326" y="177" width="45" height="36" backcolor="#FFFFCC" uuid="aa82dfd7-7f6b-42bb-881f-0e13c92a9152"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{sirieDensity20_End}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="177" width="45" height="12" uuid="aa82dfd7-7f6b-42bb-881f-0e13c92a9152"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{sirieDensity20_Start}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{sirieDensity20_Start}+$F{sirieDensity20_End})/2]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="2" y="214" width="552" height="13" uuid="87396b29-a81d-4ec1-96de-827f870a7577"/>
@@ -634,49 +546,18 @@
 				<reportElement x="0" y="227" width="555" height="1" uuid="6939d4c2-7238-4a8b-a811-20091f742b42"/>
 			</line>
 			<line>
-				<reportElement x="208" y="228" width="1" height="116" uuid="563a46f0-d0a3-4b47-b277-b101e405a1f9"/>
+				<reportElement x="208" y="228" width="1" height="155" uuid="563a46f0-d0a3-4b47-b277-b101e405a1f9"/>
 			</line>
 			<line>
-				<reportElement x="42" y="264" width="513" height="1" uuid="4f215926-9d61-4cea-a6f3-53a72ee5979a"/>
+				<reportElement x="253" y="228" width="1" height="155" uuid="2b6925aa-3a2a-4fba-906c-ed0730f9ba6c"/>
 			</line>
 			<textField pattern="###0">
-				<reportElement mode="Opaque" x="282" y="265" width="45" height="12" backcolor="#FFFFCC" uuid="39b3c67a-5767-46a4-a251-144d1d649f85"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="253" y="228" width="1" height="116" uuid="2b6925aa-3a2a-4fba-906c-ed0730f9ba6c"/>
-			</line>
-			<textField pattern="###0">
-				<reportElement x="163" y="253" width="45" height="12" uuid="f318f742-26cd-45dc-99c0-48669059f3a6"/>
+				<reportElement mode="Opaque" x="254" y="240" width="28" height="38" backcolor="#FFFFCC" uuid="b57b3653-0e18-49d2-b57a-07b3bfb812ff"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeEnd_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{TempStart_B}+$F{TempEnd_B})/2]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="328" y="253" width="45" height="12" uuid="78b1f76e-82b2-4d4f-b626-f3b0f9564a17"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{blfDensity20_End}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="254" y="240" width="28" height="12" uuid="b57b3653-0e18-49d2-b57a-07b3bfb812ff"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TempStart_B}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="42" y="227" width="35" height="12" uuid="ae863791-afe3-4713-8763-00734fd9179c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Время:]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="254" y="227" width="28" height="12" uuid="369781b7-cadc-48c0-8ce9-09c4c7a381a8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -685,36 +566,8 @@
 				<text><![CDATA[ t+, °C:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="76" y="228" width="1" height="283" uuid="a980556e-a4b4-41d0-a76a-4d104d71624a"/>
+				<reportElement x="76" y="369" width="1" height="129" uuid="a980556e-a4b4-41d0-a76a-4d104d71624a"/>
 			</line>
-			<textField pattern="###0">
-				<reportElement x="163" y="240" width="45" height="12" uuid="00a2ce51-3d5e-46f3-93b5-c68ef9e5fc3f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeStart_B}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="209" y="240" width="45" height="12" uuid="dc9211dd-f72a-4c69-95ab-970842315cc2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityStart_B}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="282" y="240" width="45" height="12" uuid="9d78d3fe-ae8c-4861-a2b8-7e3ae472cde8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MassStart_B}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="254" y="253" width="28" height="12" uuid="6bd346f8-f036-4686-9547-e433d82c9798"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TempEnd_B}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="163" y="227" width="45" height="12" uuid="62666a3a-8e7b-4c19-9511-f7d073f7b631"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -722,13 +575,6 @@
 				</textElement>
 				<text><![CDATA[ Объем, л:]]></text>
 			</staticText>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="163" y="265" width="45" height="12" backcolor="#FFFFCC" uuid="43854b12-d780-43af-82e8-5482dd3383ec"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Volume}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="209" y="227" width="45" height="12" uuid="5f9ce141-225b-4bce-9799-e4ce5e576134"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -737,27 +583,20 @@
 				<text><![CDATA[ ρ, кг/л:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="328" y="240" width="45" height="12" uuid="64673114-f714-4840-aca2-593cef4921a6"/>
+				<reportElement mode="Opaque" x="328" y="240" width="45" height="38" backcolor="#FFFFCC" uuid="64673114-f714-4840-aca2-593cef4921a6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{blfDensity20_Start}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="282" y="253" width="45" height="12" uuid="8ab69136-e675-4a1c-88bf-4cbf260eb42c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MassEnd_B}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{blfDensity20_Start}+$F{blfDensity20_End})/2]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="282" y="228" width="1" height="116" uuid="7c4fd87e-a70c-4b61-8ea4-0a6872102d36"/>
+				<reportElement x="282" y="228" width="1" height="155" uuid="7c4fd87e-a70c-4b61-8ea4-0a6872102d36"/>
 			</line>
 			<line>
-				<reportElement x="327" y="228" width="1" height="115" uuid="21a1da2b-31ca-49af-b5a3-f4431e20c5ab"/>
+				<reportElement x="327" y="228" width="1" height="155" uuid="21a1da2b-31ca-49af-b5a3-f4431e20c5ab"/>
 			</line>
 			<line>
-				<reportElement x="372" y="228" width="1" height="302" uuid="4f3cdb7f-240d-41cb-ab9d-a969715e50c3"/>
+				<reportElement x="372" y="228" width="1" height="357" uuid="4f3cdb7f-240d-41cb-ab9d-a969715e50c3"/>
 			</line>
 			<staticText>
 				<reportElement x="328" y="227" width="45" height="12" uuid="162b68f2-6d4f-4ac3-8fa9-af961a430fb5"/>
@@ -767,18 +606,8 @@
 				<text><![CDATA[ ρ+20, кг/л:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="42" y="252" width="513" height="1" uuid="ec105f6a-eb02-4e15-b5df-2792b9f16a56"/>
-			</line>
-			<line>
 				<reportElement x="42" y="239" width="513" height="1" uuid="6b75722d-f1d2-47d4-a5dd-3dce22e25ce0"/>
 			</line>
-			<textField>
-				<reportElement x="209" y="253" width="45" height="12" uuid="2ba84116-409c-4821-8875-c2b0bfa50abb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityEnd_B}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="282" y="227" width="45" height="12" uuid="dfc26186-b6e1-4c04-8332-5a614c7d911a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -787,7 +616,7 @@
 				<text><![CDATA[ Масса, кг:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="41" y="164" width="1" height="407" uuid="1005a237-52f7-4963-8b1d-8e074d958979"/>
+				<reportElement x="41" y="164" width="1" height="421" uuid="1005a237-52f7-4963-8b1d-8e074d958979"/>
 			</line>
 			<staticText>
 				<reportElement x="1" y="227" width="41" height="51" uuid="eb7bab06-298f-4703-9945-a74f0a74ed9c"/>
@@ -806,20 +635,6 @@
 			<line>
 				<reportElement x="0" y="278" width="555" height="1" uuid="6395891c-ef26-41b3-9b43-ed42a6632c54"/>
 			</line>
-			<textField pattern="###0">
-				<reportElement x="163" y="303" width="45" height="12" uuid="d4207547-5abd-4c57-af84-f125730db289"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeEnd_A}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="209" y="292" width="45" height="12" uuid="92d95b56-fdad-44ab-8fef-f07dd106f9d0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityStart_A}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="163" y="279" width="45" height="12" uuid="f8f859bb-db08-4538-b898-afe5b8ce4b23"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -827,16 +642,6 @@
 				</textElement>
 				<text><![CDATA[ Объем, л:]]></text>
 			</staticText>
-			<line>
-				<reportElement x="42" y="302" width="513" height="1" uuid="f211d07f-4f2d-44c0-beae-6be4b49f6755"/>
-			</line>
-			<textField pattern="###0">
-				<reportElement x="282" y="292" width="45" height="12" uuid="9fe960b9-8a2d-4d74-b5df-ae0607cfd70c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MassStart_A}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="328" y="279" width="45" height="12" uuid="3cc7b908-a408-4842-a87b-b3e82fbff7a9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -844,16 +649,6 @@
 				</textElement>
 				<text><![CDATA[ ρ+20, кг/л:]]></text>
 			</staticText>
-			<textField pattern="###0">
-				<reportElement x="163" y="292" width="45" height="12" uuid="5ec98af6-e274-46eb-a0e1-c0d5152c30a1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{VolumeStart_A}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="42" y="314" width="513" height="1" uuid="23872db6-0424-4090-a433-b0c054d06713"/>
-			</line>
 			<staticText>
 				<reportElement x="1" y="279" width="41" height="51" uuid="895b272b-af22-4445-a2e4-5be2ac0aeef3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -878,34 +673,6 @@
 				</textElement>
 				<text><![CDATA[ ρ, кг/л:]]></text>
 			</staticText>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="283" y="316" width="44" height="12" backcolor="#FFFFCC" uuid="309f47c3-ee0f-4fe5-81ee-af95f7fa25a5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="163" y="316" width="45" height="12" backcolor="#FFFFCC" uuid="d8358018-7406-4829-8c5d-51c46aed9d64"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDF_Volume}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="282" y="303" width="45" height="12" uuid="b91267ee-ff45-4fb5-bbc6-7ab825df5eae"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MassEnd_A}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="42" y="279" width="35" height="12" uuid="bdb48ab5-7517-4011-aa04-cb7bebdec384"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Время:]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="254" y="279" width="28" height="12" uuid="275765e7-c969-4e3f-aec9-8449b0459251"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -914,372 +681,263 @@
 				<text><![CDATA[ t+, °C:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="328" y="292" width="45" height="12" uuid="56d4c33b-eab7-4d48-984c-e2f1b16a4999"/>
+				<reportElement mode="Opaque" x="328" y="292" width="43" height="36" backcolor="#FFFFCC" uuid="56d4c33b-eab7-4d48-984c-e2f1b16a4999"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{akdgDensity20_Start}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{akdgDensity20_Start}+$F{akdgDensity20_End})/2]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="328" y="303" width="45" height="12" uuid="a0892d45-2a28-4c91-b4fe-c3f5635e10c3"/>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="255" y="292" width="26" height="36" backcolor="#FFFFCC" uuid="f2c094ab-62cb-4add-8e86-932078d5746d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{akdgDensity20_End}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="209" y="303" width="45" height="12" uuid="60b12ffa-34ab-4e27-a7f1-5054af27ad74"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DensityEnd_A}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="254" y="303" width="28" height="12" uuid="b13c9d9b-f3d0-4146-9cf6-157ea03c6b93"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TempEnd_A}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="254" y="292" width="28" height="12" uuid="f2c094ab-62cb-4add-8e86-932078d5746d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TempStart_A}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{TempStart_A}+$F{TempEnd_A})/2]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="372" y="164" width="45" height="12" uuid="ff6edbd0-2889-4714-bb52-5691ee826998"/>
+				<reportElement x="161" y="164" width="45" height="12" uuid="ff6edbd0-2889-4714-bb52-5691ee826998"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ Объем:]]></text>
+				<text><![CDATA[Объем, л:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="418" y="164" width="45" height="12" uuid="0474b51f-0467-4929-ae2f-8d1c3e99b52a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ ρ:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="464" y="164" width="45" height="12" uuid="072dd888-1949-493b-9a85-83ff668a6659"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Масса:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="417" y="164" width="1" height="50" uuid="10abcd6b-08f4-41c4-b83d-57cbf2816a46"/>
-			</line>
-			<line>
-				<reportElement x="463" y="164" width="1" height="50" uuid="14a8703a-da01-4149-8019-2e4d2075af57"/>
-			</line>
-			<line>
-				<reportElement x="509" y="164" width="1" height="50" uuid="8f4b5336-03de-4f5e-9784-d5d1f91ce2d0"/>
-			</line>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="372" y="177" width="45" height="36" backcolor="#FFFFCC" uuid="8342cff8-65bd-437f-ae0b-8c1a5eed27fb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Volume}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="464" y="177" width="45" height="36" backcolor="#FFFFCC" uuid="aa033264-8577-49da-9bd8-23955a1bcddb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="418" y="177" width="45" height="36" backcolor="#FFFFCC" uuid="c00af041-9614-495d-b22a-5e9449bd4c89"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Processing_Mass}/$F{Processing_Volume}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="1" y="329" width="554" height="1" uuid="30cb436a-23e8-40dd-98ea-27f3ab13c794"/>
-			</line>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="464" y="265" width="45" height="12" backcolor="#FFFFCC" uuid="508237e5-5f32-4b97-9ddd-9aa794fa5246"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="509" y="253" width="1" height="25" uuid="e1558cf9-115b-4a2c-a73e-433108ff8bd7"/>
-			</line>
-			<line>
-				<reportElement x="418" y="253" width="1" height="25" uuid="c71a6bc4-1b53-4f31-8466-f31907f9869e"/>
-			</line>
-			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="419" y="265" width="45" height="12" backcolor="#FFFFCC" uuid="e5ac8a28-3362-4cfa-b36c-af2e67fe5752"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}/$F{BLF_Volume}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="463" y="228" width="1" height="319" uuid="7b69716a-628a-4f25-b61f-5fd30e464288"/>
-			</line>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="373" y="265" width="45" height="12" backcolor="#FFFFCC" uuid="0f219de1-d53e-4282-8f23-90ceb203d6f7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Volume}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="373" y="253" width="45" height="12" uuid="51ccaff0-31d6-43df-b378-213efec45b16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Объем:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="419" y="253" width="45" height="12" uuid="529e5641-44bb-4e36-bfac-fbec4dbba155"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ ρ:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="464" y="253" width="45" height="12" uuid="780db5ad-391b-4e19-bc5c-5ddb0a0ebf76"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Масса:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="42" y="342" width="513" height="1" uuid="54de64f1-30ad-475a-8f0f-9f3c3dad5e2b"/>
-			</line>
-			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="510" y="265" width="45" height="12" backcolor="#FFFFCC" uuid="2d51b4ba-c0a5-4568-9008-f1b7f15fd82e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Percent}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="510" y="253" width="45" height="12" uuid="c029299b-4f53-469f-baf5-38febcd4d419"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ %:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="373" y="227" width="90" height="12" uuid="0817811c-fa00-4114-8e8a-50ee49c97a70"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[н.к/tкк:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="464" y="227" width="91" height="12" uuid="23801e7e-08f7-493f-b2da-08168e299e28"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[tвсп/tп:]]></text>
-			</staticText>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="464" y="316" width="45" height="12" backcolor="#FFFFCC" uuid="bdf8c076-03b1-444f-b09a-b282c3d9b506"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="419" y="303" width="45" height="12" uuid="6048a98a-14f4-4fcd-868e-9ef13c3ebbc3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ ρ:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="510" y="303" width="45" height="12" uuid="1980c7c1-854f-452e-8a31-7f8eb5e03a7f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ %:]]></text>
-			</staticText>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="373" y="316" width="45" height="12" backcolor="#FFFFCC" uuid="fb050c43-cb48-43ef-a1d2-77931243921e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDF_Volume}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="464" y="303" width="45" height="12" uuid="95b0e001-2de6-44d0-b213-0652b33e26be"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Масса:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="464" y="279" width="91" height="12" uuid="a53cdef6-3205-4d20-9baa-86e538956f6a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[tвсп/tп:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="373" y="303" width="45" height="12" uuid="24a6ae38-c2e3-4f13-ad79-00d613bd6292"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Объем:]]></text>
-			</staticText>
-			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="419" y="316" width="44" height="12" backcolor="#FFFFCC" uuid="3c0245a1-d1b6-4d2d-91ad-8220a4d7a0e5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Mass}/$F{AKDF_Volume}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="510" y="316" width="45" height="12" backcolor="#FFFFCC" uuid="8d0314b2-f6cf-4304-a4d1-b2ca71fe41eb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AKDG_Percent}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="373" y="279" width="90" height="12" uuid="61203fad-de21-4756-a591-1b01cf36ef1b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[н.к/tкк:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="418" y="303" width="1" height="27" uuid="60487d4d-dbd6-4725-b375-4342ba72a1d5"/>
-			</line>
-			<line>
-				<reportElement x="509" y="303" width="1" height="27" uuid="32ed4c0e-dd2a-422f-b053-d50bf02c8ec8"/>
-			</line>
-			<staticText>
-				<reportElement x="1" y="330" width="40" height="179" uuid="833a14b5-ab76-403c-9ebd-c8961406d68b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ОТГ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="42" y="330" width="35" height="12" uuid="00e2370e-3dac-4ef3-9726-afbaf164356e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Время:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="77" y="227" width="35" height="12" uuid="b2635dd0-0e93-4817-8a34-978a62a03e90"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Данные:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="162" y="228" width="1" height="116" uuid="24df186a-4ed3-4d8f-962d-af58b59be415"/>
-			</line>
-			<staticText>
-				<reportElement x="77" y="279" width="35" height="12" uuid="eace1915-b79e-4f6b-876a-d65c879a11a4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Данные:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="77" y="330" width="35" height="12" uuid="2e4437b7-34bc-49c6-8aac-54ea24573545"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Данные:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="328" y="330" width="45" height="12" uuid="305ca834-8146-4442-a62f-e2b2b32e810b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ ρ+20, кг/л:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="254" y="330" width="28" height="12" uuid="6717d8cd-c1c3-429f-a9d7-9dda8415f387"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ t+, °C:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="209" y="330" width="45" height="12" uuid="d274b37d-3da4-4832-8edc-2bf154a47bfb"/>
+				<reportElement x="207" y="164" width="45" height="12" uuid="0474b51f-0467-4929-ae2f-8d1c3e99b52a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ ρ, кг/л:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="163" y="330" width="45" height="12" uuid="650544b9-34bc-43e7-be9e-c240b6cf4f21"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Объем, л:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="282" y="330" width="45" height="12" uuid="c5a1416a-a58c-4cd2-ad50-dc2754650c01"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Масса, кг:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="112" y="228" width="1" height="120" uuid="edb940ab-d5fe-4fa7-a428-9ffb51ad2a47"/>
-			</line>
-			<staticText>
-				<reportElement x="113" y="227" width="49" height="12" uuid="a57e7e05-07a8-470f-9479-a14180d66420"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Взлив, мм:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="113" y="279" width="49" height="12" uuid="890e7984-c044-40a5-8c73-5b850484c578"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Взлив, мм:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="113" y="330" width="49" height="12" uuid="ed6dfbd1-fb82-4189-90bd-af95567f9ee1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Взлив, мм:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="464" y="485" width="45" height="12" uuid="77507ff4-0f00-41de-b859-c35c76b34b5a"/>
+				<reportElement x="280" y="164" width="45" height="12" uuid="072dd888-1949-493b-9a85-83ff668a6659"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ Масса:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="373" y="485" width="45" height="12" uuid="f13ce1b6-ee3f-4a95-8096-b1152c1bbace"/>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="161" y="177" width="45" height="36" backcolor="#FFFFCC" uuid="8342cff8-65bd-437f-ae0b-8c1a5eed27fb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ Объем:]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$F{Processing_Volume}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="280" y="177" width="45" height="36" backcolor="#FFFFCC" uuid="aa033264-8577-49da-9bd8-23955a1bcddb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Processing_Mass}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0000">
+				<reportElement mode="Opaque" x="207" y="177" width="42" height="36" backcolor="#FFFFCC" uuid="c00af041-9614-495d-b22a-5e9449bd4c89"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Processing_Dinsity}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="329" width="554" height="1" uuid="30cb436a-23e8-40dd-98ea-27f3ab13c794"/>
+			</line>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="283" y="240" width="44" height="38" backcolor="#FFFFCC" uuid="508237e5-5f32-4b97-9ddd-9aa794fa5246"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0000">
+				<reportElement mode="Opaque" x="209" y="240" width="44" height="38" backcolor="#FFFFCC" uuid="e5ac8a28-3362-4cfa-b36c-af2e67fe5752"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BLF_Density}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="463" y="228" width="1" height="333" uuid="7b69716a-628a-4f25-b61f-5fd30e464288"/>
+			</line>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="163" y="240" width="45" height="38" backcolor="#FFFFCC" uuid="0f219de1-d53e-4282-8f23-90ceb203d6f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BLF_Volume}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="42" y="380" width="513" height="1" uuid="54de64f1-30ad-475a-8f0f-9f3c3dad5e2b"/>
+			</line>
+			<textField pattern="###0.0">
+				<reportElement mode="Opaque" x="464" y="240" width="90" height="38" backcolor="#FFFFCC" uuid="2d51b4ba-c0a5-4568-9008-f1b7f15fd82e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BLF_Percent}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement x="510" y="485" width="45" height="12" uuid="39ddd80b-634d-4631-8ed0-484f385c73c1"/>
+				<reportElement x="463" y="227" width="91" height="12" uuid="c029299b-4f53-469f-baf5-38febcd4d419"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ %:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="419" y="485" width="45" height="12" uuid="e832db23-3d9d-47ec-a3ba-3d64b14fb8de"/>
+				<reportElement x="373" y="227" width="43" height="12" uuid="0817811c-fa00-4114-8e8a-50ee49c97a70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[н.к/tкк:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="227" width="43" height="12" uuid="23801e7e-08f7-493f-b2da-08168e299e28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[tвсп/tп:]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="283" y="292" width="44" height="36" backcolor="#FFFFCC" uuid="bdf8c076-03b1-444f-b09a-b282c3d9b506"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AKDG_Mass}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="463" y="279" width="91" height="12" uuid="1980c7c1-854f-452e-8a31-7f8eb5e03a7f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ %:]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="163" y="292" width="45" height="36" backcolor="#FFFFCC" uuid="fb050c43-cb48-43ef-a1d2-77931243921e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AKDF_Volume}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="279" width="43" height="12" uuid="a53cdef6-3205-4d20-9baa-86e538956f6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[tвсп/tп:]]></text>
+			</staticText>
+			<textField pattern="###0.0000">
+				<reportElement mode="Opaque" x="209" y="292" width="44" height="36" backcolor="#FFFFCC" uuid="3c0245a1-d1b6-4d2d-91ad-8220a4d7a0e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AKDG_Density}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0">
+				<reportElement mode="Opaque" x="464" y="292" width="91" height="35" backcolor="#FFFFCC" uuid="8d0314b2-f6cf-4304-a4d1-b2ca71fe41eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AKDG_Percent}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="373" y="279" width="44" height="12" uuid="61203fad-de21-4756-a591-1b01cf36ef1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[н.к/tкк:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="420" y="227" width="1" height="152" uuid="60487d4d-dbd6-4725-b375-4342ba72a1d5"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="368" width="40" height="140" uuid="833a14b5-ab76-403c-9ebd-c8961406d68b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ОТГ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="368" width="35" height="12" uuid="00e2370e-3dac-4ef3-9726-afbaf164356e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Время:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="162" y="228" width="1" height="155" uuid="24df186a-4ed3-4d8f-962d-af58b59be415"/>
+			</line>
+			<staticText>
+				<reportElement x="77" y="368" width="35" height="12" uuid="2e4437b7-34bc-49c6-8aac-54ea24573545"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Данные:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="368" width="45" height="12" uuid="305ca834-8146-4442-a62f-e2b2b32e810b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ ρ+20, кг/л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="368" width="28" height="12" uuid="6717d8cd-c1c3-429f-a9d7-9dda8415f387"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ t+, °C:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="368" width="45" height="12" uuid="d274b37d-3da4-4832-8edc-2bf154a47bfb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ ρ, кг/л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="368" width="45" height="12" uuid="650544b9-34bc-43e7-be9e-c240b6cf4f21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Объем, л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="368" width="45" height="12" uuid="c5a1416a-a58c-4cd2-ad50-dc2754650c01"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Масса, кг:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="112" y="368" width="1" height="17" uuid="edb940ab-d5fe-4fa7-a428-9ffb51ad2a47"/>
+			</line>
+			<staticText>
+				<reportElement x="113" y="368" width="49" height="12" uuid="ed6dfbd1-fb82-4189-90bd-af95567f9ee1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Взлив, мм:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="460" width="45" height="12" uuid="77507ff4-0f00-41de-b859-c35c76b34b5a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Масса:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="460" width="45" height="12" uuid="f13ce1b6-ee3f-4a95-8096-b1152c1bbace"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Объем:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="460" width="45" height="12" uuid="39ddd80b-634d-4631-8ed0-484f385c73c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ %:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="460" width="45" height="12" uuid="e832db23-3d9d-47ec-a3ba-3d64b14fb8de"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -1345,28 +1003,28 @@
 				<text><![CDATA[ Взлив, мм:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="112" y="460" width="1" height="50" uuid="db929590-0087-4277-9c1c-f87b26f587fe"/>
+				<reportElement x="112" y="460" width="1" height="65" uuid="db929590-0087-4277-9c1c-f87b26f587fe"/>
 			</line>
 			<line>
-				<reportElement x="162" y="460" width="1" height="50" uuid="4a32a613-529e-47cd-a515-e9788db50e9b"/>
+				<reportElement x="162" y="460" width="1" height="64" uuid="4a32a613-529e-47cd-a515-e9788db50e9b"/>
 			</line>
 			<line>
-				<reportElement x="208" y="460" width="1" height="50" uuid="fee808ee-ee5a-4e3c-8383-abc3fd2d5b02"/>
+				<reportElement x="208" y="460" width="1" height="64" uuid="fee808ee-ee5a-4e3c-8383-abc3fd2d5b02"/>
 			</line>
 			<line>
-				<reportElement x="253" y="460" width="1" height="111" uuid="ace83d53-939d-4fc1-bc86-ce0a67af10a0"/>
+				<reportElement x="253" y="460" width="1" height="125" uuid="ace83d53-939d-4fc1-bc86-ce0a67af10a0"/>
 			</line>
 			<line>
-				<reportElement x="281" y="460" width="1" height="50" uuid="d881c86e-2baa-49cd-9445-392d3578a3f7"/>
+				<reportElement x="280" y="460" width="1" height="65" uuid="d881c86e-2baa-49cd-9445-392d3578a3f7"/>
 			</line>
 			<line>
-				<reportElement x="327" y="460" width="1" height="86" uuid="04dd9f69-f253-45fa-8acc-fa963e1a470a"/>
+				<reportElement x="327" y="460" width="1" height="101" uuid="04dd9f69-f253-45fa-8acc-fa963e1a470a"/>
 			</line>
 			<line>
 				<reportElement x="372" y="460" width="1" height="87" uuid="8ec87ea8-527c-4639-9859-0ee7316e9b7a"/>
 			</line>
 			<line>
-				<reportElement x="42" y="472" width="330" height="1" uuid="7767b338-0af0-4f68-80cd-a8b8e463822b"/>
+				<reportElement x="42" y="472" width="513" height="1" uuid="7767b338-0af0-4f68-80cd-a8b8e463822b"/>
 			</line>
 			<textField pattern="###0">
 				<reportElement x="163" y="485" width="45" height="12" uuid="c1527676-2ff6-4e2b-8e11-61e77ca9479f"/>
@@ -1425,11 +1083,11 @@
 				<textFieldExpression><![CDATA[$F{otg_uppg_endMass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
-				<reportElement mode="Opaque" x="283" y="497" width="44" height="12" backcolor="#FFFFCC" uuid="29831165-a7eb-4126-8a20-b07bbbcd8db3"/>
+				<reportElement mode="Opaque" x="282" y="511" width="45" height="12" backcolor="#FFFFCC" uuid="29831165-a7eb-4126-8a20-b07bbbcd8db3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endMass}-$F{otg_uppg_startMass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otg_uppg_Mass}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="328" y="472" width="45" height="12" uuid="410af955-0c28-45ac-a278-f104f2030834"/>
@@ -1439,11 +1097,11 @@
 				<textFieldExpression><![CDATA[$F{otg_uppg_startDensity20}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
-				<reportElement mode="Opaque" x="163" y="497" width="45" height="12" backcolor="#FFFFCC" uuid="bc7c0be8-f45b-4170-8580-5e1d7beda3e1"/>
+				<reportElement mode="Opaque" x="163" y="511" width="45" height="12" backcolor="#FFFFCC" uuid="bc7c0be8-f45b-4170-8580-5e1d7beda3e1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_uppg_endVolume}-$F{otg_uppg_startVolume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otg_uppg_Volume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
 				<reportElement x="254" y="485" width="28" height="12" uuid="ff85c6b0-980d-480b-872c-178f2c6b7a0d"/>
@@ -1453,108 +1111,63 @@
 				<textFieldExpression><![CDATA[$F{otg_uppg_endTemp}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="509" width="555" height="1" uuid="75780b9a-37e3-48a9-8d68-13f7ff1f5591"/>
+				<reportElement x="0" y="524" width="555" height="1" uuid="75780b9a-37e3-48a9-8d68-13f7ff1f5591"/>
 			</line>
 			<line>
-				<reportElement x="42" y="484" width="513" height="1" uuid="ee52e083-96c8-4130-9eb3-161c03a441ab"/>
+				<reportElement x="42" y="485" width="513" height="1" uuid="ee52e083-96c8-4130-9eb3-161c03a441ab"/>
 			</line>
 			<line>
-				<reportElement x="42" y="496" width="513" height="1" uuid="d4813d31-2ab3-4b5c-b5f1-735bb43221c1"/>
-			</line>
-			<staticText>
-				<reportElement x="77" y="240" width="35" height="12" uuid="4b551722-8474-4816-a408-acf1488f2e91"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Счетчик]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="77" y="253" width="35" height="12" uuid="b9b10118-2ebc-4b55-bf5e-8e747b93be60"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Счетчик]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="77" y="292" width="35" height="12" uuid="6eab80bc-7bb1-4c0a-be85-bc1ab521e190"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Счетчик]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="77" y="303" width="35" height="12" uuid="31331f8a-dc98-4c6f-9eb7-b85696a0f3bb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Счетчик]]></text>
-			</staticText>
-			<line>
-				<reportElement x="418" y="485" width="1" height="62" uuid="c72a9afc-18ad-49a8-94a3-c005243a4fd7"/>
+				<reportElement x="42" y="497" width="329" height="1" uuid="d4813d31-2ab3-4b5c-b5f1-735bb43221c1"/>
 			</line>
 			<line>
-				<reportElement x="509" y="485" width="1" height="62" uuid="315b8cba-4a41-4eaa-a754-da1dbe527fbd"/>
+				<reportElement x="418" y="459" width="1" height="102" uuid="c72a9afc-18ad-49a8-94a3-c005243a4fd7"/>
+			</line>
+			<line>
+				<reportElement x="509" y="459" width="1" height="102" uuid="315b8cba-4a41-4eaa-a754-da1dbe527fbd"/>
 			</line>
 			<staticText>
-				<reportElement x="373" y="330" width="90" height="12" uuid="ac4c838e-b267-4abf-87ca-eb88136f04d3"/>
+				<reportElement x="373" y="368" width="43" height="12" uuid="ac4c838e-b267-4abf-87ca-eb88136f04d3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[н.к/tкк:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="464" y="330" width="91" height="12" uuid="9f871084-d211-477c-8c01-39e24f8c0dc7"/>
+				<reportElement x="421" y="368" width="40" height="12" uuid="9f871084-d211-477c-8c01-39e24f8c0dc7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[tвсп/tп:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="371" y="354" width="184" height="1" uuid="6f185b36-b1cc-4030-af37-6f4bc5cf512c"/>
-			</line>
-			<staticText>
-				<reportElement x="77" y="164" width="35" height="12" uuid="e435ad82-e1ee-47ee-a7ea-b644617cc77f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Данные:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="113" y="164" width="49" height="12" uuid="ed38ea5f-563c-45e8-ae64-f901923ed9ee"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ Взлив, мм:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="112" y="164" width="1" height="50" uuid="2dc437d5-031c-4e41-a124-16e0904db0f9"/>
+				<reportElement x="371" y="379" width="184" height="1" uuid="6f185b36-b1cc-4030-af37-6f4bc5cf512c"/>
 			</line>
 			<line>
 				<reportElement x="161" y="164" width="1" height="50" uuid="5cc2edf4-83c2-4ee1-815f-dfeb7a3ce92f"/>
 			</line>
 			<textField pattern="###0">
-				<reportElement mode="Opaque" x="464" y="497" width="45" height="12" backcolor="#FFFFCC" uuid="5f1181b1-279f-4a1d-897a-5697eb7cffae"/>
+				<reportElement mode="Opaque" x="464" y="473" width="45" height="12" backcolor="#FFFFCC" uuid="5f1181b1-279f-4a1d-897a-5697eb7cffae"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otg_tsp_Mass}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
-				<reportElement mode="Opaque" x="373" y="497" width="45" height="12" backcolor="#FFFFCC" uuid="f931f159-4ae6-410c-8334-60a0e2eb7aaa"/>
+				<reportElement mode="Opaque" x="373" y="473" width="45" height="12" backcolor="#FFFFCC" uuid="f931f159-4ae6-410c-8334-60a0e2eb7aaa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{otg_tsp_Volume}+$F{otg_uppg_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{otg_tsp_Volume}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="419" y="497" width="44" height="12" backcolor="#FFFFCC" uuid="fbc35cb8-aab4-46c5-9fad-5f167fe9da8f"/>
+				<reportElement mode="Opaque" x="419" y="473" width="44" height="12" backcolor="#FFFFCC" uuid="fbc35cb8-aab4-46c5-9fad-5f167fe9da8f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{BLF_Mass}/$F{BLF_Volume}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{OTG_Density}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="510" y="497" width="45" height="12" backcolor="#FFFFCC" uuid="49ac7175-4f09-4997-86fb-eab06480268c"/>
+				<reportElement mode="Opaque" x="510" y="473" width="44" height="12" backcolor="#FFFFCC" uuid="49ac7175-4f09-4997-86fb-eab06480268c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -1706,167 +1319,141 @@
 				<textFieldExpression><![CDATA[$F{drainVolume}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="77" y="177" width="35" height="12" uuid="7df2935c-4365-4e07-957b-44f979c22d63"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Счетчик]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="77" y="188" width="35" height="12" uuid="0f776c28-a0b4-4792-8b1f-39d49d72a0f2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[Счетчик]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="113" y="177" width="48" height="22" uuid="e1ea4096-2b80-417d-9531-b654b16c33ce"/>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="113" y="240" width="49" height="24" uuid="dff8d822-1ba3-4c94-b958-bd2dc4653948"/>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="113" y="293" width="49" height="21" uuid="44e03d61-cca1-45b1-834f-02a9ed56dba7"/>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="43" y="510" width="211" height="12" uuid="26266044-3eca-4ace-a45b-ca034502b03c"/>
+				<reportElement x="43" y="525" width="211" height="12" uuid="26266044-3eca-4ace-a45b-ca034502b03c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Показания счетчика подпитки воды:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="187" y="522" width="66" height="12" uuid="d266bd3e-926a-4a37-ba10-8c5a6ab364f2"/>
+				<reportElement x="187" y="537" width="66" height="12" uuid="d266bd3e-926a-4a37-ba10-8c5a6ab364f2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Итого, л:]]></text>
 			</staticText>
 			<textField pattern="###0">
-				<reportElement x="43" y="535" width="70" height="11" uuid="2fc8237f-b060-4341-b484-5c3a2dfc2ac1"/>
+				<reportElement x="43" y="550" width="70" height="11" uuid="2fc8237f-b060-4341-b484-5c3a2dfc2ac1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{feed_startData}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="115" y="535" width="71" height="11" uuid="8f1b4366-6a7a-41a8-85f7-95d6cbdfc11c"/>
+				<reportElement x="115" y="550" width="71" height="11" uuid="8f1b4366-6a7a-41a8-85f7-95d6cbdfc11c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{feed_finishData}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="186" y="522" width="1" height="24" uuid="b8259823-fdba-4e05-a122-c139dda12024"/>
+				<reportElement x="186" y="537" width="1" height="24" uuid="b8259823-fdba-4e05-a122-c139dda12024"/>
 			</line>
 			<staticText>
-				<reportElement x="43" y="522" width="71" height="12" uuid="454672f5-9564-4511-b8f8-b3ba19ca71f0"/>
+				<reportElement x="43" y="537" width="71" height="12" uuid="454672f5-9564-4511-b8f8-b3ba19ca71f0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Начало смены:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="114" y="522" width="1" height="25" uuid="10e43e77-bf79-41db-9c9e-0c46f79fbf4f"/>
+				<reportElement x="114" y="537" width="1" height="25" uuid="10e43e77-bf79-41db-9c9e-0c46f79fbf4f"/>
 			</line>
 			<textField pattern="###0">
-				<reportElement x="187" y="535" width="66" height="11" uuid="cd75531d-f647-4b5b-9a80-a7c8e7da99f7"/>
+				<reportElement x="187" y="550" width="66" height="11" uuid="cd75531d-f647-4b5b-9a80-a7c8e7da99f7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{feed_total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="115" y="522" width="71" height="12" uuid="80135e7d-fded-4f70-8c3c-304ecdf22e7f"/>
+				<reportElement x="115" y="537" width="71" height="12" uuid="80135e7d-fded-4f70-8c3c-304ecdf22e7f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Конец смены:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="42" y="521" width="513" height="1" uuid="8a53059d-ca55-49ee-9957-b588fe72cee7"/>
+				<reportElement x="42" y="536" width="513" height="1" uuid="8a53059d-ca55-49ee-9957-b588fe72cee7"/>
 			</line>
 			<line>
-				<reportElement x="42" y="534" width="331" height="1" uuid="a5983d7b-2d0c-42c3-bf03-4631e2139ee5"/>
+				<reportElement x="42" y="549" width="331" height="1" uuid="a5983d7b-2d0c-42c3-bf03-4631e2139ee5"/>
 			</line>
 			<line>
-				<reportElement x="1" y="546" width="554" height="1" uuid="5d4299db-52f9-426e-a9b0-8e5e377264bf"/>
+				<reportElement x="1" y="561" width="554" height="1" uuid="5d4299db-52f9-426e-a9b0-8e5e377264bf"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="255" y="510" width="72" height="24" uuid="cdfcc701-62e2-4706-84c8-32d9a778d101"/>
+				<reportElement mode="Opaque" x="255" y="525" width="72" height="24" uuid="cdfcc701-62e2-4706-84c8-32d9a778d101"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Сдренировано воды, л:]]></text>
 			</staticText>
 			<textField pattern="###0">
-				<reportElement x="254" y="535" width="73" height="11" uuid="33194fd7-81ea-47c9-942d-a05734be225c"/>
+				<reportElement x="254" y="550" width="73" height="11" uuid="33194fd7-81ea-47c9-942d-a05734be225c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{drained}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="464" y="510" width="45" height="12" uuid="d6197bfd-4670-4855-a75f-97a975faa035"/>
+				<reportElement x="464" y="525" width="45" height="12" uuid="d6197bfd-4670-4855-a75f-97a975faa035"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[БЛФ+АкДГ]]></text>
 			</staticText>
 			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="464" y="522" width="45" height="24" backcolor="#FFFFCC" uuid="c399b232-34bc-4cd8-a933-be62d32b2eb8"/>
+				<reportElement mode="Opaque" x="464" y="537" width="45" height="24" backcolor="#FFFFCC" uuid="c399b232-34bc-4cd8-a933-be62d32b2eb8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BLF_AKDG_Percent}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="373" y="510" width="45" height="12" uuid="70587408-b96f-482d-bcc0-caf0809760c6"/>
+				<reportElement x="373" y="525" width="45" height="12" uuid="70587408-b96f-482d-bcc0-caf0809760c6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Прод. кг:]]></text>
 			</staticText>
 			<textField pattern="###0">
-				<reportElement mode="Opaque" x="374" y="522" width="44" height="24" backcolor="#FFFFCC" uuid="3730b929-ad74-452b-9c6a-de7eeb653f2c"/>
+				<reportElement mode="Opaque" x="374" y="537" width="44" height="24" backcolor="#FFFFCC" uuid="3730b929-ad74-452b-9c6a-de7eeb653f2c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BLF_Mass}+$F{AKDG_Mass}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="419" y="510" width="44" height="12" uuid="6f547986-0054-4306-b237-546ee996333f"/>
+				<reportElement x="419" y="525" width="44" height="12" uuid="6f547986-0054-4306-b237-546ee996333f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Выход:]]></text>
 			</staticText>
 			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="420" y="522" width="43" height="24" backcolor="#FFFFCC" uuid="640dc408-e127-40ce-8089-6fdafe705267"/>
+				<reportElement mode="Opaque" x="420" y="537" width="43" height="24" backcolor="#FFFFCC" uuid="640dc408-e127-40ce-8089-6fdafe705267"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{AKDG_Mass}+$F{BLF_Mass})/($F{Processing_Mass}-$F{drained})]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="510" y="522" width="45" height="24" backcolor="#FFFFCC" uuid="3edd26fd-d7b9-44fe-a029-22fe61a82e02"/>
+				<reportElement mode="Opaque" x="510" y="537" width="45" height="24" backcolor="#FFFFCC" uuid="3edd26fd-d7b9-44fe-a029-22fe61a82e02"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BLF_AKDG_OTG_Percent}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="510" y="510" width="45" height="12" uuid="73bae0b4-239a-4165-8495-958c240d6440"/>
+				<reportElement x="510" y="525" width="45" height="12" uuid="73bae0b4-239a-4165-8495-958c240d6440"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Продукт %:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="554" y="49" width="1" height="521" uuid="327e7ad1-f706-4baa-8306-81e52639013f"/>
+				<reportElement x="554" y="49" width="1" height="536" uuid="327e7ad1-f706-4baa-8306-81e52639013f"/>
 			</line>
 			<staticText>
 				<reportElement x="1" y="150" width="553" height="13" uuid="f36328f9-cbbd-469f-9302-82d0b5a763db"/>
@@ -1879,161 +1466,161 @@
 				<reportElement x="0" y="163" width="555" height="1" uuid="f06aac51-8ac1-4d4c-86bc-058a440ed20a"/>
 			</line>
 			<staticText>
-				<reportElement x="1" y="568" width="553" height="12" uuid="8e6960a3-438b-49f4-9d4e-a9e850c03013"/>
+				<reportElement x="1" y="587" width="553" height="12" uuid="8e6960a3-438b-49f4-9d4e-a9e850c03013"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Полученная продукция: (соответствует, не соответствует требуемому качеству)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="580" width="553" height="12" uuid="a63dd6cb-18bf-47e9-ad30-8c4654d85025"/>
+				<reportElement x="1" y="599" width="553" height="12" uuid="a63dd6cb-18bf-47e9-ad30-8c4654d85025"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[БЛФ  _____________________________________________________        _________________________        _________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="593" width="553" height="12" uuid="22b86351-e068-4e31-8d66-6b466fece422"/>
+				<reportElement x="1" y="612" width="553" height="12" uuid="22b86351-e068-4e31-8d66-6b466fece422"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[АкДГ _____________________________________________________        _________________________        _________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="605" width="553" height="12" uuid="58451171-3572-4c3d-bd83-622066e8d1ba"/>
+				<reportElement x="1" y="624" width="553" height="12" uuid="58451171-3572-4c3d-bd83-622066e8d1ba"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ОТГ    _____________________________________________________        _________________________        _________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="617" width="35" height="12" uuid="df7d0e8c-5806-41d3-a763-9f7311d0d69d"/>
+				<reportElement x="30" y="634" width="35" height="12" uuid="df7d0e8c-5806-41d3-a763-9f7311d0d69d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(Ф.И.О.)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="306" y="617" width="102" height="12" uuid="722e2aac-77fc-4fc5-971b-8ceac8ba3ce1"/>
+				<reportElement x="306" y="634" width="102" height="12" uuid="722e2aac-77fc-4fc5-971b-8ceac8ba3ce1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Лаборатория]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="428" y="617" width="103" height="12" uuid="b933e620-99e1-4697-b2c2-b10c8858bf45"/>
+				<reportElement x="428" y="634" width="103" height="12" uuid="b933e620-99e1-4697-b2c2-b10c8858bf45"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[ТСП]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="629" width="553" height="12" uuid="7c2abf74-46dd-4029-912c-ff919ea4e7dd"/>
+				<reportElement x="1" y="648" width="553" height="12" uuid="7c2abf74-46dd-4029-912c-ff919ea4e7dd"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Аварийные ситуации, выход из строя оборудования и т.д. и т.п.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="641" width="553" height="12" uuid="307bc5da-9bcd-4246-8a8d-c83f09d9aca8"/>
+				<reportElement x="1" y="660" width="553" height="12" uuid="307bc5da-9bcd-4246-8a8d-c83f09d9aca8"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(выход из строя обор)________________________________________________________________________________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="653" width="553" height="12" uuid="3c7ef143-9957-4840-aa18-302d0aac96d1"/>
+				<reportElement x="1" y="672" width="553" height="12" uuid="3c7ef143-9957-4840-aa18-302d0aac96d1"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(режим УППГ)______________________________________________________________________________________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="666" width="553" height="12" uuid="9362fe95-d7d2-4db8-ab43-d2845cc58c2b"/>
+				<reportElement x="1" y="683" width="553" height="12" uuid="9362fe95-d7d2-4db8-ab43-d2845cc58c2b"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(заявки, потребность в материале, оборудовании)_________________________________________________________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="679" width="553" height="12" uuid="53b9557b-4e9a-4767-92e8-d01330b1472b"/>
+				<reportElement x="1" y="694" width="553" height="12" uuid="53b9557b-4e9a-4767-92e8-d01330b1472b"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(ознакомлен гл. механик, инж. КИП и А)__________________________________________________________________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="692" width="553" height="12" uuid="0cd7acb4-66ab-459a-a168-f8e80d899f40"/>
+				<reportElement x="2" y="706" width="553" height="12" uuid="0cd7acb4-66ab-459a-a168-f8e80d899f40"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(продукция принята на склад)			нач. Левченко Ю.А._________________________________________________________]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="705" width="553" height="12" uuid="dd11d016-7b37-4715-8110-d1f32a22193d"/>
+				<reportElement x="2" y="716" width="553" height="12" uuid="dd11d016-7b37-4715-8110-d1f32a22193d"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ст. оператор  /__________________________/       /__________________________/        /_________________________/]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="717" width="35" height="12" uuid="b1549aee-081d-44ef-83d0-750d427efbbc"/>
+				<reportElement x="95" y="726" width="35" height="12" uuid="b1549aee-081d-44ef-83d0-750d427efbbc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[(Ф.И.О.)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="209" y="717" width="102" height="12" uuid="9646ce02-93bd-4116-86b4-e10acc59cf08"/>
+				<reportElement x="209" y="726" width="102" height="12" uuid="9646ce02-93bd-4116-86b4-e10acc59cf08"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Дата]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="354" y="717" width="103" height="12" uuid="adc2ec7d-9bac-4362-b3f8-792cd4698cac"/>
+				<reportElement x="354" y="726" width="103" height="12" uuid="adc2ec7d-9bac-4362-b3f8-792cd4698cac"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Подпись]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="729" width="553" height="12" uuid="65918dc5-00d3-45c1-b3fa-0766278b3c71"/>
+				<reportElement x="1" y="737" width="553" height="12" uuid="65918dc5-00d3-45c1-b3fa-0766278b3c71"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Режимы режимной карты соблюдены, не соблюдены]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="741" width="159" height="12" uuid="06abd2df-2ed0-48ee-8ad7-14f10734c5cf"/>
+				<reportElement x="1" y="747" width="159" height="12" uuid="06abd2df-2ed0-48ee-8ad7-14f10734c5cf"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[а) Незаполненный акт не принимается]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="752" width="553" height="12" uuid="ebfed4da-085f-44cc-b743-81db4a2569c5"/>
+				<reportElement x="1" y="757" width="553" height="12" uuid="ebfed4da-085f-44cc-b743-81db4a2569c5"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[б) Запрещается уход с рабочего места операторов, не заполнивших отчет                     	/____________________/      /В.В.Самойленко/]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="763" width="185" height="12" uuid="7e59f8a3-4f82-4277-9bb0-4b02cc991a61"/>
+				<reportElement x="1" y="767" width="185" height="12" uuid="7e59f8a3-4f82-4277-9bb0-4b02cc991a61"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[в) Без подписей не принимать и не отправлять]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="775" width="389" height="12" uuid="caa997ff-1816-4678-890e-df3dea8d7cca"/>
+				<reportElement x="1" y="777" width="389" height="12" uuid="caa997ff-1816-4678-890e-df3dea8d7cca"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[г) При изготовлении некондиции или неустойчивом режиме УППГ - приложить объяснительную]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="786" width="389" height="12" uuid="3c7c2ba4-92ef-40ea-b4ab-631541c69490"/>
+				<reportElement x="1" y="787" width="389" height="12" uuid="3c7c2ba4-92ef-40ea-b4ab-631541c69490"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
@@ -2049,78 +1636,6 @@
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="15"/>
-				</textElement>
-				<text><![CDATA[20:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="177" width="35" height="12" uuid="214e9fd3-476a-4847-9935-d056c4867ed8">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[08:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="188" width="35" height="12" uuid="f71dd396-afc3-4f8b-9bb8-d02553974f98">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[20:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="176" width="35" height="12" uuid="1f2f5f73-c49f-41fa-9a5d-f571ebee9b75">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[20:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="188" width="35" height="12" uuid="5ca8d492-552e-43e1-aeb0-03f0c4b04e8c">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[08:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="252" width="35" height="12" uuid="f4516f82-7f32-46ef-866c-27e1f010d4d6">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[08:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="240" width="35" height="12" uuid="20e194b7-a363-4960-877f-2ef4624a3cb8">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[20:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="303" width="35" height="12" uuid="1f27aa51-6a5c-41b3-884e-759504f063e0">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[08:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="291" width="35" height="12" uuid="8ccf968d-5e76-43c3-9908-9b916441551b">
-					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[20:00]]></text>
 			</staticText>
@@ -2143,7 +1658,7 @@
 				<text><![CDATA[08:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="343" width="35" height="12" uuid="570d8b84-5ef3-4173-89a0-db5f29cd52ee">
+				<reportElement x="41" y="381" width="35" height="12" uuid="570d8b84-5ef3-4173-89a0-db5f29cd52ee">
 					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2152,44 +1667,8 @@
 				<text><![CDATA[20:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="447" width="35" height="12" uuid="e7e9a96d-1fce-494c-ac04-cd2aa531a4f1">
+				<reportElement x="41" y="445" width="35" height="12" uuid="e7e9a96d-1fce-494c-ac04-cd2aa531a4f1">
 					<printWhenExpression><![CDATA[$F{aShift}==2]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[08:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="252" width="35" height="12" uuid="12134f50-59e9-4fc7-a5e2-7cb20fe3a89e">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[20:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="240" width="35" height="12" uuid="a307bdb3-52eb-4c1d-8831-2b8c41b201c7">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[08:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="303" width="35" height="12" uuid="096d193c-9c1f-411f-9326-15161d46cfba">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[20:00]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="41" y="291" width="35" height="12" uuid="162472fa-76b1-46ab-9632-396459450444">
-					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
@@ -2215,7 +1694,7 @@
 				<text><![CDATA[08:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="447" width="35" height="12" uuid="0958babc-c2bf-4d36-af95-2aca149621ef">
+				<reportElement x="41" y="445" width="35" height="12" uuid="0958babc-c2bf-4d36-af95-2aca149621ef">
 					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2224,7 +1703,7 @@
 				<text><![CDATA[20:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="343" width="35" height="12" uuid="b27195fc-52a4-49f1-a545-43524153bfab">
+				<reportElement x="41" y="381" width="35" height="12" uuid="b27195fc-52a4-49f1-a545-43524153bfab">
 					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2233,50 +1712,53 @@
 				<text><![CDATA[08:00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="43" y="547" width="211" height="12" uuid="ec56f528-2d7c-4712-9d07-2c19eea49254"/>
+				<reportElement x="43" y="562" width="116" height="12" uuid="ec56f528-2d7c-4712-9d07-2c19eea49254"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[t дымовых газов (max), °C:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="42" y="558" width="212" height="1" uuid="8237bd3d-df04-4e27-8d1d-eb5228d66d22"/>
+				<reportElement x="42" y="573" width="212" height="1" uuid="8237bd3d-df04-4e27-8d1d-eb5228d66d22"/>
 			</line>
 			<line>
-				<reportElement x="1" y="570" width="554" height="1" uuid="329e6f97-cd12-4a35-8b73-7621de89491d"/>
+				<reportElement x="1" y="585" width="554" height="1" uuid="329e6f97-cd12-4a35-8b73-7621de89491d"/>
 			</line>
 			<textField pattern="###0">
-				<reportElement x="41" y="559" width="212" height="11" uuid="5fe3846b-a997-4c01-8ab6-bf417c89a45a"/>
+				<reportElement x="41" y="574" width="118" height="11" uuid="5fe3846b-a997-4c01-8ab6-bf417c89a45a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{wasteGases}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{maxValue}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="328" y="510" width="44" height="24" uuid="6db54f63-6630-49f6-87fa-35667b0e3622"/>
+				<reportElement mode="Opaque" x="328" y="525" width="44" height="24" uuid="6db54f63-6630-49f6-87fa-35667b0e3622"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Вода с БЛФ, л:]]></text>
 			</staticText>
 			<textField pattern="###0">
-				<reportElement x="328" y="535" width="45" height="11" uuid="5ffc4d4d-8566-44d3-8ff4-536e8f7d20d2"/>
+				<reportElement x="328" y="550" width="45" height="11" uuid="5ffc4d4d-8566-44d3-8ff4-536e8f7d20d2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{drained_BLF}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement mode="Opaque" x="77" y="343" width="295" height="115" uuid="569d0013-0766-4c75-8aa0-a1b43df1bd83"/>
+			<subreport overflowType="Stretch">
+				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="77" y="381" width="295" height="38" uuid="569d0013-0766-4c75-8aa0-a1b43df1bd83"/>
 				<subreportParameter name="actID">
 					<subreportParameterExpression><![CDATA[$P{actID}]]></subreportParameterExpression>
 				</subreportParameter>
+				<subreportParameter name="tankOrder">
+					<subreportParameterExpression><![CDATA[1]]></subreportParameterExpression>
+				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"report1_subreport1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["report1_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<image>
 				<reportElement x="279" y="0" width="276" height="50" uuid="f1d3d695-109a-4775-850f-da8f8c87f6ff"/>
-				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"alexprom_new.png"]]></imageExpression>
+				<imageExpression><![CDATA["alexprom_new.png"]]></imageExpression>
 			</image>
 			<textField pattern="###0">
 				<reportElement x="1" y="137" width="45" height="12" uuid="4edeaf2a-2d7c-4654-ac50-c57191a26d26"/>
@@ -2299,6 +1781,191 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sirieMass}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="250" y="163" width="29" height="12" uuid="5513802b-4300-47c3-9cec-0560bf40cf93"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[t+, °С:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="163" width="45" height="12" uuid="cd630be6-78e4-4d1b-9c8b-b1e98f9ebd7f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ ρ+20, кг/л:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="372" y="459" width="183" height="1" uuid="a2634ad9-24be-473a-8519-03def05a22ec"/>
+			</line>
+			<staticText>
+				<reportElement style="Title" x="34" y="17" width="46" height="18" uuid="e808d785-ded1-43d7-90b8-77c799c92ce7">
+					<printWhenExpression><![CDATA[$F{aShift}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[08:00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="561" width="182" height="12" uuid="577d9594-2982-4dfa-8761-2614600de42e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Удельный вес топлива, кг/т:]]></text>
+			</staticText>
+			<textField pattern="#0.00">
+				<reportElement x="374" y="573" width="180" height="11" uuid="014d54ad-2b7e-492a-924d-9e8ec6f9dd13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{E9_Gravity}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="372" y="573" width="182" height="1" uuid="00fe3d49-778f-49a0-9f9b-83b1b25e42f8"/>
+			</line>
+			<line>
+				<reportElement x="0" y="510" width="554" height="1" uuid="dbebf3b1-fe9b-466d-b6e4-bbe14ba3c4bb"/>
+			</line>
+			<staticText>
+				<reportElement x="113" y="498" width="49" height="12" uuid="2157abed-2ee5-4f86-a583-fe6d2ead42c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Закачано]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement x="163" y="497" width="45" height="12" uuid="7fcf7c1c-7a43-4773-9936-68de833fd34f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loadVolume}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="497" width="45" height="12" uuid="85e7d3e2-5d2d-477a-ac69-b4bb641254a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loadDensity}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="254" y="497" width="28" height="12" uuid="55db6254-0351-4d23-bc03-6c83c58638a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loadTemp}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="282" y="497" width="45" height="12" uuid="b9700144-716f-4bde-a16b-6b8853423246"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loadMass}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="497" width="45" height="12" uuid="f1c596bc-72ce-4f16-9ade-024e1bb25fa4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loadDensity20}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="162" y="562" width="90" height="12" uuid="65532fed-8d5b-47b8-ab47-3ae4d534d99a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[t из печи (max), °C:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="160" y="561" width="1" height="24" uuid="68fce6cf-bc40-4368-a4e2-e4c35f079086"/>
+			</line>
+			<textField pattern="###0">
+				<reportElement x="162" y="574" width="90" height="11" uuid="8fbde3b8-494e-4f6b-8f26-4601b35956a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maxTempFurnace}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="368" width="554" height="1" uuid="00df6095-1945-4c7e-8073-5f370247a4dc"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="331" width="41" height="36" uuid="5e2f72ca-c737-4365-bfb4-a0eda160d050"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ХЗ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="330" width="28" height="12" uuid="6e310f5d-b6a6-411e-99aa-9259f8c64429"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ t+, °C:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="330" width="45" height="12" uuid="ce55dbfd-b287-4682-a0c1-00ed2df113df"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Масса, кг:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="330" width="45" height="12" uuid="b478a38b-e26d-4fc1-b52d-0238cdadd1db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ ρ+20, кг/л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="330" width="45" height="12" uuid="719b1c68-bc64-48c4-9695-b5d45231ffe7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Объем, л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="330" width="45" height="12" uuid="c66c19f7-9374-4de6-86fd-8d570768edb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ ρ, кг/л:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="41" y="343" width="513" height="1" uuid="9d343767-4c08-460b-9816-13a9a88a2282"/>
+			</line>
+			<staticText>
+				<reportElement x="464" y="330" width="91" height="12" uuid="6397e617-595d-4cc3-822d-bfac3279e875"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ %:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="330" width="44" height="12" uuid="fc790311-8651-4acd-8c52-cd14c0e07630"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[н.к/tкк:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="330" width="43" height="12" uuid="1d42bd0f-3090-4172-abb9-132a13689f3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[tвсп/tп:]]></text>
+			</staticText>
+			<subreport overflowType="Stretch">
+				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="77" y="420" width="295" height="38" uuid="260e7dd3-dfff-4fa9-8ed5-f32e0e5a4ca4"/>
+				<subreportParameter name="actID">
+					<subreportParameterExpression><![CDATA[$P{actID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tankOrder">
+					<subreportParameterExpression><![CDATA[2]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["report1_subreport1.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</title>
 	<pageHeader>

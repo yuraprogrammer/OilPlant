@@ -569,15 +569,19 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
                 otgPercent = actCounters.getOTGPercent().doubleValue();                
                 
                 e9Gravity = actCounters.getE9Gravity().doubleValue();
-                query = em.createNamedQuery("OTGToTSP.findByActID");
-                query.setParameter("actID", id);
-                otgToTSP = query.getResultList();
                 otgVolume=0;
                 otgMass=0;
-                for (int i=0; i<otgToTSP.size(); i++){
-                    otgToTsp = otgToTSP.get(i);
-                    otgVolume = otgVolume + otgToTsp.getOtgToTspVolume().doubleValue();
-                    otgMass = otgMass +otgToTsp.getOtgToTspMass().doubleValue();
+                for (int j=1; j<3; j++){
+                    query = em.createNamedQuery("OTGToTSP.findByActIdOrder");
+                    query.setParameter("actID", id);
+                    query.setParameter("tankOrder", j);
+                    otgToTSP = query.getResultList();
+                    
+                    for (int i=0; i<otgToTSP.size(); i++){
+                        otgToTsp = otgToTSP.get(i);
+                        otgVolume = otgVolume + otgToTsp.getOtgToTspVolume().doubleValue();
+                        otgMass = otgMass +otgToTsp.getOtgToTspMass().doubleValue();
+                    }
                 }
                 otgDensity = otgMass/otgVolume;
             }
@@ -631,6 +635,8 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             e9Gravity = sirieMass!=0 ? e9Mass/(sirieMass/1000.0) : 0;
             otgVolume = otg.iterator().next().getInstance().getVolumeValue();
             otgPercent = sirieMass!=0 ? otgMass*100/sirieMass:0;
+            newProdMass = otg.iterator().next().getInstance().getNewProdMassValue();
+            newProdVolume = otg.iterator().next().getInstance().getNewProdVolumeValue();
             
             if (newAct!=null){
                 fillCounters(newAct.getId(),1);
@@ -646,7 +652,9 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             actCounters.setAKDGPercent(BigDecimal.valueOf(akdgPercent));
             actCounters.setOTGPercent(BigDecimal.valueOf(otgPercent));
             actCounters.setOTGDensity(BigDecimal.valueOf(otgDensity));
-            actCounters.setE9Gravity(BigDecimal.valueOf(e9Gravity));
+            actCounters.setE9Gravity(BigDecimal.valueOf(e9Gravity));            
+            actCounters.setRVOPercent(BigDecimal.valueOf(newProdPercent));
+            actCounters.setRVODensity(BigDecimal.valueOf(newProdDensity));
             countersJpa.edit(actCounters);
         }
         

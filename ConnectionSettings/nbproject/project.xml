@@ -4,24 +4,8 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
             <code-name-base>com.alexprom.connection.settings</code-name-base>
-            <standalone/>
+            <suite-component/>
             <module-dependencies>
-                <dependency>
-                    <code-name-base>com.alexprom.tsp_account.eclipselink</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>1.0</specification-version>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>com.alexprom.tsp_account.sqldriver</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>1.0</specification-version>
-                    </run-dependency>
-                </dependency>
                 <dependency>
                     <code-name-base>org.netbeans.modules.options.api</code-name-base>
                     <build-prerequisite/>
@@ -75,6 +59,22 @@
             <public-packages>
                 <package>com.alexprom.connection.settings</package>
             </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/javax.persistence_2.1.0.v201304241213.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/javax.persistence_2.1.0.v201304241213.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/sqljdbc42.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/sqljdbc42.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/eclipselink.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/eclipselink.jar</binary-origin>
+            </class-path-extension>
         </data>
     </configuration>
 </project>
