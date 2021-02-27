@@ -34,8 +34,7 @@ public class UPPG_ShiftReport extends javax.swing.JPanel {
         
         this.params = new HashMap<>();
         try{
-            JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
-            
+            JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);                
                 em.getTransaction().begin();
             
             Connection connection = em.unwrap(Connection.class);

@@ -350,16 +350,16 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel13.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel13.setLayout(null);
 
-        label56.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label56.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         label56.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label56.text")); // NOI18N
         jPanel13.add(label56);
-        label56.setBounds(120, 20, 120, 18);
+        label56.setBounds(120, 20, 140, 17);
 
         blf_akdg_otg_Percent.setEditable(false);
         blf_akdg_otg_Percent.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         blf_akdg_otg_Percent.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.blf_akdg_otg_Percent.text")); // NOI18N
         jPanel13.add(blf_akdg_otg_Percent);
-        blf_akdg_otg_Percent.setBounds(120, 40, 120, 20);
+        blf_akdg_otg_Percent.setBounds(120, 40, 140, 20);
 
         blf_akdg_Percent.setEditable(false);
         blf_akdg_Percent.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -367,21 +367,21 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         jPanel13.add(blf_akdg_Percent);
         blf_akdg_Percent.setBounds(10, 40, 100, 20);
 
-        label57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label57.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         label57.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label57.text")); // NOI18N
         jPanel13.add(label57);
-        label57.setBounds(10, 20, 90, 18);
+        label57.setBounds(10, 20, 100, 17);
 
-        label58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label58.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         label58.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.label58.text")); // NOI18N
         jPanel13.add(label58);
-        label58.setBounds(250, 20, 120, 18);
+        label58.setBounds(270, 20, 100, 17);
 
         e9_Gravity.setEditable(false);
         e9_Gravity.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         e9_Gravity.setText(org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.e9_Gravity.text")); // NOI18N
         jPanel13.add(e9_Gravity);
-        e9_Gravity.setBounds(250, 40, 120, 20);
+        e9_Gravity.setBounds(270, 40, 100, 20);
 
         jPanel14.setBackground(new java.awt.Color(204, 255, 204));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(additionalDataTopComponent.class, "additionalDataTopComponent.jPanel14.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -585,8 +585,8 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
                 }
                 otgDensity = otgMass/otgVolume;
             }
-            blf_akdgPercent = blfPercent+akdgPercent;
-            blf_akdg_otgPercent = blfPercent+akdgPercent+otgPercent;
+            blf_akdgPercent = blfPercent+akdgPercent+newProdPercent;
+            blf_akdg_otgPercent = blfPercent+akdgPercent+otgPercent+newProdPercent;
             blf_Percent.setText(String.format("%.1f", blfPercent));                       
             akdg_Percent.setText(String.format("%.1f", akdgPercent));
             otg_Percent.setText(String.format("%.1f", otgPercent));
