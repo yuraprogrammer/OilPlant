@@ -560,14 +560,12 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             akdgMass = actCounters.getAKDGMass().doubleValue();
             akdg_Mass.setText(String.format("%.1f", akdgMass));
             blfPercent = sirieMass!=0 ? blfMass*100/sirieMass : 0;
-            akdgPercent = sirieMass!=0 ? akdgMass*100/sirieMass : 0;
-            newProdPercent = sirieMass!=0 ? newProdMass*100/sirieMass : 0;
+            akdgPercent = sirieMass!=0 ? akdgMass*100/sirieMass : 0;            
             sirieDensity = sirieVolume!=0 ? sirieMass/sirieVolume : 0;           
             blfDensity = blfVolume!=0 ? blfMass/blfVolume : 0;                
             akdgDensity = akdgVolume!=0 ? akdgMass/akdgVolume : 0;
-            if (type!=1){                
-                otgPercent = actCounters.getOTGPercent().doubleValue();                
-                
+            if (type==0){                
+                otgPercent = actCounters.getOTGPercent().doubleValue();                                
                 e9Gravity = actCounters.getE9Gravity().doubleValue();
                 otgVolume=0;
                 otgMass=0;
@@ -584,7 +582,11 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
                     }
                 }
                 otgDensity = otgMass/otgVolume;
+                newProdVolume = actCounters.getRVOVolume().doubleValue();
+                newProdMass = actCounters.getRVOMass().doubleValue();
             }
+            
+            newProdPercent = sirieMass!=0 ? newProdMass*100/sirieMass : 0;
             blf_akdgPercent = blfPercent+akdgPercent+newProdPercent;
             blf_akdg_otgPercent = blfPercent+akdgPercent+otgPercent+newProdPercent;
             blf_Percent.setText(String.format("%.1f", blfPercent));                       
@@ -618,8 +620,8 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             List<ActUPPG> act = query.getResultList();            
             if (!act.isEmpty()){
                 this.newAct = act.get(0);
-                if (newAct!=oldAct){  
-                    fillCounters(newAct.getId(),0);
+                if (newAct!=oldAct){
+                    fillCounters(newAct.getId(),0);                    
                 }
             }
         }
@@ -639,7 +641,7 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
             newProdVolume = otg.iterator().next().getInstance().getNewProdVolumeValue();
             
             if (newAct!=null){
-                fillCounters(newAct.getId(),1);
+                fillCounters(newAct.getId(),1);                
             }
             
         }
