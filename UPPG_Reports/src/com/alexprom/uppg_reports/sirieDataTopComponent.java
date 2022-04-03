@@ -4,6 +4,7 @@ import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.dictionary.GradView;
 import com.alexprom.entities.dictionary.TankDic;
 import com.alexprom.entities.dictionary.VPlotn20;
+//import com.alexprom.entities.process.ActAdditional;
 import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActDensity20;
 import com.alexprom.entities.process.ActUPPG;
@@ -11,6 +12,7 @@ import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
+//import com.alexprom.entities.service.ActAdditionalJpaController;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.OTGToTSPJpaController;
@@ -71,6 +73,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private ActCounters actCounters;
     private ActDensity20 actDensity20;
     private UPPGFeedWater feedWater;
+    //private ActAdditional additional;
     private UPPGDrainTank drainTank;    
     private final int complete=0;
     private final InstanceContent content;    
@@ -82,6 +85,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private List<OTGToTSP> listOtgToTsp;
     private List<UPPGFeedWater> listFeedWater;
     private List<UPPGDrainTank> listDrainTank;
+//    private List<ActAdditional> listAdditional;
     private TankDic tankDic;
     private OTGToUPPG otgToUppg;
     private OTGToTSP otgToTsp, otgToTsp1, otgToTsp2;
@@ -113,6 +117,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private double old_OtgTspLevelStart2=0, old_OtgTspVolumeStart2=0, old_OtgTspMassStart2=0, old_OtgTspTempStart2=0, old_OtgTspDensityStart2=0, old_OtgTspDensity20Start2=0;
     private double new_OtgTspLevelEnd2=0, new_OtgTspVolumeEnd2=0, new_OtgTspMassEnd2=0, new_OtgTspTempEnd2=0, new_OtgTspDensityEnd2=0, new_OtgTspDensity20End2=0;
     private double old_OtgTspLevelEnd2=0, old_OtgTspVolumeEnd2=0, old_OtgTspMassEnd2=0, old_OtgTspTempEnd2=0, old_OtgTspDensityEnd2=0, old_OtgTspDensity20End2=0;
+    private int old_Colour=0, old_Neutralizer=0, old_Ingibitor=0, old_Depressor=0, old_Deemulgator=0;
+    private int new_Colour=0, new_Neutralizer=0, new_Ingibitor=0, new_Depressor=0, new_Deemulgator=0;
     
     private EntityManagerFactory emf = null;
     private EntityManager em = null;
@@ -483,6 +489,95 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         };
         otgUppgStart_Density.getDocument().addDocumentListener(otgUppgStart_Density_listener);
         
+        DocumentListener colourListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                colour_Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                colour_Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                colour_Change(true);
+            }            
+        };
+        addColour.getDocument().addDocumentListener(colourListener);
+        
+        DocumentListener neutralizerListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                neutralizer_Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                neutralizer_Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                neutralizer_Change(true);
+            }        
+        };
+        addNeutralizer.getDocument().addDocumentListener(neutralizerListener);
+        
+        DocumentListener ingibitorListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                ingibitor_Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                ingibitor_Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                ingibitor_Change(true);
+            }        
+        };
+        addIngibitor.getDocument().addDocumentListener(ingibitorListener);
+        
+        DocumentListener depressorListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                depressor_Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                depressor_Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                depressor_Change(true);
+            }        
+        };
+        addDepressor.getDocument().addDocumentListener(depressorListener);
+        
+        DocumentListener deemulgatorListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                deemulgator_Change(true);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                deemulgator_Change(true);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                deemulgator_Change(true);
+            }        
+        };
+        addDeemulgator.getDocument().addDocumentListener(deemulgatorListener);
     }        
     
     public void updatePersistence(){                        
@@ -553,11 +648,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     fillOtgData(newAct.getId(), 1);
                     fillFeedData(newAct.getId(), 1);
                     fillDrainData(newAct.getId(), 1);
+//                    fillAdditionalData(newAct.getId(), 1);
                 }else{
                     fillCounters(newAct.getId(), newAct.getComplete());         
                     fillOtgData(newAct.getId(), newAct.getComplete());
                     fillFeedData(newAct.getId(), newAct.getComplete());
                     fillDrainData(newAct.getId(), newAct.getComplete());
+//                    fillAdditionalData(newAct.getId(), newAct.getComplete());
                 }
                 setLookup();
             }else{
@@ -813,6 +910,17 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         label128 = new java.awt.Label();
         otgTspEnd_Density22 = new javax.swing.JFormattedTextField();
         otgTspEnd_Density2 = new javax.swing.JFormattedTextField();
+        jPanel19 = new javax.swing.JPanel();
+        vColour = new java.awt.Label();
+        vNeutralizer = new java.awt.Label();
+        vNeutralizer1 = new java.awt.Label();
+        vNeutralizer2 = new java.awt.Label();
+        vNeutralizer3 = new java.awt.Label();
+        addColour = new javax.swing.JFormattedTextField();
+        addNeutralizer = new javax.swing.JFormattedTextField();
+        addIngibitor = new javax.swing.JFormattedTextField();
+        addDepressor = new javax.swing.JFormattedTextField();
+        addDeemulgator = new javax.swing.JFormattedTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setAutoscrolls(true);
@@ -876,7 +984,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         label137.setBounds(230, 20, 72, 18);
 
         add(jPanel3);
-        jPanel3.setBounds(0, 170, 310, 80);
+        jPanel3.setBounds(0, 170, 310, 70);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel4.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel4.setLayout(null);
@@ -1004,7 +1112,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersStart1.setBounds(10, 90, 450, 70);
 
         add(jPanel4);
-        jPanel4.setBounds(0, 320, 470, 170);
+        jPanel4.setBounds(0, 310, 470, 170);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel5.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel5.setLayout(null);
@@ -1076,6 +1184,11 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         akdgStart_Volume.setEditable(false);
         akdgStart_Volume.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         akdgStart_Volume.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.akdgStart_Volume.text")); // NOI18N
+        akdgStart_Volume.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                akdgStart_VolumeActionPerformed(evt);
+            }
+        });
         countersStart2.add(akdgStart_Volume);
         akdgStart_Volume.setBounds(10, 40, 100, 20);
 
@@ -1132,7 +1245,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         countersStart2.setBounds(10, 90, 450, 70);
 
         add(jPanel5);
-        jPanel5.setBounds(0, 490, 470, 230);
+        jPanel5.setBounds(0, 480, 470, 170);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel2.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -1355,7 +1468,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drain_Density.setBounds(230, 40, 70, 20);
 
         add(jPanel17);
-        jPanel17.setBounds(0, 250, 470, 70);
+        jPanel17.setBounds(0, 240, 470, 70);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel1.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -1427,7 +1540,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         );
 
         add(jPanel1);
-        jPanel1.setBounds(310, 170, 160, 80);
+        jPanel1.setBounds(310, 170, 160, 70);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel7.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         jPanel7.setLayout(null);
@@ -2378,6 +2491,169 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
 
         add(jPanel6);
         jPanel6.setBounds(470, 310, 650, 170);
+
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.jPanel19.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+
+        vColour.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        vColour.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.vColour.text")); // NOI18N
+
+        vNeutralizer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        vNeutralizer.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.vNeutralizer.text")); // NOI18N
+
+        vNeutralizer1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        vNeutralizer1.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.vNeutralizer1.text")); // NOI18N
+
+        vNeutralizer2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        vNeutralizer2.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.vNeutralizer2.text")); // NOI18N
+
+        vNeutralizer3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        vNeutralizer3.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.vNeutralizer3.text")); // NOI18N
+
+        addColour.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        addColour.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.addColour.text")); // NOI18N
+        addColour.setEnabled(false);
+        addColour.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                addColourFocusLost(evt);
+            }
+        });
+        addColour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addColourActionPerformed(evt);
+            }
+        });
+        addColour.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addColourKeyPressed(evt);
+            }
+        });
+
+        addNeutralizer.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        addNeutralizer.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.addNeutralizer.text")); // NOI18N
+        addNeutralizer.setEnabled(false);
+        addNeutralizer.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                addNeutralizerFocusLost(evt);
+            }
+        });
+        addNeutralizer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNeutralizerActionPerformed(evt);
+            }
+        });
+        addNeutralizer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addNeutralizerKeyPressed(evt);
+            }
+        });
+
+        addIngibitor.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        addIngibitor.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.addIngibitor.text")); // NOI18N
+        addIngibitor.setEnabled(false);
+        addIngibitor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                addIngibitorFocusLost(evt);
+            }
+        });
+        addIngibitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addIngibitorActionPerformed(evt);
+            }
+        });
+        addIngibitor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addIngibitorKeyPressed(evt);
+            }
+        });
+
+        addDepressor.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        addDepressor.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.addDepressor.text")); // NOI18N
+        addDepressor.setEnabled(false);
+        addDepressor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                addDepressorFocusLost(evt);
+            }
+        });
+        addDepressor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addDepressorActionPerformed(evt);
+            }
+        });
+        addDepressor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addDepressorKeyPressed(evt);
+            }
+        });
+
+        addDeemulgator.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        addDeemulgator.setText(org.openide.util.NbBundle.getMessage(sirieDataTopComponent.class, "sirieDataTopComponent.addDeemulgator.text")); // NOI18N
+        addDeemulgator.setEnabled(false);
+        addDeemulgator.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                addDeemulgatorFocusLost(evt);
+            }
+        });
+        addDeemulgator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addDeemulgatorActionPerformed(evt);
+            }
+        });
+        addDeemulgator.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addDeemulgatorKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(addColour)
+                    .addComponent(vColour, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(vNeutralizer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addNeutralizer))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(vNeutralizer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addIngibitor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(vNeutralizer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addDepressor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(vNeutralizer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(addDeemulgator))
+                .addContainerGap())
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(vColour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vNeutralizer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vNeutralizer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vNeutralizer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vNeutralizer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addColour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addNeutralizer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addIngibitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addDepressor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addDeemulgator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        add(jPanel19);
+        jPanel19.setBounds(0, 650, 470, 70);
     }// </editor-fold>//GEN-END:initComponents
     
     private void lookupOtgData(){
@@ -2392,6 +2668,92 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             otgResult.setNewProdVolumeValue(new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2);
             otgResult.setNewProdMassValue((new_OtgTspVolumeEnd2-new_OtgTspVolumeStart2)*new_OtgTspDensityEnd2);
             content.set(Collections.singleton(otgResult), null);
+        }
+    }
+    
+    private void colour_Change(boolean edited){
+        if (edited){
+            old_Colour = new_Colour;
+            if (!addColour.getText().isEmpty()){
+                try{
+                    new_Colour = Integer.parseInt(addColour.getText());
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_Colour = 0;
+            }
+            
+        }else{
+            
+        }
+    }
+    
+    private void neutralizer_Change(boolean edited){
+        if (edited){
+            old_Neutralizer = new_Neutralizer;
+            if (!addNeutralizer.getText().isEmpty()){
+                try{
+                    new_Neutralizer = Integer.parseInt(addNeutralizer.getText());
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_Neutralizer = 0;
+            }            
+        }else{
+            
+        }
+    }
+    
+    private void ingibitor_Change(boolean edited){
+        if (edited){
+            old_Ingibitor = new_Ingibitor;
+            if (!addIngibitor.getText().isEmpty()){
+                try{
+                    new_Ingibitor = Integer.parseInt(addIngibitor.getText());
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_Ingibitor = 0;
+            }            
+        }else{
+            
+        }
+    }
+    
+    private void depressor_Change(boolean edited){
+        if (edited){
+            old_Depressor = new_Depressor;
+            if (!addDepressor.getText().isEmpty()){
+                try{
+                    new_Depressor = Integer.parseInt(addDepressor.getText());
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_Depressor = 0;
+            }            
+        }else{
+            
+        }
+    }
+    
+    private void deemulgator_Change(boolean edited){
+        if (edited){
+            old_Deemulgator = new_Deemulgator;
+            if (!addDeemulgator.getText().isEmpty()){
+                try{
+                    new_Deemulgator = Integer.parseInt(addDeemulgator.getText());
+                }catch (java.lang.NumberFormatException e){
+                    this.showNumberErroMessage();
+                }
+            }else{
+                new_Deemulgator = 0;
+            }            
+        }else{
+            
         }
     }
     
@@ -3704,7 +4066,91 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                 
     }//GEN-LAST:event_otgLoad_VolumePropertyChange
 
+    private void akdgStart_VolumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_akdgStart_VolumeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_akdgStart_VolumeActionPerformed
+
+    private void addColourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addColourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addColourActionPerformed
+
+    private void addNeutralizerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNeutralizerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addNeutralizerActionPerformed
+
+    private void addIngibitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addIngibitorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addIngibitorActionPerformed
+
+    private void addDepressorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDepressorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addDepressorActionPerformed
+
+    private void addDeemulgatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDeemulgatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addDeemulgatorActionPerformed
+
+    private void addColourKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addColourKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            colour_Change(true);
+            addColour.transferFocus();
+        }
+    }//GEN-LAST:event_addColourKeyPressed
+
+    private void addColourFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addColourFocusLost
+        colour_Change(true);
+    }//GEN-LAST:event_addColourFocusLost
+
+    private void addNeutralizerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addNeutralizerKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            neutralizer_Change(true);
+            addNeutralizer.transferFocus();
+        }
+    }//GEN-LAST:event_addNeutralizerKeyPressed
+
+    private void addNeutralizerFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addNeutralizerFocusLost
+        neutralizer_Change(true);
+    }//GEN-LAST:event_addNeutralizerFocusLost
+
+    private void addIngibitorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addIngibitorKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            ingibitor_Change(true);
+            addIngibitor.transferFocus();
+        }
+    }//GEN-LAST:event_addIngibitorKeyPressed
+
+    private void addIngibitorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addIngibitorFocusLost
+        ingibitor_Change(true);
+    }//GEN-LAST:event_addIngibitorFocusLost
+
+    private void addDepressorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addDepressorKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            depressor_Change(true);
+            addDepressor.transferFocus();
+        }
+    }//GEN-LAST:event_addDepressorKeyPressed
+
+    private void addDepressorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addDepressorFocusLost
+        depressor_Change(true);
+    }//GEN-LAST:event_addDepressorFocusLost
+
+    private void addDeemulgatorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addDeemulgatorKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            deemulgator_Change(true);
+            addDeemulgator.transferFocus();
+        }
+    }//GEN-LAST:event_addDeemulgatorKeyPressed
+
+    private void addDeemulgatorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addDeemulgatorFocusLost
+        deemulgator_Change(true);
+    }//GEN-LAST:event_addDeemulgatorFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField addColour;
+    private javax.swing.JFormattedTextField addDeemulgator;
+    private javax.swing.JFormattedTextField addDepressor;
+    private javax.swing.JFormattedTextField addIngibitor;
+    private javax.swing.JFormattedTextField addNeutralizer;
     private javax.swing.JFormattedTextField akdgEnd_Density;
     private javax.swing.JFormattedTextField akdgEnd_Density20;
     private javax.swing.JFormattedTextField akdgEnd_Mass;
@@ -3750,6 +4196,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3921,6 +4368,11 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private javax.swing.JFormattedTextField sirieStart_Mass;
     private javax.swing.JFormattedTextField sirieStart_Temp;
     private javax.swing.JFormattedTextField sirieStart_Volume;
+    private java.awt.Label vColour;
+    private java.awt.Label vNeutralizer;
+    private java.awt.Label vNeutralizer1;
+    private java.awt.Label vNeutralizer2;
+    private java.awt.Label vNeutralizer3;
     // End of variables declaration//GEN-END:variables
        
     @Override
@@ -3951,9 +4403,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     void readProperties(java.util.Properties p) {
         String version = p.getProperty("version");        
     }
-
-    
-    
+      
     public void fillCounters(Long id, int permit){        
         if (em!=null){            
             Query query =em.createNamedQuery("ActCounters.findByActID");            
@@ -4325,6 +4775,36 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drained_BLF.setEnabled(permit==0);
     }
     
+    /*public void fillAdditionalData(Long id, int permit){
+        if (em!=null){
+            Query query = em.createNamedQuery("ActAdditional.findByActId");
+            query.setParameter("actId", id);
+            listAdditional = query.getResultList();
+            additional = listAdditional.get(0);
+            em.refresh(additional);
+            old_Colour = new_Colour;
+            new_Colour = additional.getVColour();
+            old_Neutralizer = new_Neutralizer;
+            new_Neutralizer = additional.getVNeutralizer();
+            old_Ingibitor = new_Ingibitor;
+            new_Ingibitor = additional.getVIngibitor();
+            old_Depressor = new_Depressor;
+            new_Depressor = additional.getVDepressor();
+            old_Deemulgator = new_Deemulgator;
+            new_Deemulgator = additional.getVDeemulgator();
+            addColour.setEnabled(permit==0);
+            addNeutralizer.setEnabled(permit==0);
+            addIngibitor.setEnabled(permit==0);
+            addDepressor.setEnabled(permit==0);
+            addDeemulgator.setEnabled(permit==0);
+            addColour.setText(String.valueOf(new_Colour));
+            addNeutralizer.setText(String.valueOf(new_Neutralizer));
+            addIngibitor.setText(String.valueOf(new_Ingibitor));
+            addDepressor.setText(String.valueOf(new_Depressor));
+            addDeemulgator.setText(String.valueOf(new_Deemulgator));
+        }
+    }*/
+    
     public void save() throws Exception{
         if (otgToUppg!=null && otgUppgDataChanged){
             OTGToUPPGJpaController otgUppgJpa = new OTGToUPPGJpaController(emf);
@@ -4431,6 +4911,17 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             actDensity20.setRvoDensity20End(BigDecimal.valueOf(new_OtgTspDensity20End2));
             density20Jpa.edit(actDensity20);
         }
+        
+/*        if (additional!=null){
+            ActAdditionalJpaController additionalController = new ActAdditionalJpaController(emf);
+            additional.setVColour(new_Colour);
+            additional.setVNeutralizer(new_Neutralizer);
+            additional.setVIngibitor(new_Ingibitor);
+            additional.setVDepressor(new_Depressor);
+            additional.setVDeemulgator(new_Deemulgator);
+            additionalController.edit(additional);
+            
+        }*/
     }            
     
     @Override

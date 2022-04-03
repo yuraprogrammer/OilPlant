@@ -2,6 +2,7 @@ package com.alexprom.uppg_reports;
 
 
 import com.alexprom.entities.dictionary.VPlotn20;
+//import com.alexprom.entities.process.ActAdditional;
 import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActDensity20;
 import com.alexprom.entities.process.ActSirie;
@@ -14,6 +15,7 @@ import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
 import com.alexprom.entities.process.VFurnaceOutTemp;
 import com.alexprom.entities.process.WasteGasesMax;
+//import com.alexprom.entities.service.ActAdditionalJpaController;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.ActSirieJpaController;
@@ -66,7 +68,7 @@ public final class CreateAct implements ActionListener {
     private Date repAct;
     private String dateStr;
     private int shift;
-    private Long newActId, newActSirieId, newActDensity20Id, newActCountersId, newActOtgToTspId, newActOtgToUppgId, newActDrainTankId, newActFeedWaterId, newActSirieMixingId;
+    private Long newActId, newActSirieId, newActDensity20Id, newActCountersId, newActOtgToTspId, newActOtgToUppgId, newActDrainTankId, newActFeedWaterId, newActSirieMixingId, newActAdditionalId;
     private double new_SirieTempStart=0, new_SirieDensityStart=0, new_SirieDensity20Start=0;
     private double new_SirieVolumeStart=0, new_SirieMassStart=0;
     private double new_SirieVolumeEnd=0, new_SirieMassEnd=0;
@@ -83,6 +85,7 @@ public final class CreateAct implements ActionListener {
     private double new_SirieVolume=0, new_SirieMass=0;
     private double new_AkdgVolume=0, new_AkdgMass=0;
     private double new_BlfVolume=0, new_BlfMass=0;
+    private int new_Color=0, new_Neutralizer=0, new_Ingibitor=0, new_Depressor=0, new_Deemulgator=0;
     
     private boolean checkExist(Date reportDate, int reportShift) throws ParseException{
         boolean exist;        
@@ -208,6 +211,18 @@ public final class CreateAct implements ActionListener {
         return id;
     }
     
+    private Long getNewActAdditional(){
+        Long id;
+        Query query = em.createQuery("SELECT MAX(a.id) FROM ActAdditional a");
+        Object maxId = query.getSingleResult();
+        if (maxId!=null){
+            id = (Long)maxId+1;
+        }else{
+            id = null;
+        }
+        return id;
+    }
+    
     private void createActUPPG() throws Exception{
         ActUPPG newAct = new ActUPPG();
         ActUPPGJpaController newActJpa = new ActUPPGJpaController(emf);
@@ -293,6 +308,10 @@ public final class CreateAct implements ActionListener {
         newActCounters.setAKDGPercent(BigDecimal.ZERO);
         newActCounters.setBLFPercent(BigDecimal.ZERO);
         newActCounters.setOTGPercent(BigDecimal.ZERO);
+        newActCounters.setRVOVolume(BigDecimal.ZERO);
+        newActCounters.setRVODensity(BigDecimal.ZERO);
+        newActCounters.setRVOMass(BigDecimal.ZERO);
+        newActCounters.setRVOPercent(BigDecimal.ZERO);
         if (shift==1){
             new_SirieVolumeEnd = getTagValue(dateStr, 2, "Volume_Total_1.Value").doubleValue();
             newActCounters.setVolumeEndS(BigDecimal.valueOf(new_SirieVolumeEnd));
@@ -367,6 +386,12 @@ public final class CreateAct implements ActionListener {
         if (new_AkdgVolume!=0){
             new_AkdgDensity = new_AkdgMass/new_AkdgVolume;
         }
+        newActCounters.setAKDFVolume(BigDecimal.valueOf(new_AkdgVolume));
+        newActCounters.setAKDGMass(BigDecimal.valueOf(new_AkdgMass));
+        newActCounters.setBLFVolume(BigDecimal.valueOf(new_BlfVolume));
+        newActCounters.setBLFMass(BigDecimal.valueOf(new_BlfMass));
+        newActCounters.setProcessingVolume(BigDecimal.valueOf(new_SirieVolume));
+        newActCounters.setProcessingMass(BigDecimal.valueOf(new_SirieMass));
         newActCounters.setAKDGDensity(BigDecimal.valueOf(new_AkdgDensity));
         newActCounters.setOTGDensity(BigDecimal.ZERO);
         newActCounters.setE9Gravity(BigDecimal.ZERO);
@@ -512,6 +537,19 @@ public final class CreateAct implements ActionListener {
         newSirieMixingJpa.create(newActSirieMixing);        
     }
     
+    /*private void createActAdditional() throws Exception{
+        ActAdditional newActAdditional = new ActAdditional();
+        ActAdditionalJpaController newActAdditionalJpa = new ActAdditionalJpaController(emf);
+        newActAdditional.setId(newActAdditionalId);
+        newActAdditional.setActId(newActId);
+        /*newActAdditional.setVColour(0);
+        newActAdditional.setVNeutralizer(0);
+        newActAdditional.setVIngibitor(0);
+        newActAdditional.setVDepressor(0);
+        newActAdditional.setVDeemulgator(0);
+        newActAdditionalJpa.create(newActAdditional);
+    }*/
+    
     private int getCurrentShift(){        
         Date now = new Date();
         Date shift_1 = new Date();
@@ -573,10 +611,12 @@ public final class CreateAct implements ActionListener {
                                     newActSirieId = getNewActSirieId();
                                     newActCountersId = getNewActCountersId();
                                     newActDensity20Id = getNewActDensity20Id();
+                                    newActOtgToTspId = getNewActOtgToTspId();
                                     newActOtgToUppgId = getNewActOtgToUppgId();
                                     newActDrainTankId = getNewActDrainTankId();
                                     newActFeedWaterId = getNewActFeedWaterId();
                                     newActSirieMixingId = getNewActSirieMixing();
+                                    newActAdditionalId = getNewActAdditional();
                                     createActUPPG();
                                     createActSirie();
                                     createActCounters();
@@ -586,6 +626,7 @@ public final class CreateAct implements ActionListener {
                                     createUppgDrainTank();
                                     createUppgFeedWater();
                                     createActSirieMixing();
+//                                    createActAdditional();
                                     em.getTransaction().commit();
                                     NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за выбранную смену создан успешно!!! Открыть для редактирвоания?");
                                     Object resultDone = DialogDisplayer.getDefault().notify(done);
@@ -615,7 +656,9 @@ public final class CreateAct implements ActionListener {
                                 }catch (Exception ex){
                                     NotifyDescriptor error = new NotifyDescriptor.Confirmation(ex.getLocalizedMessage());
                                     Object resultDone = DialogDisplayer.getDefault().notify(error);
-                                    em.getTransaction().rollback();
+                                    if (em.getTransaction()!=null){
+                                            em.getTransaction().rollback();
+                                    }
                                 }
                             }
                         }else{
