@@ -616,7 +616,7 @@ public final class CreateAct implements ActionListener {
                                     newActDrainTankId = getNewActDrainTankId();
                                     newActFeedWaterId = getNewActFeedWaterId();
                                     newActSirieMixingId = getNewActSirieMixing();
-                                    newActAdditionalId = getNewActAdditional();
+                                    //newActAdditionalId = getNewActAdditional();
                                     createActUPPG();
                                     createActSirie();
                                     createActCounters();
