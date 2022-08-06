@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="288"/>
@@ -316,48 +316,6 @@
 	</field>
 	<field name="maxTempFurnace" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="maxTempFurnace"/>
-	</field>
-	<field name="MassStart_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="MassStart_R"/>
-	</field>
-	<field name="VolumeStart_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="VolumeStart_R"/>
-	</field>
-	<field name="DensityStart_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="DensityStart_R"/>
-	</field>
-	<field name="MassEnd_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="MassEnd_R"/>
-	</field>
-	<field name="VolumeEnd_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="VolumeEnd_R"/>
-	</field>
-	<field name="RVO_Percent" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="RVO_Percent"/>
-	</field>
-	<field name="RVO_Mass" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="RVO_Mass"/>
-	</field>
-	<field name="RVO_Volume" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="RVO_Volume"/>
-	</field>
-	<field name="RVO_Density" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="RVO_Density"/>
-	</field>
-	<field name="TempStart_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="TempStart_R"/>
-	</field>
-	<field name="TempEnd_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="TempEnd_R"/>
-	</field>
-	<field name="DensityEnd_R" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="DensityEnd_R"/>
-	</field>
-	<field name="rvoDensity20_Start" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="rvoDensity20_Start"/>
-	</field>
-	<field name="rvoDensity20_End" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="rvoDensity20_End"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -872,7 +830,7 @@
 				<textFieldExpression><![CDATA[$F{AKDG_Density}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="464" y="292" width="91" height="36" backcolor="#FFFFCC" uuid="8d0314b2-f6cf-4304-a4d1-b2ca71fe41eb"/>
+				<reportElement mode="Opaque" x="464" y="292" width="91" height="35" backcolor="#FFFFCC" uuid="8d0314b2-f6cf-4304-a4d1-b2ca71fe41eb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -1936,7 +1894,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[РВО]]></text>
+				<text><![CDATA[ХЗ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="254" y="330" width="28" height="12" uuid="6e310f5d-b6a6-411e-99aa-9259f8c64429"/>
@@ -2008,48 +1966,6 @@
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"report1_subreport1.jasper"]]></subreportExpression>
 			</subreport>
-			<textField>
-				<reportElement mode="Opaque" x="328" y="344" width="43" height="24" backcolor="#FFFFCC" uuid="7bf29688-0766-43d9-a690-7398e7d5de36"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[($F{rvoDensity20_Start}+$F{rvoDensity20_End})/2]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="163" y="344" width="45" height="24" backcolor="#FFFFCC" uuid="40eccf49-6a08-497d-aef0-a78817115904"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{RVO_Volume}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.0000">
-				<reportElement mode="Opaque" x="209" y="344" width="44" height="24" backcolor="#FFFFCC" uuid="22045dac-41f5-44b2-8dc0-4262a409a204"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{RVO_Density}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.0">
-				<reportElement mode="Opaque" x="464" y="344" width="91" height="24" backcolor="#FFFFCC" uuid="86931002-2de6-4396-bd1a-71f1ee5bf098"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{RVO_Percent}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="283" y="344" width="44" height="24" backcolor="#FFFFCC" uuid="7276d388-df91-4705-bc26-df2830d4b4a4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{RVO_Mass}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement mode="Opaque" x="255" y="344" width="26" height="24" backcolor="#FFFFCC" uuid="42ad4ed9-1e4d-41bb-b4c7-ac614e60cb6d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[($F{TempStart_R}+$F{TempEnd_R})/2]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<pageHeader>

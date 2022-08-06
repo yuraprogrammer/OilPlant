@@ -4,7 +4,7 @@ import com.alexprom.connection.settings.dbConnectionSettingsPanel;
 import com.alexprom.entities.dictionary.GradView;
 import com.alexprom.entities.dictionary.TankDic;
 import com.alexprom.entities.dictionary.VPlotn20;
-//import com.alexprom.entities.process.ActAdditional;
+import com.alexprom.entities.process.ActAdditional;
 import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActDensity20;
 import com.alexprom.entities.process.ActUPPG;
@@ -12,7 +12,7 @@ import com.alexprom.entities.process.OTGToTSP;
 import com.alexprom.entities.process.OTGToUPPG;
 import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
-//import com.alexprom.entities.service.ActAdditionalJpaController;
+import com.alexprom.entities.service.ActAdditionalJpaController;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.OTGToTSPJpaController;
@@ -73,7 +73,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private ActCounters actCounters;
     private ActDensity20 actDensity20;
     private UPPGFeedWater feedWater;
-    //private ActAdditional additional;
+    private ActAdditional additional;
     private UPPGDrainTank drainTank;    
     private final int complete=0;
     private final InstanceContent content;    
@@ -85,7 +85,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private List<OTGToTSP> listOtgToTsp;
     private List<UPPGFeedWater> listFeedWater;
     private List<UPPGDrainTank> listDrainTank;
-//    private List<ActAdditional> listAdditional;
+    private List<ActAdditional> listAdditional;
     private TankDic tankDic;
     private OTGToUPPG otgToUppg;
     private OTGToTSP otgToTsp, otgToTsp1, otgToTsp2;
@@ -117,8 +117,8 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
     private double old_OtgTspLevelStart2=0, old_OtgTspVolumeStart2=0, old_OtgTspMassStart2=0, old_OtgTspTempStart2=0, old_OtgTspDensityStart2=0, old_OtgTspDensity20Start2=0;
     private double new_OtgTspLevelEnd2=0, new_OtgTspVolumeEnd2=0, new_OtgTspMassEnd2=0, new_OtgTspTempEnd2=0, new_OtgTspDensityEnd2=0, new_OtgTspDensity20End2=0;
     private double old_OtgTspLevelEnd2=0, old_OtgTspVolumeEnd2=0, old_OtgTspMassEnd2=0, old_OtgTspTempEnd2=0, old_OtgTspDensityEnd2=0, old_OtgTspDensity20End2=0;
-    private int old_Colour=0, old_Neutralizer=0, old_Ingibitor=0, old_Depressor=0, old_Deemulgator=0;
-    private int new_Colour=0, new_Neutralizer=0, new_Ingibitor=0, new_Depressor=0, new_Deemulgator=0;
+    private BigDecimal old_Colour=BigDecimal.ZERO, old_Neutralizer=BigDecimal.ZERO, old_Ingibitor=BigDecimal.ZERO, old_Depressor=BigDecimal.ZERO, old_Deemulgator=BigDecimal.ZERO;
+    private BigDecimal new_Colour=BigDecimal.ZERO, new_Neutralizer=BigDecimal.ZERO, new_Ingibitor=BigDecimal.ZERO, new_Depressor=BigDecimal.ZERO, new_Deemulgator=BigDecimal.ZERO;
     
     private EntityManagerFactory emf = null;
     private EntityManager em = null;
@@ -648,13 +648,13 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
                     fillOtgData(newAct.getId(), 1);
                     fillFeedData(newAct.getId(), 1);
                     fillDrainData(newAct.getId(), 1);
-//                    fillAdditionalData(newAct.getId(), 1);
+                    fillAdditionalData(newAct.getId(), 1);
                 }else{
                     fillCounters(newAct.getId(), newAct.getComplete());         
                     fillOtgData(newAct.getId(), newAct.getComplete());
                     fillFeedData(newAct.getId(), newAct.getComplete());
                     fillDrainData(newAct.getId(), newAct.getComplete());
-//                    fillAdditionalData(newAct.getId(), newAct.getComplete());
+                    fillAdditionalData(newAct.getId(), newAct.getComplete());
                 }
                 setLookup();
             }else{
@@ -2676,12 +2676,12 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_Colour = new_Colour;
             if (!addColour.getText().isEmpty()){
                 try{
-                    new_Colour = Integer.parseInt(addColour.getText());
+                    new_Colour = BigDecimal.valueOf(Double.parseDouble(addColour.getText()));
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
             }else{
-                new_Colour = 0;
+                new_Colour = BigDecimal.ZERO;
             }
             
         }else{
@@ -2694,12 +2694,12 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_Neutralizer = new_Neutralizer;
             if (!addNeutralizer.getText().isEmpty()){
                 try{
-                    new_Neutralizer = Integer.parseInt(addNeutralizer.getText());
+                    new_Neutralizer = BigDecimal.valueOf(Double.parseDouble(addNeutralizer.getText()));
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
             }else{
-                new_Neutralizer = 0;
+                new_Neutralizer = BigDecimal.ZERO;
             }            
         }else{
             
@@ -2711,12 +2711,12 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_Ingibitor = new_Ingibitor;
             if (!addIngibitor.getText().isEmpty()){
                 try{
-                    new_Ingibitor = Integer.parseInt(addIngibitor.getText());
+                    new_Ingibitor = BigDecimal.valueOf(Double.parseDouble(addIngibitor.getText()));
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
             }else{
-                new_Ingibitor = 0;
+                new_Ingibitor = BigDecimal.ZERO;
             }            
         }else{
             
@@ -2728,12 +2728,12 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_Depressor = new_Depressor;
             if (!addDepressor.getText().isEmpty()){
                 try{
-                    new_Depressor = Integer.parseInt(addDepressor.getText());
+                    new_Depressor = BigDecimal.valueOf(Double.parseDouble(addDepressor.getText()));
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
             }else{
-                new_Depressor = 0;
+                new_Depressor = BigDecimal.ZERO;
             }            
         }else{
             
@@ -2745,12 +2745,12 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             old_Deemulgator = new_Deemulgator;
             if (!addDeemulgator.getText().isEmpty()){
                 try{
-                    new_Deemulgator = Integer.parseInt(addDeemulgator.getText());
+                    new_Deemulgator = BigDecimal.valueOf(Double.parseDouble(addDeemulgator.getText()));
                 }catch (java.lang.NumberFormatException e){
                     this.showNumberErroMessage();
                 }
             }else{
-                new_Deemulgator = 0;
+                new_Deemulgator = BigDecimal.ZERO;
             }            
         }else{
             
@@ -4775,23 +4775,25 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
         drained_BLF.setEnabled(permit==0);
     }
     
-    /*public void fillAdditionalData(Long id, int permit){
+    public void fillAdditionalData(Long id, int permit){
         if (em!=null){
             Query query = em.createNamedQuery("ActAdditional.findByActId");
             query.setParameter("actId", id);
             listAdditional = query.getResultList();
-            additional = listAdditional.get(0);
-            em.refresh(additional);
-            old_Colour = new_Colour;
-            new_Colour = additional.getVColour();
-            old_Neutralizer = new_Neutralizer;
-            new_Neutralizer = additional.getVNeutralizer();
-            old_Ingibitor = new_Ingibitor;
-            new_Ingibitor = additional.getVIngibitor();
-            old_Depressor = new_Depressor;
-            new_Depressor = additional.getVDepressor();
-            old_Deemulgator = new_Deemulgator;
-            new_Deemulgator = additional.getVDeemulgator();
+            if (listAdditional.size()!=0){
+                additional = listAdditional.get(0);
+                em.refresh(additional);
+                old_Colour = new_Colour;
+                new_Colour = additional.getVColour();
+                old_Neutralizer = new_Neutralizer;
+                new_Neutralizer = additional.getVNeutralizer();
+                old_Ingibitor = new_Ingibitor;
+                new_Ingibitor = additional.getVIngibitor();
+                old_Depressor = new_Depressor;
+                new_Depressor = additional.getVDepressor();
+                old_Deemulgator = new_Deemulgator;
+                new_Deemulgator = additional.getVDeemulgator();
+            }
             addColour.setEnabled(permit==0);
             addNeutralizer.setEnabled(permit==0);
             addIngibitor.setEnabled(permit==0);
@@ -4803,7 +4805,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             addDepressor.setText(String.valueOf(new_Depressor));
             addDeemulgator.setText(String.valueOf(new_Deemulgator));
         }
-    }*/
+    }
     
     public void save() throws Exception{
         if (otgToUppg!=null && otgUppgDataChanged){
@@ -4912,7 +4914,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             density20Jpa.edit(actDensity20);
         }
         
-/*        if (additional!=null){
+        if (additional!=null){
             ActAdditionalJpaController additionalController = new ActAdditionalJpaController(emf);
             additional.setVColour(new_Colour);
             additional.setVNeutralizer(new_Neutralizer);
@@ -4921,7 +4923,7 @@ public final class sirieDataTopComponent extends TopComponent implements Lookup.
             additional.setVDeemulgator(new_Deemulgator);
             additionalController.edit(additional);
             
-        }*/
+        }
     }            
     
     @Override

@@ -647,18 +647,23 @@ public final class additionalDataTopComponent extends TopComponent implements Lo
         }
     }
     
-    public void save() throws Exception{
+    public void save(){
+    try{
         if (actCounters!=null){
             ActCountersJpaController countersJpa = new ActCountersJpaController(emf);
             actCounters.setBLFPercent(BigDecimal.valueOf(blfPercent));
             actCounters.setAKDGPercent(BigDecimal.valueOf(akdgPercent));
             actCounters.setOTGPercent(BigDecimal.valueOf(otgPercent));
             actCounters.setOTGDensity(BigDecimal.valueOf(otgDensity));
-            actCounters.setE9Gravity(BigDecimal.valueOf(e9Gravity));            
+            actCounters.setE9Gravity(BigDecimal.valueOf(e9Gravity));
+            actCounters.setBLFAKDGOTGPercent(BigDecimal.valueOf(blf_akdg_otgPercent));
+            actCounters.setBLFAKDGPercent(BigDecimal.valueOf(blf_akdgPercent));
             actCounters.setRVOPercent(BigDecimal.valueOf(newProdPercent));
             actCounters.setRVODensity(BigDecimal.valueOf(newProdDensity));
             countersJpa.edit(actCounters);
         }
-        
+    }catch (Exception e){
+        System.out.println(e.getLocalizedMessage());
+    }
     }   
 }

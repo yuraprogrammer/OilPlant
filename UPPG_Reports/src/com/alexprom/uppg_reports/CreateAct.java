@@ -2,7 +2,7 @@ package com.alexprom.uppg_reports;
 
 
 import com.alexprom.entities.dictionary.VPlotn20;
-//import com.alexprom.entities.process.ActAdditional;
+import com.alexprom.entities.process.ActAdditional;
 import com.alexprom.entities.process.ActCounters;
 import com.alexprom.entities.process.ActDensity20;
 import com.alexprom.entities.process.ActSirie;
@@ -15,7 +15,7 @@ import com.alexprom.entities.process.UPPGDrainTank;
 import com.alexprom.entities.process.UPPGFeedWater;
 import com.alexprom.entities.process.VFurnaceOutTemp;
 import com.alexprom.entities.process.WasteGasesMax;
-//import com.alexprom.entities.service.ActAdditionalJpaController;
+import com.alexprom.entities.service.ActAdditionalJpaController;
 import com.alexprom.entities.service.ActCountersJpaController;
 import com.alexprom.entities.service.ActDensity20JpaController;
 import com.alexprom.entities.service.ActSirieJpaController;
@@ -400,7 +400,7 @@ public final class CreateAct implements ActionListener {
         
     private BigDecimal getDensity20(Double density, Double temperature){
         BigDecimal density20;
-        String str = "SELECT v FROM VPlotn20 v WHERE v.plotn like '"+String.format("%.3f", density).replace(",", ".")+"%' AND v.temperName = "+String.format("%d", Math.round(temperature));
+        String str = "SELECT v FROM VPlotn20 v WHERE v.plotn like '"+String.format("%.3f", density).replace(",", ".")+"%' AND v.temperName like '"+String.format("%d", Math.round(temperature))+"%'";
         Query query = em.createQuery(str);
         List<VPlotn20> list = query.getResultList();                
         if (!list.isEmpty()){
@@ -537,18 +537,18 @@ public final class CreateAct implements ActionListener {
         newSirieMixingJpa.create(newActSirieMixing);        
     }
     
-    /*private void createActAdditional() throws Exception{
+    private void createActAdditional() throws Exception{
         ActAdditional newActAdditional = new ActAdditional();
         ActAdditionalJpaController newActAdditionalJpa = new ActAdditionalJpaController(emf);
         newActAdditional.setId(newActAdditionalId);
         newActAdditional.setActId(newActId);
-        /*newActAdditional.setVColour(0);
-        newActAdditional.setVNeutralizer(0);
-        newActAdditional.setVIngibitor(0);
-        newActAdditional.setVDepressor(0);
-        newActAdditional.setVDeemulgator(0);
+        newActAdditional.setVColour(BigDecimal.ZERO);
+        newActAdditional.setVNeutralizer(BigDecimal.ZERO);
+        newActAdditional.setVIngibitor(BigDecimal.ZERO);
+        newActAdditional.setVDepressor(BigDecimal.ZERO);
+        newActAdditional.setVDeemulgator(BigDecimal.ZERO);
         newActAdditionalJpa.create(newActAdditional);
-    }*/
+    }
     
     private int getCurrentShift(){        
         Date now = new Date();
@@ -616,7 +616,7 @@ public final class CreateAct implements ActionListener {
                                     newActDrainTankId = getNewActDrainTankId();
                                     newActFeedWaterId = getNewActFeedWaterId();
                                     newActSirieMixingId = getNewActSirieMixing();
-                                    //newActAdditionalId = getNewActAdditional();
+                                    newActAdditionalId = getNewActAdditional();
                                     createActUPPG();
                                     createActSirie();
                                     createActCounters();
@@ -626,7 +626,7 @@ public final class CreateAct implements ActionListener {
                                     createUppgDrainTank();
                                     createUppgFeedWater();
                                     createActSirieMixing();
-//                                    createActAdditional();
+                                    createActAdditional();
                                     em.getTransaction().commit();
                                     NotifyDescriptor done = new NotifyDescriptor.Confirmation("Акт за выбранную смену создан успешно!!! Открыть для редактирвоания?");
                                     Object resultDone = DialogDisplayer.getDefault().notify(done);

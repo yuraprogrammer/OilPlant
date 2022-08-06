@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UPPG" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d839649-5679-44c3-9749-e11fcde5eefb">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="288"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Alexprom.jrdax"/>
 	<style name="Title" isDefault="true" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -15,307 +15,485 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT * FROM  v_actUPPG WHERE  ID = $P{actID}]]>
+		<![CDATA[SELECT *
+FROM "v_actUPPG"
+WHERE ID=$P{actID}]]>
 	</queryString>
 	<field name="ID" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="ID"/>
 		<property name="com.jaspersoft.studio.field.label" value="ID"/>
 	</field>
 	<field name="aDate" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="aDate"/>
 		<property name="com.jaspersoft.studio.field.label" value="aDate"/>
 	</field>
 	<field name="aShift" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="aShift"/>
 		<property name="com.jaspersoft.studio.field.label" value="aShift"/>
 	</field>
 	<field name="mainOper" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mainOper"/>
 		<property name="com.jaspersoft.studio.field.label" value="mainOper"/>
 	</field>
 	<field name="slaveOper" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="slaveOper"/>
 		<property name="com.jaspersoft.studio.field.label" value="slaveOper"/>
 	</field>
 	<field name="MassStart_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassStart_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="MassStart_S"/>
 	</field>
 	<field name="VolumeStart_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeStart_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="VolumeStart_S"/>
 	</field>
 	<field name="TempStart_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempStart_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="TempStart_S"/>
 	</field>
 	<field name="DensityStart_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityStart_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="DensityStart_S"/>
 	</field>
 	<field name="MassStart_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassStart_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="MassStart_B"/>
 	</field>
 	<field name="VolumeStart_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeStart_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="VolumeStart_B"/>
 	</field>
 	<field name="TempStart_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempStart_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="TempStart_B"/>
 	</field>
 	<field name="DensityStart_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityStart_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="DensityStart_B"/>
 	</field>
 	<field name="MassStart_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassStart_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="MassStart_A"/>
 	</field>
 	<field name="VolumeStart_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeStart_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="VolumeStart_A"/>
 	</field>
 	<field name="TempStart_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempStart_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="TempStart_A"/>
 	</field>
 	<field name="DensityStart_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityStart_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="DensityStart_A"/>
 	</field>
 	<field name="MassEnd_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassEnd_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="MassEnd_S"/>
 	</field>
 	<field name="VolumeEnd_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeEnd_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="VolumeEnd_S"/>
 	</field>
 	<field name="TempEnd_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempEnd_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="TempEnd_S"/>
 	</field>
 	<field name="DensityEnd_S" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityEnd_S"/>
 		<property name="com.jaspersoft.studio.field.label" value="DensityEnd_S"/>
 	</field>
 	<field name="MassEnd_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassEnd_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="MassEnd_B"/>
 	</field>
 	<field name="VolumeEnd_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeEnd_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="VolumeEnd_B"/>
 	</field>
 	<field name="TempEnd_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempEnd_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="TempEnd_B"/>
 	</field>
 	<field name="DensityEnd_B" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityEnd_B"/>
 		<property name="com.jaspersoft.studio.field.label" value="DensityEnd_B"/>
 	</field>
 	<field name="MassEnd_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassEnd_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="MassEnd_A"/>
 	</field>
 	<field name="VolumeEnd_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeEnd_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="VolumeEnd_A"/>
 	</field>
 	<field name="TempEnd_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempEnd_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="TempEnd_A"/>
 	</field>
 	<field name="DensityEnd_A" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityEnd_A"/>
 		<property name="com.jaspersoft.studio.field.label" value="DensityEnd_A"/>
 	</field>
 	<field name="Processing_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Processing_Mass"/>
 		<property name="com.jaspersoft.studio.field.label" value="Processing_Mass"/>
 	</field>
 	<field name="Processing_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Processing_Volume"/>
 		<property name="com.jaspersoft.studio.field.label" value="Processing_Volume"/>
 	</field>
 	<field name="BLF_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="BLF_Mass"/>
 		<property name="com.jaspersoft.studio.field.label" value="BLF_Mass"/>
 	</field>
 	<field name="BLF_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="BLF_Volume"/>
 		<property name="com.jaspersoft.studio.field.label" value="BLF_Volume"/>
 	</field>
 	<field name="AKDG_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="AKDG_Mass"/>
 		<property name="com.jaspersoft.studio.field.label" value="AKDG_Mass"/>
 	</field>
 	<field name="AKDF_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="AKDF_Volume"/>
 		<property name="com.jaspersoft.studio.field.label" value="AKDF_Volume"/>
 	</field>
 	<field name="BLF_Percent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="BLF_Percent"/>
 		<property name="com.jaspersoft.studio.field.label" value="BLF_Percent"/>
 	</field>
 	<field name="AKDG_Percent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="AKDG_Percent"/>
 		<property name="com.jaspersoft.studio.field.label" value="AKDG_Percent"/>
 	</field>
 	<field name="OTG_Percent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="OTG_Percent"/>
 		<property name="com.jaspersoft.studio.field.label" value="OTG_Percent"/>
 	</field>
 	<field name="BLF_AKDG_Percent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="BLF_AKDG_Percent"/>
 		<property name="com.jaspersoft.studio.field.label" value="BLF_AKDG_Percent"/>
 	</field>
 	<field name="BLF_AKDG_OTG_Percent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="BLF_AKDG_OTG_Percent"/>
 		<property name="com.jaspersoft.studio.field.label" value="BLF_AKDG_OTG_Percent"/>
 	</field>
 	<field name="sirieDensity20_Start" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="sirieDensity20_Start"/>
 		<property name="com.jaspersoft.studio.field.label" value="sirieDensity20_Start"/>
 	</field>
 	<field name="sirieDensity20_End" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="sirieDensity20_End"/>
 		<property name="com.jaspersoft.studio.field.label" value="sirieDensity20_End"/>
 	</field>
 	<field name="blfDensity20_Start" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="blfDensity20_Start"/>
 		<property name="com.jaspersoft.studio.field.label" value="blfDensity20_Start"/>
 	</field>
 	<field name="blfDensity20_End" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="blfDensity20_End"/>
 		<property name="com.jaspersoft.studio.field.label" value="blfDensity20_End"/>
 	</field>
 	<field name="akdgDensity20_Start" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="akdgDensity20_Start"/>
 		<property name="com.jaspersoft.studio.field.label" value="akdgDensity20_Start"/>
 	</field>
 	<field name="akdgDensity20_End" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="akdgDensity20_End"/>
 		<property name="com.jaspersoft.studio.field.label" value="akdgDensity20_End"/>
 	</field>
 	<field name="drainStartLevel" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="drainStartLevel"/>
 		<property name="com.jaspersoft.studio.field.label" value="drainStartLevel"/>
 	</field>
 	<field name="drainFinishLevel" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="drainFinishLevel"/>
 		<property name="com.jaspersoft.studio.field.label" value="drainFinishLevel"/>
 	</field>
 	<field name="drainDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="drainDensity"/>
 		<property name="com.jaspersoft.studio.field.label" value="drainDensity"/>
 	</field>
 	<field name="drainVolume" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="drainVolume"/>
 		<property name="com.jaspersoft.studio.field.label" value="drainVolume"/>
 	</field>
 	<field name="drainMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="drainMass"/>
 		<property name="com.jaspersoft.studio.field.label" value="drainMass"/>
 	</field>
 	<field name="drained" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="drained"/>
 		<property name="com.jaspersoft.studio.field.label" value="drained"/>
 	</field>
 	<field name="otg_uppg_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_Volume"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_Volume"/>
 	</field>
 	<field name="otg_uppg_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_Mass"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_Mass"/>
 	</field>
 	<field name="otg_tsp_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_tsp_Volume"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_tsp_Volume"/>
 	</field>
 	<field name="otg_tsp_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_tsp_Mass"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_tsp_Mass"/>
 	</field>
 	<field name="feed_startData" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="feed_startData"/>
 		<property name="com.jaspersoft.studio.field.label" value="feed_startData"/>
 	</field>
 	<field name="feed_finishData" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="feed_finishData"/>
 		<property name="com.jaspersoft.studio.field.label" value="feed_finishData"/>
 	</field>
 	<field name="feed_total" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="feed_total"/>
 		<property name="com.jaspersoft.studio.field.label" value="feed_total"/>
 	</field>
 	<field name="Percent_1" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Percent_1"/>
 		<property name="com.jaspersoft.studio.field.label" value="Percent_1"/>
 	</field>
 	<field name="Percent_2" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Percent_2"/>
 		<property name="com.jaspersoft.studio.field.label" value="Percent_2"/>
 	</field>
 	<field name="Percent_3" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Percent_3"/>
 		<property name="com.jaspersoft.studio.field.label" value="Percent_3"/>
 	</field>
 	<field name="Percent_4" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Percent_4"/>
 		<property name="com.jaspersoft.studio.field.label" value="Percent_4"/>
 	</field>
 	<field name="Percent_5" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Percent_5"/>
 		<property name="com.jaspersoft.studio.field.label" value="Percent_5"/>
 	</field>
 	<field name="drained_BLF" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="drained_BLF"/>
 		<property name="com.jaspersoft.studio.field.label" value="drained_BLF"/>
 	</field>
 	<field name="Percent_6" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Percent_6"/>
 		<property name="com.jaspersoft.studio.field.label" value="Percent_6"/>
 	</field>
 	<field name="Tank_Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Tank_Name"/>
 		<property name="com.jaspersoft.studio.field.label" value="Tank_Name"/>
 	</field>
 	<field name="sirieVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="sirieVolume"/>
 		<property name="com.jaspersoft.studio.field.label" value="sirieVolume"/>
 	</field>
 	<field name="sirieDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="sirieDensity"/>
 		<property name="com.jaspersoft.studio.field.label" value="sirieDensity"/>
 	</field>
 	<field name="sirieMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="sirieMass"/>
 		<property name="com.jaspersoft.studio.field.label" value="sirieMass"/>
 	</field>
 	<field name="maxValue" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="maxValue"/>
 		<property name="com.jaspersoft.studio.field.label" value="maxValue"/>
 	</field>
 	<field name="Component_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Component_1"/>
 		<property name="com.jaspersoft.studio.field.label" value="Component_1"/>
 	</field>
 	<field name="Component_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Component_2"/>
 		<property name="com.jaspersoft.studio.field.label" value="Component_2"/>
 	</field>
 	<field name="Component_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Component_3"/>
 		<property name="com.jaspersoft.studio.field.label" value="Component_3"/>
 	</field>
 	<field name="Component_4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Component_4"/>
 		<property name="com.jaspersoft.studio.field.label" value="Component_4"/>
 	</field>
 	<field name="Component_5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Component_5"/>
 		<property name="com.jaspersoft.studio.field.label" value="Component_5"/>
 	</field>
 	<field name="Component_6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Component_6"/>
 		<property name="com.jaspersoft.studio.field.label" value="Component_6"/>
 	</field>
 	<field name="Processing_Dinsity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Processing_Dinsity"/>
 		<property name="com.jaspersoft.studio.field.label" value="Processing_Dinsity"/>
 	</field>
 	<field name="BLF_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="BLF_Density"/>
 		<property name="com.jaspersoft.studio.field.label" value="BLF_Density"/>
 	</field>
 	<field name="AKDG_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="AKDG_Density"/>
 		<property name="com.jaspersoft.studio.field.label" value="AKDG_Density"/>
 	</field>
 	<field name="OTG_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="OTG_Density"/>
 		<property name="com.jaspersoft.studio.field.label" value="OTG_Density"/>
 	</field>
 	<field name="otg_uppg_startLevel" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_startLevel"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startLevel"/>
 	</field>
 	<field name="otg_uppg_finishLevel" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_finishLevel"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_finishLevel"/>
 	</field>
 	<field name="otg_uppg_startVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_startVolume"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startVolume"/>
 	</field>
 	<field name="otg_uppg_endVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_endVolume"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endVolume"/>
 	</field>
 	<field name="otg_uppg_startMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_startMass"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startMass"/>
 	</field>
 	<field name="otg_uppg_endMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_endMass"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endMass"/>
 	</field>
 	<field name="otg_uppg_startDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_startDensity"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startDensity"/>
 	</field>
 	<field name="otg_uppg_endDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_endDensity"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endDensity"/>
 	</field>
 	<field name="otg_uppg_startDensity20" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_startDensity20"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startDensity20"/>
 	</field>
 	<field name="otg_uppg_endDensity20" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_endDensity20"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endDensity20"/>
 	</field>
 	<field name="otg_uppg_startTemp" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_startTemp"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_startTemp"/>
 	</field>
 	<field name="otg_uppg_endTemp" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="otg_uppg_endTemp"/>
 		<property name="com.jaspersoft.studio.field.label" value="otg_uppg_endTemp"/>
 	</field>
 	<field name="E9_Gravity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="E9_Gravity"/>
 		<property name="com.jaspersoft.studio.field.label" value="E9_Gravity"/>
 	</field>
 	<field name="loadVolume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="loadVolume"/>
 		<property name="com.jaspersoft.studio.field.label" value="loadVolume"/>
 	</field>
 	<field name="loadDensity" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="loadDensity"/>
 		<property name="com.jaspersoft.studio.field.label" value="loadDensity"/>
 	</field>
 	<field name="loadMass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="loadMass"/>
 		<property name="com.jaspersoft.studio.field.label" value="loadMass"/>
 	</field>
 	<field name="loadTemp" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="loadTemp"/>
 		<property name="com.jaspersoft.studio.field.label" value="loadTemp"/>
 	</field>
 	<field name="loadDensity20" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="loadDensity20"/>
 		<property name="com.jaspersoft.studio.field.label" value="loadDensity20"/>
 	</field>
 	<field name="maxTempFurnace" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="maxTempFurnace"/>
 		<property name="com.jaspersoft.studio.field.label" value="maxTempFurnace"/>
+	</field>
+	<field name="MassStart_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassStart_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="MassStart_R"/>
+	</field>
+	<field name="VolumeStart_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeStart_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="VolumeStart_R"/>
+	</field>
+	<field name="DensityStart_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityStart_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="DensityStart_R"/>
+	</field>
+	<field name="MassEnd_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MassEnd_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="MassEnd_R"/>
+	</field>
+	<field name="VolumeEnd_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="VolumeEnd_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="VolumeEnd_R"/>
+	</field>
+	<field name="RVO_Percent" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="RVO_Percent"/>
+		<property name="com.jaspersoft.studio.field.label" value="RVO_Percent"/>
+	</field>
+	<field name="RVO_Mass" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="RVO_Mass"/>
+		<property name="com.jaspersoft.studio.field.label" value="RVO_Mass"/>
+	</field>
+	<field name="RVO_Volume" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="RVO_Volume"/>
+		<property name="com.jaspersoft.studio.field.label" value="RVO_Volume"/>
+	</field>
+	<field name="RVO_Density" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="RVO_Density"/>
+		<property name="com.jaspersoft.studio.field.label" value="RVO_Density"/>
+	</field>
+	<field name="TempStart_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempStart_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="TempStart_R"/>
+	</field>
+	<field name="TempEnd_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TempEnd_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="TempEnd_R"/>
+	</field>
+	<field name="DensityEnd_R" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="DensityEnd_R"/>
+		<property name="com.jaspersoft.studio.field.label" value="DensityEnd_R"/>
+	</field>
+	<field name="rvoDensity20_Start" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="rvoDensity20_Start"/>
+		<property name="com.jaspersoft.studio.field.label" value="rvoDensity20_Start"/>
+	</field>
+	<field name="rvoDensity20_End" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="rvoDensity20_End"/>
+		<property name="com.jaspersoft.studio.field.label" value="rvoDensity20_End"/>
+	</field>
+	<field name="vColour" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="vColour"/>
+		<property name="com.jaspersoft.studio.field.label" value="vColour"/>
+	</field>
+	<field name="vNeutralizer" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="vNeutralizer"/>
+		<property name="com.jaspersoft.studio.field.label" value="vNeutralizer"/>
+	</field>
+	<field name="vIngibitor" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="vIngibitor"/>
+		<property name="com.jaspersoft.studio.field.label" value="vIngibitor"/>
+	</field>
+	<field name="vDepressor" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="vDepressor"/>
+		<property name="com.jaspersoft.studio.field.label" value="vDepressor"/>
+	</field>
+	<field name="vDeemulgator" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="vDeemulgator"/>
+		<property name="com.jaspersoft.studio.field.label" value="vDeemulgator"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -1246,10 +1424,10 @@
 				<text><![CDATA[ρ, кг/л:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="123" width="316" height="1" uuid="3ef7f6f0-3f43-4273-a344-6cfbaa627cbd"/>
+				<reportElement x="1" y="123" width="554" height="1" uuid="3ef7f6f0-3f43-4273-a344-6cfbaa627cbd"/>
 			</line>
 			<line>
-				<reportElement x="1" y="136" width="316" height="1" uuid="abf66e65-e45c-4198-a6b7-c675337ff6bf"/>
+				<reportElement x="1" y="135" width="554" height="1" uuid="abf66e65-e45c-4198-a6b7-c675337ff6bf"/>
 			</line>
 			<line>
 				<reportElement x="140" y="111" width="1" height="39" uuid="1b633078-b3c0-4077-a35e-d8d114a32b64"/>
@@ -1966,6 +2144,95 @@
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"report1_subreport1.jasper"]]></subreportExpression>
 			</subreport>
+			<staticText>
+				<reportElement x="462" y="123" width="43" height="12" uuid="d5fe5c22-29aa-43ce-a16f-2940c1ad407b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Депр-р, л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="123" width="49" height="12" uuid="e8c0b403-2bfe-4f08-94dd-d3358e114213"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Деэм-р, л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="123" width="39" height="12" uuid="0dc4d320-e84f-4a05-bfd5-02e6d7c8c080"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Инг-р, л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="123" width="55" height="12" uuid="cb1686a6-eb4f-4b2e-9b87-db5d7f1066c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Нейтр-р, л:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="123" width="49" height="12" uuid="4c035ddd-33a0-423c-adc4-6b327a4d6743"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Крас-ль, л:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="367" y="123" width="1" height="26" uuid="47936d5b-6963-45d3-8d4c-93da8c4cf087"/>
+			</line>
+			<line>
+				<reportElement x="424" y="124" width="1" height="26" uuid="11e809fe-c422-44d8-ad5c-f2ccaa601186"/>
+			</line>
+			<line>
+				<reportElement x="462" y="124" width="1" height="26" uuid="4d11a617-7679-46c2-83a4-d7159887d57b"/>
+			</line>
+			<line>
+				<reportElement x="504" y="123" width="1" height="26" uuid="21c6e96d-ee8e-42f2-a39b-e5c4e0cdb760"/>
+			</line>
+			<staticText>
+				<reportElement x="356" y="111" width="176" height="12" uuid="452e2857-3afa-48c7-a4f7-3d4e5a5cf759"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Дополнительные компоненты:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Transparent" x="317" y="137" width="50" height="12" backcolor="#FFFFCC" uuid="ec98cbe5-a02a-46a6-9d2c-2bcebdcc0ede"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vColour}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="369" y="137" width="54" height="12" backcolor="#FFFFCC" uuid="046dd42c-7289-49a1-82ab-ad88ef523d42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vNeutralizer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="424" y="137" width="38" height="12" backcolor="#FFFFCC" uuid="b5e1b39d-3b27-4418-beb5-66aae38b1772"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vIngibitor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="462" y="137" width="42" height="12" backcolor="#FFFFCC" uuid="bf847736-057d-4e11-a35c-66e689097529"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vDepressor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="505" y="137" width="48" height="12" backcolor="#FFFFCC" uuid="73a0b267-7555-4c8e-9546-a2dfb1ff2f92"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vDeemulgator}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
